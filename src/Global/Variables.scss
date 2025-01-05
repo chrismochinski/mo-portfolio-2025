@@ -1,42 +1,49 @@
+@import url("https://fonts.googleapis.com/css2?family=Afacad&family=Bitter:ital,wght@0,100;0,200;0,300;0,400;0,500;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Raleway+Dots&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Doto:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
 // global fonts based on above imports
 $bitter: "Bitter", serif; //funky serif
 $afacad: "Afacad", sans-serif; //funky sans
 $raleway: "Raleway", sans-serif; //normal sans
 $raleway-dots: "Raleway Dots", sans-serif; //funky dot thin
+$doto: "Doto", sans-serif; //funky dot bold
+$poppins: "Poppins", sans-serif; //normal sans
 
 // global colors
 $black: #191716;
-$blood: #66101F;
+$blood: #66101f;
 $burnt: #f28f3b;
-$teal: #4ECDC4;
+$teal: #4ecdc4;
 $pee: #eef36a;
-$crown: #3D348B;
+$crown: #3d348b;
 $white: #ffffff;
-$royal: #5171A5;
+$royal: #5171a5;
 $sky: #758190;
 $gunz: #323031;
 $sword: #9f9f9f;
 $cloud: #d3d3d3;
 
-
 // global TEXT
 .bitter {
-    font-family: $bitter;
-  }
-  
-  .afacad {
-    font-family: $afacad;
-  }
-  
-  .raleway {
-    font-family: $raleway;
-  }
-  
-  .raleway-dots {
-    font-family: $raleway-dots;
-  }
-  
-  .z-index-top {
-    z-index: 100;
-  }
+  font-family: $bitter;
+}
+
+.afacad {
+  font-family: $afacad;
+}
+
+.raleway {
+  font-family: $raleway;
+}
+
+.raleway-dots {
+  font-family: $raleway-dots;
+}
+
+.doto {
+  font-family: $doto;
+}
+
+.poppins {
+  font-family: $poppins;
+}
