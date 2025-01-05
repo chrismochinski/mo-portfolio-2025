@@ -1,18 +1,19 @@
 import { createStyles } from "@mantine/emotion";
-// import { useGlobalStyles } from "../../Global";
-
-// const global = useGlobalStyles();
+import * as animations from "../../Global/Animations";
 
 export const useHomeStyles = createStyles((theme) => ({
   homeWrapper: {
-    backgroundColor: theme.colors.custom[5],
+    backgroundColor: theme.colors.custom[0],
   },
 
   logo: {
-    width: 200,
-    height: 200,
+    width: 60,
     margin: "auto",
     display: "block",
+  },
+
+  viteLogo: {
+    animation: `${animations.slowSpinReverse} 10s linear infinite`,
   },
 
 }));

@@ -1,6 +1,6 @@
 import { MantineThemeOverride } from "@mantine/core";
 import { createStyles } from "@mantine/emotion";
-// import { slowSpin, slowSpinReverse } from "./Animations";
+import * as animations from "./Animations";
 
 export const globalTheme: MantineThemeOverride = {
   colors: {
@@ -40,11 +40,11 @@ export const useGlobalStyles = createStyles(() => ({
   // ------------------------------------------ //
   // ------------------------------------------ //
 
-    // slowSpin: {
-    //     animation: `${slowSpin} 10s linear infinite`,
-    // },
-    // slowSpinReverse: {
-    //     animation: `${slowSpinReverse} 10s linear infinite`,
-    // },
+  slowSpin: {
+    animation: `${animations.slowSpin} 10s linear infinite`,
+  },
 
+  slowSpinReverse: {
+    animation: `${animations.slowSpinReverse} 10s linear infinite`,
+  },
 }));
