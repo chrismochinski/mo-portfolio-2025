@@ -1,7 +1,8 @@
-import { Anchor, Box, Flex,Image, Title, Text } from "@mantine/core";
+import { Anchor, Box, Flex, Image, Title, Text } from "@mantine/core";
 import reactLogo from "../../assets/react.svg";
 import viteLogo from "/vite.svg";
 import { useHomeStyles } from ".";
+import { Triangles } from "../../components/Triangles";
 import { useGlobalStyles } from "../../Global";
 import "./Home.scss";
 
@@ -10,7 +11,8 @@ export function Home() {
   const { classes: globalClasses } = useGlobalStyles();
 
   return (
-    <Box>
+    <Box className={classes.homeWrapper}>
+      <Triangles />
       <Box className={cx(globalClasses.row, classes.homeInnerWrapper)}>
         <Box className={globalClasses.container}>
           <Flex gap="xl" justify="center" align="center" mt="md" mb="lg">
@@ -42,7 +44,7 @@ export function Home() {
                 src={viteLogo}
                 className={cx(globalClasses.slowSpinReverse)}
                 alt="Vite logo"
-                />
+              />
               <Title order={4} fw={500}>
                 Vite logo
               </Title>
