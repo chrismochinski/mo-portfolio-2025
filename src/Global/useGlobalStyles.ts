@@ -14,8 +14,8 @@ export const globalTheme: MantineThemeOverride = {
       "#ffffff", // white
       "#5171A5", // light blue
       "#758190", // gray
-      "#323031", // dark gray
-      "#9f9f9f", // light gray
+      "#575757", // dark gray
+      "#C0C0C0", // light gray
     ],
   },
 
@@ -52,8 +52,6 @@ export const globalTheme: MantineThemeOverride = {
     xl: "1.75em",
     xxl: "2em",
   },
-
-  
 };
 
 export const useGlobalStyles = createStyles(() => ({
@@ -86,14 +84,50 @@ export const useGlobalStyles = createStyles(() => ({
   },
 
   container: {
-    containerType: 'inline-size',
+    containerType: "inline-size",
   },
-  
+
   columnCenter: {
     display: "flex",
     flexDirection: "column",
     justifyContent: "center",
     alignItems: "center",
+  },
+
+  // ---------- Z-INDEXES ---------- //
+
+  z0: {
+    zIndex: 0,
+  },
+  z1: {
+    zIndex: 1,
+  },
+  z2: {
+    zIndex: 2,
+  },
+  z3: {
+    zIndex: 3,
+  },
+  z4: {
+    zIndex: 4,
+  },
+  z5: {
+    zIndex: 5,
+  },
+  z6: {
+    zIndex: 6,
+  },
+  z7: {
+    zIndex: 7,
+  },
+  z8: {
+    zIndex: 8,
+  },
+  z9: {
+    zIndex: 9,
+  },
+  z10: {
+    zIndex: 10,
   },
 
   // ------------------------------------------ //
@@ -104,9 +138,25 @@ export const useGlobalStyles = createStyles(() => ({
 
   slowSpin: {
     animation: `${animations.slowSpin} 10s linear infinite`,
+    animationDelay: "3000ms",
   },
 
   slowSpinReverse: {
     animation: `${animations.slowSpinReverse} 10s linear infinite`,
+    animationDelay: "3000ms",
+  },
+
+  ferrisWheelCarSway: {
+    animation: `${animations.slowSpinReverse} 20s linear infinite`,
+    animationDelay: "3000ms",
+  },
+
+  barSpin: {
+    animation: `${animations.slowSpin} 20s linear infinite`,
+    animationDelay: "3000ms",
+  },
+
+  moveAround: {
+    animation: `${animations.moveAround} infinite`,
   },
 }));
