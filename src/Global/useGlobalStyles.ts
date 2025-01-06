@@ -37,7 +37,7 @@ export const globalTheme: MantineThemeOverride = {
   },
 
   fontSizes: {
-    xs: "clamp(14px, 1vw, 16rem)",
+    xs: "clamp(14px, 1vw, 16px)",
     sm: "clamp(1rem, 1.35vw, 1.125rem)",
     md: "clamp(1.125rem, 1.75vw, 1.25rem)",
     xl: "clamp(2rem, 3vw, 3rem)",
