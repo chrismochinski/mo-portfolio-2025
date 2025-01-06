@@ -62,10 +62,10 @@ export function Home() {
             </Anchor>
           </Flex>
 
-          <Triangles />
-          <Box mt="sm" mb="lg">
+          <Box mt="sm" mb="lg" className={globalClasses.z10}>
             <FerrisWheelFull />
           </Box>
+          <Triangles />
         </Box>
       </Box>
     </Box>
