@@ -1,6 +1,6 @@
 import { Anchor, Box, Flex, Title, Text } from "@mantine/core";
 import { useHomeStyles } from ".";
-import { Triangles, FerrisWheelFull } from "../../components";
+import { Triangles, FerrisWheelFull, FerrisWheelThick } from "../../components";
 import { useGlobalStyles } from "../../Global";
 import "./Home.scss";
 
@@ -64,6 +64,7 @@ export function Home() {
 
           <Box mt="sm" mb="lg" className={globalClasses.z10}>
             <FerrisWheelFull />
+            <FerrisWheelThick />
           </Box>
           <Triangles />
         </Box>
