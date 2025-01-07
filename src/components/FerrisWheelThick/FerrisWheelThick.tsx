@@ -15,7 +15,7 @@ export function FerrisWheelThick() {
       xmlns="http://www.w3.org/2000/svg"
     >
       <g id="ferris-wheel-thick">
-        <g id="base-back">
+        <g id="base-back" className={classes.baseBack}>
           <path
             id="legs"
             d="M3003.08 2919.26C3024.3 2820.17 3165.7 2820.17 3186.92 2919.26L3855.89 6043.49C3857.49 6050.96 3851.8 6058 3844.16 6058H3689.86C3684.16 6058 3679.25 6053.99 3678.11 6048.4L3097.93 3202.59C3097.28 3199.39 3092.71 3199.38 3092.05 3202.58L2507.52 6048.41C2506.38 6053.99 2501.47 6058 2495.77 6058H2345.84C2338.2 6058 2332.51 6050.96 2334.11 6043.49L3003.08 2919.26Z"
@@ -23,7 +23,10 @@ export function FerrisWheelThick() {
           />
         </g>
         <g id="cars" className={cx(globalClasses.slowSpin, classes.carsGroup)}>
-          <g id="car-9" className={cx(globalClasses.slowSpinReverse, classes.car)}>
+          <g
+            id="car-9"
+            className={cx(globalClasses.slowSpinReverse, classes.car)}
+          >
             <g id="Vector">
               <mask
                 id="path-2-outside-1_653_988"
@@ -113,7 +116,10 @@ export function FerrisWheelThick() {
               fill="#191716"
             />
           </g>
-          <g id="car-8" className={cx(globalClasses.slowSpinReverse, classes.car)}>
+          <g
+            id="car-8"
+            className={cx(globalClasses.slowSpinReverse, classes.car)}
+          >
             <g id="rail-left">
               <mask
                 id="path-8-outside-3_653_988"
@@ -203,7 +209,10 @@ export function FerrisWheelThick() {
               fill="#191716"
             />
           </g>
-          <g id="car-7" className={cx(globalClasses.slowSpinReverse, classes.car)}>
+          <g
+            id="car-7"
+            className={cx(globalClasses.slowSpinReverse, classes.car)}
+          >
             <g id="rail-left_2">
               <mask
                 id="path-14-outside-5_653_988"
@@ -293,7 +302,10 @@ export function FerrisWheelThick() {
               fill="#191716"
             />
           </g>
-          <g id="car-6" className={cx(globalClasses.slowSpinReverse, classes.car)}>
+          <g
+            id="car-6"
+            className={cx(globalClasses.slowSpinReverse, classes.car)}
+          >
             <g id="rail-left_3">
               <mask
                 id="path-20-outside-7_653_988"
@@ -383,7 +395,10 @@ export function FerrisWheelThick() {
               fill="#191716"
             />
           </g>
-          <g id="car-5" className={cx(globalClasses.slowSpinReverse, classes.car)}>
+          <g
+            id="car-5"
+            className={cx(globalClasses.slowSpinReverse, classes.car)}
+          >
             <g id="rail-left_4">
               <mask
                 id="path-26-outside-9_653_988"
@@ -473,7 +488,10 @@ export function FerrisWheelThick() {
               fill="#191716"
             />
           </g>
-          <g id="car-4" className={cx(globalClasses.slowSpinReverse, classes.car)}>
+          <g
+            id="car-4"
+            className={cx(globalClasses.slowSpinReverse, classes.car)}
+          >
             <g id="rail-left_5">
               <mask
                 id="path-32-outside-11_653_988"
@@ -563,7 +581,10 @@ export function FerrisWheelThick() {
               fill="#191716"
             />
           </g>
-          <g id="car-3" className={cx(globalClasses.slowSpinReverse, classes.car)}>
+          <g
+            id="car-3"
+            className={cx(globalClasses.slowSpinReverse, classes.car)}
+          >
             <g id="rail-left_6">
               <mask
                 id="path-38-outside-13_653_988"
@@ -653,7 +674,10 @@ export function FerrisWheelThick() {
               fill="#191716"
             />
           </g>
-          <g id="car-2" className={cx(globalClasses.slowSpinReverse, classes.car)}>
+          <g
+            id="car-2"
+            className={cx(globalClasses.slowSpinReverse, classes.car)}
+          >
             <g id="rail-left_7">
               <mask
                 id="path-44-outside-15_653_988"
@@ -743,7 +767,10 @@ export function FerrisWheelThick() {
               fill="#191716"
             />
           </g>
-          <g id="car-1" className={cx(globalClasses.slowSpinReverse, classes.car)}>
+          <g
+            id="car-1"
+            className={cx(globalClasses.slowSpinReverse, classes.car)}
+          >
             <g id="rail-left_8">
               <mask
                 id="path-50-outside-17_653_988"
@@ -833,7 +860,10 @@ export function FerrisWheelThick() {
               fill="#191716"
             />
           </g>
-          <g id="car-0" className={cx(globalClasses.slowSpinReverse, classes.car)}>
+          <g
+            id="car-0"
+            className={cx(globalClasses.slowSpinReverse, classes.car)}
+          >
             <g id="rail-left_9">
               <mask
                 id="path-56-outside-19_653_988"
@@ -953,7 +983,7 @@ export function FerrisWheelThick() {
         </g>
         <g id="wheels">
           <g id="outer-wheel">
-            <g id="mask" style={{ mixBlendMode: "overlay" }}>
+            <g id="mask" className={classes.wheelMask}>
               <circle
                 cx="3099.5"
                 cy="2802.5"
@@ -964,6 +994,7 @@ export function FerrisWheelThick() {
             </g>
             <circle
               id="black"
+              className={classes.wheelFill}
               cx="3099.5"
               cy="2802.5"
               r="2475.5"
@@ -972,7 +1003,7 @@ export function FerrisWheelThick() {
             />
           </g>
           <g id="middle-wheel">
-            <g id="mask_2" style={{ mixBlendMode: "overlay" }}>
+            <g id="mask_2" className={classes.wheelMask}>
               <circle
                 cx="3099.5"
                 cy="2802.5"
@@ -983,6 +1014,7 @@ export function FerrisWheelThick() {
             </g>
             <circle
               id="black_2"
+              className={classes.wheelFill}
               cx="3099.5"
               cy="2802.5"
               r="1542.5"
@@ -991,7 +1023,7 @@ export function FerrisWheelThick() {
             />
           </g>
           <g id="inner-wheel">
-            <g id="mask_3" style={{ mixBlendMode: "overlay" }}>
+            <g id="mask_3" className={classes.wheelMask}>
               <circle cx="3099.5" cy="2802.5" r="716.5" fill="white" />
               <circle
                 cx="3099.5"
@@ -1003,6 +1035,7 @@ export function FerrisWheelThick() {
             </g>
             <circle
               id="black_3"
+              className={classes.wheelFill}
               cx="3099.5"
               cy="2802.5"
               r="716.5"
@@ -1019,13 +1052,13 @@ export function FerrisWheelThick() {
           />
         </g>
         <g id="base-front">
-          <g id="crossbar-mask" style={{ mixBlendMode: "overlay" }}>
+          <g id="crossbar-mask" className={classes.wheelMask}>
             <path
               d="M2813.62 3647H3373.29L3472 3993H2718L2813.62 3647Z"
               fill="white"
             />
           </g>
-          <g id="base-legs-mask" style={{ mixBlendMode: "overlay" }}>
+          <g id="base-legs-mask" className={classes.wheelMask}>
             <path
               d="M3005.54 2767.2C3033.57 2680.36 3156.43 2680.36 3184.46 2767.2L4275.94 6149.31C4278.44 6157.06 4272.66 6165 4264.52 6165H4012.09C4006.83 6165 4002.17 6161.56 4000.62 6156.52L3097.86 3218.46C3096.99 3215.63 3093 3215.63 3092.12 3218.45L2182.59 6156.55C2181.03 6161.57 2176.38 6165 2171.12 6165H1925.48C1917.34 6165 1911.56 6157.06 1914.06 6149.31L3005.54 2767.2Z"
               fill="white"

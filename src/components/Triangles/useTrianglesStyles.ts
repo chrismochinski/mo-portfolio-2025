@@ -8,6 +8,7 @@ export const useTrianglesStyles = createStyles(() => ({
     width: "1200px",
     minHeight: "100vh",
     left: "-270px",
+    // left: '400px',
     top: "50%",
     transform: "translateY(-50%)",
     "& > path": {
