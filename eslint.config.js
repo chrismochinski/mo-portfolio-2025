@@ -7,7 +7,10 @@ import tsParser from "@typescript-eslint/parser";
 
 export default [
   {
-    ignores: ["dist"],
+    ignores: ["dist",
+      "node_modules",
+      "coverage",
+    ],
   },
   {
     files: ["**/*.{ts,tsx}"],
@@ -34,6 +37,21 @@ export default [
         { allowConstantExport: true },
       ],
       "react/no-unknown-property": "error", // Enforce camelCase for JSX attributes
+      'react/jsx-filename-extension': [1, { extensions: ['.tsx'] }],
+      'react/react-in-jsx-scope': 'off', // Vite takes care of importing React
+      'import/no-unresolved': 'off', // Defer to TS
+      'no-undef': 'off', // Defer to TS
+      'react/no-array-index-key': 'off', // TS can type-check array keys
+      'no-use-before-define': ['error', { functions: false }], // Allow function hoisting
+      'react/require-default-props': 'off', // TS performs strict null checking, not necessary.
+      'no-underscore-dangle': 'off', // Allow underscore in object keys
+      'no-new': 'off',
+      'no-nested-ternary': 'off',
+      'no-console': ['error', { allow: ['error'] }],
+      'no-restricted-syntax': 'off', // We bundle all our code, so we don't need to worry about using newer JS syntax
+      'no-shadow': 'off',
+      'react-hooks/rules-of-hooks': 'error',
+      '@typescript-eslint/no-unused-vars': 'error',
     },
   },
 ];

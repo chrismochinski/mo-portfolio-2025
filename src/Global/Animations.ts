@@ -16,7 +16,8 @@ export const slowSpinReverse = keyframes`
     to {
         transform: rotate(0deg);
     }
-`;
+    `;
+
 
 const generateSwayKeyframes = () => {
   let keyframes = "0% { transform: translate(0, 0); } "; // Start at (0, 0)

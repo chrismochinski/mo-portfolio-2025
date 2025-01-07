@@ -1,6 +1,6 @@
 import { Anchor, Box, Flex, Title, Text } from "@mantine/core";
 import { useHomeStyles } from ".";
-import { Triangles, FerrisWheelFull, FerrisWheelThick } from "../../components";
+import { Triangles, FerrisWheelThick, Bubbles } from "../../components";
 import { useGlobalStyles } from "../../Global";
 import "./Home.scss";
 
@@ -11,7 +11,9 @@ export function Home() {
   return (
     <Box className={classes.homeWrapper}>
       <Box className={cx(globalClasses.row, classes.homeInnerWrapper)}>
-        <Box className={cx(globalClasses.container, classes.homeContentWrapper)}>
+        <Box
+          className={cx(globalClasses.container, classes.homeContentWrapper)}
+        >
           <Title
             className={globalClasses.z10}
             order={1}
@@ -20,8 +22,9 @@ export function Home() {
             mx="auto"
             ta="center"
             fw={600}
-            lh="lg">
-            Hi, friends!
+            lh="lg"
+          >
+            Hi, friends.
           </Title>
           <Title
             className={cx(globalClasses.z10, globalClasses.balance)}
@@ -31,7 +34,8 @@ export function Home() {
             ta="center"
             mb="md"
             lh="sm"
-            fw={500}>
+            fw={500}
+          >
             Thanks so much for visiting. Or stumbling upon.
           </Title>
 
@@ -41,7 +45,8 @@ export function Home() {
             fz="sm"
             ta="center"
             pb="md"
-            my="xs">
+            my="xs"
+          >
             I'm still working on this. Please check back.
           </Text>
           <Flex
@@ -50,11 +55,20 @@ export function Home() {
             justify="center"
             align="center"
             mt={0}
-            mb="sm">
-            <Anchor href="https://github.com/chrismochinski" target="_blank" fz="xs">
+            mb="sm"
+          >
+            <Anchor
+              href="https://github.com/chrismochinski"
+              target="_blank"
+              fz="xs"
+            >
               Mo's Github
             </Anchor>
-            <Anchor href="https://chrismochinski.github.io/" target="_blank" fz="xs">
+            <Anchor
+              href="https://chrismochinski.github.io/"
+              target="_blank"
+              fz="xs"
+            >
               Mo's Old Site
             </Anchor>
             <Anchor href="https://characterstrong.com" target="_blank" fz="xs">
@@ -63,10 +77,10 @@ export function Home() {
           </Flex>
 
           <Box mt="sm" mb="lg" className={globalClasses.z10}>
-            <FerrisWheelFull />
             <FerrisWheelThick />
           </Box>
           <Triangles />
+          <Bubbles />
         </Box>
       </Box>
     </Box>

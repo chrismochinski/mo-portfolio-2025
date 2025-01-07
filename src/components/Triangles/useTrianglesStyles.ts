@@ -10,19 +10,18 @@ export const useTrianglesStyles = createStyles(() => ({
     left: "-270px",
     top: "50%",
     transform: "translateY(-50%)",
-    "& > g": {
-      transformBox: "fill-box",
-      transformOrigin: "center",
-      cursor: "pointer",
-      transition: "transform 300ms ease-out",
-      "&:hover": {
-        transform: "scale(1.15)",
-      },
-    },
     "& > path": {
       animation: `${animations.moveAround} infinite ease-in-out`,
-  
     },
-  
+  },
+
+  shape: {
+    transformBox: "fill-box",
+    transformOrigin: "center",
+    cursor: "pointer",
+    transition: "transform 300ms ease-out",
+    "&:hover": {
+      transform: "scale(1.15)",
+    },
   },
 }));
