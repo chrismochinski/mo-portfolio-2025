@@ -3,8 +3,8 @@ import { createStyles } from "@mantine/emotion";
 
 export const useFerrisWheelFullStyles = createStyles(() => ({
   ferrisWheelSvg: {
-    width: "150px",
-    height: "150px",
+    width: "130px",
+    height: "130px",
 
     "& > g": {
       transformOrigin: "center",
