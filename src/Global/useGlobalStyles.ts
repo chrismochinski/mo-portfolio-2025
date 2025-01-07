@@ -79,7 +79,7 @@ export const useGlobalStyles = createStyles(() => ({
   },
 
   row: {
-    marginBlock: "max(calc(1.5vw + 1.5vw), 2em)",
+    // marginBlock: "max(calc(1.5vw + 1.5vw), 2em)", // revisit
     paddingInline: "max(6vw, (100vw - 1280px)/2)",
   },
 
@@ -145,7 +145,7 @@ export const useGlobalStyles = createStyles(() => ({
     animation: `${animations.slowSpin} 15s linear infinite`,
     animationDelay: "3000ms",
   },
-  
+
   slowSpinReverse: {
     animation: `${animations.slowSpinReverse} 10s linear infinite`,
     animationDelay: "3000ms",

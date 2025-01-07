@@ -26,7 +26,22 @@ export function Bubbles() {
 
     script.onload = () => {
       if (window.particlesJS) {
-        window.particlesJS("particles-container", particlesConfig);
+        window.particlesJS("particles-container-light", {
+          ...particlesConfig,
+          particles: {
+            ...particlesConfig.particles,
+            number: { value: 22 }, // Fewer particles for one layer
+            density: { enable: true, value_area: 1400 }
+          }
+        });
+        window.particlesJS("particles-container", {
+          ...particlesConfig,
+          particles: {
+            ...particlesConfig.particles,
+            number: { value: 60 }, // Higher density for another layer
+            density: { enable: true, value_area: 1400 }
+          }
+        });
       }
     };
 
@@ -34,10 +49,17 @@ export function Bubbles() {
   }, []);
 
   return (
-    <Box
-      className={classes.bubbles}
-      ref={containerRef}
-      id="particles-container"
-    />
+    <Box className={classes.bubblesContainer}>
+      <Box
+        className={classes.bubbles}
+        ref={containerRef}
+        id="particles-container"
+      />
+      <Box
+        className={classes.bubblesLight}
+        ref={containerRef}
+        id="particles-container-light"
+      />
+    </Box>
   );
 }

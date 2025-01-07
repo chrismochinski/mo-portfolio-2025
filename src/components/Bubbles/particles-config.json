@@ -45,18 +45,18 @@
       "random": true,
       "anim": {
         "enable": true,
-        "speed": 0.4,
-        "opacity_min": 0.15,
+        "speed": 0.3,
+        "opacity_min": 0.3,
         "sync": false
       }
     },
     "size": {
-      "value": 17,
+      "value": 18,
       "random": true,
       "anim": {
         "enable": false,
         "speed": 4,
-        "size_min": 0.3,
+        "size_min": 18,
         "sync": false
       }
     },
