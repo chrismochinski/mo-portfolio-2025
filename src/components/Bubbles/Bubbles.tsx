@@ -30,7 +30,7 @@ export function Bubbles() {
           ...particlesConfig,
           particles: {
             ...particlesConfig.particles,
-            number: { value: 22 }, // Fewer particles for one layer
+            number: { value: 26 }, // Fewer particles for one layer
             density: { enable: true, value_area: 1400 }
           }
         });
@@ -38,7 +38,7 @@ export function Bubbles() {
           ...particlesConfig,
           particles: {
             ...particlesConfig.particles,
-            number: { value: 60 }, // Higher density for another layer
+            number: { value: 52 }, // Higher density for another layer
             density: { enable: true, value_area: 1400 }
           }
         });

@@ -2,7 +2,7 @@ import { createStyles } from "@mantine/emotion";
 
 export const useBubbleStyles = createStyles(() => ({
   bubblesContainer: {
-    width: "max(40%, 500px)",
+    width: "max(45%, 400px)",
     position: "absolute",
     top: 0,
     left: 0,
@@ -13,9 +13,12 @@ export const useBubbleStyles = createStyles(() => ({
     justifyContent: "flex-start",
     alignItems: "center",
     zIndex: 0, // revisit
+    "@media (prefers-color-scheme: dark)": {
+      mixBlendMode: "plus-lighter",
+    },
   },
   bubbles: {
-    width: "55%",
+    width: "50%",
     height: "100%",
     position: "absolute",
     top: 0,

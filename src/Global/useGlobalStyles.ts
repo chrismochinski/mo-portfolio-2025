@@ -138,22 +138,22 @@ export const useGlobalStyles = createStyles(() => ({
 
   slowSpin: {
     animation: `${animations.slowSpin} 10s linear infinite`,
-    animationDelay: "3000ms",
+    animationDelay: "2000ms",
   },
 
   ferrisWheelSpin: {
     animation: `${animations.slowSpin} 15s linear infinite`,
-    animationDelay: "3000ms",
+    animationDelay: "2000ms",
   },
 
   slowSpinReverse: {
     animation: `${animations.slowSpinReverse} 10s linear infinite`,
-    animationDelay: "3000ms",
+    animationDelay: "2000ms",
   },
 
   ferrisWheelCarSpinReverse: {
     animation: `${animations.slowSpinReverse} 30s linear infinite`,
-    animationDelay: "3000ms",
+    animationDelay: "2000ms",
   },
 
 

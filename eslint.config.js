@@ -47,7 +47,6 @@ export default [
       'no-underscore-dangle': 'off', // Allow underscore in object keys
       'no-new': 'off',
       'no-nested-ternary': 'off',
-      'no-console': ['error', { allow: ['error'] }],
       'no-restricted-syntax': 'off', // We bundle all our code, so we don't need to worry about using newer JS syntax
       'no-shadow': 'off',
       'react-hooks/rules-of-hooks': 'error',

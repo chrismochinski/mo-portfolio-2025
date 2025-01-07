@@ -1,16 +1,24 @@
 import { createStyles } from "@mantine/emotion";
 
 export const useFerrisWheelThickStyles = createStyles(() => ({
-
   ferrisWheelThickSvg: {
-    width: "200px",
-    height: "200px",
+    width: "140px",
+    height: "auto",
+    aspectRatio: "1/1",
     padding: "min(0.5em, 1vw)",
 
     "& *": {
       transformOrigin: "center",
       transformBox: "fill-box",
     },
+
+    transformOrigin: "center",
+    transformBox: "fill-box",
+    // revisit
+    // transition: "transform 200ms ease-out",
+    // "&.hovered": {
+    //   transform: "rotate(40deg) scale(1.1)",
+    // },
 
     "@media (prefers-color-scheme: dark)": {
       "& path": {

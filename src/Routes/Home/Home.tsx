@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Anchor, Box, Flex, Title, Text } from "@mantine/core";
 import { useHomeStyles } from ".";
 import { Triangles, FerrisWheelThick, Bubbles } from "../../components";
@@ -5,8 +6,15 @@ import { useGlobalStyles } from "../../Global";
 import "./Home.scss";
 
 export function Home() {
-  const { classes, cx } = useHomeStyles();
   const { classes: globalClasses } = useGlobalStyles();
+  // for now, "navigation" is a huge left-side ferris wheel
+  const [isNavigationVisible, setIsNavigationVisible] = useState(false);
+
+  const { classes, cx } = useHomeStyles({ isNavigationVisible });
+
+  const toggleNavigation = () => {
+    setIsNavigationVisible(!isNavigationVisible);
+  };
 
   return (
     <Box className={classes.homeWrapper}>
@@ -76,12 +84,24 @@ export function Home() {
             </Anchor>
           </Flex>
 
-          <Box mt="sm" mb="lg" className={globalClasses.z10}>
-            <FerrisWheelThick />
-          </Box>
+          <Anchor
+            onClick={toggleNavigation}
+            mt="sm"
+            mb="lg"
+            className={cx(globalClasses.z10, classes.ferrisWheelIconButton)}
+          >
+            <FerrisWheelThick isNavigationVisible={isNavigationVisible} />
+          </Anchor>
           <Triangles />
           <Bubbles />
         </Box>
+      </Box>
+
+      {/* REFACTOR WITH NEW CLEANER MENU COMPONENT  */}
+      {/* REFACTOR WITH NEW CLEANER MENU COMPONENT  */}
+      {/* REFACTOR WITH NEW CLEANER MENU COMPONENT  */}
+      <Box className={classes.navigationFerrisWheel}>
+        <FerrisWheelThick isNavigationVisible={isNavigationVisible} />
       </Box>
     </Box>
   );
