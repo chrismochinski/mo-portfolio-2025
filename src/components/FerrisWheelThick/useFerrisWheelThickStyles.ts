@@ -14,11 +14,6 @@ export const useFerrisWheelThickStyles = createStyles(() => ({
 
     transformOrigin: "center",
     transformBox: "fill-box",
-    // revisit
-    // transition: "transform 200ms ease-out",
-    // "&.hovered": {
-    //   transform: "rotate(40deg) scale(1.1)",
-    // },
 
     "@media (prefers-color-scheme: dark)": {
       "& path": {

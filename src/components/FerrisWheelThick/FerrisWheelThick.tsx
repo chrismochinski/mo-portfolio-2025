@@ -10,6 +10,8 @@ export function FerrisWheelThick(props: FerrisWheelThickProps) {
   const { classes, cx } = useFerrisWheelThickStyles();
   const { classes: globalClasses } = useGlobalStyles();
 
+  console.log('isNavigationVisible:', isNavigationVisible);
+
   return (
     <svg
       className={classes.ferrisWheelThickSvg}
@@ -27,19 +29,10 @@ export function FerrisWheelThick(props: FerrisWheelThickProps) {
             fill="#191716"
           />
         </g>
-        <g
-          id="cars"
-          className={cx(
-            !isNavigationVisible && globalClasses.slowSpin,
-            classes.carsGroup,
-          )}
-        >
+        <g id="cars" className={cx(globalClasses.slowSpin, classes.carsGroup)}>
           <g
             id="car-9"
-            className={cx(
-              !isNavigationVisible && globalClasses.slowSpinReverse,
-              classes.car,
-            )}
+            className={cx(globalClasses.slowSpinReverse, classes.car)}
           >
             <g id="Vector">
               <mask
@@ -132,10 +125,7 @@ export function FerrisWheelThick(props: FerrisWheelThickProps) {
           </g>
           <g
             id="car-8"
-            className={cx(
-              !isNavigationVisible && globalClasses.slowSpinReverse,
-              classes.car,
-            )}
+            className={cx(globalClasses.slowSpinReverse, classes.car)}
           >
             <g id="rail-left">
               <mask
@@ -228,10 +218,7 @@ export function FerrisWheelThick(props: FerrisWheelThickProps) {
           </g>
           <g
             id="car-7"
-            className={cx(
-              !isNavigationVisible && globalClasses.slowSpinReverse,
-              classes.car,
-            )}
+            className={cx(globalClasses.slowSpinReverse, classes.car)}
           >
             <g id="rail-left_2">
               <mask
@@ -324,10 +311,7 @@ export function FerrisWheelThick(props: FerrisWheelThickProps) {
           </g>
           <g
             id="car-6"
-            className={cx(
-              !isNavigationVisible && globalClasses.slowSpinReverse,
-              classes.car,
-            )}
+            className={cx(globalClasses.slowSpinReverse, classes.car)}
           >
             <g id="rail-left_3">
               <mask
@@ -420,10 +404,7 @@ export function FerrisWheelThick(props: FerrisWheelThickProps) {
           </g>
           <g
             id="car-5"
-            className={cx(
-              !isNavigationVisible && globalClasses.slowSpinReverse,
-              classes.car,
-            )}
+            className={cx(globalClasses.slowSpinReverse, classes.car)}
           >
             <g id="rail-left_4">
               <mask
@@ -516,10 +497,7 @@ export function FerrisWheelThick(props: FerrisWheelThickProps) {
           </g>
           <g
             id="car-4"
-            className={cx(
-              !isNavigationVisible && globalClasses.slowSpinReverse,
-              classes.car,
-            )}
+            className={cx(globalClasses.slowSpinReverse, classes.car)}
           >
             <g id="rail-left_5">
               <mask
@@ -612,10 +590,7 @@ export function FerrisWheelThick(props: FerrisWheelThickProps) {
           </g>
           <g
             id="car-3"
-            className={cx(
-              !isNavigationVisible && globalClasses.slowSpinReverse,
-              classes.car,
-            )}
+            className={cx(globalClasses.slowSpinReverse, classes.car)}
           >
             <g id="rail-left_6">
               <mask
@@ -708,10 +683,7 @@ export function FerrisWheelThick(props: FerrisWheelThickProps) {
           </g>
           <g
             id="car-2"
-            className={cx(
-              !isNavigationVisible && globalClasses.slowSpinReverse,
-              classes.car,
-            )}
+            className={cx(globalClasses.slowSpinReverse, classes.car)}
           >
             <g id="rail-left_7">
               <mask
@@ -804,10 +776,7 @@ export function FerrisWheelThick(props: FerrisWheelThickProps) {
           </g>
           <g
             id="car-1"
-            className={cx(
-              !isNavigationVisible && globalClasses.slowSpinReverse,
-              classes.car,
-            )}
+            className={cx(globalClasses.slowSpinReverse, classes.car)}
           >
             <g id="rail-left_8">
               <mask
@@ -900,10 +869,7 @@ export function FerrisWheelThick(props: FerrisWheelThickProps) {
           </g>
           <g
             id="car-0"
-            className={cx(
-              !isNavigationVisible && globalClasses.slowSpinReverse,
-              classes.car,
-            )}
+            className={cx(globalClasses.slowSpinReverse, classes.car)}
           >
             <g id="rail-left_9">
               <mask
@@ -995,13 +961,7 @@ export function FerrisWheelThick(props: FerrisWheelThickProps) {
             />
           </g>
         </g>
-        <g
-          id="bars"
-          className={cx(
-            !isNavigationVisible && globalClasses.slowSpin,
-            classes.barsGroup,
-          )}
-        >
+        <g id="bars" className={cx(globalClasses.slowSpin, classes.barsGroup)}>
           <path
             id="bar-4"
             d="M750.96 2055.09C750.442 2054.91 750.16 2054.35 750.329 2053.83C752.26 2047.88 762.982 2014.88 770.381 1993.04C777.78 1971.19 789.315 1938.47 791.397 1932.57C791.58 1932.05 792.142 1931.78 792.66 1931.95L5478.23 3518.8C5478.75 3518.97 5479.03 3519.53 5478.86 3520.05C5476.93 3526.01 5466.19 3559.04 5458.81 3580.85C5451.42 3602.66 5439.88 3635.41 5437.79 3641.32C5437.61 3641.83 5437.05 3642.11 5436.53 3641.93L750.96 2055.09Z"

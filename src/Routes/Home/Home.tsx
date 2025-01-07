@@ -1,7 +1,7 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Anchor, Box, Flex, Title, Text } from "@mantine/core";
 import { useHomeStyles } from ".";
-import { Triangles, FerrisWheelThick, Bubbles } from "../../components";
+import { Triangles, FerrisWheelThick, Bubbles, FerrisWheelFull } from "../../components";
 import { useGlobalStyles } from "../../Global";
 import "./Home.scss";
 
@@ -9,8 +9,15 @@ export function Home() {
   const { classes: globalClasses } = useGlobalStyles();
   // for now, "navigation" is a huge left-side ferris wheel
   const [isNavigationVisible, setIsNavigationVisible] = useState(false);
-
+  const [showFerrisWheelIcon, setShowFerrisWheelIcon] = useState(false);
   const { classes, cx } = useHomeStyles({ isNavigationVisible });
+
+  useEffect(() => {
+    // show starter icon after short delay on page load
+    const timer = setTimeout(() => setShowFerrisWheelIcon(true), 1500);
+    return () => clearTimeout(timer); // Cleanup timeout
+  }, []);
+
 
   const toggleNavigation = () => {
     setIsNavigationVisible(!isNavigationVisible);
@@ -88,7 +95,7 @@ export function Home() {
             onClick={toggleNavigation}
             mt="sm"
             mb="lg"
-            className={cx(globalClasses.z10, classes.ferrisWheelIconButton)}
+            className={cx(globalClasses.z10, classes.ferrisWheelIconButton, showFerrisWheelIcon && "show")}
           >
             <FerrisWheelThick isNavigationVisible={isNavigationVisible} />
           </Anchor>
@@ -100,8 +107,10 @@ export function Home() {
       {/* REFACTOR WITH NEW CLEANER MENU COMPONENT  */}
       {/* REFACTOR WITH NEW CLEANER MENU COMPONENT  */}
       {/* REFACTOR WITH NEW CLEANER MENU COMPONENT  */}
-      <Box className={classes.navigationFerrisWheel}>
-        <FerrisWheelThick isNavigationVisible={isNavigationVisible} />
+      <Box className={classes.navigationFerrisWheel}
+        onMouseEnter={() => console.log("EFFECTS HERE!")}
+      >
+        <FerrisWheelFull />
       </Box>
     </Box>
   );
