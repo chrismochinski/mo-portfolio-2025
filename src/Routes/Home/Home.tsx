@@ -1,9 +1,9 @@
-import { useState, useEffect } from "react";
-import { Anchor, Box, Flex, Title, Text } from "@mantine/core";
-import { useHomeStyles } from ".";
-import { Triangles, FerrisWheelThick, Bubbles, FerrisWheelFull } from "../../components";
-import { useGlobalStyles } from "../../Global";
-import "./Home.scss";
+import { useState, useEffect } from 'react';
+import { Anchor, Box, Flex, Title, Text } from '@mantine/core';
+import { useHomeStyles } from '.';
+import { FerrisWheelThick, Bubbles, AwesomeMenu } from '../../components';
+import { useGlobalStyles } from '../../Global';
+import './Home.scss';
 
 export function Home() {
   const { classes: globalClasses } = useGlobalStyles();
@@ -18,7 +18,6 @@ export function Home() {
     return () => clearTimeout(timer); // Cleanup timeout
   }, []);
 
-
   const toggleNavigation = () => {
     setIsNavigationVisible(!isNavigationVisible);
   };
@@ -26,9 +25,7 @@ export function Home() {
   return (
     <Box className={classes.homeWrapper}>
       <Box className={cx(globalClasses.row, classes.homeInnerWrapper)}>
-        <Box
-          className={cx(globalClasses.container, classes.homeContentWrapper)}
-        >
+        <Box className={cx(globalClasses.container, classes.homeContentWrapper)}>
           <Title
             className={globalClasses.z10}
             order={1}
@@ -72,18 +69,10 @@ export function Home() {
             mt={0}
             mb="sm"
           >
-            <Anchor
-              href="https://github.com/chrismochinski"
-              target="_blank"
-              fz="xs"
-            >
+            <Anchor href="https://github.com/chrismochinski" target="_blank" fz="xs">
               Mo's Github
             </Anchor>
-            <Anchor
-              href="https://chrismochinski.github.io/"
-              target="_blank"
-              fz="xs"
-            >
+            <Anchor href="https://chrismochinski.github.io/" target="_blank" fz="xs">
               Mo's Old Site
             </Anchor>
             <Anchor href="https://characterstrong.com" target="_blank" fz="xs">
@@ -95,23 +84,21 @@ export function Home() {
             onClick={toggleNavigation}
             mt="sm"
             mb="lg"
-            className={cx(globalClasses.z10, classes.ferrisWheelIconButton, showFerrisWheelIcon && "show")}
+            className={cx(
+              globalClasses.z10,
+              classes.ferrisWheelIconButton,
+              showFerrisWheelIcon && 'show'
+            )}
           >
             <FerrisWheelThick isNavigationVisible={isNavigationVisible} />
           </Anchor>
-          <Triangles />
-          <Bubbles />
+          {/* <Triangles /> */}
         </Box>
+          <Bubbles />
+      <AwesomeMenu isNavigationVisible={isNavigationVisible} />
       </Box>
 
-      {/* REFACTOR WITH NEW CLEANER MENU COMPONENT  */}
-      {/* REFACTOR WITH NEW CLEANER MENU COMPONENT  */}
-      {/* REFACTOR WITH NEW CLEANER MENU COMPONENT  */}
-      <Box className={classes.navigationFerrisWheel}
-        onMouseEnter={() => console.log("EFFECTS HERE!")}
-      >
-        <FerrisWheelFull />
-      </Box>
+      {/* <FerrisWheelMenu isNavigationVisible={isNavigationVisible} /> */}
     </Box>
   );
 }

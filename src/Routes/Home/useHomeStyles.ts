@@ -40,31 +40,5 @@ export const useHomeStyles = createStyles(
       },
     },
 
-    // --------------
-    // --------------
-    // --------------
-    // --------------
-    // different component later - navigation
-    // --------------
-    // --------------
-    navigationFerrisWheel: {
-      mixBlendMode: isNavigationVisible ? "overlay" : "saturation",
-      position: "absolute",
-      top: "50%",
-      right: "100%",
-      opacity: isNavigationVisible ? 1 : 0.2,
-      filter: isNavigationVisible ? "none" : "blur(15px) brightness(0.5)",
-      transform: isNavigationVisible
-        ? "translateY(-50%) translateX(36%)"
-        : "translateY(-50%) translateX(-10%)",
-      height: "90vh",
-      transition: "transform 2000ms ease-out, opacity 140ms ease-out, filter 2000ms ease-out, mix-blend-mode 3000ms ease-out",
-      //TEMPORARY SVG VERSION
-
-      svg: {
-        height: "90vh",
-        width: "auto",
-      },
-    },
   }),
 );

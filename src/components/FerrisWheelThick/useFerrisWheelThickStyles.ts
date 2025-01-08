@@ -2,7 +2,7 @@ import { createStyles } from "@mantine/emotion";
 
 export const useFerrisWheelThickStyles = createStyles(() => ({
   ferrisWheelThickSvg: {
-    width: "140px",
+    width: "150px",
     height: "auto",
     aspectRatio: "1/1",
     padding: "min(0.5em, 1vw)",
@@ -17,15 +17,15 @@ export const useFerrisWheelThickStyles = createStyles(() => ({
 
     "@media (prefers-color-scheme: dark)": {
       "& path": {
-        fill: "#FFFFFF",
-        stroke: "#FFFFFF",
+        fill: "#F9F9F9",
+        stroke: "#F9F9F9",
         '&[fill="white"]': {
           fill: "#000000",
         },
       },
       '& [id*="wheel"]': {
         "& circle": {
-          stroke: "#FFFFFF",
+          stroke: "#F9F9F9",
           '&[stroke="white"]': {
             stroke: "#000000",
           },
@@ -36,7 +36,7 @@ export const useFerrisWheelThickStyles = createStyles(() => ({
 
   baseBack: {
     path: {
-      fill: "#555555",
+      fill: "#444444",
 
       "@media (prefers-color-scheme: dark)": {
         fill: "#999999",
@@ -56,7 +56,7 @@ export const useFerrisWheelThickStyles = createStyles(() => ({
 
   wheelFill: {
     "@media (prefers-color-scheme: dark)": {
-      stroke: "#FFFFFF",
+      stroke: "#F9F9F9",
     },
   },
 

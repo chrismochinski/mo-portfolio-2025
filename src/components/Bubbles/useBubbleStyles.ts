@@ -12,7 +12,6 @@ export const useBubbleStyles = createStyles(() => ({
     flexDirection: "row",
     justifyContent: "flex-start",
     alignItems: "center",
-    zIndex: 0, // revisit
     "@media (prefers-color-scheme: dark)": {
       mixBlendMode: "plus-lighter",
     },
@@ -23,6 +22,7 @@ export const useBubbleStyles = createStyles(() => ({
     position: "absolute",
     top: 0,
     left: 0,
+    zIndex: 1,
   },
 
   bubblesLight: {

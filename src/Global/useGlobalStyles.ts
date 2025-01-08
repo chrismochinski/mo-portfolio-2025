@@ -5,17 +5,22 @@ import * as animations from "./Animations";
 export const globalTheme: MantineThemeOverride = {
   colors: {
     custom: [
-      "#191716", // black
-      "#66101F", // red
-      "#f28f3b", // orange
-      "#4ECDC4", // teal
-      "#eef36a", // yellow
-      "#3D348B", // blue
-      "#ffffff", // white
-      "#5171A5", // light blue
-      "#758190", // gray
-      "#575757", // dark gray
-      "#C0C0C0", // light gray
+      // $names are SCSS variables
+      "#000000", // $trueBlack
+      "#191716", // $black
+      "#F9F9F9", // $white
+      "#FFFFFF", // $trueWhite
+      "#911E1E", // $red
+      "#FF8800", // $orange
+      '#D4B879', // $gold
+      "#F9EA9A", // $yellow
+      "#79D49E", // $emerald
+      "#11C7FF", // $lightBlue
+      '#145C9E', // $darkBlue
+      "#611E91", // $purple
+      "#D5D5D5", // $lightGray
+      "#758190", // $gray
+      "#575757", // $darkGray
     ],
   },
 

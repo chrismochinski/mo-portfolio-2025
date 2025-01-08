@@ -42,10 +42,10 @@ export function FerrisWheelThick(props: FerrisWheelThickProps) {
                 y="1017.91"
                 width="296"
                 height="113"
-                fill="black"
+                fill="#191716"
               >
                 <rect
-                  fill="white"
+                  fill="#F9F9F9"
                   x="1330.94"
                   y="1017.91"
                   width="296"
@@ -77,10 +77,10 @@ export function FerrisWheelThick(props: FerrisWheelThickProps) {
                 y="1017.91"
                 width="296"
                 height="113"
-                fill="black"
+                fill="#191716"
               >
                 <rect
-                  fill="white"
+                  fill="#F9F9F9"
                   x="1847.02"
                   y="1017.91"
                   width="296"
@@ -135,10 +135,10 @@ export function FerrisWheelThick(props: FerrisWheelThickProps) {
                 y="2278.91"
                 width="296"
                 height="113"
-                fill="black"
+                fill="#191716"
               >
                 <rect
-                  fill="white"
+                  fill="#F9F9F9"
                   x="335.937"
                   y="2278.91"
                   width="296"
@@ -170,10 +170,10 @@ export function FerrisWheelThick(props: FerrisWheelThickProps) {
                 y="2278.91"
                 width="296"
                 height="113"
-                fill="black"
+                fill="#191716"
               >
                 <rect
-                  fill="white"
+                  fill="#F9F9F9"
                   x="852.016"
                   y="2278.91"
                   width="296"
@@ -228,10 +228,10 @@ export function FerrisWheelThick(props: FerrisWheelThickProps) {
                 y="3757.91"
                 width="296"
                 height="113"
-                fill="black"
+                fill="#191716"
               >
                 <rect
-                  fill="white"
+                  fill="#F9F9F9"
                   x="321.937"
                   y="3757.91"
                   width="296"
@@ -263,10 +263,10 @@ export function FerrisWheelThick(props: FerrisWheelThickProps) {
                 y="3757.91"
                 width="296"
                 height="113"
-                fill="black"
+                fill="#191716"
               >
                 <rect
-                  fill="white"
+                  fill="#F9F9F9"
                   x="838.016"
                   y="3757.91"
                   width="296"
@@ -321,10 +321,10 @@ export function FerrisWheelThick(props: FerrisWheelThickProps) {
                 y="5066.91"
                 width="296"
                 height="113"
-                fill="black"
+                fill="#191716"
               >
                 <rect
-                  fill="white"
+                  fill="#F9F9F9"
                   x="1224.94"
                   y="5066.91"
                   width="296"
@@ -356,10 +356,10 @@ export function FerrisWheelThick(props: FerrisWheelThickProps) {
                 y="5066.91"
                 width="296"
                 height="113"
-                fill="black"
+                fill="#191716"
               >
                 <rect
-                  fill="white"
+                  fill="#F9F9F9"
                   x="1741.02"
                   y="5066.91"
                   width="296"
@@ -414,10 +414,10 @@ export function FerrisWheelThick(props: FerrisWheelThickProps) {
                 y="5551.91"
                 width="296"
                 height="113"
-                fill="black"
+                fill="#191716"
               >
                 <rect
-                  fill="white"
+                  fill="#F9F9F9"
                   x="2674.94"
                   y="5551.91"
                   width="296"
@@ -449,10 +449,10 @@ export function FerrisWheelThick(props: FerrisWheelThickProps) {
                 y="5551.91"
                 width="296"
                 height="113"
-                fill="black"
+                fill="#191716"
               >
                 <rect
-                  fill="white"
+                  fill="#F9F9F9"
                   x="3191.02"
                   y="5551.91"
                   width="296"
@@ -507,10 +507,10 @@ export function FerrisWheelThick(props: FerrisWheelThickProps) {
                 y="5103.91"
                 width="296"
                 height="113"
-                fill="black"
+                fill="#191716"
               >
                 <rect
-                  fill="white"
+                  fill="#F9F9F9"
                   x="4074.94"
                   y="5103.91"
                   width="296"
@@ -542,10 +542,10 @@ export function FerrisWheelThick(props: FerrisWheelThickProps) {
                 y="5103.91"
                 width="296"
                 height="113"
-                fill="black"
+                fill="#191716"
               >
                 <rect
-                  fill="white"
+                  fill="#F9F9F9"
                   x="4591.02"
                   y="5103.91"
                   width="296"
@@ -600,10 +600,10 @@ export function FerrisWheelThick(props: FerrisWheelThickProps) {
                 y="3836.91"
                 width="296"
                 height="113"
-                fill="black"
+                fill="#191716"
               >
                 <rect
-                  fill="white"
+                  fill="#F9F9F9"
                   x="5032.94"
                   y="3836.91"
                   width="296"
@@ -635,10 +635,10 @@ export function FerrisWheelThick(props: FerrisWheelThickProps) {
                 y="3836.91"
                 width="296"
                 height="113"
-                fill="black"
+                fill="#191716"
               >
                 <rect
-                  fill="white"
+                  fill="#F9F9F9"
                   x="5549.02"
                   y="3836.91"
                   width="296"
@@ -693,10 +693,10 @@ export function FerrisWheelThick(props: FerrisWheelThickProps) {
                 y="2291.91"
                 width="296"
                 height="113"
-                fill="black"
+                fill="#191716"
               >
                 <rect
-                  fill="white"
+                  fill="#F9F9F9"
                   x="5056.94"
                   y="2291.91"
                   width="296"
@@ -728,10 +728,10 @@ export function FerrisWheelThick(props: FerrisWheelThickProps) {
                 y="2291.91"
                 width="296"
                 height="113"
-                fill="black"
+                fill="#191716"
               >
                 <rect
-                  fill="white"
+                  fill="#F9F9F9"
                   x="5573.02"
                   y="2291.91"
                   width="296"
@@ -786,10 +786,10 @@ export function FerrisWheelThick(props: FerrisWheelThickProps) {
                 y="1031.91"
                 width="296"
                 height="113"
-                fill="black"
+                fill="#191716"
               >
                 <rect
-                  fill="white"
+                  fill="#F9F9F9"
                   x="4115.94"
                   y="1031.91"
                   width="296"
@@ -821,10 +821,10 @@ export function FerrisWheelThick(props: FerrisWheelThickProps) {
                 y="1031.91"
                 width="296"
                 height="113"
-                fill="black"
+                fill="#191716"
               >
                 <rect
-                  fill="white"
+                  fill="#F9F9F9"
                   x="4632.02"
                   y="1031.91"
                   width="296"
@@ -879,10 +879,10 @@ export function FerrisWheelThick(props: FerrisWheelThickProps) {
                 y="580.906"
                 width="296"
                 height="113"
-                fill="black"
+                fill="#191716"
               >
                 <rect
-                  fill="white"
+                  fill="#F9F9F9"
                   x="2674.94"
                   y="580.906"
                   width="296"
@@ -914,10 +914,10 @@ export function FerrisWheelThick(props: FerrisWheelThickProps) {
                 y="580.906"
                 width="296"
                 height="113"
-                fill="black"
+                fill="#191716"
               >
                 <rect
-                  fill="white"
+                  fill="#F9F9F9"
                   x="3191.02"
                   y="580.906"
                   width="296"
@@ -995,7 +995,7 @@ export function FerrisWheelThick(props: FerrisWheelThickProps) {
                 cx="3099.5"
                 cy="2802.5"
                 r="2475.5"
-                stroke="white"
+                stroke="#F9F9F9"
                 strokeWidth="425"
               />
             </g>
@@ -1015,7 +1015,7 @@ export function FerrisWheelThick(props: FerrisWheelThickProps) {
                 cx="3099.5"
                 cy="2802.5"
                 r="1542.5"
-                stroke="white"
+                stroke="#F9F9F9"
                 strokeWidth="344"
               />
             </g>
@@ -1031,12 +1031,12 @@ export function FerrisWheelThick(props: FerrisWheelThickProps) {
           </g>
           <g id="inner-wheel">
             <g id="mask_3" className={classes.wheelMask}>
-              <circle cx="3099.5" cy="2802.5" r="716.5" fill="white" />
+              <circle cx="3099.5" cy="2802.5" r="716.5" fill="#F9F9F9" />
               <circle
                 cx="3099.5"
                 cy="2802.5"
                 r="716.5"
-                stroke="white"
+                stroke="#F9F9F9"
                 strokeWidth="328"
               />
             </g>
@@ -1062,13 +1062,13 @@ export function FerrisWheelThick(props: FerrisWheelThickProps) {
           <g id="crossbar-mask" className={classes.wheelMask}>
             <path
               d="M2813.62 3647H3373.29L3472 3993H2718L2813.62 3647Z"
-              fill="white"
+              fill="#F9F9F9"
             />
           </g>
           <g id="base-legs-mask" className={classes.wheelMask}>
             <path
               d="M3005.54 2767.2C3033.57 2680.36 3156.43 2680.36 3184.46 2767.2L4275.94 6149.31C4278.44 6157.06 4272.66 6165 4264.52 6165H4012.09C4006.83 6165 4002.17 6161.56 4000.62 6156.52L3097.86 3218.46C3096.99 3215.63 3093 3215.63 3092.12 3218.45L2182.59 6156.55C2181.03 6161.57 2176.38 6165 2171.12 6165H1925.48C1917.34 6165 1911.56 6157.06 1914.06 6149.31L3005.54 2767.2Z"
-              fill="white"
+              fill="#F9F9F9"
             />
           </g>
           <path
