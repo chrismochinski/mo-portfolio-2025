@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { useAwesomeMenuStyles } from '.';
 import { useGlobalStyles } from '../../Global';
 
