@@ -14,7 +14,7 @@ export const colors = {
   lightBlue: '#11C7FF',
   darkBlue: '#134074',
   purple: '#611E91',
-  pink: '#EE92C2', 
+  pink: '#EE92C2',
   lightGray: '#D5D5D5',
   gray: '#758190',
   darkGray: '#575757',
@@ -32,20 +32,23 @@ export const globalTheme: MantineThemeOverride = {
   },
 
   spacing: {
-    xs: 'clamp(2px, 0.5vw, 4px)',
-    sm: 'clamp(4px, 0.75vw, 8px)',
-    md: 'clamp(8px, 1vw, 16px)',
-    lg: 'clamp(16px, 1.25vw, 32px)',
-    xl: 'clamp(32px, 1.5vw, 64px)',
-    xxl: 'clamp(64px, 1.75vw, 128px)',
+    xs: '0.125em',
+    sm: '0.25em',
+    md: '0.5em',
+    lg: '1em',
+    xl: '1.5em',
+    xxl: '2em',
   },
 
   fontSizes: {
-    xs: 'clamp(14px, 1vw, 16px)',
-    sm: 'clamp(1rem, 1.35vw, 1.125rem)',
-    md: 'clamp(1.125rem, 1.75vw, 1.25rem)',
-    xl: 'clamp(2rem, 3vw, 3rem)',
-    xxl: 'clamp(3rem, 4vw, 4rem)',
+    xxs: 'clamp(0.7rem, 1vw, 0.85rem)',
+    xs: 'clamp(0.85rem, 1.1125vw, 1rem)',
+    sm: 'clamp(1rem, 1.3vw, 1.15rem)',
+    md: 'clamp(1.125rem, 1.6vw, 1.25rem)',
+    lg: 'clamp(1.25rem, 1.8vw, 1.5rem)',
+    xl: 'clamp(1.75rem, 3vw, 2rem)',
+    xxl: 'clamp(2.25rem, 4vw, 3rem)',
+    xxxl: 'clamp(3rem, 5vw, 4rem)',
   },
 
   lineHeights: {

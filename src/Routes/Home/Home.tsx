@@ -21,20 +21,23 @@ export function Home() {
       <Box className={cx(globalClasses.row, classes.homeInnerWrapper)}>
         <Box className={cx(globalClasses.container, classes.homeContentWrapper)}>
           <Box className={cx(globalClasses.columnCenter, classes.salutation, globalClasses.z10)}>
-            <Title order={1} fz="xl" mt={0} mb="xs" mx="auto" ta="center" fw={600} lh="lg">
+            <Title order={1} fz="xxl" mt={0} mb={0} mx="auto" ta="center" fw={600} lh="lg">
               Hi, friends.
             </Title>
             <Title
               className={globalClasses.balance}
-              order={3}
-              my={0}
+              order={2}
+              fz="md"
+              mt={0}
               mx="auto"
               ta="center"
-              mb="md"
+              mb="sm"
               lh="sm"
               fw={500}
             >
-              This site is a work in progress,<br />but it's gonna be rad.
+              This site is a work in progress,
+              <br />
+              but it's gonna be rad.
             </Title>
 
             <Text
@@ -43,20 +46,12 @@ export function Home() {
               fz="sm"
               ta="center"
               pb="md"
-              mt="xs"
-              mb={0}
+              my="sm"
             >
               Thanks for visiting.
             </Text>
 
-            <Flex
-              className={classes.personalLinks}
-              gap="md"
-              justify="center"
-              align="center"
-              mt={0}
-              mb="sm"
-            >
+            <Flex className={classes.personalLinks} gap="lg" justify="center" align="center" mt={0}>
               <Anchor
                 className={classes.personalAnchorText}
                 href="https://github.com/chrismochinski"
@@ -99,6 +94,9 @@ export function Home() {
         <Bubbles />
         <AwesomeMenu isNavigationVisible={isNavigationVisible} />
       </Box>
+      <Text className={classes.copyright} component="p" ta="center" pb="md" my="sm">
+        Copyright © 2025 Wreck Shop Media LLC. All rights reserved.
+      </Text>
     </Box>
   );
 }

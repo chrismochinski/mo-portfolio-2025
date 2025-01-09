@@ -23,6 +23,7 @@ export const useFerrisWheelMenuStyles = createStyles(
         transformBox: 'fill-box',
       },
 
+      // dark mode             
       '@media (prefers-color-scheme: dark)': {
         '& path': {
           fill: '#F9F9F9',

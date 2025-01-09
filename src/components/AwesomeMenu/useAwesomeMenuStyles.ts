@@ -89,6 +89,7 @@ export const useAwesomeMenuStyles = createStyles(
 
     barsGroup: {
       '& path': {
+        // dark mode             
         '@media (prefers-color-scheme: dark)': {
           fill: colors.white,
           stroke: colors.white,
@@ -105,6 +106,7 @@ export const useAwesomeMenuStyles = createStyles(
       transformOrigin: 'center',
       transformBox: 'fill-box',
       '& path': {
+        // dark mode             
         '@media (prefers-color-scheme: dark)': {
           fill: colors.white,
           stroke: colors.white,
@@ -120,6 +122,7 @@ export const useAwesomeMenuStyles = createStyles(
       // mixBlendMode: 'overlay',
       mixBlendMode: 'soft-light', // PLEASANT!
       '& path': {
+        // dark mode             
         '@media (prefers-color-scheme: dark)': {
           fill: colors.black,
           stroke: colors.black,
@@ -130,17 +133,20 @@ export const useAwesomeMenuStyles = createStyles(
     ferrisWheelMasks: {
       mixBlendMode: 'overlay',
       '& circle': {
+        // dark mode             
         '@media (prefers-color-scheme: dark)': {
           stroke: colors.black,
         },
       },
       '& ellipse': {
+        // dark mode             
         '@media (prefers-color-scheme: dark)': {
           stroke: colors.black,
         },
       },
 
       '& path': {
+        // dark mode             
         '@media (prefers-color-scheme: dark)': {
           fill: `${colors.black}86`,
           stroke: `${colors.black}86`,
@@ -149,12 +155,14 @@ export const useAwesomeMenuStyles = createStyles(
     },
 
     ferrisWheelDarkModeStrokeWhite: {
+      // dark mode             
       '@media (prefers-color-scheme: dark)': {
         stroke: colors.white,
       },
     },
 
     ferrisWheelDarkMoveFillWhite: {
+      // dark mode             
       '@media (prefers-color-scheme: dark)': {
         fill: colors.white,
       },

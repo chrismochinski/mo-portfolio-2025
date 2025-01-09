@@ -15,6 +15,7 @@ export const useFerrisWheelIconStyles = createStyles(() => ({
     transformOrigin: "center",
     transformBox: "fill-box",
 
+    // dark mode             
     "@media (prefers-color-scheme: dark)": {
       "& path": {
         fill: "#F9F9F9",
@@ -48,6 +49,7 @@ export const useFerrisWheelIconStyles = createStyles(() => ({
   baseBack: {
     path: {
       fill: "#444444",
+      // dark mode             
       "@media (prefers-color-scheme: dark)": {
         fill: "#999999",
       },
@@ -59,6 +61,7 @@ export const useFerrisWheelIconStyles = createStyles(() => ({
     circle: {
       mixBlendMode: "difference",
 
+      // dark mode             
       "@media (prefers-color-scheme: dark)": {
         mixBlendMode: "overlay",
       },
@@ -66,6 +69,7 @@ export const useFerrisWheelIconStyles = createStyles(() => ({
   },
 
   wheelFill: {
+    // dark mode             
     "@media (prefers-color-scheme: dark)": {
       stroke: "#F9F9F9",
     },
