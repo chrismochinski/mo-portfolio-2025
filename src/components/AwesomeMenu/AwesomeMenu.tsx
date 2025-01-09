@@ -10,7 +10,7 @@ export function AwesomeMenu(props: AwesomeMenuProps) {
   const { classes, cx } = useAwesomeMenuStyles({ isNavigationVisible });
   const { classes: globalClasses } = useGlobalStyles();
 
-  // TODO menu settings for each car
+  // TODO menu settings for each car OR y-axis quadrants
 
   const ferrisWheelClicked = () => {
     console.log('Ferris wheel clicked');
@@ -32,87 +32,10 @@ export function AwesomeMenu(props: AwesomeMenuProps) {
       onClick={ferrisWheelClicked}
     >
       <g id="color-shapes_2" className={classes.colorShapes}>
-        <g id="Vector" style={{ mixBlendMode: 'darken' }}>
+        <g id="Vector_14" style={{ mixBlendMode: 'multiply' }}>
           <path
-            d="M7872.1 9112.11L3886.93 8578.47L3627.8 5620.59L7872.1 9112.11Z"
-            fill="url(#paint0_linear_665_875)"
-            style={{ mixBlendMode: 'overlay' }}
-          />
-        </g>
-        <g id="Vector_2" style={{ mixBlendMode: 'darken' }}>
-          <path
-            d="M5039.91 2133.12L6765.87 5341.52L4379.97 4988.02L5039.91 2133.12Z"
-            fill="url(#paint1_linear_665_875)"
-            style={{ mixBlendMode: 'overlay' }}
-          />
-        </g>
-        <g id="Vector_3" style={{ mixBlendMode: 'darken' }}>
-          <path
-            d="M7745.02 5347.21L4923.23 6402.81L3066.01 4429.3L7745.02 5347.21Z"
-            fill="url(#paint2_linear_665_875)"
-            style={{ mixBlendMode: 'overlay' }}
-          />
-        </g>
-        <g id="Vector_4" style={{ mixBlendMode: 'darken' }}>
-          <path
-            d="M6688.39 1888.61L6443.36 3212.8L2940.08 2452.62L6688.39 1888.61Z"
-            fill="url(#paint3_linear_665_875)"
-            style={{ mixBlendMode: 'overlay' }}
-          />
-        </g>
-        <g id="Vector_5" style={{ mixBlendMode: 'color-burn' }}>
-          <path
-            d="M2726.77 6765.39L6097.09 7381.32L6454.91 9247.47L2726.77 6765.39Z"
-            fill="url(#paint4_linear_665_875)"
-            style={{ mixBlendMode: 'overlay' }}
-          />
-        </g>
-        <g id="Vector_6" style={{ mixBlendMode: 'darken' }}>
-          <path
-            d="M6850.56 4746.19L4215.49 1476.72L5320.52 8.34396L6850.56 4746.19Z"
-            fill="url(#paint5_linear_665_875)"
-            style={{ mixBlendMode: 'overlay' }}
-          />
-        </g>
-        <g id="Vector_7" style={{ mixBlendMode: 'darken' }}>
-          <path
-            d="M4274.02 2622.47L4139.96 54.1092L5974.03 762.895L4274.02 2622.47Z"
-            fill="url(#paint6_linear_665_875)"
-            style={{ mixBlendMode: 'overlay' }}
-          />
-        </g>
-        <g id="Vector_8" style={{ mixBlendMode: 'darken' }}>
-          <path
-            d="M4466.23 7168.76L5508.74 6400.01L6696.16 6761.11L4466.23 7168.76Z"
-            fill="url(#paint7_linear_665_875)"
-            style={{ mixBlendMode: 'overlay' }}
-          />
-        </g>
-        <g id="Vector_9" style={{ mixBlendMode: 'difference' }}>
-          <path
-            d="M3777.16 4107.17L6866.92 1870.84L8369.49 2996.71L3777.16 4107.17Z"
-            fill="url(#paint8_linear_665_875)"
-            style={{ mixBlendMode: 'overlay' }}
-          />
-        </g>
-        <g id="Vector_10" style={{ mixBlendMode: 'darken' }}>
-          <path
-            d="M4029.62 6021.21L5523.96 5307.12L6557.44 5991.29L4029.62 6021.21Z"
-            fill="url(#paint9_linear_665_875)"
-            style={{ mixBlendMode: 'overlay' }}
-          />
-        </g>
-        <g id="Vector_11" style={{ mixBlendMode: 'darken' }}>
-          <path
-            d="M4351.05 6751.93L5364.97 5134.82L7973.41 6305.48L4351.05 6751.93Z"
-            fill="url(#paint10_linear_665_875)"
-            style={{ mixBlendMode: 'overlay' }}
-          />
-        </g>
-        <g id="Vector_12" style={{ mixBlendMode: 'darken' }}>
-          <path
-            d="M3783.61 8493.01L4623.77 5701.37L6722.2 6579.16L3783.61 8493.01Z"
-            fill="url(#paint11_linear_665_875)"
+            d="M7702.82 3698.98L5499.45 6496.2L3630.91 5965.69L7702.82 3698.98Z"
+            fill="url(#paint13_linear_665_875)"
             style={{ mixBlendMode: 'overlay' }}
           />
         </g>
@@ -123,10 +46,87 @@ export function AwesomeMenu(props: AwesomeMenuProps) {
             style={{ mixBlendMode: 'overlay' }}
           />
         </g>
-        <g id="Vector_14">
+        <g id="Vector_12" style={{ mixBlendMode: 'darken' }}>
           <path
-            d="M7702.82 3698.98L5499.45 6496.2L3630.91 5965.69L7702.82 3698.98Z"
-            fill="url(#paint13_linear_665_875)"
+            d="M3783.61 8493.01L4623.77 5701.37L6722.2 6579.16L3783.61 8493.01Z"
+            fill="url(#paint11_linear_665_875)"
+            style={{ mixBlendMode: 'overlay' }}
+          />
+        </g>
+        <g id="Vector_11" style={{ mixBlendMode: 'darken' }}>
+          <path
+            d="M4351.05 6751.93L5364.97 5134.82L7973.41 6305.48L4351.05 6751.93Z"
+            fill="url(#paint10_linear_665_875)"
+            style={{ mixBlendMode: 'overlay' }}
+          />
+        </g>
+        <g id="Vector_10" style={{ mixBlendMode: 'darken' }}>
+          <path
+            d="M4029.62 6021.21L5523.96 5307.12L6557.44 5991.29L4029.62 6021.21Z"
+            fill="url(#paint9_linear_665_875)"
+            style={{ mixBlendMode: 'overlay' }}
+          />
+        </g>
+        <g id="Vector_9" style={{ mixBlendMode: 'difference' }}>
+          <path
+            d="M3777.16 4107.17L6866.92 1870.84L8369.49 2996.71L3777.16 4107.17Z"
+            fill="url(#paint8_linear_665_875)"
+            style={{ mixBlendMode: 'overlay' }}
+          />
+        </g>
+        <g id="Vector_8" style={{ mixBlendMode: 'darken' }}>
+          <path
+            d="M4466.23 7168.76L5508.74 6400.01L6696.16 6761.11L4466.23 7168.76Z"
+            fill="url(#paint7_linear_665_875)"
+            style={{ mixBlendMode: 'overlay' }}
+          />
+        </g>
+        <g id="Vector_7" style={{ mixBlendMode: 'darken' }}>
+          <path
+            d="M4274.02 2622.47L4139.96 54.1092L5974.03 762.895L4274.02 2622.47Z"
+            fill="url(#paint6_linear_665_875)"
+            style={{ mixBlendMode: 'overlay' }}
+          />
+        </g>
+        <g id="Vector_6" style={{ mixBlendMode: 'darken' }}>
+          <path
+            d="M6850.56 4746.19L4215.49 1476.72L5320.52 8.34396L6850.56 4746.19Z"
+            fill="url(#paint5_linear_665_875)"
+            style={{ mixBlendMode: 'overlay' }}
+          />
+        </g>
+        <g id="Vector_5" style={{ mixBlendMode: 'color-burn' }}>
+          <path
+            d="M2726.77 6765.39L6097.09 7381.32L6454.91 9247.47L2726.77 6765.39Z"
+            fill="url(#paint4_linear_665_875)"
+            style={{ mixBlendMode: 'overlay' }}
+          />
+        </g>
+        <g id="Vector_4" style={{ mixBlendMode: 'darken' }}>
+          <path
+            d="M6688.39 1888.61L6443.36 3212.8L2940.08 2452.62L6688.39 1888.61Z"
+            fill="url(#paint3_linear_665_875)"
+            style={{ mixBlendMode: 'overlay' }}
+          />
+        </g>
+        <g id="Vector_3" style={{ mixBlendMode: 'darken' }}>
+          <path
+            d="M7745.02 5347.21L4923.23 6402.81L3066.01 4429.3L7745.02 5347.21Z"
+            fill="url(#paint2_linear_665_875)"
+            style={{ mixBlendMode: 'overlay' }}
+          />
+        </g>
+        <g id="Vector_2" style={{ mixBlendMode: 'darken' }}>
+          <path
+            d="M5039.91 2133.12L6765.87 5341.52L4379.97 4988.02L5039.91 2133.12Z"
+            fill="url(#paint1_linear_665_875)"
+            style={{ mixBlendMode: 'overlay' }}
+          />
+        </g>
+        <g id="Vector" style={{ mixBlendMode: 'darken' }}>
+          <path
+            d="M7872.1 9112.11L3886.93 8578.47L3627.8 5620.59L7872.1 9112.11Z"
+            fill="url(#paint0_linear_665_875)"
             style={{ mixBlendMode: 'overlay' }}
           />
         </g>
@@ -136,13 +136,19 @@ export function AwesomeMenu(props: AwesomeMenuProps) {
       {/* FERRIS WHERE HERE  */}
       {/* FERRIS WHERE HERE  */}
 
-      <g id="ferris-wheel-menu" className={classes.ferrisWheelMenu}>
+      <g
+        id="ferris-wheel-menu"
+        className={cx(classes.ferrisWheelMenu, isNavigationVisible && classes.navigationEnter)}
+      >
         <g id="bars-and-cars">
           <g
             id="car-masks-group-experimental"
-            className={cx(globalClasses.slowSpin, classes.carsGroup)}
+            className={cx(isNavigationVisible && globalClasses.slowSpin, classes.carsGroup)}
           >
-            <g className={cx(globalClasses.slowSpinReverse, classes.carMask)} id="mask-0">
+            <g
+              className={cx(isNavigationVisible && globalClasses.slowSpinReverse, classes.carMask)}
+              id="mask-0"
+            >
               <g id="rail-left">
                 <mask
                   id="path-15-outside-1_665_875"
@@ -235,7 +241,10 @@ export function AwesomeMenu(props: AwesomeMenuProps) {
                 />
               </g>
             </g>
-            <g className={cx(globalClasses.slowSpinReverse, classes.carMask)} id="mask_2">
+            <g
+              className={cx(isNavigationVisible && globalClasses.slowSpinReverse, classes.carMask)}
+              id="mask_2"
+            >
               <g id="rail-left_3">
                 <mask
                   id="path-27-outside-8_665_875"
@@ -328,7 +337,10 @@ export function AwesomeMenu(props: AwesomeMenuProps) {
                 />
               </g>
             </g>
-            <g className={cx(globalClasses.slowSpinReverse, classes.carMask)} id="mask_3">
+            <g
+              className={cx(isNavigationVisible && globalClasses.slowSpinReverse, classes.carMask)}
+              id="mask_3"
+            >
               <g id="rail-left_5">
                 <mask
                   id="path-39-outside-15_665_875"
@@ -421,7 +433,10 @@ export function AwesomeMenu(props: AwesomeMenuProps) {
                 />
               </g>
             </g>
-            <g className={cx(globalClasses.slowSpinReverse, classes.carMask)} id="mask_4">
+            <g
+              className={cx(isNavigationVisible && globalClasses.slowSpinReverse, classes.carMask)}
+              id="mask_4"
+            >
               <g id="rail-left_7">
                 <mask
                   id="path-51-outside-22_665_875"
@@ -514,7 +529,10 @@ export function AwesomeMenu(props: AwesomeMenuProps) {
                 />
               </g>
             </g>
-            <g className={cx(globalClasses.slowSpinReverse, classes.carMask)} id="mask_5">
+            <g
+              className={cx(isNavigationVisible && globalClasses.slowSpinReverse, classes.carMask)}
+              id="mask_5"
+            >
               <g id="rail-left_9">
                 <mask
                   id="path-63-outside-29_665_875"
@@ -607,7 +625,10 @@ export function AwesomeMenu(props: AwesomeMenuProps) {
                 />
               </g>
             </g>
-            <g className={cx(globalClasses.slowSpinReverse, classes.carMask)} id="mask_6">
+            <g
+              className={cx(isNavigationVisible && globalClasses.slowSpinReverse, classes.carMask)}
+              id="mask_6"
+            >
               <g id="rail-left_11">
                 <mask
                   id="path-75-outside-36_665_875"
@@ -700,7 +721,10 @@ export function AwesomeMenu(props: AwesomeMenuProps) {
                 />
               </g>
             </g>
-            <g className={cx(globalClasses.slowSpinReverse, classes.carMask)} id="mask_7">
+            <g
+              className={cx(isNavigationVisible && globalClasses.slowSpinReverse, classes.carMask)}
+              id="mask_7"
+            >
               <g id="rail-left_13">
                 <mask
                   id="path-87-outside-43_665_875"
@@ -793,7 +817,10 @@ export function AwesomeMenu(props: AwesomeMenuProps) {
                 />
               </g>
             </g>
-            <g className={cx(globalClasses.slowSpinReverse, classes.carMask)} id="mask_8">
+            <g
+              className={cx(isNavigationVisible && globalClasses.slowSpinReverse, classes.carMask)}
+              id="mask_8"
+            >
               <g id="rail-left_15">
                 <mask
                   id="path-99-outside-50_665_875"
@@ -886,7 +913,10 @@ export function AwesomeMenu(props: AwesomeMenuProps) {
                 />
               </g>
             </g>
-            <g className={cx(globalClasses.slowSpinReverse, classes.carMask)} id="mask_9">
+            <g
+              className={cx(isNavigationVisible && globalClasses.slowSpinReverse, classes.carMask)}
+              id="mask_9"
+            >
               <g id="rail-left_17">
                 <mask
                   id="path-111-outside-57_665_875"
@@ -979,7 +1009,10 @@ export function AwesomeMenu(props: AwesomeMenuProps) {
                 />
               </g>
             </g>
-            <g className={cx(globalClasses.slowSpinReverse, classes.carMask)} id="mask_9">
+            <g
+              className={cx(isNavigationVisible && globalClasses.slowSpinReverse, classes.carMask)}
+              id="mask_9"
+            >
               <g id="rail-left_19">
                 <mask
                   id="path-123-outside-64_665_875"
@@ -1073,11 +1106,14 @@ export function AwesomeMenu(props: AwesomeMenuProps) {
               </g>
             </g>
           </g>
-          <g id="cars" className={cx(globalClasses.slowSpin, classes.carsGroup)}>
+          <g
+            id="cars"
+            className={cx(isNavigationVisible && globalClasses.slowSpin, classes.carsGroup)}
+          >
             <g
               id="car-0"
               clipPath="url(#clip0_665_875)"
-              className={cx(globalClasses.slowSpinReverse, classes.car)}
+              className={cx(isNavigationVisible && globalClasses.slowSpinReverse, classes.car)}
             >
               <g id="black-0">
                 <g id="rail-left_2">
@@ -1161,7 +1197,7 @@ export function AwesomeMenu(props: AwesomeMenuProps) {
             <g
               id="car-1"
               clipPath="url(#clip1_665_875)"
-              className={cx(globalClasses.slowSpinReverse, classes.car)}
+              className={cx(isNavigationVisible && globalClasses.slowSpinReverse, classes.car)}
             >
               <g id="black-1">
                 <g id="rail-left_4">
@@ -1245,7 +1281,7 @@ export function AwesomeMenu(props: AwesomeMenuProps) {
             <g
               id="car-2"
               clipPath="url(#clip2_665_875)"
-              className={cx(globalClasses.slowSpinReverse, classes.car)}
+              className={cx(isNavigationVisible && globalClasses.slowSpinReverse, classes.car)}
             >
               <g id="black-2">
                 <g id="rail-left_6">
@@ -1329,7 +1365,7 @@ export function AwesomeMenu(props: AwesomeMenuProps) {
             <g
               id="car-3"
               clipPath="url(#clip3_665_875)"
-              className={cx(globalClasses.slowSpinReverse, classes.car)}
+              className={cx(isNavigationVisible && globalClasses.slowSpinReverse, classes.car)}
             >
               <g id="black-3">
                 <g id="rail-left_8">
@@ -1413,7 +1449,7 @@ export function AwesomeMenu(props: AwesomeMenuProps) {
             <g
               id="car-4"
               clipPath="url(#clip4_665_875)"
-              className={cx(globalClasses.slowSpinReverse, classes.car)}
+              className={cx(isNavigationVisible && globalClasses.slowSpinReverse, classes.car)}
             >
               <g id="black-4">
                 <g id="rail-left_10">
@@ -1497,7 +1533,7 @@ export function AwesomeMenu(props: AwesomeMenuProps) {
             <g
               id="car-5"
               clipPath="url(#clip5_665_875)"
-              className={cx(globalClasses.slowSpinReverse, classes.car)}
+              className={cx(isNavigationVisible && globalClasses.slowSpinReverse, classes.car)}
             >
               <g id="black-5">
                 <g id="rail-left_12">
@@ -1581,7 +1617,7 @@ export function AwesomeMenu(props: AwesomeMenuProps) {
             <g
               id="car-6"
               clipPath="url(#clip6_665_875)"
-              className={cx(globalClasses.slowSpinReverse, classes.car)}
+              className={cx(isNavigationVisible && globalClasses.slowSpinReverse, classes.car)}
             >
               <g id="black-6">
                 <g id="rail-left_14">
@@ -1665,7 +1701,7 @@ export function AwesomeMenu(props: AwesomeMenuProps) {
             <g
               id="car-7"
               clipPath="url(#clip7_665_875)"
-              className={cx(globalClasses.slowSpinReverse, classes.car)}
+              className={cx(isNavigationVisible && globalClasses.slowSpinReverse, classes.car)}
             >
               <g id="black-7">
                 <g id="rail-left_16">
@@ -1749,7 +1785,7 @@ export function AwesomeMenu(props: AwesomeMenuProps) {
             <g
               id="car-8"
               clipPath="url(#clip8_665_875)"
-              className={cx(globalClasses.slowSpinReverse, classes.car)}
+              className={cx(isNavigationVisible && globalClasses.slowSpinReverse, classes.car)}
             >
               <g id="black-8">
                 <g id="rail-left_18">
@@ -1833,7 +1869,7 @@ export function AwesomeMenu(props: AwesomeMenuProps) {
             <g
               id="car-9"
               clipPath="url(#clip9_665_875)"
-              className={cx(globalClasses.slowSpinReverse, classes.car)}
+              className={cx(isNavigationVisible && globalClasses.slowSpinReverse, classes.car)}
             >
               <g id="black-9">
                 <g id="rail-left_20">
@@ -1915,7 +1951,10 @@ export function AwesomeMenu(props: AwesomeMenuProps) {
               </g>
             </g>
           </g>
-          <g id="bars" className={cx(globalClasses.slowSpin, classes.barsGroup)}>
+          <g
+            id="bars"
+            className={cx(isNavigationVisible && globalClasses.slowSpin, classes.barsGroup)}
+          >
             <path
               id="bar-4"
               d="M2018.47 3381.99C2017.87 3381.79 2017.53 3381.16 2017.73 3380.55C2019.4 3375.27 2026.9 3351.63 2032.24 3335.88C2037.57 3320.13 2045.98 3296.79 2047.86 3291.58C2048.07 3290.98 2048.72 3290.68 2049.32 3290.89L7497.41 5135.97C7498.01 5136.17 7498.34 5136.8 7498.15 5137.41C7496.47 5142.69 7488.96 5166.36 7483.63 5182.08C7478.31 5197.81 7469.9 5221.17 7468.02 5226.38C7467.8 5226.98 7467.15 5227.28 7466.55 5227.07L2018.47 3381.99Z"
@@ -2116,7 +2155,7 @@ export function AwesomeMenu(props: AwesomeMenuProps) {
           y2="4364.84"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset="0.36" stopColor={colors.orange} />
+          <stop offset="0.46" stopColor={colors.gold} />
           <stop offset="0.94" stopColor={colors.purple} />
         </linearGradient>
         <linearGradient
@@ -2127,9 +2166,9 @@ export function AwesomeMenu(props: AwesomeMenuProps) {
           y2="4404.63"
           gradientUnits="userSpaceOnUse"
         >
-           {/* WAS PINK - CHANGE BACK???  */}
-          <stop offset="0.09" stopColor={colors.purple}  />
-          <stop offset="0.78" stopColor={colors.lightBlue} />
+          {/* WAS PINK - CHANGE BACK???  */}
+          <stop offset="0.31" stopColor={colors.pink} />
+          <stop offset="0.98" stopColor={colors.lightBlue} />
         </linearGradient>
         <linearGradient
           id="paint3_linear_665_875"
@@ -2194,8 +2233,9 @@ export function AwesomeMenu(props: AwesomeMenuProps) {
           y2="4575.32"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset="0.09" stopColor="#D48879" />
-          <stop offset="0.78" stopColor="#681E91" />
+          {/* RECONSIDER - WAS PEACH  */}
+          <stop offset="0.09" stopColor={colors.orange} />
+          <stop offset="0.78" stopColor={colors.purple} />
         </linearGradient>
         <linearGradient
           id="paint9_linear_665_875"
@@ -2217,7 +2257,7 @@ export function AwesomeMenu(props: AwesomeMenuProps) {
           gradientUnits="userSpaceOnUse"
         >
           <stop offset="0.09" stopColor={colors.purple} />
-          <stop offset="0.78" stopColor="#1E8891" />
+          <stop offset="0.78" stopColor={colors.emerald} />
         </linearGradient>
         <linearGradient
           id="paint11_linear_665_875"
@@ -2228,7 +2268,7 @@ export function AwesomeMenu(props: AwesomeMenuProps) {
           gradientUnits="userSpaceOnUse"
         >
           <stop offset="0.09" stopColor={colors.orange} />
-          <stop offset="0.78" stopColor={colors.pink} />
+          <stop offset="0.78" stopColor={colors.purple} />
         </linearGradient>
         <linearGradient
           id="paint12_linear_665_875"
@@ -2238,8 +2278,8 @@ export function AwesomeMenu(props: AwesomeMenuProps) {
           y2="585.529"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset="0.09" stopColor="#5EFFAC" />
-          <stop offset="0.81" stopColor="#FF7300" />
+          <stop offset="0.09" stopColor={colors.green} />
+          <stop offset="0.81" stopColor={colors.orange} />
         </linearGradient>
         <linearGradient
           id="paint13_linear_665_875"
@@ -2249,8 +2289,8 @@ export function AwesomeMenu(props: AwesomeMenuProps) {
           y2="1459.54"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset="0.09" stopColor="#79B5D4" />
-          <stop offset="0.78" stopColor="#4E911E" />
+          <stop offset="0.0" stopColor={colors.lightBlue} />
+          <stop offset="0.28" stopColor={colors.emerald} />
         </linearGradient>
         <clipPath id="clip0_665_875">
           <rect

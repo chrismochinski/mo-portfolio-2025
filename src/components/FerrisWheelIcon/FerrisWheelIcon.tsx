@@ -1,27 +1,28 @@
-import { useFerrisWheelThickStyles } from ".";
-import { useGlobalStyles } from "../../Global";
+import { useFerrisWheelIconStyles } from '.';
+import { useGlobalStyles } from '../../Global';
 
-export interface FerrisWheelThickProps {
+export interface FerrisWheelIconProps {
   isNavigationVisible: boolean;
+  showFerrisWheelIcon: boolean;
 }
 
-export function FerrisWheelThick(props: FerrisWheelThickProps) {
-  const { isNavigationVisible } = props;
-  const { classes, cx } = useFerrisWheelThickStyles();
+export function FerrisWheelIcon(props: FerrisWheelIconProps) {
+  const { isNavigationVisible, showFerrisWheelIcon } = props;
+  const { classes, cx } = useFerrisWheelIconStyles();
   const { classes: globalClasses } = useGlobalStyles();
 
   console.log('isNavigationVisible:', isNavigationVisible);
 
   return (
     <svg
-      className={classes.ferrisWheelThickSvg}
+      className={cx(classes.ferrisWheelIconSvg, !showFerrisWheelIcon && classes.blurOut)}
       width="6200"
       height="6200"
       viewBox="0 0 6200 6200"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
-      <g id="ferris-wheel-thick">
+      <g id="ferris-wheel-icon">
         <g id="base-back" className={classes.baseBack}>
           <path
             id="legs"
@@ -30,10 +31,7 @@ export function FerrisWheelThick(props: FerrisWheelThickProps) {
           />
         </g>
         <g id="cars" className={cx(globalClasses.slowSpin, classes.carsGroup)}>
-          <g
-            id="car-9"
-            className={cx(globalClasses.slowSpinReverse, classes.car)}
-          >
+          <g id="car-9" className={cx(globalClasses.slowSpinReverse, classes.car)}>
             <g id="Vector">
               <mask
                 id="path-2-outside-1_653_988"
@@ -44,13 +42,7 @@ export function FerrisWheelThick(props: FerrisWheelThickProps) {
                 height="113"
                 fill="#191716"
               >
-                <rect
-                  fill="#F9F9F9"
-                  x="1330.94"
-                  y="1017.91"
-                  width="296"
-                  height="113"
-                />
+                <rect fill="#F9F9F9" x="1330.94" y="1017.91" width="296" height="113" />
                 <path d="M1473.77 1021.91L1361.12 1021.91C1346.64 1021.91 1334.94 1033.79 1334.94 1048.48L1334.94 1124.41C1336.87 1124.1 1338.85 1123.92 1340.83 1123.92L1345.15 1123.92L1345.15 1082.56L1473.77 1082.56L1473.77 1123.92L1484.02 1123.92L1484.02 1082.56L1612.65 1082.56L1612.65 1123.97C1616.17 1123.97 1619.56 1124.37 1622.9 1125.04L1622.9 1048.48C1622.9 1033.79 1611.2 1021.91 1596.72 1021.91L1473.81 1021.91L1473.77 1021.91ZM1473.77 1072.16L1345.15 1072.16L1345.15 1048.48C1345.15 1039.55 1352.28 1032.31 1361.08 1032.31L1473.73 1032.31L1473.73 1072.16L1473.77 1072.16ZM1596.67 1032.31C1605.48 1032.31 1612.6 1039.55 1612.6 1048.48L1612.6 1072.16L1483.98 1072.16L1483.98 1032.31L1596.67 1032.31Z" />
               </mask>
               <path
@@ -79,13 +71,7 @@ export function FerrisWheelThick(props: FerrisWheelThickProps) {
                 height="113"
                 fill="#191716"
               >
-                <rect
-                  fill="#F9F9F9"
-                  x="1847.02"
-                  y="1017.91"
-                  width="296"
-                  height="113"
-                />
+                <rect fill="#F9F9F9" x="1847.02" y="1017.91" width="296" height="113" />
                 <path d="M1989.85 1021.91L1877.2 1021.91C1862.72 1021.91 1851.02 1033.79 1851.02 1048.48L1851.02 1125.04C1854.32 1124.37 1857.75 1124.01 1861.27 1123.97L1861.27 1082.56L1989.89 1082.56L1989.89 1123.92L2000.15 1123.92L2000.15 1082.56L2128.77 1082.56L2128.77 1123.92L2133.08 1123.92C2135.11 1123.92 2137.09 1124.1 2138.98 1124.41L2138.98 1048.48C2138.98 1033.79 2127.27 1021.91 2112.8 1021.91L1989.89 1021.91L1989.85 1021.91ZM1989.85 1072.16L1861.22 1072.16L1861.22 1048.48C1861.22 1039.55 1868.35 1032.31 1877.15 1032.31L1989.8 1032.31L1989.8 1072.16L1989.85 1072.16ZM2112.75 1032.31C2121.55 1032.31 2128.68 1039.55 2128.68 1048.48L2128.68 1072.16L2000.06 1072.16L2000.06 1032.31L2112.75 1032.31Z" />
               </mask>
               <path
@@ -114,19 +100,9 @@ export function FerrisWheelThick(props: FerrisWheelThickProps) {
               d="M1761 618L1714 618L1714 1260L1761 1260L1761 618Z"
               fill="#191716"
             />
-            <rect
-              id="pivot-point"
-              x="1627"
-              y="547"
-              width="12"
-              height="12"
-              fill="#191716"
-            />
+            <rect id="pivot-point" x="1627" y="547" width="12" height="12" fill="#191716" />
           </g>
-          <g
-            id="car-8"
-            className={cx(globalClasses.slowSpinReverse, classes.car)}
-          >
+          <g id="car-8" className={cx(globalClasses.slowSpinReverse, classes.car)}>
             <g id="rail-left">
               <mask
                 id="path-8-outside-3_653_988"
@@ -137,13 +113,7 @@ export function FerrisWheelThick(props: FerrisWheelThickProps) {
                 height="113"
                 fill="#191716"
               >
-                <rect
-                  fill="#F9F9F9"
-                  x="335.937"
-                  y="2278.91"
-                  width="296"
-                  height="113"
-                />
+                <rect fill="#F9F9F9" x="335.937" y="2278.91" width="296" height="113" />
                 <path d="M478.771 2282.91L366.12 2282.91C351.643 2282.91 339.937 2294.79 339.937 2309.48L339.937 2385.41C341.874 2385.1 343.854 2384.92 345.834 2384.92L350.147 2384.92L350.147 2343.56L478.771 2343.56L478.771 2384.92L489.024 2384.92L489.024 2343.56L617.648 2343.56L617.648 2384.97C621.169 2384.97 624.557 2385.37 627.901 2386.04L627.901 2309.48C627.901 2294.79 616.196 2282.91 601.719 2282.91L478.815 2282.91L478.771 2282.91ZM478.771 2333.16L350.147 2333.16L350.147 2309.48C350.147 2300.55 357.275 2293.31 366.076 2293.31L478.727 2293.31L478.727 2333.16L478.771 2333.16ZM601.675 2293.31C610.475 2293.31 617.604 2300.55 617.604 2309.48L617.604 2333.16L488.98 2333.16L488.98 2293.31L601.675 2293.31Z" />
               </mask>
               <path
@@ -172,13 +142,7 @@ export function FerrisWheelThick(props: FerrisWheelThickProps) {
                 height="113"
                 fill="#191716"
               >
-                <rect
-                  fill="#F9F9F9"
-                  x="852.016"
-                  y="2278.91"
-                  width="296"
-                  height="113"
-                />
+                <rect fill="#F9F9F9" x="852.016" y="2278.91" width="296" height="113" />
                 <path d="M994.849 2282.91L882.198 2282.91C867.721 2282.91 856.016 2294.79 856.016 2309.48L856.016 2386.04C859.316 2385.37 862.748 2385.01 866.268 2384.97L866.268 2343.56L994.893 2343.56L994.893 2384.92L1005.15 2384.92L1005.15 2343.56L1133.77 2343.56L1133.77 2384.92L1138.08 2384.92C1140.11 2384.92 1142.09 2385.1 1143.98 2385.41L1143.98 2309.48C1143.98 2294.79 1132.27 2282.91 1117.8 2282.91L994.893 2282.91L994.849 2282.91ZM994.849 2333.16L866.224 2333.16L866.224 2309.48C866.224 2300.55 873.353 2293.31 882.154 2293.31L994.805 2293.31L994.805 2333.16L994.849 2333.16ZM1117.75 2293.31C1126.55 2293.31 1133.68 2300.55 1133.68 2309.48L1133.68 2333.16L1005.06 2333.16L1005.06 2293.31L1117.75 2293.31Z" />
               </mask>
               <path
@@ -207,19 +171,9 @@ export function FerrisWheelThick(props: FerrisWheelThickProps) {
               d="M766 1879L719 1879L719 2521L766 2521L766 1879Z"
               fill="#191716"
             />
-            <rect
-              id="pivot-point_2"
-              x="632"
-              y="1808"
-              width="12"
-              height="12"
-              fill="#191716"
-            />
+            <rect id="pivot-point_2" x="632" y="1808" width="12" height="12" fill="#191716" />
           </g>
-          <g
-            id="car-7"
-            className={cx(globalClasses.slowSpinReverse, classes.car)}
-          >
+          <g id="car-7" className={cx(globalClasses.slowSpinReverse, classes.car)}>
             <g id="rail-left_2">
               <mask
                 id="path-14-outside-5_653_988"
@@ -230,13 +184,7 @@ export function FerrisWheelThick(props: FerrisWheelThickProps) {
                 height="113"
                 fill="#191716"
               >
-                <rect
-                  fill="#F9F9F9"
-                  x="321.937"
-                  y="3757.91"
-                  width="296"
-                  height="113"
-                />
+                <rect fill="#F9F9F9" x="321.937" y="3757.91" width="296" height="113" />
                 <path d="M464.771 3761.91L352.12 3761.91C337.643 3761.91 325.937 3773.79 325.937 3788.48L325.937 3864.41C327.874 3864.1 329.854 3863.92 331.834 3863.92L336.147 3863.92L336.147 3822.56L464.771 3822.56L464.771 3863.92L475.024 3863.92L475.024 3822.56L603.648 3822.56L603.648 3863.97C607.169 3863.97 610.557 3864.37 613.901 3865.04L613.901 3788.48C613.901 3773.79 602.196 3761.91 587.719 3761.91L464.815 3761.91L464.771 3761.91ZM464.771 3812.16L336.147 3812.16L336.147 3788.48C336.147 3779.55 343.275 3772.31 352.076 3772.31L464.727 3772.31L464.727 3812.16L464.771 3812.16ZM587.675 3772.31C596.475 3772.31 603.604 3779.55 603.604 3788.48L603.604 3812.16L474.98 3812.16L474.98 3772.31L587.675 3772.31Z" />
               </mask>
               <path
@@ -265,13 +213,7 @@ export function FerrisWheelThick(props: FerrisWheelThickProps) {
                 height="113"
                 fill="#191716"
               >
-                <rect
-                  fill="#F9F9F9"
-                  x="838.016"
-                  y="3757.91"
-                  width="296"
-                  height="113"
-                />
+                <rect fill="#F9F9F9" x="838.016" y="3757.91" width="296" height="113" />
                 <path d="M980.849 3761.91L868.198 3761.91C853.721 3761.91 842.016 3773.79 842.016 3788.48L842.016 3865.04C845.316 3864.37 848.748 3864.01 852.268 3863.97L852.268 3822.56L980.893 3822.56L980.893 3863.92L991.146 3863.92L991.146 3822.56L1119.77 3822.56L1119.77 3863.92L1124.08 3863.92C1126.11 3863.92 1128.09 3864.1 1129.98 3864.41L1129.98 3788.48C1129.98 3773.79 1118.27 3761.91 1103.8 3761.91L980.893 3761.91L980.849 3761.91ZM980.849 3812.16L852.224 3812.16L852.224 3788.48C852.224 3779.55 859.353 3772.31 868.154 3772.31L980.805 3772.31L980.805 3812.16L980.849 3812.16ZM1103.75 3772.31C1112.55 3772.31 1119.68 3779.55 1119.68 3788.48L1119.68 3812.16L991.058 3812.16L991.058 3772.31L1103.75 3772.31Z" />
               </mask>
               <path
@@ -300,19 +242,9 @@ export function FerrisWheelThick(props: FerrisWheelThickProps) {
               d="M752 3358L705 3358L705 4000L752 4000L752 3358Z"
               fill="#191716"
             />
-            <rect
-              id="pivot-point_3"
-              x="618"
-              y="3287"
-              width="12"
-              height="12"
-              fill="#191716"
-            />
+            <rect id="pivot-point_3" x="618" y="3287" width="12" height="12" fill="#191716" />
           </g>
-          <g
-            id="car-6"
-            className={cx(globalClasses.slowSpinReverse, classes.car)}
-          >
+          <g id="car-6" className={cx(globalClasses.slowSpinReverse, classes.car)}>
             <g id="rail-left_3">
               <mask
                 id="path-20-outside-7_653_988"
@@ -323,13 +255,7 @@ export function FerrisWheelThick(props: FerrisWheelThickProps) {
                 height="113"
                 fill="#191716"
               >
-                <rect
-                  fill="#F9F9F9"
-                  x="1224.94"
-                  y="5066.91"
-                  width="296"
-                  height="113"
-                />
+                <rect fill="#F9F9F9" x="1224.94" y="5066.91" width="296" height="113" />
                 <path d="M1367.77 5070.91L1255.12 5070.91C1240.64 5070.91 1228.94 5082.79 1228.94 5097.48L1228.94 5173.41C1230.87 5173.1 1232.85 5172.92 1234.83 5172.92L1239.15 5172.92L1239.15 5131.56L1367.77 5131.56L1367.77 5172.92L1378.02 5172.92L1378.02 5131.56L1506.65 5131.56L1506.65 5172.97C1510.17 5172.97 1513.56 5173.37 1516.9 5174.04L1516.9 5097.48C1516.9 5082.79 1505.2 5070.91 1490.72 5070.91L1367.81 5070.91L1367.77 5070.91ZM1367.77 5121.16L1239.15 5121.16L1239.15 5097.48C1239.15 5088.55 1246.28 5081.31 1255.08 5081.31L1367.73 5081.31L1367.73 5121.16L1367.77 5121.16ZM1490.67 5081.31C1499.48 5081.31 1506.6 5088.55 1506.6 5097.48L1506.6 5121.16L1377.98 5121.16L1377.98 5081.31L1490.67 5081.31Z" />
               </mask>
               <path
@@ -358,13 +284,7 @@ export function FerrisWheelThick(props: FerrisWheelThickProps) {
                 height="113"
                 fill="#191716"
               >
-                <rect
-                  fill="#F9F9F9"
-                  x="1741.02"
-                  y="5066.91"
-                  width="296"
-                  height="113"
-                />
+                <rect fill="#F9F9F9" x="1741.02" y="5066.91" width="296" height="113" />
                 <path d="M1883.85 5070.91L1771.2 5070.91C1756.72 5070.91 1745.02 5082.79 1745.02 5097.48L1745.02 5174.04C1748.32 5173.37 1751.75 5173.01 1755.27 5172.97L1755.27 5131.56L1883.89 5131.56L1883.89 5172.92L1894.15 5172.92L1894.15 5131.56L2022.77 5131.56L2022.77 5172.92L2027.08 5172.92C2029.11 5172.92 2031.09 5173.1 2032.98 5173.41L2032.98 5097.48C2032.98 5082.79 2021.27 5070.91 2006.8 5070.91L1883.89 5070.91L1883.85 5070.91ZM1883.85 5121.16L1755.22 5121.16L1755.22 5097.48C1755.22 5088.55 1762.35 5081.31 1771.15 5081.31L1883.8 5081.31L1883.8 5121.16L1883.85 5121.16ZM2006.75 5081.31C2015.55 5081.31 2022.68 5088.55 2022.68 5097.48L2022.68 5121.16L1894.06 5121.16L1894.06 5081.31L2006.75 5081.31Z" />
               </mask>
               <path
@@ -393,19 +313,9 @@ export function FerrisWheelThick(props: FerrisWheelThickProps) {
               d="M1655 4667L1608 4667L1608 5309L1655 5309L1655 4667Z"
               fill="#191716"
             />
-            <rect
-              id="pivot-point_4"
-              x="1521"
-              y="4596"
-              width="12"
-              height="12"
-              fill="#191716"
-            />
+            <rect id="pivot-point_4" x="1521" y="4596" width="12" height="12" fill="#191716" />
           </g>
-          <g
-            id="car-5"
-            className={cx(globalClasses.slowSpinReverse, classes.car)}
-          >
+          <g id="car-5" className={cx(globalClasses.slowSpinReverse, classes.car)}>
             <g id="rail-left_4">
               <mask
                 id="path-26-outside-9_653_988"
@@ -416,13 +326,7 @@ export function FerrisWheelThick(props: FerrisWheelThickProps) {
                 height="113"
                 fill="#191716"
               >
-                <rect
-                  fill="#F9F9F9"
-                  x="2674.94"
-                  y="5551.91"
-                  width="296"
-                  height="113"
-                />
+                <rect fill="#F9F9F9" x="2674.94" y="5551.91" width="296" height="113" />
                 <path d="M2817.77 5555.91L2705.12 5555.91C2690.64 5555.91 2678.94 5567.79 2678.94 5582.48L2678.94 5658.41C2680.87 5658.1 2682.85 5657.92 2684.83 5657.92L2689.15 5657.92L2689.15 5616.56L2817.77 5616.56L2817.77 5657.92L2828.02 5657.92L2828.02 5616.56L2956.65 5616.56L2956.65 5657.97C2960.17 5657.97 2963.56 5658.37 2966.9 5659.04L2966.9 5582.48C2966.9 5567.79 2955.2 5555.91 2940.72 5555.91L2817.81 5555.91L2817.77 5555.91ZM2817.77 5606.16L2689.15 5606.16L2689.15 5582.48C2689.15 5573.55 2696.28 5566.31 2705.08 5566.31L2817.73 5566.31L2817.73 5606.16L2817.77 5606.16ZM2940.67 5566.31C2949.48 5566.31 2956.6 5573.55 2956.6 5582.48L2956.6 5606.16L2827.98 5606.16L2827.98 5566.31L2940.67 5566.31Z" />
               </mask>
               <path
@@ -451,13 +355,7 @@ export function FerrisWheelThick(props: FerrisWheelThickProps) {
                 height="113"
                 fill="#191716"
               >
-                <rect
-                  fill="#F9F9F9"
-                  x="3191.02"
-                  y="5551.91"
-                  width="296"
-                  height="113"
-                />
+                <rect fill="#F9F9F9" x="3191.02" y="5551.91" width="296" height="113" />
                 <path d="M3333.85 5555.91L3221.2 5555.91C3206.72 5555.91 3195.02 5567.79 3195.02 5582.48L3195.02 5659.04C3198.32 5658.37 3201.75 5658.01 3205.27 5657.97L3205.27 5616.56L3333.89 5616.56L3333.89 5657.92L3344.15 5657.92L3344.15 5616.56L3472.77 5616.56L3472.77 5657.92L3477.08 5657.92C3479.11 5657.92 3481.09 5658.1 3482.98 5658.41L3482.98 5582.48C3482.98 5567.79 3471.27 5555.91 3456.8 5555.91L3333.89 5555.91L3333.85 5555.91ZM3333.85 5606.16L3205.22 5606.16L3205.22 5582.48C3205.22 5573.55 3212.35 5566.31 3221.15 5566.31L3333.8 5566.31L3333.8 5606.16L3333.85 5606.16ZM3456.75 5566.31C3465.55 5566.31 3472.68 5573.55 3472.68 5582.48L3472.68 5606.16L3344.06 5606.16L3344.06 5566.31L3456.75 5566.31Z" />
               </mask>
               <path
@@ -486,19 +384,9 @@ export function FerrisWheelThick(props: FerrisWheelThickProps) {
               d="M3105 5152L3058 5152L3058 5794L3105 5794L3105 5152Z"
               fill="#191716"
             />
-            <rect
-              id="pivot-point_5"
-              x="2971"
-              y="5081"
-              width="12"
-              height="12"
-              fill="#191716"
-            />
+            <rect id="pivot-point_5" x="2971" y="5081" width="12" height="12" fill="#191716" />
           </g>
-          <g
-            id="car-4"
-            className={cx(globalClasses.slowSpinReverse, classes.car)}
-          >
+          <g id="car-4" className={cx(globalClasses.slowSpinReverse, classes.car)}>
             <g id="rail-left_5">
               <mask
                 id="path-32-outside-11_653_988"
@@ -509,13 +397,7 @@ export function FerrisWheelThick(props: FerrisWheelThickProps) {
                 height="113"
                 fill="#191716"
               >
-                <rect
-                  fill="#F9F9F9"
-                  x="4074.94"
-                  y="5103.91"
-                  width="296"
-                  height="113"
-                />
+                <rect fill="#F9F9F9" x="4074.94" y="5103.91" width="296" height="113" />
                 <path d="M4217.77 5107.91L4105.12 5107.91C4090.64 5107.91 4078.94 5119.79 4078.94 5134.48L4078.94 5210.41C4080.87 5210.1 4082.85 5209.92 4084.83 5209.92L4089.15 5209.92L4089.15 5168.56L4217.77 5168.56L4217.77 5209.92L4228.02 5209.92L4228.02 5168.56L4356.65 5168.56L4356.65 5209.97C4360.17 5209.97 4363.56 5210.37 4366.9 5211.04L4366.9 5134.48C4366.9 5119.79 4355.2 5107.91 4340.72 5107.91L4217.81 5107.91L4217.77 5107.91ZM4217.77 5158.16L4089.15 5158.16L4089.15 5134.48C4089.15 5125.55 4096.28 5118.31 4105.08 5118.31L4217.73 5118.31L4217.73 5158.16L4217.77 5158.16ZM4340.67 5118.31C4349.48 5118.31 4356.6 5125.55 4356.6 5134.48L4356.6 5158.16L4227.98 5158.16L4227.98 5118.31L4340.67 5118.31Z" />
               </mask>
               <path
@@ -544,13 +426,7 @@ export function FerrisWheelThick(props: FerrisWheelThickProps) {
                 height="113"
                 fill="#191716"
               >
-                <rect
-                  fill="#F9F9F9"
-                  x="4591.02"
-                  y="5103.91"
-                  width="296"
-                  height="113"
-                />
+                <rect fill="#F9F9F9" x="4591.02" y="5103.91" width="296" height="113" />
                 <path d="M4733.85 5107.91L4621.2 5107.91C4606.72 5107.91 4595.02 5119.79 4595.02 5134.48L4595.02 5211.04C4598.32 5210.37 4601.75 5210.01 4605.27 5209.97L4605.27 5168.56L4733.89 5168.56L4733.89 5209.92L4744.15 5209.92L4744.15 5168.56L4872.77 5168.56L4872.77 5209.92L4877.08 5209.92C4879.11 5209.92 4881.09 5210.1 4882.98 5210.41L4882.98 5134.48C4882.98 5119.79 4871.27 5107.91 4856.8 5107.91L4733.89 5107.91L4733.85 5107.91ZM4733.85 5158.16L4605.22 5158.16L4605.22 5134.48C4605.22 5125.55 4612.35 5118.31 4621.15 5118.31L4733.8 5118.31L4733.8 5158.16L4733.85 5158.16ZM4856.75 5118.31C4865.55 5118.31 4872.68 5125.55 4872.68 5134.48L4872.68 5158.16L4744.06 5158.16L4744.06 5118.31L4856.75 5118.31Z" />
               </mask>
               <path
@@ -579,19 +455,9 @@ export function FerrisWheelThick(props: FerrisWheelThickProps) {
               d="M4505 4704L4458 4704L4458 5346L4505 5346L4505 4704Z"
               fill="#191716"
             />
-            <rect
-              id="pivot-point_6"
-              x="4371"
-              y="4633"
-              width="12"
-              height="12"
-              fill="#191716"
-            />
+            <rect id="pivot-point_6" x="4371" y="4633" width="12" height="12" fill="#191716" />
           </g>
-          <g
-            id="car-3"
-            className={cx(globalClasses.slowSpinReverse, classes.car)}
-          >
+          <g id="car-3" className={cx(globalClasses.slowSpinReverse, classes.car)}>
             <g id="rail-left_6">
               <mask
                 id="path-38-outside-13_653_988"
@@ -602,13 +468,7 @@ export function FerrisWheelThick(props: FerrisWheelThickProps) {
                 height="113"
                 fill="#191716"
               >
-                <rect
-                  fill="#F9F9F9"
-                  x="5032.94"
-                  y="3836.91"
-                  width="296"
-                  height="113"
-                />
+                <rect fill="#F9F9F9" x="5032.94" y="3836.91" width="296" height="113" />
                 <path d="M5175.77 3840.91L5063.12 3840.91C5048.64 3840.91 5036.94 3852.79 5036.94 3867.48L5036.94 3943.41C5038.87 3943.1 5040.85 3942.92 5042.83 3942.92L5047.15 3942.92L5047.15 3901.56L5175.77 3901.56L5175.77 3942.92L5186.02 3942.92L5186.02 3901.56L5314.65 3901.56L5314.65 3942.97C5318.17 3942.97 5321.56 3943.37 5324.9 3944.04L5324.9 3867.48C5324.9 3852.79 5313.2 3840.91 5298.72 3840.91L5175.81 3840.91L5175.77 3840.91ZM5175.77 3891.16L5047.15 3891.16L5047.15 3867.48C5047.15 3858.55 5054.28 3851.31 5063.08 3851.31L5175.73 3851.31L5175.73 3891.16L5175.77 3891.16ZM5298.67 3851.31C5307.48 3851.31 5314.6 3858.55 5314.6 3867.48L5314.6 3891.16L5185.98 3891.16L5185.98 3851.31L5298.67 3851.31Z" />
               </mask>
               <path
@@ -637,13 +497,7 @@ export function FerrisWheelThick(props: FerrisWheelThickProps) {
                 height="113"
                 fill="#191716"
               >
-                <rect
-                  fill="#F9F9F9"
-                  x="5549.02"
-                  y="3836.91"
-                  width="296"
-                  height="113"
-                />
+                <rect fill="#F9F9F9" x="5549.02" y="3836.91" width="296" height="113" />
                 <path d="M5691.85 3840.91L5579.2 3840.91C5564.72 3840.91 5553.02 3852.79 5553.02 3867.48L5553.02 3944.04C5556.32 3943.37 5559.75 3943.01 5563.27 3942.97L5563.27 3901.56L5691.89 3901.56L5691.89 3942.92L5702.15 3942.92L5702.15 3901.56L5830.77 3901.56L5830.77 3942.92L5835.08 3942.92C5837.11 3942.92 5839.09 3943.1 5840.98 3943.41L5840.98 3867.48C5840.98 3852.79 5829.27 3840.91 5814.8 3840.91L5691.89 3840.91L5691.85 3840.91ZM5691.85 3891.16L5563.22 3891.16L5563.22 3867.48C5563.22 3858.55 5570.35 3851.31 5579.15 3851.31L5691.8 3851.31L5691.8 3891.16L5691.85 3891.16ZM5814.75 3851.31C5823.55 3851.31 5830.68 3858.55 5830.68 3867.48L5830.68 3891.16L5702.06 3891.16L5702.06 3851.31L5814.75 3851.31Z" />
               </mask>
               <path
@@ -672,19 +526,9 @@ export function FerrisWheelThick(props: FerrisWheelThickProps) {
               d="M5463 3437L5416 3437L5416 4079L5463 4079L5463 3437Z"
               fill="#191716"
             />
-            <rect
-              id="pivot-point_7"
-              x="5329"
-              y="3366"
-              width="12"
-              height="12"
-              fill="#191716"
-            />
+            <rect id="pivot-point_7" x="5329" y="3366" width="12" height="12" fill="#191716" />
           </g>
-          <g
-            id="car-2"
-            className={cx(globalClasses.slowSpinReverse, classes.car)}
-          >
+          <g id="car-2" className={cx(globalClasses.slowSpinReverse, classes.car)}>
             <g id="rail-left_7">
               <mask
                 id="path-44-outside-15_653_988"
@@ -695,13 +539,7 @@ export function FerrisWheelThick(props: FerrisWheelThickProps) {
                 height="113"
                 fill="#191716"
               >
-                <rect
-                  fill="#F9F9F9"
-                  x="5056.94"
-                  y="2291.91"
-                  width="296"
-                  height="113"
-                />
+                <rect fill="#F9F9F9" x="5056.94" y="2291.91" width="296" height="113" />
                 <path d="M5199.77 2295.91L5087.12 2295.91C5072.64 2295.91 5060.94 2307.79 5060.94 2322.48L5060.94 2398.41C5062.87 2398.1 5064.85 2397.92 5066.83 2397.92L5071.15 2397.92L5071.15 2356.56L5199.77 2356.56L5199.77 2397.92L5210.02 2397.92L5210.02 2356.56L5338.65 2356.56L5338.65 2397.97C5342.17 2397.97 5345.56 2398.37 5348.9 2399.04L5348.9 2322.48C5348.9 2307.79 5337.2 2295.91 5322.72 2295.91L5199.81 2295.91L5199.77 2295.91ZM5199.77 2346.16L5071.15 2346.16L5071.15 2322.48C5071.15 2313.55 5078.28 2306.31 5087.08 2306.31L5199.73 2306.31L5199.73 2346.16L5199.77 2346.16ZM5322.67 2306.31C5331.48 2306.31 5338.6 2313.55 5338.6 2322.48L5338.6 2346.16L5209.98 2346.16L5209.98 2306.31L5322.67 2306.31Z" />
               </mask>
               <path
@@ -730,13 +568,7 @@ export function FerrisWheelThick(props: FerrisWheelThickProps) {
                 height="113"
                 fill="#191716"
               >
-                <rect
-                  fill="#F9F9F9"
-                  x="5573.02"
-                  y="2291.91"
-                  width="296"
-                  height="113"
-                />
+                <rect fill="#F9F9F9" x="5573.02" y="2291.91" width="296" height="113" />
                 <path d="M5715.85 2295.91L5603.2 2295.91C5588.72 2295.91 5577.02 2307.79 5577.02 2322.48L5577.02 2399.04C5580.32 2398.37 5583.75 2398.01 5587.27 2397.97L5587.27 2356.56L5715.89 2356.56L5715.89 2397.92L5726.15 2397.92L5726.15 2356.56L5854.77 2356.56L5854.77 2397.92L5859.08 2397.92C5861.11 2397.92 5863.09 2398.1 5864.98 2398.41L5864.98 2322.48C5864.98 2307.79 5853.27 2295.91 5838.8 2295.91L5715.89 2295.91L5715.85 2295.91ZM5715.85 2346.16L5587.22 2346.16L5587.22 2322.48C5587.22 2313.55 5594.35 2306.31 5603.15 2306.31L5715.8 2306.31L5715.8 2346.16L5715.85 2346.16ZM5838.75 2306.31C5847.55 2306.31 5854.68 2313.55 5854.68 2322.48L5854.68 2346.16L5726.06 2346.16L5726.06 2306.31L5838.75 2306.31Z" />
               </mask>
               <path
@@ -765,19 +597,9 @@ export function FerrisWheelThick(props: FerrisWheelThickProps) {
               d="M5487 1892L5440 1892L5440 2534L5487 2534L5487 1892Z"
               fill="#191716"
             />
-            <rect
-              id="pivot-point_8"
-              x="5353"
-              y="1821"
-              width="12"
-              height="12"
-              fill="#191716"
-            />
+            <rect id="pivot-point_8" x="5353" y="1821" width="12" height="12" fill="#191716" />
           </g>
-          <g
-            id="car-1"
-            className={cx(globalClasses.slowSpinReverse, classes.car)}
-          >
+          <g id="car-1" className={cx(globalClasses.slowSpinReverse, classes.car)}>
             <g id="rail-left_8">
               <mask
                 id="path-50-outside-17_653_988"
@@ -788,13 +610,7 @@ export function FerrisWheelThick(props: FerrisWheelThickProps) {
                 height="113"
                 fill="#191716"
               >
-                <rect
-                  fill="#F9F9F9"
-                  x="4115.94"
-                  y="1031.91"
-                  width="296"
-                  height="113"
-                />
+                <rect fill="#F9F9F9" x="4115.94" y="1031.91" width="296" height="113" />
                 <path d="M4258.77 1035.91L4146.12 1035.91C4131.64 1035.91 4119.94 1047.79 4119.94 1062.48L4119.94 1138.41C4121.87 1138.1 4123.85 1137.92 4125.83 1137.92L4130.15 1137.92L4130.15 1096.56L4258.77 1096.56L4258.77 1137.92L4269.02 1137.92L4269.02 1096.56L4397.65 1096.56L4397.65 1137.97C4401.17 1137.97 4404.56 1138.37 4407.9 1139.04L4407.9 1062.48C4407.9 1047.79 4396.2 1035.91 4381.72 1035.91L4258.81 1035.91L4258.77 1035.91ZM4258.77 1086.16L4130.15 1086.16L4130.15 1062.48C4130.15 1053.55 4137.28 1046.31 4146.08 1046.31L4258.73 1046.31L4258.73 1086.16L4258.77 1086.16ZM4381.67 1046.31C4390.48 1046.31 4397.6 1053.55 4397.6 1062.48L4397.6 1086.16L4268.98 1086.16L4268.98 1046.31L4381.67 1046.31Z" />
               </mask>
               <path
@@ -823,13 +639,7 @@ export function FerrisWheelThick(props: FerrisWheelThickProps) {
                 height="113"
                 fill="#191716"
               >
-                <rect
-                  fill="#F9F9F9"
-                  x="4632.02"
-                  y="1031.91"
-                  width="296"
-                  height="113"
-                />
+                <rect fill="#F9F9F9" x="4632.02" y="1031.91" width="296" height="113" />
                 <path d="M4774.85 1035.91L4662.2 1035.91C4647.72 1035.91 4636.02 1047.79 4636.02 1062.48L4636.02 1139.04C4639.32 1138.37 4642.75 1138.01 4646.27 1137.97L4646.27 1096.56L4774.89 1096.56L4774.89 1137.92L4785.15 1137.92L4785.15 1096.56L4913.77 1096.56L4913.77 1137.92L4918.08 1137.92C4920.11 1137.92 4922.09 1138.1 4923.98 1138.41L4923.98 1062.48C4923.98 1047.79 4912.27 1035.91 4897.8 1035.91L4774.89 1035.91L4774.85 1035.91ZM4774.85 1086.16L4646.22 1086.16L4646.22 1062.48C4646.22 1053.55 4653.35 1046.31 4662.15 1046.31L4774.8 1046.31L4774.8 1086.16L4774.85 1086.16ZM4897.75 1046.31C4906.55 1046.31 4913.68 1053.55 4913.68 1062.48L4913.68 1086.16L4785.06 1086.16L4785.06 1046.31L4897.75 1046.31Z" />
               </mask>
               <path
@@ -858,19 +668,9 @@ export function FerrisWheelThick(props: FerrisWheelThickProps) {
               d="M4546 632L4499 632L4499 1274L4546 1274L4546 632Z"
               fill="#191716"
             />
-            <rect
-              id="pivot-point_9"
-              x="4412"
-              y="561"
-              width="12"
-              height="12"
-              fill="#191716"
-            />
+            <rect id="pivot-point_9" x="4412" y="561" width="12" height="12" fill="#191716" />
           </g>
-          <g
-            id="car-0"
-            className={cx(globalClasses.slowSpinReverse, classes.car)}
-          >
+          <g id="car-0" className={cx(globalClasses.slowSpinReverse, classes.car)}>
             <g id="rail-left_9">
               <mask
                 id="path-56-outside-19_653_988"
@@ -881,13 +681,7 @@ export function FerrisWheelThick(props: FerrisWheelThickProps) {
                 height="113"
                 fill="#191716"
               >
-                <rect
-                  fill="#F9F9F9"
-                  x="2674.94"
-                  y="580.906"
-                  width="296"
-                  height="113"
-                />
+                <rect fill="#F9F9F9" x="2674.94" y="580.906" width="296" height="113" />
                 <path d="M2817.77 584.906L2705.12 584.906C2690.64 584.906 2678.94 596.788 2678.94 611.483L2678.94 687.414C2680.87 687.102 2682.85 686.923 2684.83 686.923L2689.15 686.923L2689.15 645.563L2817.77 645.563L2817.77 686.923L2828.02 686.923L2828.02 645.563L2956.65 645.563L2956.65 686.968C2960.17 686.968 2963.56 687.37 2966.9 688.04L2966.9 611.483C2966.9 596.788 2955.2 584.906 2940.72 584.906L2817.81 584.906L2817.77 584.906ZM2817.77 635.155L2689.15 635.155L2689.15 611.483C2689.15 602.55 2696.28 595.314 2705.08 595.314L2817.73 595.314L2817.73 635.155L2817.77 635.155ZM2940.67 595.314C2949.48 595.314 2956.6 602.55 2956.6 611.483L2956.6 635.155L2827.98 635.155L2827.98 595.314L2940.67 595.314Z" />
               </mask>
               <path
@@ -916,13 +710,7 @@ export function FerrisWheelThick(props: FerrisWheelThickProps) {
                 height="113"
                 fill="#191716"
               >
-                <rect
-                  fill="#F9F9F9"
-                  x="3191.02"
-                  y="580.906"
-                  width="296"
-                  height="113"
-                />
+                <rect fill="#F9F9F9" x="3191.02" y="580.906" width="296" height="113" />
                 <path d="M3333.85 584.906L3221.2 584.906C3206.72 584.906 3195.02 596.788 3195.02 611.483L3195.02 688.04C3198.32 687.37 3201.75 687.012 3205.27 686.968L3205.27 645.563L3333.89 645.563L3333.89 686.923L3344.15 686.923L3344.15 645.563L3472.77 645.563L3472.77 686.923L3477.08 686.923C3479.11 686.923 3481.09 687.102 3482.98 687.414L3482.98 611.483C3482.98 596.788 3471.27 584.906 3456.8 584.906L3333.89 584.906L3333.85 584.906ZM3333.85 635.155L3205.22 635.155L3205.22 611.483C3205.22 602.55 3212.35 595.314 3221.15 595.314L3333.8 595.314L3333.8 635.155L3333.85 635.155ZM3456.75 595.314C3465.55 595.314 3472.68 602.55 3472.68 611.483L3472.68 635.155L3344.06 635.155L3344.06 595.314L3456.75 595.314Z" />
               </mask>
               <path
@@ -951,14 +739,7 @@ export function FerrisWheelThick(props: FerrisWheelThickProps) {
               d="M3105 181L3058 181L3058 823L3105 823L3105 181Z"
               fill="#191716"
             />
-            <rect
-              id="pivot-point_10"
-              x="2971"
-              y="110"
-              width="12"
-              height="12"
-              fill="#191716"
-            />
+            <rect id="pivot-point_10" x="2971" y="110" width="12" height="12" fill="#191716" />
           </g>
         </g>
         <g id="bars" className={cx(globalClasses.slowSpin, classes.barsGroup)}>
@@ -991,13 +772,7 @@ export function FerrisWheelThick(props: FerrisWheelThickProps) {
         <g id="wheels">
           <g id="outer-wheel">
             <g id="mask" className={classes.wheelMask}>
-              <circle
-                cx="3099.5"
-                cy="2802.5"
-                r="2475.5"
-                stroke="#F9F9F9"
-                strokeWidth="425"
-              />
+              <circle cx="3099.5" cy="2802.5" r="2475.5" stroke="#F9F9F9" strokeWidth="425" />
             </g>
             <circle
               id="black"
@@ -1011,13 +786,7 @@ export function FerrisWheelThick(props: FerrisWheelThickProps) {
           </g>
           <g id="middle-wheel">
             <g id="mask_2" className={classes.wheelMask}>
-              <circle
-                cx="3099.5"
-                cy="2802.5"
-                r="1542.5"
-                stroke="#F9F9F9"
-                strokeWidth="344"
-              />
+              <circle cx="3099.5" cy="2802.5" r="1542.5" stroke="#F9F9F9" strokeWidth="344" />
             </g>
             <circle
               id="black_2"
@@ -1032,13 +801,7 @@ export function FerrisWheelThick(props: FerrisWheelThickProps) {
           <g id="inner-wheel">
             <g id="mask_3" className={classes.wheelMask}>
               <circle cx="3099.5" cy="2802.5" r="716.5" fill="#F9F9F9" />
-              <circle
-                cx="3099.5"
-                cy="2802.5"
-                r="716.5"
-                stroke="#F9F9F9"
-                strokeWidth="328"
-              />
+              <circle cx="3099.5" cy="2802.5" r="716.5" stroke="#F9F9F9" strokeWidth="328" />
             </g>
             <circle
               id="black_3"
@@ -1050,20 +813,11 @@ export function FerrisWheelThick(props: FerrisWheelThickProps) {
               strokeWidth="168"
             />
           </g>
-          <circle
-            id="center-wheel"
-            cx="3094"
-            cy="2803"
-            r="496"
-            fill="#191716"
-          />
+          <circle id="center-wheel" cx="3094" cy="2803" r="496" fill="#191716" />
         </g>
         <g id="base-front">
           <g id="crossbar-mask" className={classes.wheelMask}>
-            <path
-              d="M2813.62 3647H3373.29L3472 3993H2718L2813.62 3647Z"
-              fill="#F9F9F9"
-            />
+            <path d="M2813.62 3647H3373.29L3472 3993H2718L2813.62 3647Z" fill="#F9F9F9" />
           </g>
           <g id="base-legs-mask" className={classes.wheelMask}>
             <path

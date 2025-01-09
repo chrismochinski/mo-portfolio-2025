@@ -1,83 +1,60 @@
-import { MantineThemeOverride } from "@mantine/core";
-import { createStyles } from "@mantine/emotion";
-import * as animations from "./Animations";
+import { MantineThemeOverride } from '@mantine/core';
+import { createStyles } from '@mantine/emotion';
+import * as animations from './Animations';
 
 export const colors = {
-  trueBlack: "#000000",
-  black: "#191716",
-  white: "#F9F9F9",
-  trueWhite: "#FFFFFF",
-  red: "#911E1E",
-  orange: "#FF8800",
-  gold: '#D4B879',
+  black: '#191716',
+  white: '#F9F9F9',
+  red: '#911E1E',
+  orange: '#FF9A5C',
+  gold: '#FBAF00',
+  yellow: '#F9EA9A',
   green: '#5EFFAC',
-  yellow: "#F9EA9A",
-  emerald: "#79D49E",
-  lightBlue: "#11C7FF",
-  darkBlue: '#145C9E',
-  purple: "#611E91",
-  pink: "#D479D4", // deletelater maybe????
-  lightGray: "#D5D5D5",
-  gray: "#758190",
-  darkGray: "#575757",  
-}
+  emerald: '#79D49E',
+  lightBlue: '#11C7FF',
+  darkBlue: '#134074',
+  purple: '#611E91',
+  pink: '#EE92C2', 
+  lightGray: '#D5D5D5',
+  gray: '#758190',
+  darkGray: '#575757',
+  trueBlack: '#000000',
+  trueWhite: '#FFFFFF',
+};
 
 export const globalTheme: MantineThemeOverride = {
-  colors: {
-    custom: [
-      // $names are SCSS variables
-      "#000000", // $trueBlack
-      "#191716", // $black
-      "#F9F9F9", // $white
-      "#FFFFFF", // $trueWhite
-      "#911E1E", // $red
-      "#FF8800", // $orange
-      '#D4B879', // $gold
-      "#F9EA9A", // $yellow
-      '#5EFFAC', // $green
-      "#79D49E", // $emerald
-      "#11C7FF", // $lightBlue
-      '#145C9E', // $darkBlue
-      "#611E91", // $purple
-      "#D479D4", // $pink
-      "#D5D5D5", // $lightGray
-      "#758190", // $gray
-      "#575757", // $darkGray
-    ],
-  },
-
   breakpoints: {
-    xs: "575px",
-    sm: "768px",
-    md: "991px",
-    lg: "1200px",
-    xl: "1400px",
+    xs: '575px',
+    sm: '768px',
+    md: '991px',
+    lg: '1200px',
+    xl: '1400px',
   },
 
   spacing: {
-    xs: "clamp(2px, 0.5vw, 4px)",
-    sm: "clamp(4px, 0.75vw, 8px)",
-    md: "clamp(8px, 1vw, 16px)",
-    lg: "clamp(16px, 1.25vw, 32px)",
-    xl: "clamp(32px, 1.5vw, 64px)",
-    xxl: "clamp(64px, 1.75vw, 128px)",
+    xs: 'clamp(2px, 0.5vw, 4px)',
+    sm: 'clamp(4px, 0.75vw, 8px)',
+    md: 'clamp(8px, 1vw, 16px)',
+    lg: 'clamp(16px, 1.25vw, 32px)',
+    xl: 'clamp(32px, 1.5vw, 64px)',
+    xxl: 'clamp(64px, 1.75vw, 128px)',
   },
 
   fontSizes: {
-    xs: "clamp(14px, 1vw, 16px)",
-    sm: "clamp(1rem, 1.35vw, 1.125rem)",
-    md: "clamp(1.125rem, 1.75vw, 1.25rem)",
-    xl: "clamp(2rem, 3vw, 3rem)",
-    xxl: "clamp(3rem, 4vw, 4rem)",
+    xs: 'clamp(14px, 1vw, 16px)',
+    sm: 'clamp(1rem, 1.35vw, 1.125rem)',
+    md: 'clamp(1.125rem, 1.75vw, 1.25rem)',
+    xl: 'clamp(2rem, 3vw, 3rem)',
+    xxl: 'clamp(3rem, 4vw, 4rem)',
   },
 
   lineHeights: {
-    xs: "1.125em",
-    sm: "1.25em",
-    md: "1.35em",
-    lg: "1.5em",
-    xl: "1.75em",
-    xxl: "2em",
+    xs: '1.125em',
+    sm: '1.25em',
+    md: '1.35em',
+    lg: '1.5em',
+    xl: '1.75em',
+    xxl: '2em',
   },
 };
 
@@ -102,23 +79,23 @@ export const useGlobalStyles = createStyles(() => ({
   },
 
   balance: {
-    textWrap: "balance",
+    textWrap: 'balance',
   },
 
   row: {
     // marginBlock: "max(calc(1.5vw + 1.5vw), 2em)", // revisit
-    paddingInline: "max(6vw, (100vw - 1280px)/2)",
+    paddingInline: 'max(6vw, (100vw - 1280px)/2)',
   },
 
   container: {
-    containerType: "inline-size",
+    containerType: 'inline-size',
   },
 
   columnCenter: {
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "center",
-    alignItems: "center",
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 
   // ---------- Z-INDEXES ---------- //
@@ -156,6 +133,12 @@ export const useGlobalStyles = createStyles(() => ({
   z10: {
     zIndex: 10,
   },
+  z15: {
+    zIndex: 15,
+  },
+  z20: {
+    zIndex: 20,
+  },
 
   // ------------------------------------------ //
   // ------------------------------------------ //
@@ -165,24 +148,23 @@ export const useGlobalStyles = createStyles(() => ({
 
   slowSpin: {
     animation: `${animations.slowSpin} 10s linear infinite`,
-    animationDelay: "2000ms",
+    animationDelay: '800ms',
   },
 
   ferrisWheelSpin: {
     animation: `${animations.slowSpin} 15s linear infinite`,
-    animationDelay: "2000ms",
+    animationDelay: '800ms',
   },
 
   slowSpinReverse: {
     animation: `${animations.slowSpinReverse} 10s linear infinite`,
-    animationDelay: "2000ms",
+    animationDelay: '800ms',
   },
 
   ferrisWheelCarSpinReverse: {
     animation: `${animations.slowSpinReverse} 30s linear infinite`,
-    animationDelay: "2000ms",
+    animationDelay: '800ms',
   },
-
 
   // replace with particles.js ??
   moveAround: {

@@ -1,8 +1,8 @@
 import { createStyles } from "@mantine/emotion";
 
-export const useFerrisWheelThickStyles = createStyles(() => ({
-  ferrisWheelThickSvg: {
-    width: "150px",
+export const useFerrisWheelIconStyles = createStyles(() => ({
+  ferrisWheelIconSvg: {
+    width: "120px",
     height: "auto",
     aspectRatio: "1/1",
     padding: "min(0.5em, 1vw)",
@@ -30,14 +30,24 @@ export const useFerrisWheelThickStyles = createStyles(() => ({
             stroke: "#000000",
           },
         },
+        '&#center-wheel': {
+          fill: ''
+        },
       },
     },
+
+  },
+  // BLUR OUT
+  blurOut: {
+    transformOrigin: '50% 70%',
+    filter: "blur(13px)",
+    transform: 'scale(1.2, 0.8)',
+    transition: "filter 1400ms ease-out, transform 1200ms ease-out",
   },
 
   baseBack: {
     path: {
       fill: "#444444",
-
       "@media (prefers-color-scheme: dark)": {
         fill: "#999999",
       },
@@ -45,6 +55,7 @@ export const useFerrisWheelThickStyles = createStyles(() => ({
   },
 
   wheelMask: {
+    opacity: 0.8,
     circle: {
       mixBlendMode: "difference",
 
