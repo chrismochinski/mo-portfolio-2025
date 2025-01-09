@@ -2,6 +2,26 @@ import { MantineThemeOverride } from "@mantine/core";
 import { createStyles } from "@mantine/emotion";
 import * as animations from "./Animations";
 
+export const colors = {
+  trueBlack: "#000000",
+  black: "#191716",
+  white: "#F9F9F9",
+  trueWhite: "#FFFFFF",
+  red: "#911E1E",
+  orange: "#FF8800",
+  gold: '#D4B879',
+  green: '#5EFFAC',
+  yellow: "#F9EA9A",
+  emerald: "#79D49E",
+  lightBlue: "#11C7FF",
+  darkBlue: '#145C9E',
+  purple: "#611E91",
+  pink: "#D479D4", // deletelater maybe????
+  lightGray: "#D5D5D5",
+  gray: "#758190",
+  darkGray: "#575757",  
+}
+
 export const globalTheme: MantineThemeOverride = {
   colors: {
     custom: [
@@ -14,10 +34,12 @@ export const globalTheme: MantineThemeOverride = {
       "#FF8800", // $orange
       '#D4B879', // $gold
       "#F9EA9A", // $yellow
+      '#5EFFAC', // $green
       "#79D49E", // $emerald
       "#11C7FF", // $lightBlue
       '#145C9E', // $darkBlue
       "#611E91", // $purple
+      "#D479D4", // $pink
       "#D5D5D5", // $lightGray
       "#758190", // $gray
       "#575757", // $darkGray
