@@ -47,11 +47,16 @@ export const useAwesomeMenuStyles = createStyles(
     // ----------- FERRIS WHEEL GROUP ----------- //
     // ----------- FERRIS WHEEL GROUP ----------- //
     ferrisWheelMenu: {
+
       transformOrigin: 'center',
       transformBox: 'fill-box',
       transform: 'scale(0.8) translateX(-45%)',
       transition: 'transform 3000ms ease-out 1100ms',
 
+      // '& [id*="mask"]': {
+      //   filter: 'blur(40px)',
+      //   transition: 'filter 1000ms ease-out',
+      // },
      
       '#bars': {
         opacity: 0,
@@ -68,10 +73,18 @@ export const useAwesomeMenuStyles = createStyles(
         filter: 'blur(40px)',
         transition: 'opacity 2000ms ease-out 3000ms, filter 1000ms ease-out 3800ms',
       },
+      '& #base-legs, & #base-back': {
+        opacity: 0,
+        filter: 'blur(40px)',
+        transition: 'opacity 2000ms ease-out 3000ms, filter 1000ms ease-out 3800ms',
+      },
     },
 
     navigationEnter: {
       transform: 'scale(1.125) translateX(0)',
+      // '& [id*="mask"]': {
+      //   filter: 'none',
+      // },
       
       '& #bars': {
         opacity: 1,
@@ -82,6 +95,10 @@ export const useAwesomeMenuStyles = createStyles(
         filter: 'none',
       },
       '& #cars': {
+        opacity: 1,
+        filter: 'none',
+      },
+      '& #base-legs, & #base-back': {
         opacity: 1,
         filter: 'none',
       },

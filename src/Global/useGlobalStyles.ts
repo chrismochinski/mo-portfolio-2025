@@ -154,19 +154,20 @@ export const useGlobalStyles = createStyles(() => ({
     animationDelay: '800ms',
   },
 
-  ferrisWheelSpin: {
-    animation: `${animations.slowSpin} 15s linear infinite`,
-    animationDelay: '800ms',
-  },
-
+  
   slowSpinReverse: {
     animation: `${animations.slowSpinReverse} 10s linear infinite`,
     animationDelay: '800ms',
   },
+  
+  menuFerrisWheelSpin: {
+    animation: `${animations.slowSpin} 20s linear infinite`,
+    animationDelay: '3000ms',
+  },
 
-  ferrisWheelCarSpinReverse: {
-    animation: `${animations.slowSpinReverse} 30s linear infinite`,
-    animationDelay: '800ms',
+  menuFerrisWheelCarSpinReverse: {
+    animation: `${animations.slowSpinReverse} 20s linear infinite`,
+    animationDelay: '3000ms',
   },
 
   // replace with particles.js ??

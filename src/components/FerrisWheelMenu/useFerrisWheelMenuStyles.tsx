@@ -11,8 +11,8 @@ export const useFerrisWheelMenuStyles = createStyles(
       opacity: isNavigationVisible ? 1 : 0.2,
       filter: isNavigationVisible ? 'none' : 'blur(15px) brightness(0.5)',
       transform: isNavigationVisible
-        ? 'translateY(-50%) translateX(20%)'
-        : 'translateY(-50%) translateX(-10%)',
+        ? 'translateY(-50%) translateX(0)'
+        : 'translateY(-50%) translateX(0)',
       height: '90vh',
       width: 'auto',
       transition:

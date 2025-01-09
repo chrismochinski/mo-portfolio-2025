@@ -143,10 +143,10 @@ export function AwesomeMenu(props: AwesomeMenuProps) {
         <g id="bars-and-cars">
           <g
             id="car-masks-group-experimental"
-            className={cx(isNavigationVisible && globalClasses.slowSpin, classes.carsGroup)}
+            className={cx(isNavigationVisible && globalClasses.menuFerrisWheelSpin, classes.carsGroup)}
           >
             <g
-              className={cx(isNavigationVisible && globalClasses.slowSpinReverse, classes.carMask)}
+              className={cx(isNavigationVisible && globalClasses.menuFerrisWheelCarSpinReverse, classes.carMask)}
               id="mask-0"
             >
               <g id="rail-left">
@@ -242,7 +242,7 @@ export function AwesomeMenu(props: AwesomeMenuProps) {
               </g>
             </g>
             <g
-              className={cx(isNavigationVisible && globalClasses.slowSpinReverse, classes.carMask)}
+              className={cx(isNavigationVisible && globalClasses.menuFerrisWheelCarSpinReverse, classes.carMask)}
               id="mask_2"
             >
               <g id="rail-left_3">
@@ -338,7 +338,7 @@ export function AwesomeMenu(props: AwesomeMenuProps) {
               </g>
             </g>
             <g
-              className={cx(isNavigationVisible && globalClasses.slowSpinReverse, classes.carMask)}
+              className={cx(isNavigationVisible && globalClasses.menuFerrisWheelCarSpinReverse, classes.carMask)}
               id="mask_3"
             >
               <g id="rail-left_5">
@@ -434,7 +434,7 @@ export function AwesomeMenu(props: AwesomeMenuProps) {
               </g>
             </g>
             <g
-              className={cx(isNavigationVisible && globalClasses.slowSpinReverse, classes.carMask)}
+              className={cx(isNavigationVisible && globalClasses.menuFerrisWheelCarSpinReverse, classes.carMask)}
               id="mask_4"
             >
               <g id="rail-left_7">
@@ -530,7 +530,7 @@ export function AwesomeMenu(props: AwesomeMenuProps) {
               </g>
             </g>
             <g
-              className={cx(isNavigationVisible && globalClasses.slowSpinReverse, classes.carMask)}
+              className={cx(isNavigationVisible && globalClasses.menuFerrisWheelCarSpinReverse, classes.carMask)}
               id="mask_5"
             >
               <g id="rail-left_9">
@@ -626,7 +626,7 @@ export function AwesomeMenu(props: AwesomeMenuProps) {
               </g>
             </g>
             <g
-              className={cx(isNavigationVisible && globalClasses.slowSpinReverse, classes.carMask)}
+              className={cx(isNavigationVisible && globalClasses.menuFerrisWheelCarSpinReverse, classes.carMask)}
               id="mask_6"
             >
               <g id="rail-left_11">
@@ -722,7 +722,7 @@ export function AwesomeMenu(props: AwesomeMenuProps) {
               </g>
             </g>
             <g
-              className={cx(isNavigationVisible && globalClasses.slowSpinReverse, classes.carMask)}
+              className={cx(isNavigationVisible && globalClasses.menuFerrisWheelCarSpinReverse, classes.carMask)}
               id="mask_7"
             >
               <g id="rail-left_13">
@@ -818,7 +818,7 @@ export function AwesomeMenu(props: AwesomeMenuProps) {
               </g>
             </g>
             <g
-              className={cx(isNavigationVisible && globalClasses.slowSpinReverse, classes.carMask)}
+              className={cx(isNavigationVisible && globalClasses.menuFerrisWheelCarSpinReverse, classes.carMask)}
               id="mask_8"
             >
               <g id="rail-left_15">
@@ -914,7 +914,7 @@ export function AwesomeMenu(props: AwesomeMenuProps) {
               </g>
             </g>
             <g
-              className={cx(isNavigationVisible && globalClasses.slowSpinReverse, classes.carMask)}
+              className={cx(isNavigationVisible && globalClasses.menuFerrisWheelCarSpinReverse, classes.carMask)}
               id="mask_9"
             >
               <g id="rail-left_17">
@@ -1010,7 +1010,7 @@ export function AwesomeMenu(props: AwesomeMenuProps) {
               </g>
             </g>
             <g
-              className={cx(isNavigationVisible && globalClasses.slowSpinReverse, classes.carMask)}
+              className={cx(isNavigationVisible && globalClasses.menuFerrisWheelCarSpinReverse, classes.carMask)}
               id="mask_9"
             >
               <g id="rail-left_19">
@@ -1108,12 +1108,12 @@ export function AwesomeMenu(props: AwesomeMenuProps) {
           </g>
           <g
             id="cars"
-            className={cx(isNavigationVisible && globalClasses.slowSpin, classes.carsGroup)}
+            className={cx(isNavigationVisible && globalClasses.menuFerrisWheelSpin, classes.carsGroup)}
           >
             <g
               id="car-0"
               clipPath="url(#clip0_665_875)"
-              className={cx(isNavigationVisible && globalClasses.slowSpinReverse, classes.car)}
+              className={cx(isNavigationVisible && globalClasses.menuFerrisWheelCarSpinReverse, classes.car)}
             >
               <g id="black-0">
                 <g id="rail-left_2">
@@ -1197,7 +1197,7 @@ export function AwesomeMenu(props: AwesomeMenuProps) {
             <g
               id="car-1"
               clipPath="url(#clip1_665_875)"
-              className={cx(isNavigationVisible && globalClasses.slowSpinReverse, classes.car)}
+              className={cx(isNavigationVisible && globalClasses.menuFerrisWheelCarSpinReverse, classes.car)}
             >
               <g id="black-1">
                 <g id="rail-left_4">
@@ -1281,7 +1281,7 @@ export function AwesomeMenu(props: AwesomeMenuProps) {
             <g
               id="car-2"
               clipPath="url(#clip2_665_875)"
-              className={cx(isNavigationVisible && globalClasses.slowSpinReverse, classes.car)}
+              className={cx(isNavigationVisible && globalClasses.menuFerrisWheelCarSpinReverse, classes.car)}
             >
               <g id="black-2">
                 <g id="rail-left_6">
@@ -1365,7 +1365,7 @@ export function AwesomeMenu(props: AwesomeMenuProps) {
             <g
               id="car-3"
               clipPath="url(#clip3_665_875)"
-              className={cx(isNavigationVisible && globalClasses.slowSpinReverse, classes.car)}
+              className={cx(isNavigationVisible && globalClasses.menuFerrisWheelCarSpinReverse, classes.car)}
             >
               <g id="black-3">
                 <g id="rail-left_8">
@@ -1449,7 +1449,7 @@ export function AwesomeMenu(props: AwesomeMenuProps) {
             <g
               id="car-4"
               clipPath="url(#clip4_665_875)"
-              className={cx(isNavigationVisible && globalClasses.slowSpinReverse, classes.car)}
+              className={cx(isNavigationVisible && globalClasses.menuFerrisWheelCarSpinReverse, classes.car)}
             >
               <g id="black-4">
                 <g id="rail-left_10">
@@ -1533,7 +1533,7 @@ export function AwesomeMenu(props: AwesomeMenuProps) {
             <g
               id="car-5"
               clipPath="url(#clip5_665_875)"
-              className={cx(isNavigationVisible && globalClasses.slowSpinReverse, classes.car)}
+              className={cx(isNavigationVisible && globalClasses.menuFerrisWheelCarSpinReverse, classes.car)}
             >
               <g id="black-5">
                 <g id="rail-left_12">
@@ -1617,7 +1617,7 @@ export function AwesomeMenu(props: AwesomeMenuProps) {
             <g
               id="car-6"
               clipPath="url(#clip6_665_875)"
-              className={cx(isNavigationVisible && globalClasses.slowSpinReverse, classes.car)}
+              className={cx(isNavigationVisible && globalClasses.menuFerrisWheelCarSpinReverse, classes.car)}
             >
               <g id="black-6">
                 <g id="rail-left_14">
@@ -1701,7 +1701,7 @@ export function AwesomeMenu(props: AwesomeMenuProps) {
             <g
               id="car-7"
               clipPath="url(#clip7_665_875)"
-              className={cx(isNavigationVisible && globalClasses.slowSpinReverse, classes.car)}
+              className={cx(isNavigationVisible && globalClasses.menuFerrisWheelCarSpinReverse, classes.car)}
             >
               <g id="black-7">
                 <g id="rail-left_16">
@@ -1785,7 +1785,7 @@ export function AwesomeMenu(props: AwesomeMenuProps) {
             <g
               id="car-8"
               clipPath="url(#clip8_665_875)"
-              className={cx(isNavigationVisible && globalClasses.slowSpinReverse, classes.car)}
+              className={cx(isNavigationVisible && globalClasses.menuFerrisWheelCarSpinReverse, classes.car)}
             >
               <g id="black-8">
                 <g id="rail-left_18">
@@ -1869,7 +1869,7 @@ export function AwesomeMenu(props: AwesomeMenuProps) {
             <g
               id="car-9"
               clipPath="url(#clip9_665_875)"
-              className={cx(isNavigationVisible && globalClasses.slowSpinReverse, classes.car)}
+              className={cx(isNavigationVisible && globalClasses.menuFerrisWheelCarSpinReverse, classes.car)}
             >
               <g id="black-9">
                 <g id="rail-left_20">
@@ -1953,7 +1953,7 @@ export function AwesomeMenu(props: AwesomeMenuProps) {
           </g>
           <g
             id="bars"
-            className={cx(isNavigationVisible && globalClasses.slowSpin, classes.barsGroup)}
+            className={cx(isNavigationVisible && globalClasses.menuFerrisWheelSpin, classes.barsGroup)}
           >
             <path
               id="bar-4"
