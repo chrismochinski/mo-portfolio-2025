@@ -1,24 +1,24 @@
 import { useAwesomeMenuStyles } from '.';
 import { useGlobalStyles, colors } from '../../Global';
+import { useSiteContext } from '../../context';
 
-export interface AwesomeMenuProps {
-  isNavigationVisible: boolean;
-}
-
-export function AwesomeMenu(props: AwesomeMenuProps) {
-  const { isNavigationVisible } = props;
-  const { classes, cx } = useAwesomeMenuStyles({ isNavigationVisible });
+export function AwesomeMenu() {
+  const { isNavigationVisible, hoveredCar, setHoveredCar, setClickedCar} = useSiteContext();
+  const { classes, cx } = useAwesomeMenuStyles({ isNavigationVisible, hoveredCar });
   const { classes: globalClasses } = useGlobalStyles();
 
   // TODO menu settings for each car OR y-axis quadrants
 
-  const ferrisWheelClicked = () => {
-    console.log('Ferris wheel clicked');
+  const handleClick = (carId: string | null) => {
+    setClickedCar(carId);
+    console.log('Ferris wheel clicked!: ID is', carId);
   };
 
-  const ferrisWheelHovered = () => {
-    console.log('Ferris wheel hovered');
+  const handleHover = (carId: string | null) => {
+    setHoveredCar(carId);
+    console.log('Ferris wheel hovered, ID is', carId);
   };
+
 
   return (
     <svg
@@ -28,8 +28,7 @@ export function AwesomeMenu(props: AwesomeMenuProps) {
       viewBox="0 0 9233 9248"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      onMouseEnter={ferrisWheelHovered}
-      onClick={ferrisWheelClicked}
+
     >
       <g id="color-shapes_2" className={classes.colorShapes}>
         <g id="Vector_14" style={{ mixBlendMode: 'multiply' }}>
@@ -139,14 +138,21 @@ export function AwesomeMenu(props: AwesomeMenuProps) {
       <g
         id="ferris-wheel-menu"
         className={cx(classes.ferrisWheelMenu, isNavigationVisible && classes.navigationEnter)}
+
       >
         <g id="bars-and-cars">
           <g
             id="car-masks-group-experimental"
-            className={cx(isNavigationVisible && globalClasses.menuFerrisWheelSpin, classes.carsGroup)}
+            className={cx(
+              isNavigationVisible && globalClasses.menuFerrisWheelSpin,
+              classes.carsGroup
+            )}
           >
             <g
-              className={cx(isNavigationVisible && globalClasses.menuFerrisWheelCarSpinReverse, classes.carMask)}
+              className={cx(
+                isNavigationVisible && globalClasses.menuFerrisWheelCarSpinReverse,
+                classes.carMask
+              )}
               id="mask-0"
             >
               <g id="rail-left">
@@ -159,7 +165,7 @@ export function AwesomeMenu(props: AwesomeMenuProps) {
                   height="214"
                   fill="black"
                 >
-                  <rect fill="white" x="4184.57" y="1729.31" width="441" height="214" />
+                  <rect fill={colors.white} x="4184.57" y="1729.31" width="441" height="214" />
                   <path d="M4398.92 1768.31L4256.64 1768.31C4238.35 1768.31 4223.57 1783.09 4223.57 1801.36L4223.57 1895.77C4226.02 1895.38 4228.52 1895.16 4231.02 1895.16L4236.46 1895.16L4236.46 1843.73L4398.92 1843.73L4398.92 1895.16L4411.87 1895.16L4411.87 1843.73L4574.32 1843.73L4574.32 1895.21C4578.77 1895.21 4583.05 1895.71 4587.27 1896.55L4587.27 1801.36C4587.27 1783.09 4572.49 1768.31 4554.21 1768.31L4398.98 1768.31L4398.92 1768.31ZM4398.92 1830.79L4236.46 1830.79L4236.46 1801.36C4236.46 1790.25 4245.47 1781.25 4256.58 1781.25L4398.86 1781.25L4398.86 1830.79L4398.92 1830.79ZM4554.15 1781.25C4565.27 1781.25 4574.27 1790.25 4574.27 1801.36L4574.27 1830.79L4411.81 1830.79L4411.81 1781.25L4554.15 1781.25Z" />
                 </mask>
                 <path
@@ -174,14 +180,15 @@ export function AwesomeMenu(props: AwesomeMenuProps) {
                 />
               </g>
               <g id="bucket">
-                <mask id="path-16-inside-2_665_875" fill="white">
+                <mask id="path-16-inside-2_665_875" fill={colors.white}>
                   <path d="M4170.47 1893.32L4170.47 2143.9C4170.47 2212.04 4216.61 2267.22 4273.47 2267.22L5149.56 2267.22C5206.48 2267.22 5252.56 2211.97 5252.56 2143.9L5252.56 1893.32C5252.56 1872.96 5238.79 1856.47 5221.78 1856.47L4841.04 1856.47C4812.01 1856.47 4759.56 1884.64 4759.56 1919.38L4663.53 1919.38C4663.53 1884.64 4611.08 1856.47 4582.05 1856.47L4201.31 1856.47C4184.3 1856.47 4170.53 1872.96 4170.53 1893.32L4170.47 1893.32Z" />
                 </mask>
                 <path
+                  className="bucketPath"
                   d="M4170.47 1893.32L4170.47 2143.9C4170.47 2212.04 4216.61 2267.22 4273.47 2267.22L5149.56 2267.22C5206.48 2267.22 5252.56 2211.97 5252.56 2143.9L5252.56 1893.32C5252.56 1872.96 5238.79 1856.47 5221.78 1856.47L4841.04 1856.47C4812.01 1856.47 4759.56 1884.64 4759.56 1919.38L4663.53 1919.38C4663.53 1884.64 4611.08 1856.47 4582.05 1856.47L4201.31 1856.47C4184.3 1856.47 4170.53 1872.96 4170.53 1893.32L4170.47 1893.32Z"
                   fill={colors.white}
                   stroke={colors.white}
-                  strokeWidth="66.128"
+                  strokeWidth="101.128"
                   mask="url(#path-16-inside-2_665_875)"
                 />
               </g>
@@ -195,7 +202,7 @@ export function AwesomeMenu(props: AwesomeMenuProps) {
                   height="214"
                   fill="black"
                 >
-                  <rect fill="white" x="4797.75" y="1729.31" width="441" height="214" />
+                  <rect fill={colors.white} x="4797.75" y="1729.31" width="441" height="214" />
                   <path d="M5012.1 1768.31L4869.82 1768.31C4851.54 1768.31 4836.75 1783.09 4836.75 1801.36L4836.75 1896.55C4840.92 1895.71 4845.26 1895.27 4849.7 1895.21L4849.7 1843.73L5012.16 1843.73L5012.16 1895.16L5025.11 1895.16L5025.11 1843.73L5187.56 1843.73L5187.56 1895.16L5193.01 1895.16C5195.57 1895.16 5198.07 1895.38 5200.46 1895.77L5200.46 1801.36C5200.46 1783.09 5185.67 1768.31 5167.39 1768.31L5012.16 1768.31L5012.1 1768.31ZM5012.1 1830.79L4849.65 1830.79L4849.65 1801.36C4849.65 1790.25 4858.65 1781.25 4869.77 1781.25L5012.05 1781.25L5012.05 1830.79L5012.1 1830.79ZM5167.33 1781.25C5178.45 1781.25 5187.45 1790.25 5187.45 1801.36L5187.45 1830.79L5025 1830.79L5025 1781.25L5167.33 1781.25Z" />
                 </mask>
                 <path
@@ -210,7 +217,7 @@ export function AwesomeMenu(props: AwesomeMenuProps) {
                 />
               </g>
               <g id="umbrella-full">
-                <mask id="path-18-inside-4_665_875" fill="white">
+                <mask id="path-18-inside-4_665_875" fill={colors.white}>
                   <path d="M5407.06 1284.08C5297.24 1144.72 5155.87 1067.03 5008.89 1067.03L4849 1067.03L4853.76 1334.52L5393.9 1334.52C5412.17 1334.52 5420.88 1301.52 5407.12 1284.08L5407.06 1284.08Z" />
                   <path d="M4032.15 1334.52L4853.76 1334.52L4849 1067.03L4417.09 1067.03C4270.12 1067.03 4128.75 1144.63 4018.93 1284.08C4005.16 1301.52 4013.81 1334.52 4032.15 1334.52Z" />
                 </mask>
@@ -229,20 +236,23 @@ export function AwesomeMenu(props: AwesomeMenuProps) {
                 />
               </g>
               <g id="bar-full">
-                <mask id="path-20-inside-5_665_875" fill="white">
+                <mask id="path-20-inside-5_665_875" fill={colors.white}>
                   <path d="M4773.63 1247.36L4650.39 1247.36L4650.39 2095.91L4773.63 2095.91L4773.63 1247.36Z" />
                 </mask>
                 <path
                   d="M4773.63 1247.36L4650.39 1247.36L4650.39 2095.91L4773.63 2095.91L4773.63 1247.36Z"
                   fill={colors.white}
                   stroke={colors.white}
-                  strokeWidth="36.0698"
+                  strokeWidth="31010698"
                   mask="url(#path-20-inside-5_665_875)"
                 />
               </g>
             </g>
             <g
-              className={cx(isNavigationVisible && globalClasses.menuFerrisWheelCarSpinReverse, classes.carMask)}
+              className={cx(
+                isNavigationVisible && globalClasses.menuFerrisWheelCarSpinReverse,
+                classes.carMask
+              )}
               id="mask_2"
             >
               <g id="rail-left_3">
@@ -255,7 +265,7 @@ export function AwesomeMenu(props: AwesomeMenuProps) {
                   height="214"
                   fill="black"
                 >
-                  <rect fill="white" x="5887.86" y="2270.31" width="441" height="214" />
+                  <rect fill={colors.white} x="5887.86" y="2270.31" width="441" height="214" />
                   <path d="M6102.2 2309.31L5959.92 2309.31C5941.64 2309.31 5926.86 2324.09 5926.86 2342.36L5926.86 2436.77C5929.3 2436.38 5931.8 2436.16 5934.3 2436.16L5939.75 2436.16L5939.75 2384.73L6102.2 2384.73L6102.2 2436.16L6115.15 2436.16L6115.15 2384.73L6277.61 2384.73L6277.61 2436.21C6282.06 2436.21 6286.34 2436.71 6290.56 2437.55L6290.56 2342.36C6290.56 2324.09 6275.78 2309.31 6257.49 2309.31L6102.26 2309.31L6102.2 2309.31ZM6102.2 2371.79L5939.75 2371.79L5939.75 2342.36C5939.75 2331.25 5948.75 2322.25 5959.87 2322.25L6102.15 2322.25L6102.15 2371.79L6102.2 2371.79ZM6257.43 2322.25C6268.55 2322.25 6277.55 2331.25 6277.55 2342.36L6277.55 2371.79L6115.1 2371.79L6115.1 2322.25L6257.43 2322.25Z" />
                 </mask>
                 <path
@@ -270,14 +280,15 @@ export function AwesomeMenu(props: AwesomeMenuProps) {
                 />
               </g>
               <g id="bucket_3">
-                <mask id="path-28-inside-9_665_875" fill="white">
+                <mask id="path-28-inside-9_665_875" fill={colors.white}>
                   <path d="M5873.75 2434.32L5873.75 2684.9C5873.75 2753.04 5919.9 2808.22 5976.75 2808.22L6852.85 2808.22C6909.76 2808.22 6955.85 2752.97 6955.85 2684.9L6955.85 2434.32C6955.85 2413.96 6942.07 2397.47 6925.07 2397.47L6544.32 2397.47C6515.3 2397.47 6462.84 2425.64 6462.84 2460.38L6366.82 2460.38C6366.82 2425.64 6314.36 2397.47 6285.34 2397.47L5904.59 2397.47C5887.59 2397.47 5873.81 2413.96 5873.81 2434.32L5873.75 2434.32Z" />
                 </mask>
                 <path
+                  className="bucketPath"
                   d="M5873.75 2434.32L5873.75 2684.9C5873.75 2753.04 5919.9 2808.22 5976.75 2808.22L6852.85 2808.22C6909.76 2808.22 6955.85 2752.97 6955.85 2684.9L6955.85 2434.32C6955.85 2413.96 6942.07 2397.47 6925.07 2397.47L6544.32 2397.47C6515.3 2397.47 6462.84 2425.64 6462.84 2460.38L6366.82 2460.38C6366.82 2425.64 6314.36 2397.47 6285.34 2397.47L5904.59 2397.47C5887.59 2397.47 5873.81 2413.96 5873.81 2434.32L5873.75 2434.32Z"
                   fill={colors.white}
                   stroke={colors.white}
-                  strokeWidth="66.128"
+                  strokeWidth="101.128"
                   mask="url(#path-28-inside-9_665_875)"
                 />
               </g>
@@ -291,7 +302,7 @@ export function AwesomeMenu(props: AwesomeMenuProps) {
                   height="214"
                   fill="black"
                 >
-                  <rect fill="white" x="6501.04" y="2270.31" width="441" height="214" />
+                  <rect fill={colors.white} x="6501.04" y="2270.31" width="441" height="214" />
                   <path d="M6715.39 2309.31L6573.11 2309.31C6554.82 2309.31 6540.04 2324.09 6540.04 2342.36L6540.04 2437.55C6544.21 2436.71 6548.54 2436.27 6552.99 2436.21L6552.99 2384.73L6715.44 2384.73L6715.44 2436.16L6728.39 2436.16L6728.39 2384.73L6890.85 2384.73L6890.85 2436.16L6896.3 2436.16C6898.85 2436.16 6901.35 2436.38 6903.74 2436.77L6903.74 2342.36C6903.74 2324.09 6888.96 2309.31 6870.67 2309.31L6715.44 2309.31L6715.39 2309.31ZM6715.39 2371.79L6552.93 2371.79L6552.93 2342.36C6552.93 2331.25 6561.94 2322.25 6573.05 2322.25L6715.33 2322.25L6715.33 2371.79L6715.39 2371.79ZM6870.62 2322.25C6881.73 2322.25 6890.74 2331.25 6890.74 2342.36L6890.74 2371.79L6728.28 2371.79L6728.28 2322.25L6870.62 2322.25Z" />
                 </mask>
                 <path
@@ -306,7 +317,7 @@ export function AwesomeMenu(props: AwesomeMenuProps) {
                 />
               </g>
               <g id="umbrella-full_3">
-                <mask id="path-30-inside-11_665_875" fill="white">
+                <mask id="path-30-inside-11_665_875" fill={colors.white}>
                   <path d="M7110.34 1825.08C7000.52 1685.72 6859.15 1608.03 6712.18 1608.03L6552.29 1608.03L6557.04 1875.52L7097.19 1875.52C7115.46 1875.52 7124.17 1842.52 7110.4 1825.08L7110.34 1825.08Z" />
                   <path d="M5735.43 1875.52L6557.04 1875.52L6552.29 1608.03L6120.38 1608.03C5973.4 1608.03 5832.03 1685.63 5722.21 1825.08C5708.45 1842.52 5717.1 1875.52 5735.43 1875.52Z" />
                 </mask>
@@ -325,20 +336,23 @@ export function AwesomeMenu(props: AwesomeMenuProps) {
                 />
               </g>
               <g id="bar-full_3">
-                <mask id="path-32-inside-12_665_875" fill="white">
+                <mask id="path-32-inside-12_665_875" fill={colors.white}>
                   <path d="M6476.91 1788.36L6353.68 1788.36L6353.68 2636.91L6476.91 2636.91L6476.91 1788.36Z" />
                 </mask>
                 <path
                   d="M6476.91 1788.36L6353.68 1788.36L6353.68 2636.91L6476.91 2636.91L6476.91 1788.36Z"
                   fill={colors.white}
                   stroke={colors.white}
-                  strokeWidth="36.0698"
+                  strokeWidth="31010698"
                   mask="url(#path-32-inside-12_665_875)"
                 />
               </g>
             </g>
             <g
-              className={cx(isNavigationVisible && globalClasses.menuFerrisWheelCarSpinReverse, classes.carMask)}
+              className={cx(
+                isNavigationVisible && globalClasses.menuFerrisWheelCarSpinReverse,
+                classes.carMask
+              )}
               id="mask_3"
             >
               <g id="rail-left_5">
@@ -351,7 +365,7 @@ export function AwesomeMenu(props: AwesomeMenuProps) {
                   height="214"
                   fill="black"
                 >
-                  <rect fill="white" x="6955.92" y="3721.97" width="441" height="214" />
+                  <rect fill={colors.white} x="6955.92" y="3721.97" width="441" height="214" />
                   <path d="M7170.27 3760.97L7027.99 3760.97C7009.7 3760.97 6994.92 3775.74 6994.92 3794.01L6994.92 3888.43C6997.36 3888.04 6999.86 3887.81 7002.37 3887.81L7007.81 3887.81L7007.81 3836.39L7170.27 3836.39L7170.27 3887.81L7183.22 3887.81L7183.22 3836.39L7345.67 3836.39L7345.67 3887.87C7350.12 3887.87 7354.4 3888.37 7358.62 3889.2L7358.62 3794.01C7358.62 3775.74 7343.84 3760.97 7325.55 3760.97L7170.32 3760.97L7170.27 3760.97ZM7170.27 3823.45L7007.81 3823.45L7007.81 3794.01C7007.81 3782.91 7016.82 3773.91 7027.93 3773.91L7170.21 3773.91L7170.21 3823.45L7170.27 3823.45ZM7325.5 3773.91C7336.61 3773.91 7345.62 3782.91 7345.62 3794.01L7345.62 3823.45L7183.16 3823.45L7183.16 3773.91L7325.5 3773.91Z" />
                 </mask>
                 <path
@@ -366,14 +380,15 @@ export function AwesomeMenu(props: AwesomeMenuProps) {
                 />
               </g>
               <g id="bucket_5">
-                <mask id="path-40-inside-16_665_875" fill="white">
+                <mask id="path-40-inside-16_665_875" fill={colors.white}>
                   <path d="M6941.82 3885.98L6941.82 4136.56C6941.82 4204.7 6987.96 4259.88 7044.82 4259.88L7920.91 4259.88C7977.82 4259.88 8023.91 4204.63 8023.91 4136.56L8023.91 3885.98C8023.91 3865.62 8010.14 3849.13 7993.13 3849.13L7612.38 3849.13C7583.36 3849.13 7530.9 3877.29 7530.9 3912.04L7434.88 3912.04C7434.88 3877.29 7382.42 3849.13 7353.4 3849.13L6972.65 3849.13C6955.65 3849.13 6941.87 3865.62 6941.87 3885.98L6941.82 3885.98Z" />
                 </mask>
                 <path
+                  className="bucketPath"
                   d="M6941.82 3885.98L6941.82 4136.56C6941.82 4204.7 6987.96 4259.88 7044.82 4259.88L7920.91 4259.88C7977.82 4259.88 8023.91 4204.63 8023.91 4136.56L8023.91 3885.98C8023.91 3865.62 8010.14 3849.13 7993.13 3849.13L7612.38 3849.13C7583.36 3849.13 7530.9 3877.29 7530.9 3912.04L7434.88 3912.04C7434.88 3877.29 7382.42 3849.13 7353.4 3849.13L6972.65 3849.13C6955.65 3849.13 6941.87 3865.62 6941.87 3885.98L6941.82 3885.98Z"
                   fill={colors.white}
                   stroke={colors.white}
-                  strokeWidth="66.128"
+                  strokeWidth="101.128"
                   mask="url(#path-40-inside-16_665_875)"
                 />
               </g>
@@ -387,7 +402,7 @@ export function AwesomeMenu(props: AwesomeMenuProps) {
                   height="214"
                   fill="black"
                 >
-                  <rect fill="white" x="7569.1" y="3721.97" width="441" height="214" />
+                  <rect fill={colors.white} x="7569.1" y="3721.97" width="441" height="214" />
                   <path d="M7783.45 3760.97L7641.17 3760.97C7622.89 3760.97 7608.1 3775.74 7608.1 3794.01L7608.1 3889.2C7612.27 3888.37 7616.6 3887.93 7621.05 3887.87L7621.05 3836.39L7783.51 3836.39L7783.51 3887.81L7796.46 3887.81L7796.46 3836.39L7958.91 3836.39L7958.91 3887.81L7964.36 3887.81C7966.91 3887.81 7969.42 3888.04 7971.81 3888.43L7971.81 3794.01C7971.81 3775.74 7957.02 3760.97 7938.74 3760.97L7783.51 3760.97L7783.45 3760.97ZM7783.45 3823.45L7621 3823.45L7621 3794.01C7621 3782.91 7630 3773.91 7641.12 3773.91L7783.4 3773.91L7783.4 3823.45L7783.45 3823.45ZM7938.68 3773.91C7949.8 3773.91 7958.8 3782.91 7958.8 3794.01L7958.8 3823.45L7796.35 3823.45L7796.35 3773.91L7938.68 3773.91Z" />
                 </mask>
                 <path
@@ -402,7 +417,7 @@ export function AwesomeMenu(props: AwesomeMenuProps) {
                 />
               </g>
               <g id="umbrella-full_5">
-                <mask id="path-42-inside-18_665_875" fill="white">
+                <mask id="path-42-inside-18_665_875" fill={colors.white}>
                   <path d="M8178.41 3276.74C8068.59 3137.38 7927.22 3059.69 7780.24 3059.69L7620.35 3059.69L7625.1 3327.18L8165.25 3327.18C8183.52 3327.18 8192.23 3294.17 8178.47 3276.74L8178.41 3276.74Z" />
                   <path d="M6803.49 3327.18L7625.1 3327.18L7620.35 3059.69L7188.44 3059.69C7041.47 3059.69 6900.1 3137.29 6790.28 3276.74C6776.51 3294.17 6785.16 3327.18 6803.49 3327.18Z" />
                 </mask>
@@ -421,20 +436,23 @@ export function AwesomeMenu(props: AwesomeMenuProps) {
                 />
               </g>
               <g id="bar-full_5">
-                <mask id="path-44-inside-19_665_875" fill="white">
+                <mask id="path-44-inside-19_665_875" fill={colors.white}>
                   <path d="M7544.98 3240.02L7421.74 3240.02L7421.74 4088.57L7544.98 4088.57L7544.98 3240.02Z" />
                 </mask>
                 <path
                   d="M7544.98 3240.02L7421.74 3240.02L7421.74 4088.57L7544.98 4088.57L7544.98 3240.02Z"
                   fill={colors.white}
                   stroke={colors.white}
-                  strokeWidth="36.0698"
+                  strokeWidth="31010698"
                   mask="url(#path-44-inside-19_665_875)"
                 />
               </g>
             </g>
             <g
-              className={cx(isNavigationVisible && globalClasses.menuFerrisWheelCarSpinReverse, classes.carMask)}
+              className={cx(
+                isNavigationVisible && globalClasses.menuFerrisWheelCarSpinReverse,
+                classes.carMask
+              )}
               id="mask_4"
             >
               <g id="rail-left_7">
@@ -447,7 +465,7 @@ export function AwesomeMenu(props: AwesomeMenuProps) {
                   height="214"
                   fill="black"
                 >
-                  <rect fill="white" x="6948.91" y="5532.27" width="441" height="214" />
+                  <rect fill={colors.white} x="6948.91" y="5532.27" width="441" height="214" />
                   <path d="M7163.26 5571.27L7020.98 5571.27C7002.69 5571.27 6987.91 5586.05 6987.91 5604.32L6987.91 5698.73C6990.36 5698.34 6992.86 5698.12 6995.36 5698.12L7000.8 5698.12L7000.8 5646.69L7163.26 5646.69L7163.26 5698.12L7176.21 5698.12L7176.21 5646.69L7338.66 5646.69L7338.66 5698.17C7343.11 5698.17 7347.39 5698.67 7351.61 5699.51L7351.61 5604.32C7351.61 5586.05 7336.83 5571.27 7318.54 5571.27L7163.32 5571.27L7163.26 5571.27ZM7163.26 5633.75L7000.8 5633.75L7000.8 5604.32C7000.8 5593.21 7009.81 5584.21 7020.92 5584.21L7163.2 5584.21L7163.2 5633.75L7163.26 5633.75ZM7318.49 5584.21C7329.6 5584.21 7338.61 5593.21 7338.61 5604.32L7338.61 5633.75L7176.15 5633.75L7176.15 5584.21L7318.49 5584.21Z" />
                 </mask>
                 <path
@@ -462,14 +480,15 @@ export function AwesomeMenu(props: AwesomeMenuProps) {
                 />
               </g>
               <g id="bucket_7">
-                <mask id="path-52-inside-23_665_875" fill="white">
+                <mask id="path-52-inside-23_665_875" fill={colors.white}>
                   <path d="M6934.81 5696.28L6934.81 5946.86C6934.81 6015 6980.95 6070.18 7037.81 6070.18L7913.9 6070.18C7970.82 6070.18 8016.9 6014.93 8016.9 5946.86L8016.9 5696.28C8016.9 5675.92 8003.13 5659.43 7986.12 5659.43L7605.38 5659.43C7576.35 5659.43 7523.9 5687.6 7523.9 5722.35L7427.87 5722.35C7427.87 5687.6 7375.42 5659.43 7346.39 5659.43L6965.65 5659.43C6948.64 5659.43 6934.87 5675.92 6934.87 5696.28L6934.81 5696.28Z" />
                 </mask>
                 <path
+                  className="bucketPath"
                   d="M6934.81 5696.28L6934.81 5946.86C6934.81 6015 6980.95 6070.18 7037.81 6070.18L7913.9 6070.18C7970.82 6070.18 8016.9 6014.93 8016.9 5946.86L8016.9 5696.28C8016.9 5675.92 8003.13 5659.43 7986.12 5659.43L7605.38 5659.43C7576.35 5659.43 7523.9 5687.6 7523.9 5722.35L7427.87 5722.35C7427.87 5687.6 7375.42 5659.43 7346.39 5659.43L6965.65 5659.43C6948.64 5659.43 6934.87 5675.92 6934.87 5696.28L6934.81 5696.28Z"
                   fill={colors.white}
                   stroke={colors.white}
-                  strokeWidth="66.128"
+                  strokeWidth="101.128"
                   mask="url(#path-52-inside-23_665_875)"
                 />
               </g>
@@ -483,7 +502,7 @@ export function AwesomeMenu(props: AwesomeMenuProps) {
                   height="214"
                   fill="black"
                 >
-                  <rect fill="white" x="7562.09" y="5532.27" width="441" height="214" />
+                  <rect fill={colors.white} x="7562.09" y="5532.27" width="441" height="214" />
                   <path d="M7776.44 5571.27L7634.16 5571.27C7615.88 5571.27 7601.09 5586.05 7601.09 5604.32L7601.09 5699.51C7605.26 5698.67 7609.6 5698.23 7614.04 5698.17L7614.04 5646.69L7776.5 5646.69L7776.5 5698.12L7789.45 5698.12L7789.45 5646.69L7951.9 5646.69L7951.9 5698.12L7957.35 5698.12C7959.91 5698.12 7962.41 5698.34 7964.8 5698.73L7964.8 5604.32C7964.8 5586.05 7950.01 5571.27 7931.73 5571.27L7776.5 5571.27L7776.44 5571.27ZM7776.44 5633.75L7613.99 5633.75L7613.99 5604.32C7613.99 5593.21 7622.99 5584.21 7634.11 5584.21L7776.39 5584.21L7776.39 5633.75L7776.44 5633.75ZM7931.67 5584.21C7942.79 5584.21 7951.79 5593.21 7951.79 5604.32L7951.79 5633.75L7789.34 5633.75L7789.34 5584.21L7931.67 5584.21Z" />
                 </mask>
                 <path
@@ -498,7 +517,7 @@ export function AwesomeMenu(props: AwesomeMenuProps) {
                 />
               </g>
               <g id="umbrella-full_7">
-                <mask id="path-54-inside-25_665_875" fill="white">
+                <mask id="path-54-inside-25_665_875" fill={colors.white}>
                   <path d="M8171.4 5087.05C8061.58 4947.68 7920.21 4869.99 7773.23 4869.99L7613.34 4869.99L7618.1 5137.48L8158.24 5137.48C8176.51 5137.48 8185.22 5104.48 8171.46 5087.05L8171.4 5087.05Z" />
                   <path d="M6796.49 5137.48L7618.1 5137.48L7613.34 4869.99L7181.43 4869.99C7034.46 4869.99 6893.09 4947.59 6783.27 5087.04C6769.5 5104.48 6778.15 5137.48 6796.49 5137.48Z" />
                 </mask>
@@ -517,20 +536,23 @@ export function AwesomeMenu(props: AwesomeMenuProps) {
                 />
               </g>
               <g id="bar-full_7">
-                <mask id="path-56-inside-26_665_875" fill="white">
+                <mask id="path-56-inside-26_665_875" fill={colors.white}>
                   <path d="M7537.97 5050.32L7414.73 5050.32L7414.73 5898.87L7537.97 5898.87L7537.97 5050.32Z" />
                 </mask>
                 <path
                   d="M7537.97 5050.32L7414.73 5050.32L7414.73 5898.87L7537.97 5898.87L7537.97 5050.32Z"
                   fill={colors.white}
                   stroke={colors.white}
-                  strokeWidth="36.0698"
+                  strokeWidth="31010698"
                   mask="url(#path-56-inside-26_665_875)"
                 />
               </g>
             </g>
             <g
-              className={cx(isNavigationVisible && globalClasses.menuFerrisWheelCarSpinReverse, classes.carMask)}
+              className={cx(
+                isNavigationVisible && globalClasses.menuFerrisWheelCarSpinReverse,
+                classes.carMask
+              )}
               id="mask_5"
             >
               <g id="rail-left_9">
@@ -543,7 +565,7 @@ export function AwesomeMenu(props: AwesomeMenuProps) {
                   height="214"
                   fill="black"
                 >
-                  <rect fill="white" x="5848.14" y="6919.34" width="441" height="214" />
+                  <rect fill={colors.white} x="5848.14" y="6919.34" width="441" height="214" />
                   <path d="M6062.49 6958.34L5920.21 6958.34C5901.92 6958.34 5887.14 6973.11 5887.14 6991.38L5887.14 7085.81C5889.59 7085.42 5892.09 7085.2 5894.59 7085.2L5900.03 7085.2L5900.03 7033.76L6062.49 7033.76L6062.49 7085.2L6075.44 7085.2L6075.44 7033.76L6237.89 7033.76L6237.89 7085.25C6242.34 7085.25 6246.62 7085.75 6250.84 7086.58L6250.84 6991.38C6250.84 6973.11 6236.06 6958.34 6217.78 6958.34L6062.55 6958.34L6062.49 6958.34ZM6062.49 7020.82L5900.03 7020.82L5900.03 6991.38C5900.03 6980.28 5909.04 6971.28 5920.15 6971.28L6062.43 6971.28L6062.43 7020.82L6062.49 7020.82ZM6217.72 6971.28C6228.84 6971.28 6237.84 6980.28 6237.84 6991.38L6237.84 7020.82L6075.38 7020.82L6075.38 6971.28L6217.72 6971.28Z" />
                 </mask>
                 <path
@@ -558,14 +580,15 @@ export function AwesomeMenu(props: AwesomeMenuProps) {
                 />
               </g>
               <g id="bucket_9">
-                <mask id="path-64-inside-30_665_875" fill="white">
+                <mask id="path-64-inside-30_665_875" fill={colors.white}>
                   <path d="M5834.04 7083.37L5834.04 7333.97C5834.04 7402.12 5880.18 7457.3 5937.04 7457.3L6813.13 7457.3C6870.05 7457.3 6916.13 7402.05 6916.13 7333.97L6916.13 7083.37C6916.13 7063 6902.36 7046.51 6885.35 7046.51L6504.61 7046.51C6475.58 7046.51 6423.13 7074.68 6423.13 7109.43L6327.1 7109.43C6327.1 7074.68 6274.65 7046.51 6245.62 7046.51L5864.88 7046.51C5847.87 7046.51 5834.1 7063 5834.1 7083.37L5834.04 7083.37Z" />
                 </mask>
                 <path
+                  className="bucketPath"
                   d="M5834.04 7083.37L5834.04 7333.97C5834.04 7402.12 5880.18 7457.3 5937.04 7457.3L6813.13 7457.3C6870.05 7457.3 6916.13 7402.05 6916.13 7333.97L6916.13 7083.37C6916.13 7063 6902.36 7046.51 6885.35 7046.51L6504.61 7046.51C6475.58 7046.51 6423.13 7074.68 6423.13 7109.43L6327.1 7109.43C6327.1 7074.68 6274.65 7046.51 6245.62 7046.51L5864.88 7046.51C5847.87 7046.51 5834.1 7063 5834.1 7083.37L5834.04 7083.37Z"
                   fill={colors.white}
                   stroke={colors.white}
-                  strokeWidth="66.128"
+                  strokeWidth="101.128"
                   mask="url(#path-64-inside-30_665_875)"
                 />
               </g>
@@ -579,7 +602,7 @@ export function AwesomeMenu(props: AwesomeMenuProps) {
                   height="214"
                   fill="black"
                 >
-                  <rect fill="white" x="6461.32" y="6919.34" width="441" height="214" />
+                  <rect fill={colors.white} x="6461.32" y="6919.34" width="441" height="214" />
                   <path d="M6675.67 6958.34L6533.39 6958.34C6515.11 6958.34 6500.32 6973.11 6500.32 6991.38L6500.32 7086.58C6504.49 7085.75 6508.83 7085.31 6513.27 7085.25L6513.27 7033.76L6675.73 7033.76L6675.73 7085.2L6688.68 7085.2L6688.68 7033.76L6851.13 7033.76L6851.13 7085.2L6856.58 7085.2C6859.14 7085.2 6861.64 7085.42 6864.03 7085.81L6864.03 6991.38C6864.03 6973.11 6849.24 6958.34 6830.96 6958.34L6675.73 6958.34L6675.67 6958.34ZM6675.67 7020.82L6513.22 7020.82L6513.22 6991.38C6513.22 6980.28 6522.22 6971.28 6533.34 6971.28L6675.62 6971.28L6675.62 7020.82L6675.67 7020.82ZM6830.9 6971.28C6842.02 6971.28 6851.02 6980.28 6851.02 6991.38L6851.02 7020.82L6688.57 7020.82L6688.57 6971.28L6830.9 6971.28Z" />
                 </mask>
                 <path
@@ -594,7 +617,7 @@ export function AwesomeMenu(props: AwesomeMenuProps) {
                 />
               </g>
               <g id="umbrella-full_9">
-                <mask id="path-66-inside-32_665_875" fill="white">
+                <mask id="path-66-inside-32_665_875" fill={colors.white}>
                   <path d="M7070.63 6474.06C6960.81 6334.68 6819.44 6256.98 6672.46 6256.98L6512.58 6256.98L6517.33 6524.5L7057.47 6524.5C7075.75 6524.5 7084.46 6491.49 7070.69 6474.06L7070.63 6474.06Z" />
                   <path d="M5695.72 6524.5L6517.33 6524.5L6512.58 6256.98L6080.66 6256.98C5933.69 6256.98 5792.32 6334.59 5682.5 6474.06C5668.73 6491.49 5677.38 6524.5 5695.72 6524.5Z" />
                 </mask>
@@ -613,20 +636,23 @@ export function AwesomeMenu(props: AwesomeMenuProps) {
                 />
               </g>
               <g id="bar-full_9">
-                <mask id="path-68-inside-33_665_875" fill="white">
+                <mask id="path-68-inside-33_665_875" fill={colors.white}>
                   <path d="M6437.2 6437.34L6313.96 6437.34L6313.96 7285.98L6437.2 7285.98L6437.2 6437.34Z" />
                 </mask>
                 <path
                   d="M6437.2 6437.34L6313.96 6437.34L6313.96 7285.98L6437.2 7285.98L6437.2 6437.34Z"
                   fill={colors.white}
                   stroke={colors.white}
-                  strokeWidth="36.0698"
+                  strokeWidth="31010698"
                   mask="url(#path-68-inside-33_665_875)"
                 />
               </g>
             </g>
             <g
-              className={cx(isNavigationVisible && globalClasses.menuFerrisWheelCarSpinReverse, classes.carMask)}
+              className={cx(
+                isNavigationVisible && globalClasses.menuFerrisWheelCarSpinReverse,
+                classes.carMask
+              )}
               id="mask_6"
             >
               <g id="rail-left_11">
@@ -639,7 +665,7 @@ export function AwesomeMenu(props: AwesomeMenuProps) {
                   height="214"
                   fill="black"
                 >
-                  <rect fill="white" x="4191.57" y="7490.55" width="441" height="214" />
+                  <rect fill={colors.white} x="4191.57" y="7490.55" width="441" height="214" />
                   <path d="M4405.92 7529.55L4263.64 7529.55C4245.35 7529.55 4230.57 7544.32 4230.57 7562.6L4230.57 7657.02C4233.01 7656.63 4235.51 7656.41 4238.01 7656.41L4243.46 7656.41L4243.46 7604.97L4405.92 7604.97L4405.92 7656.41L4418.87 7656.41L4418.87 7604.97L4581.32 7604.97L4581.32 7656.46C4585.77 7656.46 4590.05 7656.96 4594.27 7657.8L4594.27 7562.6C4594.27 7544.32 4579.49 7529.55 4561.2 7529.55L4405.97 7529.55L4405.92 7529.55ZM4405.92 7592.03L4243.46 7592.03L4243.46 7562.6C4243.46 7551.49 4252.46 7542.49 4263.58 7542.49L4405.86 7542.49L4405.86 7592.03L4405.92 7592.03ZM4561.15 7542.49C4572.26 7542.49 4581.26 7551.49 4581.26 7562.6L4581.26 7592.03L4418.81 7592.03L4418.81 7542.49L4561.15 7542.49Z" />
                 </mask>
                 <path
@@ -654,14 +680,15 @@ export function AwesomeMenu(props: AwesomeMenuProps) {
                 />
               </g>
               <g id="bucket_11">
-                <mask id="path-76-inside-37_665_875" fill="white">
+                <mask id="path-76-inside-37_665_875" fill={colors.white}>
                   <path d="M4177.46 7654.58L4177.46 7905.18C4177.46 7973.33 4223.61 8028.51 4280.47 8028.51L5156.56 8028.51C5213.47 8028.51 5259.56 7973.26 5259.56 7905.18L5259.56 7654.58C5259.56 7634.21 5245.78 7617.72 5228.78 7617.72L4848.03 7617.72C4819.01 7617.72 4766.55 7645.89 4766.55 7680.64L4670.53 7680.64C4670.53 7645.89 4618.07 7617.72 4589.05 7617.72L4208.3 7617.72C4191.3 7617.72 4177.52 7634.21 4177.52 7654.58L4177.46 7654.58Z" />
                 </mask>
                 <path
+                  className="bucketPath"
                   d="M4177.46 7654.58L4177.46 7905.18C4177.46 7973.33 4223.61 8028.51 4280.47 8028.51L5156.56 8028.51C5213.47 8028.51 5259.56 7973.26 5259.56 7905.18L5259.56 7654.58C5259.56 7634.21 5245.78 7617.72 5228.78 7617.72L4848.03 7617.72C4819.01 7617.72 4766.55 7645.89 4766.55 7680.64L4670.53 7680.64C4670.53 7645.89 4618.07 7617.72 4589.05 7617.72L4208.3 7617.72C4191.3 7617.72 4177.52 7634.21 4177.52 7654.58L4177.46 7654.58Z"
                   fill={colors.white}
                   stroke={colors.white}
-                  strokeWidth="66.128"
+                  strokeWidth="101.128"
                   mask="url(#path-76-inside-37_665_875)"
                 />
               </g>
@@ -675,7 +702,7 @@ export function AwesomeMenu(props: AwesomeMenuProps) {
                   height="214"
                   fill="black"
                 >
-                  <rect fill="white" x="4804.75" y="7490.55" width="441" height="214" />
+                  <rect fill={colors.white} x="4804.75" y="7490.55" width="441" height="214" />
                   <path d="M5019.1 7529.55L4876.82 7529.55C4858.53 7529.55 4843.75 7544.32 4843.75 7562.6L4843.75 7657.8C4847.92 7656.96 4852.25 7656.52 4856.7 7656.46L4856.7 7604.97L5019.15 7604.97L5019.15 7656.41L5032.1 7656.41L5032.1 7604.97L5194.56 7604.97L5194.56 7656.41L5200.01 7656.41C5202.56 7656.41 5205.06 7656.63 5207.45 7657.02L5207.45 7562.6C5207.45 7544.32 5192.67 7529.55 5174.38 7529.55L5019.15 7529.55L5019.1 7529.55ZM5019.1 7592.03L4856.64 7592.03L4856.64 7562.6C4856.64 7551.49 4865.65 7542.49 4876.76 7542.49L5019.04 7542.49L5019.04 7592.03L5019.1 7592.03ZM5174.33 7542.49C5185.44 7542.49 5194.45 7551.49 5194.45 7562.6L5194.45 7592.03L5031.99 7592.03L5031.99 7542.49L5174.33 7542.49Z" />
                 </mask>
                 <path
@@ -690,7 +717,7 @@ export function AwesomeMenu(props: AwesomeMenuProps) {
                 />
               </g>
               <g id="umbrella-full_11">
-                <mask id="path-78-inside-39_665_875" fill="white">
+                <mask id="path-78-inside-39_665_875" fill={colors.white}>
                   <path d="M5414.05 7045.27C5304.23 6905.89 5162.86 6828.2 5015.89 6828.2L4856 6828.2L4860.75 7095.71L5400.9 7095.71C5419.17 7095.71 5427.88 7062.71 5414.12 7045.27L5414.05 7045.27Z" />
                   <path d="M4039.14 7095.71L4860.75 7095.71L4856 6828.2L4424.09 6828.2C4277.12 6828.2 4135.74 6905.8 4025.92 7045.27C4012.16 7062.7 4020.81 7095.71 4039.14 7095.71Z" />
                 </mask>
@@ -709,20 +736,23 @@ export function AwesomeMenu(props: AwesomeMenuProps) {
                 />
               </g>
               <g id="bar-full_11">
-                <mask id="path-80-inside-40_665_875" fill="white">
+                <mask id="path-80-inside-40_665_875" fill={colors.white}>
                   <path d="M4780.63 7008.55L4657.39 7008.55L4657.39 7857.19L4780.63 7857.19L4780.63 7008.55Z" />
                 </mask>
                 <path
                   d="M4780.63 7008.55L4657.39 7008.55L4657.39 7857.19L4780.63 7857.19L4780.63 7008.55Z"
                   fill={colors.white}
                   stroke={colors.white}
-                  strokeWidth="36.0698"
+                  strokeWidth="31010698"
                   mask="url(#path-80-inside-40_665_875)"
                 />
               </g>
             </g>
             <g
-              className={cx(isNavigationVisible && globalClasses.menuFerrisWheelCarSpinReverse, classes.carMask)}
+              className={cx(
+                isNavigationVisible && globalClasses.menuFerrisWheelCarSpinReverse,
+                classes.carMask
+              )}
               id="mask_7"
             >
               <g id="rail-left_13">
@@ -735,7 +765,7 @@ export function AwesomeMenu(props: AwesomeMenuProps) {
                   height="214"
                   fill="black"
                 >
-                  <rect fill="white" x="2507.31" y="6916.44" width="441" height="214" />
+                  <rect fill={colors.white} x="2507.31" y="6916.44" width="441" height="214" />
                   <path d="M2721.66 6955.44L2579.38 6955.44C2561.1 6955.44 2546.31 6970.21 2546.31 6988.49L2546.31 7082.91C2548.76 7082.52 2551.26 7082.3 2553.76 7082.3L2559.21 7082.3L2559.21 7030.86L2721.66 7030.86L2721.66 7082.3L2734.61 7082.3L2734.61 7030.86L2897.07 7030.86L2897.07 7082.35C2901.51 7082.35 2905.79 7082.85 2910.02 7083.69L2910.02 6988.49C2910.02 6970.21 2895.23 6955.44 2876.95 6955.44L2721.72 6955.44L2721.66 6955.44ZM2721.66 7017.92L2559.21 7017.92L2559.21 6988.49C2559.21 6977.38 2568.21 6968.38 2579.33 6968.38L2721.61 6968.38L2721.61 7017.92L2721.66 7017.92ZM2876.89 6968.38C2888.01 6968.38 2897.01 6977.38 2897.01 6988.49L2897.01 7017.92L2734.56 7017.92L2734.56 6968.38L2876.89 6968.38Z" />
                 </mask>
                 <path
@@ -750,14 +780,15 @@ export function AwesomeMenu(props: AwesomeMenuProps) {
                 />
               </g>
               <g id="bucket_13">
-                <mask id="path-88-inside-44_665_875" fill="white">
+                <mask id="path-88-inside-44_665_875" fill={colors.white}>
                   <path d="M2493.21 7080.47L2493.21 7331.07C2493.21 7399.22 2539.35 7454.4 2596.21 7454.4L3472.31 7454.4C3529.22 7454.4 3575.31 7399.15 3575.31 7331.07L3575.31 7080.47C3575.31 7060.1 3561.53 7043.61 3544.52 7043.61L3163.78 7043.61C3134.76 7043.61 3082.3 7071.78 3082.3 7106.53L2986.28 7106.53C2986.28 7071.78 2933.82 7043.61 2904.79 7043.61L2524.05 7043.61C2507.04 7043.61 2493.27 7060.1 2493.27 7080.47L2493.21 7080.47Z" />
                 </mask>
                 <path
+                  className="bucketPath"
                   d="M2493.21 7080.47L2493.21 7331.07C2493.21 7399.22 2539.35 7454.4 2596.21 7454.4L3472.31 7454.4C3529.22 7454.4 3575.31 7399.15 3575.31 7331.07L3575.31 7080.47C3575.31 7060.1 3561.53 7043.61 3544.52 7043.61L3163.78 7043.61C3134.76 7043.61 3082.3 7071.78 3082.3 7106.53L2986.28 7106.53C2986.28 7071.78 2933.82 7043.61 2904.79 7043.61L2524.05 7043.61C2507.04 7043.61 2493.27 7060.1 2493.27 7080.47L2493.21 7080.47Z"
                   fill={colors.white}
                   stroke={colors.white}
-                  strokeWidth="66.128"
+                  strokeWidth="101.128"
                   mask="url(#path-88-inside-44_665_875)"
                 />
               </g>
@@ -771,7 +802,7 @@ export function AwesomeMenu(props: AwesomeMenuProps) {
                   height="214"
                   fill="black"
                 >
-                  <rect fill="white" x="3120.5" y="6916.44" width="441" height="214" />
+                  <rect fill={colors.white} x="3120.5" y="6916.44" width="441" height="214" />
                   <path d="M3334.85 6955.44L3192.56 6955.44C3174.28 6955.44 3159.5 6970.21 3159.5 6988.49L3159.5 7083.69C3163.66 7082.85 3168 7082.41 3172.45 7082.35L3172.45 7030.86L3334.9 7030.86L3334.9 7082.3L3347.85 7082.3L3347.85 7030.86L3510.31 7030.86L3510.31 7082.3L3515.75 7082.3C3518.31 7082.3 3520.81 7082.52 3523.2 7082.91L3523.2 6988.49C3523.2 6970.21 3508.42 6955.44 3490.13 6955.44L3334.9 6955.44L3334.85 6955.44ZM3334.85 7017.92L3172.39 7017.92L3172.39 6988.49C3172.39 6977.38 3181.39 6968.38 3192.51 6968.38L3334.79 6968.38L3334.79 7017.92L3334.85 7017.92ZM3490.08 6968.38C3501.19 6968.38 3510.19 6977.38 3510.19 6988.49L3510.19 7017.92L3347.74 7017.92L3347.74 6968.38L3490.08 6968.38Z" />
                 </mask>
                 <path
@@ -786,7 +817,7 @@ export function AwesomeMenu(props: AwesomeMenuProps) {
                 />
               </g>
               <g id="umbrella-full_13">
-                <mask id="path-90-inside-46_665_875" fill="white">
+                <mask id="path-90-inside-46_665_875" fill={colors.white}>
                   <path d="M3729.8 6471.16C3619.98 6331.78 3478.61 6254.09 3331.63 6254.09L3171.75 6254.09L3176.5 6521.6L3716.64 6521.6C3734.92 6521.6 3743.63 6488.6 3729.86 6471.16L3729.8 6471.16Z" />
                   <path d="M2354.89 6521.6L3176.5 6521.6L3171.75 6254.09L2739.84 6254.09C2592.86 6254.09 2451.49 6331.69 2341.67 6471.16C2327.9 6488.6 2336.55 6521.6 2354.89 6521.6Z" />
                 </mask>
@@ -805,20 +836,23 @@ export function AwesomeMenu(props: AwesomeMenuProps) {
                 />
               </g>
               <g id="bar-full_13">
-                <mask id="path-92-inside-47_665_875" fill="white">
+                <mask id="path-92-inside-47_665_875" fill={colors.white}>
                   <path d="M3096.37 6434.44L2973.13 6434.44L2973.13 7283.08L3096.37 7283.08L3096.37 6434.44Z" />
                 </mask>
                 <path
                   d="M3096.37 6434.44L2973.13 6434.44L2973.13 7283.08L3096.37 7283.08L3096.37 6434.44Z"
                   fill={colors.white}
                   stroke={colors.white}
-                  strokeWidth="36.0698"
+                  strokeWidth="31010698"
                   mask="url(#path-92-inside-47_665_875)"
                 />
               </g>
             </g>
             <g
-              className={cx(isNavigationVisible && globalClasses.menuFerrisWheelCarSpinReverse, classes.carMask)}
+              className={cx(
+                isNavigationVisible && globalClasses.menuFerrisWheelCarSpinReverse,
+                classes.carMask
+              )}
               id="mask_8"
             >
               <g id="rail-left_15">
@@ -831,7 +865,7 @@ export function AwesomeMenu(props: AwesomeMenuProps) {
                   height="214"
                   fill="black"
                 >
-                  <rect fill="white" x="1449.26" y="5423.56" width="441" height="214" />
+                  <rect fill={colors.white} x="1449.26" y="5423.56" width="441" height="214" />
                   <path d="M1663.61 5462.56L1521.33 5462.56C1503.04 5462.56 1488.26 5477.34 1488.26 5495.61L1488.26 5590.03C1490.7 5589.64 1493.2 5589.42 1495.71 5589.42L1501.15 5589.42L1501.15 5537.99L1663.61 5537.99L1663.61 5589.42L1676.56 5589.42L1676.56 5537.99L1839.01 5537.99L1839.01 5589.48C1843.46 5589.48 1847.74 5589.98 1851.96 5590.81L1851.96 5495.61C1851.96 5477.34 1837.18 5462.56 1818.89 5462.56L1663.66 5462.56L1663.61 5462.56ZM1663.61 5525.05L1501.15 5525.05L1501.15 5495.61C1501.15 5484.5 1510.16 5475.5 1521.27 5475.5L1663.55 5475.5L1663.55 5525.05L1663.61 5525.05ZM1818.84 5475.5C1829.95 5475.5 1838.96 5484.5 1838.96 5495.61L1838.96 5525.05L1676.5 5525.05L1676.5 5475.5L1818.84 5475.5Z" />
                 </mask>
                 <path
@@ -846,14 +880,15 @@ export function AwesomeMenu(props: AwesomeMenuProps) {
                 />
               </g>
               <g id="bucket_15">
-                <mask id="path-100-inside-51_665_875" fill="white">
+                <mask id="path-100-inside-51_665_875" fill={colors.white}>
                   <path d="M1435.16 5587.59L1435.16 5838.2C1435.16 5906.34 1481.3 5961.53 1538.16 5961.53L2414.25 5961.53C2471.16 5961.53 2517.25 5906.28 2517.25 5838.2L2517.25 5587.59C2517.25 5567.23 2503.48 5550.73 2486.47 5550.73L2105.72 5550.73C2076.7 5550.73 2024.24 5578.9 2024.24 5613.66L1928.22 5613.66C1928.22 5578.9 1875.76 5550.73 1846.74 5550.73L1465.99 5550.73C1448.99 5550.73 1435.21 5567.23 1435.21 5587.59L1435.16 5587.59Z" />
                 </mask>
                 <path
+                  className="bucketPath"
                   d="M1435.16 5587.59L1435.16 5838.2C1435.16 5906.34 1481.3 5961.53 1538.16 5961.53L2414.25 5961.53C2471.16 5961.53 2517.25 5906.28 2517.25 5838.2L2517.25 5587.59C2517.25 5567.23 2503.48 5550.73 2486.47 5550.73L2105.72 5550.73C2076.7 5550.73 2024.24 5578.9 2024.24 5613.66L1928.22 5613.66C1928.22 5578.9 1875.76 5550.73 1846.74 5550.73L1465.99 5550.73C1448.99 5550.73 1435.21 5567.23 1435.21 5587.59L1435.16 5587.59Z"
                   fill={colors.white}
                   stroke={colors.white}
-                  strokeWidth="66.128"
+                  strokeWidth="101.128"
                   mask="url(#path-100-inside-51_665_875)"
                 />
               </g>
@@ -867,7 +902,7 @@ export function AwesomeMenu(props: AwesomeMenuProps) {
                   height="214"
                   fill="black"
                 >
-                  <rect fill="white" x="2062.44" y="5423.56" width="441" height="214" />
+                  <rect fill={colors.white} x="2062.44" y="5423.56" width="441" height="214" />
                   <path d="M2276.79 5462.56L2134.51 5462.56C2116.22 5462.56 2101.44 5477.34 2101.44 5495.61L2101.44 5590.81C2105.61 5589.98 2109.94 5589.53 2114.39 5589.48L2114.39 5537.99L2276.85 5537.99L2276.85 5589.42L2289.8 5589.42L2289.8 5537.99L2452.25 5537.99L2452.25 5589.42L2457.7 5589.42C2460.25 5589.42 2462.76 5589.64 2465.15 5590.03L2465.15 5495.61C2465.15 5477.34 2450.36 5462.56 2432.08 5462.56L2276.85 5462.56L2276.79 5462.56ZM2276.79 5525.05L2114.34 5525.05L2114.34 5495.61C2114.34 5484.5 2123.34 5475.5 2134.45 5475.5L2276.74 5475.5L2276.74 5525.05L2276.79 5525.05ZM2432.02 5475.5C2443.14 5475.5 2452.14 5484.5 2452.14 5495.61L2452.14 5525.05L2289.68 5525.05L2289.68 5475.5L2432.02 5475.5Z" />
                 </mask>
                 <path
@@ -882,7 +917,7 @@ export function AwesomeMenu(props: AwesomeMenuProps) {
                 />
               </g>
               <g id="umbrella-full_15">
-                <mask id="path-102-inside-53_665_875" fill="white">
+                <mask id="path-102-inside-53_665_875" fill={colors.white}>
                   <path d="M2671.75 4978.29C2561.93 4838.91 2420.55 4761.21 2273.58 4761.21L2113.69 4761.21L2118.44 5028.73L2658.59 5028.73C2676.86 5028.73 2685.57 4995.72 2671.81 4978.29L2671.75 4978.29Z" />
                   <path d="M1296.83 5028.73L2118.44 5028.73L2113.69 4761.21L1681.78 4761.21C1534.81 4761.21 1393.44 4838.82 1283.62 4978.29C1269.85 4995.72 1278.5 5028.73 1296.83 5028.73Z" />
                 </mask>
@@ -901,20 +936,23 @@ export function AwesomeMenu(props: AwesomeMenuProps) {
                 />
               </g>
               <g id="bar-full_15">
-                <mask id="path-104-inside-54_665_875" fill="white">
+                <mask id="path-104-inside-54_665_875" fill={colors.white}>
                   <path d="M2038.32 4941.56L1915.08 4941.56L1915.08 5790.21L2038.32 5790.21L2038.32 4941.56Z" />
                 </mask>
                 <path
                   d="M2038.32 4941.56L1915.08 4941.56L1915.08 5790.21L2038.32 5790.21L2038.32 4941.56Z"
                   fill={colors.white}
                   stroke={colors.white}
-                  strokeWidth="36.0698"
+                  strokeWidth="31010698"
                   mask="url(#path-104-inside-54_665_875)"
                 />
               </g>
             </g>
             <g
-              className={cx(isNavigationVisible && globalClasses.menuFerrisWheelCarSpinReverse, classes.carMask)}
+              className={cx(
+                isNavigationVisible && globalClasses.menuFerrisWheelCarSpinReverse,
+                classes.carMask
+              )}
               id="mask_9"
             >
               <g id="rail-left_17">
@@ -927,7 +965,7 @@ export function AwesomeMenu(props: AwesomeMenuProps) {
                   height="214"
                   fill="black"
                 >
-                  <rect fill="white" x="1500.37" y="3659.15" width="441" height="214" />
+                  <rect fill={colors.white} x="1500.37" y="3659.15" width="441" height="214" />
                   <path d="M1714.72 3698.15L1572.44 3698.15C1554.15 3698.15 1539.37 3712.92 1539.37 3731.2L1539.37 3825.62C1541.81 3825.23 1544.31 3825.01 1546.81 3825.01L1552.26 3825.01L1552.26 3773.58L1714.72 3773.58L1714.72 3825.01L1727.67 3825.01L1727.67 3773.58L1890.12 3773.58L1890.12 3825.06C1894.57 3825.06 1898.85 3825.56 1903.07 3826.4L1903.07 3731.2C1903.07 3712.92 1888.29 3698.15 1870 3698.15L1714.77 3698.15L1714.72 3698.15ZM1714.72 3760.63L1552.26 3760.63L1552.26 3731.2C1552.26 3720.09 1561.27 3711.09 1572.38 3711.09L1714.66 3711.09L1714.66 3760.63L1714.72 3760.63ZM1869.95 3711.09C1881.06 3711.09 1890.07 3720.09 1890.07 3731.2L1890.07 3760.63L1727.61 3760.63L1727.61 3711.09L1869.95 3711.09Z" />
                 </mask>
                 <path
@@ -942,14 +980,15 @@ export function AwesomeMenu(props: AwesomeMenuProps) {
                 />
               </g>
               <g id="bucket_17">
-                <mask id="path-112-inside-58_665_875" fill="white">
+                <mask id="path-112-inside-58_665_875" fill={colors.white}>
                   <path d="M1486.27 3823.18L1486.27 4073.78C1486.27 4141.93 1532.41 4197.12 1589.27 4197.12L2465.36 4197.12C2522.27 4197.12 2568.36 4141.86 2568.36 4073.78L2568.36 3823.18C2568.36 3802.81 2554.59 3786.32 2537.58 3786.32L2156.83 3786.32C2127.81 3786.32 2075.35 3814.49 2075.35 3849.24L1979.33 3849.24C1979.33 3814.49 1926.87 3786.32 1897.85 3786.32L1517.1 3786.32C1500.1 3786.32 1486.32 3802.81 1486.32 3823.18L1486.27 3823.18Z" />
                 </mask>
                 <path
+                  className="bucketPath"
                   d="M1486.27 3823.18L1486.27 4073.78C1486.27 4141.93 1532.41 4197.12 1589.27 4197.12L2465.36 4197.12C2522.27 4197.12 2568.36 4141.86 2568.36 4073.78L2568.36 3823.18C2568.36 3802.81 2554.59 3786.32 2537.58 3786.32L2156.83 3786.32C2127.81 3786.32 2075.35 3814.49 2075.35 3849.24L1979.33 3849.24C1979.33 3814.49 1926.87 3786.32 1897.85 3786.32L1517.1 3786.32C1500.1 3786.32 1486.32 3802.81 1486.32 3823.18L1486.27 3823.18Z"
                   fill={colors.white}
                   stroke={colors.white}
-                  strokeWidth="66.128"
+                  strokeWidth="101.128"
                   mask="url(#path-112-inside-58_665_875)"
                 />
               </g>
@@ -963,7 +1002,7 @@ export function AwesomeMenu(props: AwesomeMenuProps) {
                   height="214"
                   fill="black"
                 >
-                  <rect fill="white" x="2113.55" y="3659.15" width="441" height="214" />
+                  <rect fill={colors.white} x="2113.55" y="3659.15" width="441" height="214" />
                   <path d="M2327.9 3698.15L2185.62 3698.15C2167.33 3698.15 2152.55 3712.92 2152.55 3731.2L2152.55 3826.4C2156.72 3825.56 2161.05 3825.12 2165.5 3825.06L2165.5 3773.58L2327.96 3773.58L2327.96 3825.01L2340.91 3825.01L2340.91 3773.58L2503.36 3773.58L2503.36 3825.01L2508.81 3825.01C2511.36 3825.01 2513.86 3825.23 2516.25 3825.62L2516.25 3731.2C2516.25 3712.92 2501.47 3698.15 2483.19 3698.15L2327.96 3698.15L2327.9 3698.15ZM2327.9 3760.63L2165.44 3760.63L2165.44 3731.2C2165.44 3720.09 2174.45 3711.09 2185.56 3711.09L2327.84 3711.09L2327.84 3760.63L2327.9 3760.63ZM2483.13 3711.09C2494.25 3711.09 2503.25 3720.09 2503.25 3731.2L2503.25 3760.63L2340.79 3760.63L2340.79 3711.09L2483.13 3711.09Z" />
                 </mask>
                 <path
@@ -978,7 +1017,7 @@ export function AwesomeMenu(props: AwesomeMenuProps) {
                 />
               </g>
               <g id="umbrella-full_17">
-                <mask id="path-114-inside-60_665_875" fill="white">
+                <mask id="path-114-inside-60_665_875" fill={colors.white}>
                   <path d="M2722.86 3213.87C2613.04 3074.5 2471.66 2996.8 2324.69 2996.8L2164.8 2996.8L2169.55 3264.31L2709.7 3264.31C2727.97 3264.31 2736.68 3231.31 2722.92 3213.87L2722.86 3213.87Z" />
                   <path d="M1347.94 3264.31L2169.55 3264.31L2164.8 2996.8L1732.89 2996.8C1585.92 2996.8 1444.54 3074.41 1334.72 3213.87C1320.96 3231.31 1329.61 3264.31 1347.94 3264.31Z" />
                 </mask>
@@ -997,20 +1036,23 @@ export function AwesomeMenu(props: AwesomeMenuProps) {
                 />
               </g>
               <g id="bar-full_17">
-                <mask id="path-116-inside-61_665_875" fill="white">
+                <mask id="path-116-inside-61_665_875" fill={colors.white}>
                   <path d="M2089.43 3177.15L1966.19 3177.15L1966.19 4025.79L2089.43 4025.79L2089.43 3177.15Z" />
                 </mask>
                 <path
                   d="M2089.43 3177.15L1966.19 3177.15L1966.19 4025.79L2089.43 4025.79L2089.43 3177.15Z"
                   fill={colors.white}
                   stroke={colors.white}
-                  strokeWidth="36.0698"
+                  strokeWidth="31010698"
                   mask="url(#path-116-inside-61_665_875)"
                 />
               </g>
             </g>
             <g
-              className={cx(isNavigationVisible && globalClasses.menuFerrisWheelCarSpinReverse, classes.carMask)}
+              className={cx(
+                isNavigationVisible && globalClasses.menuFerrisWheelCarSpinReverse,
+                classes.carMask
+              )}
               id="mask_9"
             >
               <g id="rail-left_19">
@@ -1023,7 +1065,7 @@ export function AwesomeMenu(props: AwesomeMenuProps) {
                   height="214"
                   fill="black"
                 >
-                  <rect fill="white" x="2620.54" y="2215.34" width="441" height="214" />
+                  <rect fill={colors.white} x="2620.54" y="2215.34" width="441" height="214" />
                   <path d="M2834.88 2254.34L2692.6 2254.34C2674.32 2254.34 2659.54 2269.11 2659.54 2287.38L2659.54 2381.81C2661.98 2381.42 2664.48 2381.2 2666.98 2381.2L2672.43 2381.2L2672.43 2329.76L2834.88 2329.76L2834.88 2381.2L2847.83 2381.2L2847.83 2329.76L3010.29 2329.76L3010.29 2381.25C3014.74 2381.25 3019.02 2381.75 3023.24 2382.58L3023.24 2287.38C3023.24 2269.11 3008.46 2254.34 2990.17 2254.34L2834.94 2254.34L2834.88 2254.34ZM2834.88 2316.82L2672.43 2316.82L2672.43 2287.38C2672.43 2276.28 2681.43 2267.28 2692.55 2267.28L2834.83 2267.28L2834.83 2316.82L2834.88 2316.82ZM2990.11 2267.28C3001.23 2267.28 3010.23 2276.28 3010.23 2287.38L3010.23 2316.82L2847.78 2316.82L2847.78 2267.28L2990.11 2267.28Z" />
                 </mask>
                 <path
@@ -1038,14 +1080,15 @@ export function AwesomeMenu(props: AwesomeMenuProps) {
                 />
               </g>
               <g id="bucket_19">
-                <mask id="path-124-inside-65_665_875" fill="white">
+                <mask id="path-124-inside-65_665_875" fill={colors.white}>
                   <path d="M2606.43 2379.37L2606.43 2629.97C2606.43 2698.12 2652.58 2753.3 2709.43 2753.3L3585.53 2753.3C3642.44 2753.3 3688.53 2698.05 3688.53 2629.97L3688.53 2379.37C3688.53 2359 3674.75 2342.51 3657.75 2342.51L3277 2342.51C3247.98 2342.51 3195.52 2370.68 3195.52 2405.43L3099.5 2405.43C3099.5 2370.68 3047.04 2342.51 3018.02 2342.51L2637.27 2342.51C2620.27 2342.51 2606.49 2359 2606.49 2379.37L2606.43 2379.37Z" />
                 </mask>
                 <path
+                  className="bucketPath"
                   d="M2606.43 2379.37L2606.43 2629.97C2606.43 2698.12 2652.58 2753.3 2709.43 2753.3L3585.53 2753.3C3642.44 2753.3 3688.53 2698.05 3688.53 2629.97L3688.53 2379.37C3688.53 2359 3674.75 2342.51 3657.75 2342.51L3277 2342.51C3247.98 2342.51 3195.52 2370.68 3195.52 2405.43L3099.5 2405.43C3099.5 2370.68 3047.04 2342.51 3018.02 2342.51L2637.27 2342.51C2620.27 2342.51 2606.49 2359 2606.49 2379.37L2606.43 2379.37Z"
                   fill={colors.white}
                   stroke={colors.white}
-                  strokeWidth="66.128"
+                  strokeWidth="101.128"
                   mask="url(#path-124-inside-65_665_875)"
                 />
               </g>
@@ -1059,7 +1102,7 @@ export function AwesomeMenu(props: AwesomeMenuProps) {
                   height="214"
                   fill="black"
                 >
-                  <rect fill="white" x="3233.72" y="2215.34" width="441" height="214" />
+                  <rect fill={colors.white} x="3233.72" y="2215.34" width="441" height="214" />
                   <path d="M3448.07 2254.34L3305.79 2254.34C3287.5 2254.34 3272.72 2269.11 3272.72 2287.38L3272.72 2382.58C3276.89 2381.75 3281.22 2381.31 3285.67 2381.25L3285.67 2329.76L3448.12 2329.76L3448.12 2381.2L3461.07 2381.2L3461.07 2329.76L3623.53 2329.76L3623.53 2381.2L3628.98 2381.2C3631.53 2381.2 3634.03 2381.42 3636.42 2381.81L3636.42 2287.38C3636.42 2269.11 3621.64 2254.34 3603.35 2254.34L3448.12 2254.34L3448.07 2254.34ZM3448.07 2316.82L3285.61 2316.82L3285.61 2287.38C3285.61 2276.28 3294.62 2267.28 3305.73 2267.28L3448.01 2267.28L3448.01 2316.82L3448.07 2316.82ZM3603.3 2267.28C3614.41 2267.28 3623.42 2276.28 3623.42 2287.38L3623.42 2316.82L3460.96 2316.82L3460.96 2267.28L3603.3 2267.28Z" />
                 </mask>
                 <path
@@ -1074,7 +1117,7 @@ export function AwesomeMenu(props: AwesomeMenuProps) {
                 />
               </g>
               <g id="umbrella-full_19">
-                <mask id="path-126-inside-67_665_875" fill="white">
+                <mask id="path-126-inside-67_665_875" fill={colors.white}>
                   <path d="M3843.02 1770.06C3733.2 1630.68 3591.83 1552.98 3444.86 1552.98L3284.97 1552.98L3289.72 1820.5L3829.87 1820.5C3848.14 1820.5 3856.85 1787.49 3843.08 1770.06L3843.02 1770.06Z" />
                   <path d="M2468.11 1820.5L3289.72 1820.5L3284.97 1552.98L2853.06 1552.98C2706.08 1552.98 2564.71 1630.59 2454.89 1770.06C2441.13 1787.49 2449.78 1820.5 2468.11 1820.5Z" />
                 </mask>
@@ -1093,14 +1136,14 @@ export function AwesomeMenu(props: AwesomeMenuProps) {
                 />
               </g>
               <g id="bar-full_19">
-                <mask id="path-128-inside-68_665_875" fill="white">
+                <mask id="path-128-inside-68_665_875" fill={colors.white}>
                   <path d="M3209.59 1733.34L3086.36 1733.34L3086.36 2581.98L3209.59 2581.98L3209.59 1733.34Z" />
                 </mask>
                 <path
                   d="M3209.59 1733.34L3086.36 1733.34L3086.36 2581.98L3209.59 2581.98L3209.59 1733.34Z"
                   fill={colors.white}
                   stroke={colors.white}
-                  strokeWidth="36.0698"
+                  strokeWidth="31010698"
                   mask="url(#path-128-inside-68_665_875)"
                 />
               </g>
@@ -1108,12 +1151,21 @@ export function AwesomeMenu(props: AwesomeMenuProps) {
           </g>
           <g
             id="cars"
-            className={cx(isNavigationVisible && globalClasses.menuFerrisWheelSpin, classes.carsGroup)}
+            className={cx(
+              isNavigationVisible && globalClasses.menuFerrisWheelSpin,
+              classes.carsGroup
+            )}
           >
             <g
               id="car-0"
               clipPath="url(#clip0_665_875)"
-              className={cx(isNavigationVisible && globalClasses.menuFerrisWheelCarSpinReverse, classes.car)}
+              className={cx(
+                isNavigationVisible && globalClasses.menuFerrisWheelCarSpinReverse,
+                classes.car
+              )}
+              onMouseEnter={() => handleHover("car-0")}
+              onMouseLeave={() => handleHover(null)}
+              onClick={() => handleClick("car-0")}
             >
               <g id="black-0">
                 <g id="rail-left_2">
@@ -1126,7 +1178,7 @@ export function AwesomeMenu(props: AwesomeMenuProps) {
                     height="131"
                     fill="black"
                   >
-                    <rect fill="white" x="4239.14" y="1762.97" width="345" height="131" />
+                    <rect fill={colors.white} x="4239.14" y="1762.97" width="345" height="131" />
                     <path d="M4405.57 1767.97L4274.59 1767.97C4257.75 1767.97 4244.14 1781.78 4244.14 1798.87L4244.14 1887.15C4246.4 1886.78 4248.7 1886.57 4251 1886.57L4256.01 1886.57L4256.01 1838.49L4405.57 1838.49L4405.57 1886.57L4417.49 1886.57L4417.49 1838.49L4567.05 1838.49L4567.05 1886.63C4571.14 1886.63 4575.08 1887.09 4578.97 1887.87L4578.97 1798.87C4578.97 1781.78 4565.36 1767.97 4548.53 1767.97L4405.62 1767.97L4405.57 1767.97ZM4405.57 1826.39L4256.01 1826.39L4256.01 1798.87C4256.01 1788.48 4264.3 1780.07 4274.54 1780.07L4405.52 1780.07L4405.52 1826.39L4405.57 1826.39ZM4548.48 1780.07C4558.71 1780.07 4567 1788.48 4567 1798.87L4567 1826.39L4417.44 1826.39L4417.44 1780.07L4548.48 1780.07Z" />
                   </mask>
                   <path
@@ -1155,7 +1207,7 @@ export function AwesomeMenu(props: AwesomeMenuProps) {
                     height="131"
                     fill="black"
                   >
-                    <rect fill="white" x="4839.21" y="1762.97" width="345" height="131" />
+                    <rect fill={colors.white} x="4839.21" y="1762.97" width="345" height="131" />
                     <path d="M5005.63 1767.97L4874.65 1767.97C4857.82 1767.97 4844.21 1781.78 4844.21 1798.87L4844.21 1887.87C4848.04 1887.09 4852.04 1886.68 4856.13 1886.63L4856.13 1838.49L5005.68 1838.49L5005.68 1886.57L5017.61 1886.57L5017.61 1838.49L5167.16 1838.49L5167.16 1886.57L5172.18 1886.57C5174.53 1886.57 5176.83 1886.78 5179.03 1887.15L5179.03 1798.87C5179.03 1781.78 5165.42 1767.97 5148.59 1767.97L5005.68 1767.97L5005.63 1767.97ZM5005.63 1826.39L4856.08 1826.39L4856.08 1798.87C4856.08 1788.48 4864.37 1780.07 4874.6 1780.07L5005.58 1780.07L5005.58 1826.39L5005.63 1826.39ZM5148.54 1780.07C5158.77 1780.07 5167.06 1788.48 5167.06 1798.87L5167.06 1826.39L5017.5 1826.39L5017.5 1780.07L5148.54 1780.07Z" />
                   </mask>
                   <path
@@ -1197,7 +1249,10 @@ export function AwesomeMenu(props: AwesomeMenuProps) {
             <g
               id="car-1"
               clipPath="url(#clip1_665_875)"
-              className={cx(isNavigationVisible && globalClasses.menuFerrisWheelCarSpinReverse, classes.car)}
+              className={cx(
+                isNavigationVisible && globalClasses.menuFerrisWheelCarSpinReverse,
+                classes.car
+              )}
             >
               <g id="black-1">
                 <g id="rail-left_4">
@@ -1210,7 +1265,7 @@ export function AwesomeMenu(props: AwesomeMenuProps) {
                     height="131"
                     fill="black"
                   >
-                    <rect fill="white" x="5942.44" y="2303.96" width="345" height="131" />
+                    <rect fill={colors.white} x="5942.44" y="2303.96" width="345" height="131" />
                     <path d="M6108.86 2308.96L5977.88 2308.96C5961.05 2308.96 5947.44 2322.77 5947.44 2339.86L5947.44 2428.14C5949.69 2427.77 5951.99 2427.57 5954.29 2427.57L5959.31 2427.57L5959.31 2379.48L6108.86 2379.48L6108.86 2427.57L6120.79 2427.57L6120.79 2379.48L6270.34 2379.48L6270.34 2427.62C6274.43 2427.62 6278.37 2428.09 6282.26 2428.86L6282.26 2339.86C6282.26 2322.77 6268.65 2308.96 6251.82 2308.96L6108.91 2308.96L6108.86 2308.96ZM6108.86 2367.38L5959.31 2367.38L5959.31 2339.86C5959.31 2329.47 5967.6 2321.06 5977.83 2321.06L6108.81 2321.06L6108.81 2367.38L6108.86 2367.38ZM6251.77 2321.06C6262 2321.06 6270.29 2329.47 6270.29 2339.86L6270.29 2367.38L6120.73 2367.38L6120.73 2321.06L6251.77 2321.06Z" />
                   </mask>
                   <path
@@ -1239,7 +1294,7 @@ export function AwesomeMenu(props: AwesomeMenuProps) {
                     height="131"
                     fill="black"
                   >
-                    <rect fill="white" x="6542.5" y="2303.96" width="345" height="131" />
+                    <rect fill={colors.white} x="6542.5" y="2303.96" width="345" height="131" />
                     <path d="M6708.93 2308.96L6577.94 2308.96C6561.11 2308.96 6547.5 2322.77 6547.5 2339.86L6547.5 2428.86C6551.34 2428.09 6555.33 2427.67 6559.42 2427.62L6559.42 2379.48L6708.98 2379.48L6708.98 2427.57L6720.9 2427.57L6720.9 2379.48L6870.45 2379.48L6870.45 2427.57L6875.47 2427.57C6877.82 2427.57 6880.13 2427.77 6882.33 2428.14L6882.33 2339.86C6882.33 2322.77 6868.72 2308.96 6851.88 2308.96L6708.98 2308.96L6708.93 2308.96ZM6708.93 2367.38L6559.37 2367.38L6559.37 2339.86C6559.37 2329.47 6567.66 2321.06 6577.89 2321.06L6708.88 2321.06L6708.88 2367.38L6708.93 2367.38ZM6851.83 2321.06C6862.06 2321.06 6870.35 2329.47 6870.35 2339.86L6870.35 2367.38L6720.8 2367.38L6720.8 2321.06L6851.83 2321.06Z" />
                   </mask>
                   <path
@@ -1281,7 +1336,10 @@ export function AwesomeMenu(props: AwesomeMenuProps) {
             <g
               id="car-2"
               clipPath="url(#clip2_665_875)"
-              className={cx(isNavigationVisible && globalClasses.menuFerrisWheelCarSpinReverse, classes.car)}
+              className={cx(
+                isNavigationVisible && globalClasses.menuFerrisWheelCarSpinReverse,
+                classes.car
+              )}
             >
               <g id="black-2">
                 <g id="rail-left_6">
@@ -1294,7 +1352,7 @@ export function AwesomeMenu(props: AwesomeMenuProps) {
                     height="131"
                     fill="black"
                   >
-                    <rect fill="white" x="7010.5" y="3755.62" width="345" height="131" />
+                    <rect fill={colors.white} x="7010.5" y="3755.62" width="345" height="131" />
                     <path d="M7176.93 3760.63L7045.94 3760.63C7029.11 3760.63 7015.5 3774.44 7015.5 3791.52L7015.5 3879.8C7017.75 3879.44 7020.05 3879.23 7022.36 3879.23L7027.37 3879.23L7027.37 3831.14L7176.93 3831.14L7176.93 3879.23L7188.85 3879.23L7188.85 3831.14L7338.4 3831.14L7338.4 3879.28C7342.5 3879.28 7346.44 3879.75 7350.33 3880.53L7350.33 3791.52C7350.33 3774.44 7336.72 3760.63 7319.88 3760.63L7176.98 3760.63L7176.93 3760.63ZM7176.93 3819.04L7027.37 3819.04L7027.37 3791.52C7027.37 3781.14 7035.66 3772.72 7045.89 3772.72L7176.88 3772.72L7176.88 3819.04L7176.93 3819.04ZM7319.83 3772.72C7330.06 3772.72 7338.35 3781.14 7338.35 3791.52L7338.35 3819.04L7188.8 3819.04L7188.8 3772.72L7319.83 3772.72Z" />
                   </mask>
                   <path
@@ -1323,7 +1381,7 @@ export function AwesomeMenu(props: AwesomeMenuProps) {
                     height="131"
                     fill="black"
                   >
-                    <rect fill="white" x="7610.56" y="3755.62" width="345" height="131" />
+                    <rect fill={colors.white} x="7610.56" y="3755.62" width="345" height="131" />
                     <path d="M7776.99 3760.63L7646.01 3760.63C7629.17 3760.63 7615.56 3774.44 7615.56 3791.52L7615.56 3880.53C7619.4 3879.75 7623.39 3879.33 7627.48 3879.28L7627.48 3831.14L7777.04 3831.14L7777.04 3879.23L7788.96 3879.23L7788.96 3831.14L7938.52 3831.14L7938.52 3879.23L7943.53 3879.23C7945.89 3879.23 7948.19 3879.44 7950.39 3879.8L7950.39 3791.52C7950.39 3774.44 7936.78 3760.63 7919.94 3760.63L7777.04 3760.63L7776.99 3760.63ZM7776.99 3819.04L7627.43 3819.04L7627.43 3791.52C7627.43 3781.14 7635.72 3772.72 7645.95 3772.72L7776.94 3772.72L7776.94 3819.04L7776.99 3819.04ZM7919.89 3772.72C7930.13 3772.72 7938.42 3781.14 7938.42 3791.52L7938.42 3819.04L7788.86 3819.04L7788.86 3772.72L7919.89 3772.72Z" />
                   </mask>
                   <path
@@ -1365,7 +1423,10 @@ export function AwesomeMenu(props: AwesomeMenuProps) {
             <g
               id="car-3"
               clipPath="url(#clip3_665_875)"
-              className={cx(isNavigationVisible && globalClasses.menuFerrisWheelCarSpinReverse, classes.car)}
+              className={cx(
+                isNavigationVisible && globalClasses.menuFerrisWheelCarSpinReverse,
+                classes.car
+              )}
             >
               <g id="black-3">
                 <g id="rail-left_8">
@@ -1378,7 +1439,7 @@ export function AwesomeMenu(props: AwesomeMenuProps) {
                     height="131"
                     fill="black"
                   >
-                    <rect fill="white" x="7003.49" y="5565.92" width="345" height="131" />
+                    <rect fill={colors.white} x="7003.49" y="5565.92" width="345" height="131" />
                     <path d="M7169.91 5570.92L7038.93 5570.92C7022.1 5570.92 7008.49 5584.74 7008.49 5601.82L7008.49 5690.1C7010.74 5689.74 7013.04 5689.53 7015.34 5689.53L7020.36 5689.53L7020.36 5641.44L7169.91 5641.44L7169.91 5689.53L7181.84 5689.53L7181.84 5641.44L7331.39 5641.44L7331.39 5689.58C7335.49 5689.58 7339.43 5690.05 7343.31 5690.83L7343.31 5601.82C7343.31 5584.74 7329.7 5570.92 7312.87 5570.92L7169.97 5570.92L7169.91 5570.92ZM7169.91 5629.34L7020.36 5629.34L7020.36 5601.82C7020.36 5591.43 7028.65 5583.02 7038.88 5583.02L7169.86 5583.02L7169.86 5629.34L7169.91 5629.34ZM7312.82 5583.02C7323.05 5583.02 7331.34 5591.43 7331.34 5601.82L7331.34 5629.34L7181.78 5629.34L7181.78 5583.02L7312.82 5583.02Z" />
                   </mask>
                   <path
@@ -1407,7 +1468,7 @@ export function AwesomeMenu(props: AwesomeMenuProps) {
                     height="131"
                     fill="black"
                   >
-                    <rect fill="white" x="7603.55" y="5565.92" width="345" height="131" />
+                    <rect fill={colors.white} x="7603.55" y="5565.92" width="345" height="131" />
                     <path d="M7769.98 5570.92L7638.99 5570.92C7622.16 5570.92 7608.55 5584.74 7608.55 5601.82L7608.55 5690.83C7612.39 5690.05 7616.38 5689.63 7620.47 5689.58L7620.47 5641.44L7770.03 5641.44L7770.03 5689.53L7781.95 5689.53L7781.95 5641.44L7931.51 5641.44L7931.51 5689.53L7936.52 5689.53C7938.87 5689.53 7941.18 5689.74 7943.38 5690.1L7943.38 5601.82C7943.38 5584.74 7929.77 5570.92 7912.93 5570.92L7770.03 5570.92L7769.98 5570.92ZM7769.98 5629.34L7620.42 5629.34L7620.42 5601.82C7620.42 5591.43 7628.71 5583.02 7638.94 5583.02L7769.93 5583.02L7769.93 5629.34L7769.98 5629.34ZM7912.88 5583.02C7923.11 5583.02 7931.4 5591.43 7931.4 5601.82L7931.4 5629.34L7781.85 5629.34L7781.85 5583.02L7912.88 5583.02Z" />
                   </mask>
                   <path
@@ -1449,7 +1510,10 @@ export function AwesomeMenu(props: AwesomeMenuProps) {
             <g
               id="car-4"
               clipPath="url(#clip4_665_875)"
-              className={cx(isNavigationVisible && globalClasses.menuFerrisWheelCarSpinReverse, classes.car)}
+              className={cx(
+                isNavigationVisible && globalClasses.menuFerrisWheelCarSpinReverse,
+                classes.car
+              )}
             >
               <g id="black-4">
                 <g id="rail-left_10">
@@ -1462,7 +1526,7 @@ export function AwesomeMenu(props: AwesomeMenuProps) {
                     height="131"
                     fill="black"
                   >
-                    <rect fill="white" x="5902.73" y="6952.99" width="345" height="131" />
+                    <rect fill={colors.white} x="5902.73" y="6952.99" width="345" height="131" />
                     <path d="M6069.15 6957.99L5938.17 6957.99C5921.34 6957.99 5907.73 6971.81 5907.73 6988.89L5907.73 7077.18C5909.98 7076.82 5912.28 7076.61 5914.58 7076.61L5919.6 7076.61L5919.6 7028.52L6069.15 7028.52L6069.15 7076.61L6081.07 7076.61L6081.07 7028.52L6230.63 7028.52L6230.63 7076.66C6234.72 7076.66 6238.66 7077.13 6242.55 7077.91L6242.55 6988.89C6242.55 6971.81 6228.94 6957.99 6212.11 6957.99L6069.2 6957.99L6069.15 6957.99ZM6069.15 7016.42L5919.6 7016.42L5919.6 6988.89C5919.6 6978.51 5927.89 6970.09 5938.12 6970.09L6069.1 6970.09L6069.1 7016.42L6069.15 7016.42ZM6212.06 6970.09C6222.29 6970.09 6230.58 6978.51 6230.58 6988.89L6230.58 7016.42L6081.02 7016.42L6081.02 6970.09L6212.06 6970.09Z" />
                   </mask>
                   <path
@@ -1491,7 +1555,7 @@ export function AwesomeMenu(props: AwesomeMenuProps) {
                     height="131"
                     fill="black"
                   >
-                    <rect fill="white" x="6502.79" y="6952.99" width="345" height="131" />
+                    <rect fill={colors.white} x="6502.79" y="6952.99" width="345" height="131" />
                     <path d="M6669.22 6957.99L6538.23 6957.99C6521.4 6957.99 6507.79 6971.81 6507.79 6988.89L6507.79 7077.91C6511.63 7077.13 6515.62 7076.71 6519.71 7076.66L6519.71 7028.52L6669.27 7028.52L6669.27 7076.61L6681.19 7076.61L6681.19 7028.52L6830.74 7028.52L6830.74 7076.61L6835.76 7076.61C6838.11 7076.61 6840.41 7076.82 6842.61 7077.18L6842.61 6988.89C6842.61 6971.81 6829 6957.99 6812.17 6957.99L6669.27 6957.99L6669.22 6957.99ZM6669.22 7016.42L6519.66 7016.42L6519.66 6988.89C6519.66 6978.51 6527.95 6970.09 6538.18 6970.09L6669.16 6970.09L6669.16 7016.42L6669.22 7016.42ZM6812.12 6970.09C6822.35 6970.09 6830.64 6978.51 6830.64 6988.89L6830.64 7016.42L6681.09 7016.42L6681.09 6970.09L6812.12 6970.09Z" />
                   </mask>
                   <path
@@ -1533,7 +1597,10 @@ export function AwesomeMenu(props: AwesomeMenuProps) {
             <g
               id="car-5"
               clipPath="url(#clip5_665_875)"
-              className={cx(isNavigationVisible && globalClasses.menuFerrisWheelCarSpinReverse, classes.car)}
+              className={cx(
+                isNavigationVisible && globalClasses.menuFerrisWheelCarSpinReverse,
+                classes.car
+              )}
             >
               <g id="black-5">
                 <g id="rail-left_12">
@@ -1546,7 +1613,7 @@ export function AwesomeMenu(props: AwesomeMenuProps) {
                     height="131"
                     fill="black"
                   >
-                    <rect fill="white" x="4246.15" y="7524.2" width="345" height="131" />
+                    <rect fill={colors.white} x="4246.15" y="7524.2" width="345" height="131" />
                     <path d="M4412.57 7529.2L4281.59 7529.2C4264.76 7529.2 4251.15 7543.01 4251.15 7560.1L4251.15 7648.38C4253.4 7648.02 4255.7 7647.81 4258 7647.81L4263.02 7647.81L4263.02 7599.72L4412.57 7599.72L4412.57 7647.81L4424.5 7647.81L4424.5 7599.72L4574.05 7599.72L4574.05 7647.87C4578.15 7647.87 4582.09 7648.33 4585.97 7649.11L4585.97 7560.1C4585.97 7543.01 4572.36 7529.2 4555.53 7529.2L4412.63 7529.2L4412.57 7529.2ZM4412.57 7587.62L4263.02 7587.62L4263.02 7560.1C4263.02 7549.71 4271.31 7541.3 4281.54 7541.3L4412.52 7541.3L4412.52 7587.62L4412.57 7587.62ZM4555.48 7541.3C4565.71 7541.3 4574 7549.71 4574 7560.1L4574 7587.62L4424.45 7587.62L4424.45 7541.3L4555.48 7541.3Z" />
                   </mask>
                   <path
@@ -1575,7 +1642,7 @@ export function AwesomeMenu(props: AwesomeMenuProps) {
                     height="131"
                     fill="black"
                   >
-                    <rect fill="white" x="4846.21" y="7524.2" width="345" height="131" />
+                    <rect fill={colors.white} x="4846.21" y="7524.2" width="345" height="131" />
                     <path d="M5012.64 7529.2L4881.65 7529.2C4864.82 7529.2 4851.21 7543.01 4851.21 7560.1L4851.21 7649.11C4855.05 7648.33 4859.04 7647.92 4863.13 7647.87L4863.13 7599.72L5012.69 7599.72L5012.69 7647.81L5024.61 7647.81L5024.61 7599.72L5174.17 7599.72L5174.17 7647.81L5179.18 7647.81C5181.53 7647.81 5183.84 7648.02 5186.04 7648.38L5186.04 7560.1C5186.04 7543.01 5172.43 7529.2 5155.59 7529.2L5012.69 7529.2L5012.64 7529.2ZM5012.64 7587.62L4863.08 7587.62L4863.08 7560.1C4863.08 7549.71 4871.37 7541.3 4881.6 7541.3L5012.59 7541.3L5012.59 7587.62L5012.64 7587.62ZM5155.54 7541.3C5165.77 7541.3 5174.06 7549.71 5174.06 7560.1L5174.06 7587.62L5024.51 7587.62L5024.51 7541.3L5155.54 7541.3Z" />
                   </mask>
                   <path
@@ -1617,7 +1684,10 @@ export function AwesomeMenu(props: AwesomeMenuProps) {
             <g
               id="car-6"
               clipPath="url(#clip6_665_875)"
-              className={cx(isNavigationVisible && globalClasses.menuFerrisWheelCarSpinReverse, classes.car)}
+              className={cx(
+                isNavigationVisible && globalClasses.menuFerrisWheelCarSpinReverse,
+                classes.car
+              )}
             >
               <g id="black-6">
                 <g id="rail-left_14">
@@ -1630,7 +1700,7 @@ export function AwesomeMenu(props: AwesomeMenuProps) {
                     height="131"
                     fill="black"
                   >
-                    <rect fill="white" x="2561.88" y="6950.09" width="345" height="131" />
+                    <rect fill={colors.white} x="2561.88" y="6950.09" width="345" height="131" />
                     <path d="M2728.31 6955.09L2597.33 6955.09C2580.49 6955.09 2566.88 6968.9 2566.88 6985.99L2566.88 7074.28C2569.13 7073.91 2571.44 7073.7 2573.74 7073.7L2578.75 7073.7L2578.75 7025.61L2728.31 7025.61L2728.31 7073.7L2740.23 7073.7L2740.23 7025.61L2889.79 7025.61L2889.79 7073.76C2893.88 7073.76 2897.82 7074.22 2901.71 7075L2901.71 6985.99C2901.71 6968.9 2888.1 6955.09 2871.26 6955.09L2728.36 6955.09L2728.31 6955.09ZM2728.31 7013.51L2578.75 7013.51L2578.75 6985.99C2578.75 6975.6 2587.04 6967.19 2597.27 6967.19L2728.26 6967.19L2728.26 7013.51L2728.31 7013.51ZM2871.21 6967.19C2881.45 6967.19 2889.74 6975.6 2889.74 6985.99L2889.74 7013.51L2740.18 7013.51L2740.18 6967.19L2871.21 6967.19Z" />
                   </mask>
                   <path
@@ -1659,7 +1729,7 @@ export function AwesomeMenu(props: AwesomeMenuProps) {
                     height="131"
                     fill="black"
                   >
-                    <rect fill="white" x="3161.95" y="6950.09" width="345" height="131" />
+                    <rect fill={colors.white} x="3161.95" y="6950.09" width="345" height="131" />
                     <path d="M3328.37 6955.09L3197.39 6955.09C3180.56 6955.09 3166.95 6968.9 3166.95 6985.99L3166.95 7075C3170.78 7074.22 3174.77 7073.81 3178.87 7073.76L3178.87 7025.61L3328.42 7025.61L3328.42 7073.7L3340.34 7073.7L3340.34 7025.61L3489.9 7025.61L3489.9 7073.7L3494.91 7073.7C3497.27 7073.7 3499.57 7073.91 3501.77 7074.28L3501.77 6985.99C3501.77 6968.9 3488.16 6955.09 3471.33 6955.09L3328.42 6955.09L3328.37 6955.09ZM3328.37 7013.51L3178.82 7013.51L3178.82 6985.99C3178.82 6975.6 3187.1 6967.19 3197.34 6967.19L3328.32 6967.19L3328.32 7013.51L3328.37 7013.51ZM3471.28 6967.19C3481.51 6967.19 3489.8 6975.6 3489.8 6985.99L3489.8 7013.51L3340.24 7013.51L3340.24 6967.19L3471.28 6967.19Z" />
                   </mask>
                   <path
@@ -1701,7 +1771,10 @@ export function AwesomeMenu(props: AwesomeMenuProps) {
             <g
               id="car-7"
               clipPath="url(#clip7_665_875)"
-              className={cx(isNavigationVisible && globalClasses.menuFerrisWheelCarSpinReverse, classes.car)}
+              className={cx(
+                isNavigationVisible && globalClasses.menuFerrisWheelCarSpinReverse,
+                classes.car
+              )}
             >
               <g id="black-7">
                 <g id="rail-left_16">
@@ -1714,7 +1787,7 @@ export function AwesomeMenu(props: AwesomeMenuProps) {
                     height="131"
                     fill="black"
                   >
-                    <rect fill="white" x="1503.85" y="5457.2" width="345" height="131" />
+                    <rect fill={colors.white} x="1503.85" y="5457.2" width="345" height="131" />
                     <path d="M1670.27 5462.2L1539.29 5462.2C1522.46 5462.2 1508.85 5476.01 1508.85 5493.1L1508.85 5581.38C1511.1 5581.02 1513.4 5580.81 1515.7 5580.81L1520.72 5580.81L1520.72 5532.72L1670.27 5532.72L1670.27 5580.81L1682.2 5580.81L1682.2 5532.72L1831.75 5532.72L1831.75 5580.87C1835.84 5580.87 1839.78 5581.33 1843.67 5582.11L1843.67 5493.1C1843.67 5476.01 1830.06 5462.2 1813.23 5462.2L1670.33 5462.2L1670.27 5462.2ZM1670.27 5520.62L1520.72 5520.62L1520.72 5493.1C1520.72 5482.71 1529.01 5474.3 1539.24 5474.3L1670.22 5474.3L1670.22 5520.62L1670.27 5520.62ZM1813.18 5474.3C1823.41 5474.3 1831.7 5482.71 1831.7 5493.1L1831.7 5520.62L1682.14 5520.62L1682.14 5474.3L1813.18 5474.3Z" />
                   </mask>
                   <path
@@ -1743,7 +1816,7 @@ export function AwesomeMenu(props: AwesomeMenuProps) {
                     height="131"
                     fill="black"
                   >
-                    <rect fill="white" x="2103.91" y="5457.2" width="345" height="131" />
+                    <rect fill={colors.white} x="2103.91" y="5457.2" width="345" height="131" />
                     <path d="M2270.34 5462.2L2139.35 5462.2C2122.52 5462.2 2108.91 5476.01 2108.91 5493.1L2108.91 5582.11C2112.75 5581.33 2116.74 5580.92 2120.83 5580.87L2120.83 5532.72L2270.39 5532.72L2270.39 5580.81L2282.31 5580.81L2282.31 5532.72L2431.87 5532.72L2431.87 5580.81L2436.88 5580.81C2439.23 5580.81 2441.54 5581.02 2443.74 5581.38L2443.74 5493.1C2443.74 5476.01 2430.13 5462.2 2413.29 5462.2L2270.39 5462.2L2270.34 5462.2ZM2270.34 5520.62L2120.78 5520.62L2120.78 5493.1C2120.78 5482.71 2129.07 5474.3 2139.3 5474.3L2270.29 5474.3L2270.29 5520.62L2270.34 5520.62ZM2413.24 5474.3C2423.47 5474.3 2431.76 5482.71 2431.76 5493.1L2431.76 5520.62L2282.21 5520.62L2282.21 5474.3L2413.24 5474.3Z" />
                   </mask>
                   <path
@@ -1785,7 +1858,10 @@ export function AwesomeMenu(props: AwesomeMenuProps) {
             <g
               id="car-8"
               clipPath="url(#clip8_665_875)"
-              className={cx(isNavigationVisible && globalClasses.menuFerrisWheelCarSpinReverse, classes.car)}
+              className={cx(
+                isNavigationVisible && globalClasses.menuFerrisWheelCarSpinReverse,
+                classes.car
+              )}
             >
               <g id="black-8">
                 <g id="rail-left_18">
@@ -1798,7 +1874,7 @@ export function AwesomeMenu(props: AwesomeMenuProps) {
                     height="131"
                     fill="black"
                   >
-                    <rect fill="white" x="1554.95" y="3692.8" width="345" height="131" />
+                    <rect fill={colors.white} x="1554.95" y="3692.8" width="345" height="131" />
                     <path d="M1721.37 3697.8L1590.39 3697.8C1573.56 3697.8 1559.95 3711.61 1559.95 3728.7L1559.95 3816.99C1562.2 3816.62 1564.5 3816.42 1566.8 3816.42L1571.82 3816.42L1571.82 3768.32L1721.37 3768.32L1721.37 3816.42L1733.29 3816.42L1733.29 3768.32L1882.85 3768.32L1882.85 3816.47C1886.94 3816.47 1890.88 3816.93 1894.77 3817.71L1894.77 3728.7C1894.77 3711.61 1881.16 3697.8 1864.33 3697.8L1721.42 3697.8L1721.37 3697.8ZM1721.37 3756.22L1571.82 3756.22L1571.82 3728.7C1571.82 3718.31 1580.1 3709.9 1590.34 3709.9L1721.32 3709.9L1721.32 3756.22L1721.37 3756.22ZM1864.28 3709.9C1874.51 3709.9 1882.8 3718.31 1882.8 3728.7L1882.8 3756.22L1733.24 3756.22L1733.24 3709.9L1864.28 3709.9Z" />
                   </mask>
                   <path
@@ -1827,7 +1903,7 @@ export function AwesomeMenu(props: AwesomeMenuProps) {
                     height="131"
                     fill="black"
                   >
-                    <rect fill="white" x="2155.01" y="3692.8" width="345" height="131" />
+                    <rect fill={colors.white} x="2155.01" y="3692.8" width="345" height="131" />
                     <path d="M2321.43 3697.8L2190.45 3697.8C2173.62 3697.8 2160.01 3711.61 2160.01 3728.7L2160.01 3817.71C2163.85 3816.93 2167.84 3816.52 2171.93 3816.47L2171.93 3768.32L2321.49 3768.32L2321.49 3816.42L2333.41 3816.42L2333.41 3768.32L2482.96 3768.32L2482.96 3816.42L2487.98 3816.42C2490.33 3816.42 2492.63 3816.62 2494.83 3816.99L2494.83 3728.7C2494.83 3711.61 2481.22 3697.8 2464.39 3697.8L2321.49 3697.8L2321.43 3697.8ZM2321.43 3756.22L2171.88 3756.22L2171.88 3728.7C2171.88 3718.31 2180.17 3709.9 2190.4 3709.9L2321.38 3709.9L2321.38 3756.22L2321.43 3756.22ZM2464.34 3709.9C2474.57 3709.9 2482.86 3718.31 2482.86 3728.7L2482.86 3756.22L2333.3 3756.22L2333.3 3709.9L2464.34 3709.9Z" />
                   </mask>
                   <path
@@ -1869,7 +1945,10 @@ export function AwesomeMenu(props: AwesomeMenuProps) {
             <g
               id="car-9"
               clipPath="url(#clip9_665_875)"
-              className={cx(isNavigationVisible && globalClasses.menuFerrisWheelCarSpinReverse, classes.car)}
+              className={cx(
+                isNavigationVisible && globalClasses.menuFerrisWheelCarSpinReverse,
+                classes.car
+              )}
             >
               <g id="black-9">
                 <g id="rail-left_20">
@@ -1882,7 +1961,7 @@ export function AwesomeMenu(props: AwesomeMenuProps) {
                     height="131"
                     fill="black"
                   >
-                    <rect fill="white" x="2675.12" y="2248.98" width="345" height="131" />
+                    <rect fill={colors.white} x="2675.12" y="2248.98" width="345" height="131" />
                     <path d="M2841.54 2253.98L2710.56 2253.98C2693.73 2253.98 2680.12 2267.79 2680.12 2284.88L2680.12 2373.17C2682.37 2372.8 2684.67 2372.6 2686.97 2372.6L2691.99 2372.6L2691.99 2324.5L2841.54 2324.5L2841.54 2372.6L2853.47 2372.6L2853.47 2324.5L3003.02 2324.5L3003.02 2372.65C3007.11 2372.65 3011.05 2373.11 3014.94 2373.89L3014.94 2284.88C3014.94 2267.79 3001.33 2253.98 2984.5 2253.98L2841.59 2253.98L2841.54 2253.98ZM2841.54 2312.4L2691.99 2312.4L2691.99 2284.88C2691.99 2274.49 2700.28 2266.08 2710.51 2266.08L2841.49 2266.08L2841.49 2312.4L2841.54 2312.4ZM2984.45 2266.08C2994.68 2266.08 3002.97 2274.49 3002.97 2284.88L3002.97 2312.4L2853.41 2312.4L2853.41 2266.08L2984.45 2266.08Z" />
                   </mask>
                   <path
@@ -1911,7 +1990,7 @@ export function AwesomeMenu(props: AwesomeMenuProps) {
                     height="131"
                     fill="black"
                   >
-                    <rect fill="white" x="3275.18" y="2248.98" width="345" height="131" />
+                    <rect fill={colors.white} x="3275.18" y="2248.98" width="345" height="131" />
                     <path d="M3441.61 2253.98L3310.62 2253.98C3293.79 2253.98 3280.18 2267.79 3280.18 2284.88L3280.18 2373.89C3284.02 2373.11 3288.01 2372.7 3292.1 2372.65L3292.1 2324.5L3441.66 2324.5L3441.66 2372.6L3453.58 2372.6L3453.58 2324.5L3603.13 2324.5L3603.13 2372.6L3608.15 2372.6C3610.5 2372.6 3612.8 2372.8 3615.01 2373.17L3615.01 2284.88C3615.01 2267.79 3601.39 2253.98 3584.56 2253.98L3441.66 2253.98L3441.61 2253.98ZM3441.61 2312.4L3292.05 2312.4L3292.05 2284.88C3292.05 2274.49 3300.34 2266.08 3310.57 2266.08L3441.55 2266.08L3441.55 2312.4L3441.61 2312.4ZM3584.51 2266.08C3594.74 2266.08 3603.03 2274.49 3603.03 2284.88L3603.03 2312.4L3453.48 2312.4L3453.48 2266.08L3584.51 2266.08Z" />
                   </mask>
                   <path
@@ -1953,7 +2032,10 @@ export function AwesomeMenu(props: AwesomeMenuProps) {
           </g>
           <g
             id="bars"
-            className={cx(isNavigationVisible && globalClasses.menuFerrisWheelSpin, classes.barsGroup)}
+            className={cx(
+              isNavigationVisible && globalClasses.menuFerrisWheelSpin,
+              classes.barsGroup
+            )}
           >
             <path
               id="bar-4"
@@ -2033,7 +2115,7 @@ export function AwesomeMenu(props: AwesomeMenuProps) {
               height="4235"
               fill="black"
             >
-              <rect fill="white" x="3281.56" y="3976.25" width="2906" height="4235" />
+              <rect fill={colors.white} x="3281.56" y="3976.25" width="2906" height="4235" />
               <path d="M4630.81 4082.39C4663.41 3981.44 4806.24 3981.44 4838.84 4082.39L6156.2 8162.57C6159.11 8171.58 6152.39 8180.81 6142.92 8180.81H5758.05C5751.94 8180.81 5746.55 8176.84 5744.73 8171.01L4738.14 4944.35C4737.12 4941.09 4732.51 4941.08 4731.48 4944.34L3713.92 8171.05C3712.09 8176.86 3706.7 8180.81 3700.61 8180.81H3326.73C3317.26 8180.81 3310.54 8171.58 3313.45 8162.57L4630.81 4082.39Z" />
             </mask>
             <path
@@ -2112,7 +2194,7 @@ export function AwesomeMenu(props: AwesomeMenuProps) {
               className={classes.ferrisWheelDarkMoveFillWhite}
               fill="black"
             >
-              <rect fill="white" x="3370.73" y="4155.7" width="2728" height="4028" />
+              <rect fill={colors.white} x="3370.73" y="4155.7" width="2728" height="4028" />
               <path d="M4651.52 4251.23C4677.45 4170.51 4791.66 4170.5 4817.58 4251.23L6063.52 8130.77C6066.41 8139.78 6059.7 8148.99 6050.24 8148.99H5832.86C5826.74 8148.99 5821.34 8145.01 5819.53 8139.17L4748.94 4686.88C4744.55 4672.71 4724.5 4672.69 4720.08 4686.86L3642.53 8139.2C3640.71 8145.02 3635.32 8148.99 3629.21 8148.99H3418.87C3409.41 8148.99 3402.69 8139.78 3405.59 8130.77L4651.52 4251.23Z" />
             </mask>
             <path
@@ -2296,7 +2378,7 @@ export function AwesomeMenu(props: AwesomeMenuProps) {
           <rect
             width="1744.1"
             height="1743.91"
-            fill="white"
+            fill={colors.white}
             transform="translate(3839.59 523.023)"
           />
         </clipPath>
@@ -2304,7 +2386,7 @@ export function AwesomeMenu(props: AwesomeMenuProps) {
           <rect
             width="1744.1"
             height="1743.91"
-            fill="white"
+            fill={colors.white}
             transform="translate(5542.88 1064.02)"
           />
         </clipPath>
@@ -2312,7 +2394,7 @@ export function AwesomeMenu(props: AwesomeMenuProps) {
           <rect
             width="1744.1"
             height="1743.91"
-            fill="white"
+            fill={colors.white}
             transform="translate(6610.95 2515.66)"
           />
         </clipPath>
@@ -2320,7 +2402,7 @@ export function AwesomeMenu(props: AwesomeMenuProps) {
           <rect
             width="1744.1"
             height="1743.91"
-            fill="white"
+            fill={colors.white}
             transform="translate(6603.93 4325.97)"
           />
         </clipPath>
@@ -2328,7 +2410,7 @@ export function AwesomeMenu(props: AwesomeMenuProps) {
           <rect
             width="1744.1"
             height="1744.1"
-            fill="white"
+            fill={colors.white}
             transform="translate(5503.16 5712.91)"
           />
         </clipPath>
@@ -2336,7 +2418,7 @@ export function AwesomeMenu(props: AwesomeMenuProps) {
           <rect
             width="1744.1"
             height="1744.1"
-            fill="white"
+            fill={colors.white}
             transform="translate(3846.59 6284.12)"
           />
         </clipPath>
@@ -2344,7 +2426,7 @@ export function AwesomeMenu(props: AwesomeMenuProps) {
           <rect
             width="1744.1"
             height="1744.1"
-            fill="white"
+            fill={colors.white}
             transform="translate(2162.33 5710.02)"
           />
         </clipPath>
@@ -2352,7 +2434,7 @@ export function AwesomeMenu(props: AwesomeMenuProps) {
           <rect
             width="1744.1"
             height="1744.1"
-            fill="white"
+            fill={colors.white}
             transform="translate(1104.29 4217.12)"
           />
         </clipPath>
@@ -2360,7 +2442,7 @@ export function AwesomeMenu(props: AwesomeMenuProps) {
           <rect
             width="1744.1"
             height="1744.1"
-            fill="white"
+            fill={colors.white}
             transform="translate(1155.39 2452.71)"
           />
         </clipPath>
@@ -2368,7 +2450,7 @@ export function AwesomeMenu(props: AwesomeMenuProps) {
           <rect
             width="1744.1"
             height="1744.1"
-            fill="white"
+            fill={colors.white}
             transform="translate(2275.55 1008.91)"
           />
         </clipPath>

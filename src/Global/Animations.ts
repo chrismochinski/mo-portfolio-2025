@@ -1,4 +1,4 @@
-import { keyframes } from "@mantine/emotion";
+import { keyframes } from '@mantine/emotion';
 
 export const slowSpin = keyframes`
     from {
@@ -18,9 +18,86 @@ export const slowSpinReverse = keyframes`
     }
     `;
 
+export const carSway = keyframes`
+  0% {
+    transform: rotate(0deg);
+    animation-timing-function: linear;
+  }
+  15% {
+    transform: rotate(-8deg); /* Sway to the right */
+    animation-timing-function: linear;
+  }
+  20% {
+    transform: rotate(-9deg); /* Brief pause */
+    animation-timing-function: ease-out;
+    }
+  25% {
+    transform: rotate(-8deg); /* Brief pause */
+    animation-timing-function: ease-in;
+  }
+  75% {
+    transform: rotate(8deg); /* Sway to the left */
+    animation-timing-function: linear;
+  }
+    80% {
+        transform: rotate(9deg); /* Brief pause */
+        animation-timing-function: ease-out;
+    }
+  85% {
+    transform: rotate(8deg); /* Brief pause */
+    animation-timing-function: ease-in;
+  }
+  100% {
+    transform: rotate(0deg); /* Start returning to neutral */
+    animation-timing-function: linear;
+  }
+
+`;
+
+
+export const carSwayDamped = keyframes`
+  0% {
+    transform: rotate(0deg); /* Start at neutral */
+    animation-timing-function: ease-out; /* snap accelerate out */
+  }
+8% {
+    transform: rotate(-7deg); /* Sway left */
+    animation-timing-function: ease-in-out; /* Gradually slow at the extreme */
+  }
+  28% {
+    transform: rotate(6deg); /* Sway right */
+    animation-timing-function: ease-in-out;
+  }
+  43% {
+    transform: rotate(-5deg); /* Reduced sway left */
+    animation-timing-function: ease-in-out;
+  }
+  58% {
+    transform: rotate(4deg); /* Reduced sway right */
+    animation-timing-function: ease-in-out;
+  }
+  73% {
+    transform: rotate(-3deg); /* Minimal sway left */
+    animation-timing-function: ease-in-out;
+  }
+  88% {
+    transform: rotate(2deg); /* Minimal sway right */
+    animation-timing-function: ease-in-out;
+  }
+  100% {
+    transform: rotate(0deg); /* Stop at neutral */
+    animation-timing-function: linear; /* Smoothly return to neutral */
+  }
+`;
+
+
+
+
+
+
 
 const generateSwayKeyframes = () => {
-  let keyframes = "0% { transform: translate(0, 0); } "; // Start at (0, 0)
+  let keyframes = '0% { transform: translate(0, 0); } '; // Start at (0, 0)
 
   for (let i = 5; i < 100; i += 5) {
     // Exclude 100% to ensure it returns to (0, 0)
@@ -29,7 +106,7 @@ const generateSwayKeyframes = () => {
     keyframes += `${i}% { transform: translate(${x}px, ${y}px); } `;
   }
 
-  keyframes += "100% { transform: translate(0, 0); }"; // End at (0, 0)
+  keyframes += '100% { transform: translate(0, 0); }'; // End at (0, 0)
 
   return keyframes;
 };

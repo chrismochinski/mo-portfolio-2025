@@ -59,6 +59,11 @@ export const globalTheme: MantineThemeOverride = {
     xl: '1.75em',
     xxl: '2em',
   },
+
+  headings: {
+    fontFamily: "'Bitter', serif",
+    textWrap: 'balance',
+  },
 };
 
 export const useGlobalStyles = createStyles(() => ({
@@ -149,28 +154,37 @@ export const useGlobalStyles = createStyles(() => ({
   // ------------------------------------------ //
   // ------------------------------------------ //
 
-  slowSpin: {
-    animation: `${animations.slowSpin} 10s linear infinite`,
-    animationDelay: '800ms',
+  // IMPORTANT - pause animation play state
+  pauseAnimation: {
+    animationPlayState: 'paused',
   },
 
-  
+  slowSpin: {
+    animation: `${animations.slowSpin} 10s linear infinite`,
+    animationDelay: '300ms',
+  },
+
   slowSpinReverse: {
     animation: `${animations.slowSpinReverse} 10s linear infinite`,
-    animationDelay: '800ms',
+    animationDelay: '300ms',
+    '&.ferrisWheelPause': {
+      animationPlayState: 'paused',
+    },
   },
-  
+
   menuFerrisWheelSpin: {
     animation: `${animations.slowSpin} 20s linear infinite`,
-    animationDelay: '3000ms',
+    animationDelay: '1500ms',
   },
 
   menuFerrisWheelCarSpinReverse: {
     animation: `${animations.slowSpinReverse} 20s linear infinite`,
-    animationDelay: '3000ms',
+    animationDelay: '1500ms',
   },
 
-  // replace with particles.js ??
+
+
+  // junk?? Old bubbles animation
   moveAround: {
     animation: `${animations.moveAround} infinite`,
   },

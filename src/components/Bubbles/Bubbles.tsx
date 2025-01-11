@@ -1,7 +1,7 @@
-import { useEffect, useRef } from "react";
-import { Box } from "@mantine/core";
-import { useBubbleStyles } from ".";
-import particlesConfig from "./particles-config.json";
+import { useEffect, useRef } from 'react';
+import { Box } from '@mantine/core';
+import { useBubbleStyles } from '.';
+import particlesConfig from './particles-config.json';
 
 declare global {
   interface Window {
@@ -9,38 +9,44 @@ declare global {
   }
 }
 
+export interface BubblesProps {
+  isNavigationVisible: boolean;
+}
+
 /**
  * @component Bubbles
  * @description Bubbles component, using particles.js library and config in /public folder
  * @returns Bubbles component
+ * @param props - BubblesProps
  */
-export function Bubbles() {
-  const { classes } = useBubbleStyles();
+export function Bubbles(props: BubblesProps) {
+  const { isNavigationVisible } = props;
+  const { cx, classes } = useBubbleStyles();
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     // Dynamically load particles.js
-    const script = document.createElement("script");
-    script.src = "/particles.js";
+    const script = document.createElement('script');
+    script.src = '/particles.js';
     script.async = true;
 
     script.onload = () => {
       if (window.particlesJS) {
-        window.particlesJS("particles-container-light", {
+        window.particlesJS('particles-container-light', {
           ...particlesConfig,
           particles: {
             ...particlesConfig.particles,
             number: { value: 23 }, // Fewer particles for one layer
-            density: { enable: true, value_area: 1400 }
-          }
+            density: { enable: true, value_area: 1400 },
+          },
         });
-        window.particlesJS("particles-container", {
+        window.particlesJS('particles-container', {
           ...particlesConfig,
           particles: {
             ...particlesConfig.particles,
             number: { value: 40 }, // Higher density for another layer
-            density: { enable: true, value_area: 1400 }
-          }
+            density: { enable: true, value_area: 1400 },
+          },
         });
       }
     };
@@ -51,15 +57,11 @@ export function Bubbles() {
   return (
     <Box className={classes.bubblesContainer}>
       <Box
-        className={classes.bubbles}
+        className={cx(classes.bubblesFront, isNavigationVisible && 'navigation-visible')}
         ref={containerRef}
         id="particles-container"
       />
-      <Box
-        className={classes.bubblesLight}
-        ref={containerRef}
-        id="particles-container-light"
-      />
+      <Box className={classes.bubblesLight} ref={containerRef} id="particles-container-light" />
     </Box>
   );
 }

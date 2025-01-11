@@ -2,13 +2,15 @@ import { createStyles } from '@mantine/emotion';
 import { AwesomeMenuProps } from '.';
 import { colors } from '../../Global';
 
+const bounce = 'cubic-bezier(0, 0.96, 0.58, 1.58)';
+
 export const useAwesomeMenuStyles = createStyles(
   (_, { isNavigationVisible }: AwesomeMenuProps) => ({
     awesomeMenuSvgFull: {
       overflow: 'hidden',
       position: 'absolute',
       top: '0',
-      right: '100%', // revisit
+      right: '100%',
       transformOrigin: 'center',
       transformBox: 'fill-box',
       transform: 'translateX(41%)',
@@ -37,7 +39,9 @@ export const useAwesomeMenuStyles = createStyles(
       '& > g': {
         transformOrigin: 'center',
         transformBox: 'fill-box',
-        transform: isNavigationVisible ? 'scale(1) translate(8%,0)' : 'scale(1.3) translate(-12%,0)',
+        transform: isNavigationVisible
+          ? 'scale(1) translate(8%,0)'
+          : 'scale(1.3) translate(-12%,0)',
         transition: 'transform 2000ms ease-out 200ms',
       },
     },
@@ -47,66 +51,62 @@ export const useAwesomeMenuStyles = createStyles(
     // ----------- FERRIS WHEEL GROUP ----------- //
     // ----------- FERRIS WHEEL GROUP ----------- //
     ferrisWheelMenu: {
-
       transformOrigin: 'center',
       transformBox: 'fill-box',
-      transform: 'scale(0.8) translateX(-45%)',
-      transition: 'transform 3000ms ease-out 1100ms',
+      transform: 'scale(1.125) translateX(-45%)',
+      transition: 'transform 800ms ease-out',
 
-      // '& [id*="mask"]': {
-      //   filter: 'blur(40px)',
-      //   transition: 'filter 1000ms ease-out',
-      // },
-     
       '#bars': {
         opacity: 0,
         filter: 'blur(40px)',
-        transition: 'opacity 2000ms ease-out 3000ms, filter 1000ms ease-out 3800ms',
+        transition: 'filter 500ms ease-out',
       },
       '& #wheels': {
         opacity: 0,
         filter: 'blur(40px)',
-        transition: 'opacity 2000ms ease-out 3000ms, filter 1000ms ease-out 3800ms',
+        transition: 'filter 500ms ease-out',
       },
       '& #cars': {
         opacity: 0,
         filter: 'blur(40px)',
-        transition: 'opacity 2000ms ease-out 3000ms, filter 1000ms ease-out 3800ms',
+        transition: 'filter 500ms ease-out',
       },
       '& #base-legs, & #base-back': {
         opacity: 0,
         filter: 'blur(40px)',
-        transition: 'opacity 2000ms ease-out 3000ms, filter 1000ms ease-out 3800ms',
+        transition: 'filter 500ms ease-out',
       },
     },
 
     navigationEnter: {
       transform: 'scale(1.125) translateX(0)',
-      // '& [id*="mask"]': {
-      //   filter: 'none',
-      // },
-      
+      transition: `transform 600ms ${bounce} 900ms`,
+
       '& #bars': {
         opacity: 1,
         filter: 'none',
+        transition: `opacity  1000ms ease-out 1000ms, filter  1000ms ease-out 1000ms`,
       },
       '& #wheels': {
         opacity: 1,
         filter: 'none',
+        transition: `opacity  1000ms ease-out 1000ms, filter  1000ms ease-out 1000ms`,
       },
       '& #cars': {
         opacity: 1,
         filter: 'none',
+        transition: `opacity  1000ms ease-out 1000ms, filter  1000ms ease-out 1000ms`,
       },
       '& #base-legs, & #base-back': {
         opacity: 1,
         filter: 'none',
+        transition: `opacity  1000ms ease-out 1000ms, filter  1000ms ease-out 1000ms`,
       },
     },
 
     barsGroup: {
       '& path': {
-        // dark mode             
+        // dark mode
         '@media (prefers-color-scheme: dark)': {
           fill: colors.white,
           stroke: colors.white,
@@ -123,7 +123,7 @@ export const useAwesomeMenuStyles = createStyles(
       transformOrigin: 'center',
       transformBox: 'fill-box',
       '& path': {
-        // dark mode             
+        // dark mode
         '@media (prefers-color-scheme: dark)': {
           fill: colors.white,
           stroke: colors.white,
@@ -131,16 +131,18 @@ export const useAwesomeMenuStyles = createStyles(
       },
     },
 
-    // effect on white car borders
     carMask: {
-      // mixBlendMode: 'difference', // revisit trippy
-      // mixBlendMode: 'exclusion', // revisit also trippy
-      // mixBlendMode: 'hue', // revisit gray
-      // mixBlendMode: 'overlay',
       mixBlendMode: 'soft-light', // PLEASANT!
-      '& path': {
-        // dark mode             
-        '@media (prefers-color-scheme: dark)': {
+
+      // dark mode
+      '@media (prefers-color-scheme: dark)': {
+        '& path': {
+          '&.bucketPath': {
+            fill: colors.black,
+            stroke: colors.black,
+          },
+        },
+        '& g[id*="umbrella"] path, & g[id*="rail"] path, & g[id*="bar"] > path': {
           fill: colors.black,
           stroke: colors.black,
         },
@@ -150,20 +152,20 @@ export const useAwesomeMenuStyles = createStyles(
     ferrisWheelMasks: {
       mixBlendMode: 'overlay',
       '& circle': {
-        // dark mode             
+        // dark mode
         '@media (prefers-color-scheme: dark)': {
           stroke: colors.black,
         },
       },
       '& ellipse': {
-        // dark mode             
+        // dark mode
         '@media (prefers-color-scheme: dark)': {
           stroke: colors.black,
         },
       },
 
       '& path': {
-        // dark mode             
+        // dark mode
         '@media (prefers-color-scheme: dark)': {
           fill: `${colors.black}86`,
           stroke: `${colors.black}86`,
@@ -172,14 +174,14 @@ export const useAwesomeMenuStyles = createStyles(
     },
 
     ferrisWheelDarkModeStrokeWhite: {
-      // dark mode             
+      // dark mode
       '@media (prefers-color-scheme: dark)': {
         stroke: colors.white,
       },
     },
 
     ferrisWheelDarkMoveFillWhite: {
-      // dark mode             
+      // dark mode
       '@media (prefers-color-scheme: dark)': {
         fill: colors.white,
       },

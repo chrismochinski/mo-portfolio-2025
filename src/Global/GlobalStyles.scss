@@ -2,17 +2,6 @@
 
 // global containers and layout
 
-.section {
-  width: 100vw;
-}
-
-.padded-section {
-  @extend .section;
-  margin-top: max(calc(1.5vw + 1.5vw), 2em);
-  margin-bottom: max(calc(1.5vw + 1.5vw), 2em);
-  padding-left: max(6vw, (100vw - 1280px)/2);
-  padding-right: max(6vw, (100vw - 1280px)/2);
-}
 
 .container {
   container-type: inline-size;
