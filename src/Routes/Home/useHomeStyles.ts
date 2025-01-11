@@ -7,7 +7,9 @@ interface HomeStylesProps {
 }
 
 export const useHomeStyles = createStyles((_, { isNavigationVisible }: HomeStylesProps) => ({
-  homeWrapper: {},
+  homeWrapper: {
+    backgroundColor: 'transparent',
+  },
 
   personalLinks: {
     filter: isNavigationVisible ? 'none' : 'blur(3px)',

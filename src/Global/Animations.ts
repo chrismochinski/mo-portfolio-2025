@@ -92,6 +92,32 @@ export const carSwayDamped = keyframes`
 
 
 
+export const carSubtleSwayDamped = keyframes`
+  0% {
+    transform: rotate(0deg); /* Start at neutral */
+    animation-timing-function: ease-out; /* Accelerate out of neutral */
+  }
+  20% {
+    transform: rotate(-6deg); /* Sway left */
+    animation-timing-function: ease-in-out; /* Gradually slow at the extreme */
+  }
+  50% {
+    transform: rotate(5deg); /* Sway right */
+    animation-timing-function: ease-in-out; /* Smooth transition back */
+  }
+  80% {
+    transform: rotate(-3deg); /* Reduced sway left */
+    animation-timing-function: ease-in-out; /* Gradually slow again */
+  }
+  100% {
+    transform: rotate(0deg); /* Return to neutral */
+    animation-timing-function: linear; /* Smoothly return to neutral */
+  }
+`;
+
+
+
+
 
 
 

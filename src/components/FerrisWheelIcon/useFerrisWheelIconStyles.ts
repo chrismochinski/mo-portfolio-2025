@@ -84,7 +84,6 @@ export const useFerrisWheelIconStyles = createStyles(() => ({
     transformOrigin: '50% 0',
     transformBox: 'fill-box',
     '&.ferrisWheelPause': {
-      // animation: `${animations.carSway} 2500ms infinite`,
        animation: `${animations.carSwayDamped} 6000ms 1`,
     },
   },

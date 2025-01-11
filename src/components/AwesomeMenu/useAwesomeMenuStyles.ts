@@ -1,9 +1,10 @@
 import { createStyles } from '@mantine/emotion';
 import { colors } from '../../Global';
-// import * as animations from '../../Global/Animations';
+import * as animations from '../../Global/Animations';
 
 interface AwesomeMenuStylesProps {
   isNavigationVisible: boolean;
+  menuHovered: boolean;
 }
 
 const bounce = 'cubic-bezier(0, 0.96, 0.58, 1.58)';
@@ -135,7 +136,18 @@ export const useAwesomeMenuStyles = createStyles(
         },
       },
       '&.menuPause': {
-      animationPlayState: 'paused', // revisit SWAY!
+        animationPlayState: 'paused',
+      },
+    },
+
+    // SWAY
+    // SWAY
+    // SWAY
+    menuCarInner: {
+      transformOrigin: '50% 0',
+      transformBox: 'fill-box',
+      '&.animate': {
+        animation: `${animations.carSubtleSwayDamped} 2000ms 1`,
       },
     },
 
@@ -155,8 +167,9 @@ export const useAwesomeMenuStyles = createStyles(
           stroke: colors.black,
         },
       },
+      // PAUSE STATES
       '&.menuPause': {
-      animationPlayState: 'paused', // revisit SWAY!
+        animationPlayState: 'paused',
       },
     },
 

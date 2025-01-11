@@ -4,6 +4,7 @@ export const useLayoutStyles = createStyles(() => ({
   layoutWrapper: {
     overflow: 'hidden',
     height: '100vh',
+    background: 'transparent',
     
     h1: {
       fontFamily: '"Poppins", sans-serif',

@@ -90,8 +90,11 @@ export const useGlobalStyles = createStyles(() => ({
     textWrap: 'balance',
   },
 
+  evenRow: {
+    paddingInline: 'max(5vw, (100vw - 1280px)/2)',
+  },
+
   row: {
-    // paddingInline: 'max(6vw, (100vw - 1280px)/2)',
     paddingLeft: 'max(calc(300px + 10vw), calc(100vw - 1280px)/2)',
     paddingRight: 'max(3vw, (100vw - 1280px)/2)',
   },

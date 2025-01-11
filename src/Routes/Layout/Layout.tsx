@@ -3,13 +3,11 @@ import { Box } from '@mantine/core';
 import { Outlet } from 'react-router-dom';
 import { useLayoutStyles } from '.';
 import { Bubbles, AwesomeMenu } from '../../components';
-import { useGlobalStyles } from '../../Global';
 import { useSiteContext } from '../../context';
 
 export function Layout() {
   const { isNavigationVisible, setIsNavigationVisible } = useSiteContext();
-  const { classes: globalClasses } = useGlobalStyles();
-  const { classes, cx } = useLayoutStyles();
+  const { classes } = useLayoutStyles();
 
   useEffect(() => {
     if (location.pathname === '/home') {
@@ -19,10 +17,10 @@ export function Layout() {
 
   return (
     <Box className={classes.layoutWrapper}>
-      <Box className={cx(globalClasses.row, classes.layoutInnerWrapper)}>
+      <Box className={classes.layoutInnerWrapper}>
         {/* Persistent Elements */}
         <Bubbles isNavigationVisible={isNavigationVisible} />
-        <AwesomeMenu isNavigationVisible={isNavigationVisible} />
+        <AwesomeMenu />
         <Box className={classes.layoutContentWrapper} id="layout-content-wrapper">
           <Outlet />
         </Box>

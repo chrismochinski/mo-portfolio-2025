@@ -11,7 +11,7 @@ export function Home() {
   const { classes, cx } = useHomeStyles({ isNavigationVisible });
 
   return (
-    <Box className={classes.homeWrapper} id="home">
+    <Box className={cx(globalClasses.row, classes.homeWrapper)} id="home">
       <Box className={cx(globalClasses.columnCenter, classes.salutation, globalClasses.z10)}>
         <Title order={1} my="xs" mx="auto" ta="center">
           Hi, friends.
