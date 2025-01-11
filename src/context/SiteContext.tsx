@@ -1,4 +1,4 @@
-import { createContext } from "react";
+import { createContext } from 'react';
 
 export interface SiteContextType {
   isNavigationVisible: boolean;
@@ -7,11 +7,8 @@ export interface SiteContextType {
   resetNavigation: () => void;
   introIconHovered: boolean;
   setIntroIconHovered: React.Dispatch<React.SetStateAction<boolean>>;
-  hoveredCar: string | null;
-  setHoveredCar: React.Dispatch<React.SetStateAction<string | null>>;
-  clickedCar: string | null;
-  setClickedCar: React.Dispatch<React.SetStateAction<string | null>>;
+  menuHovered: boolean;
+  setMenuHovered: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 export const SiteContext = createContext<SiteContextType | undefined>(undefined);
-

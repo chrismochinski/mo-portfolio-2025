@@ -1,11 +1,15 @@
 import { createStyles } from '@mantine/emotion';
-import { AwesomeMenuProps } from '.';
 import { colors } from '../../Global';
+// import * as animations from '../../Global/Animations';
+
+interface AwesomeMenuStylesProps {
+  isNavigationVisible: boolean;
+}
 
 const bounce = 'cubic-bezier(0, 0.96, 0.58, 1.58)';
 
 export const useAwesomeMenuStyles = createStyles(
-  (_, { isNavigationVisible }: AwesomeMenuProps) => ({
+  (_, { isNavigationVisible }: AwesomeMenuStylesProps) => ({
     awesomeMenuSvgFull: {
       overflow: 'hidden',
       position: 'absolute',
@@ -16,6 +20,7 @@ export const useAwesomeMenuStyles = createStyles(
       transform: 'translateX(41%)',
       height: '100vh',
       width: 'auto',
+      cursor: 'pointer',
 
       '& g': {
         transformOrigin: 'center',
@@ -129,6 +134,9 @@ export const useAwesomeMenuStyles = createStyles(
           stroke: colors.white,
         },
       },
+      '&.menuPause': {
+      animationPlayState: 'paused', // revisit SWAY!
+      },
     },
 
     carMask: {
@@ -146,6 +154,9 @@ export const useAwesomeMenuStyles = createStyles(
           fill: colors.black,
           stroke: colors.black,
         },
+      },
+      '&.menuPause': {
+      animationPlayState: 'paused', // revisit SWAY!
       },
     },
 

@@ -4,8 +4,7 @@ import { SiteContext, SiteContextType } from './SiteContext';
 export function SiteProvider({ children }: { children: React.ReactNode }) {
   const [isNavigationVisible, setIsNavigationVisible] = useState(false);
   const [introIconHovered, setIntroIconHovered] = useState(false);
-  const [hoveredCar, setHoveredCar] = useState<string | null>(null);
-const [clickedCar, setClickedCar] = useState<string | null>(null);
+  const [ menuHovered, setMenuHovered] = useState(false);
 
 
   // CONTEXT - show navigation - on click or enter route via URL slug
@@ -26,10 +25,8 @@ const [clickedCar, setClickedCar] = useState<string | null>(null);
     resetNavigation,
     introIconHovered,
     setIntroIconHovered,
-    hoveredCar,
-    setHoveredCar,
-    clickedCar,
-    setClickedCar,
+    menuHovered,
+    setMenuHovered,
   };
 
   return <SiteContext.Provider value={contextValue}>{children}</SiteContext.Provider>;
