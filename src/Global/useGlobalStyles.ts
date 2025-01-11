@@ -91,8 +91,9 @@ export const useGlobalStyles = createStyles(() => ({
   },
 
   row: {
-    // marginBlock: "max(calc(1.5vw + 1.5vw), 2em)", // revisit
-    paddingInline: 'max(6vw, (100vw - 1280px)/2)',
+    // paddingInline: 'max(6vw, (100vw - 1280px)/2)',
+    paddingLeft: 'max(calc(300px + 10vw), calc(100vw - 1280px)/2)',
+    paddingRight: 'max(3vw, (100vw - 1280px)/2)',
   },
 
   container: {
