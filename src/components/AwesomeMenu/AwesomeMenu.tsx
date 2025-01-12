@@ -39,8 +39,24 @@ export function AwesomeMenu() {
     console.log('Mouse Y Position Relative to Container:', yPercent.toFixed(2), '%');
   };
 
+  const getLinkName = (y: number | null) => {
+    // return link name based on Y position: 0-10 = none, 10-30 = Home, 30-50 = About, 50-70 = Projects, 70-90 = Contact, 90-100 = none
+    if (y === null) return 'none';
+    if (y >= 0 && y < 10) return 'none';
+    if (y >= 10 && y < 30) return 'Home';
+    if (y >= 30 && y < 50) return 'About';
+    if (y >= 50 && y < 70) return 'Projects';
+    if (y >= 70 && y < 90) return 'Contact';
+    if (y >= 90 && y <= 100) return 'none';
+    return 'none';
+  };
+
   return (
-    <Tooltip.Floating label={`YPos: ${yPosition ? yPosition.toFixed(2) : 'NULL'}%`} color={colors.red} className={classes.menuTooltip}>
+    <Tooltip.Floating
+      label={`TO-DO: ${getLinkName(yPosition)}`}
+      color={colors.red}
+      className={classes.menuTooltip}
+    >
       <svg
         ref={menuRef}
         className={classes.awesomeMenuSvgFull}
