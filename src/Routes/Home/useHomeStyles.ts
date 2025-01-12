@@ -18,19 +18,27 @@ export const useHomeStyles = createStyles((_, { isNavigationVisible }: HomeStyle
   },
 
   personalAnchorText: {
-    color: colors.lightBlue,
+    fontFamily: '"Urbanist", sans-serif',
+    color: colors.purple,
     transition:
       'color 400ms ease-out, letter-spacing 400ms ease-out, fontWeight 400ms ease-out, padding-inline 400ms ease-out',
     letterSpacing: 'normal',
-    fontWeight: 400,
+    fontWeight: 600,
     '&:hover': {
-      fontWeight: 500,
-      paddingInline: '0.5em',
-      color: colors.emerald,
-      letterSpacing: '0.085em',
+      fontWeight: 700,
+      paddingInline: '0.3em',
+      color: colors.darkBlue,
+      letterSpacing: '0.07em',
       transition:
         'color 140ms ease-out, letter-spacing 140ms ease-out, fontWeight 200ms ease-out, padding-inline 200ms ease-out',
     },
+    // dark mode
+    '@media (prefers-color-scheme: dark)': {
+      color: colors.lightBlue,
+      '&:hover': {
+        color: colors.darkBlue,
+      },
+    }, 
   },
 
   // DISAPPEARING

@@ -19,22 +19,22 @@ export const useIntroStyles = createStyles((_, { isNavigationVisible }: IntroSty
       transition: 'transform 270ms ease-out',
     },
     h5: {
-        textAlign: 'center',
-        color: colors.black,
-        fontWeight: 500,
-        transition: 'letter-spacing 270ms ease-out',
-        // dark mode
-        '@media (prefers-color-scheme: dark)': {
-            color: colors.white,
-        },
+      textAlign: 'center',
+      color: colors.black,
+      fontWeight: 600,
+      transition: 'letter-spacing 270ms ease-out',
+      // dark mode
+      '@media (prefers-color-scheme: dark)': {
+        color: colors.white,
+      },
     },
     '&:hover': {
-        svg: {
-            transition: 'transform 190ms ease-out',
-            transform: 'translateY(-3%)',
-        },
+      svg: {
+        transition: 'transform 190ms ease-out',
+        transform: 'translateY(-2%)',
+      },
       h5: {
-        letterSpacing: '0.075em',
+        letterSpacing: '0.065em',
         transition: 'letter-spacing 170ms ease-out',
       },
     },

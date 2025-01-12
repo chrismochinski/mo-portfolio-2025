@@ -61,7 +61,7 @@ export const globalTheme: MantineThemeOverride = {
   },
 
   headings: {
-    fontFamily: "'Bitter', serif",
+    fontFamily: "'Urbanist', serif",
     textWrap: 'balance',
   },
 };

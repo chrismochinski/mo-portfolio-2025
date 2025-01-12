@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Afacad&family=Bitter:ital,wght@0,100;0,200;0,300;0,400;0,500;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Raleway+Dots&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Doto:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap');
 
 
 // global fonts based on above imports
@@ -9,6 +10,7 @@ $raleway: "Raleway", sans-serif; //normal sans
 $raleway-dots: "Raleway Dots", sans-serif; //funky dot thin
 $doto: "Doto", sans-serif; //funky dot bold
 $poppins: "Poppins", sans-serif; //normal sans
+$urbanist: "Urbanist", sans-serif; //normal sans
 
 // global colors
 $black: #191716;
@@ -54,4 +56,8 @@ $trueWhite: #FFFFFF;
 
 .poppins {
   font-family: $poppins;
+}
+
+.urbanist {
+  font-family: $urbanist;
 }

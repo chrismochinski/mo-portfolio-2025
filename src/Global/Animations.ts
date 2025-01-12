@@ -97,16 +97,16 @@ export const carSubtleSwayDamped = keyframes`
     transform: rotate(0deg); /* Start at neutral */
     animation-timing-function: ease-out; /* Accelerate out of neutral */
   }
-  20% {
-    transform: rotate(-6deg); /* Sway left */
+  15% {
+    transform: rotate(-5deg); /* Sway left */
     animation-timing-function: ease-in-out; /* Gradually slow at the extreme */
   }
   50% {
-    transform: rotate(5deg); /* Sway right */
+    transform: rotate(3deg); /* Sway right */
     animation-timing-function: ease-in-out; /* Smooth transition back */
   }
   80% {
-    transform: rotate(-3deg); /* Reduced sway left */
+    transform: rotate(-1deg); /* Reduced sway left */
     animation-timing-function: ease-in-out; /* Gradually slow again */
   }
   100% {
