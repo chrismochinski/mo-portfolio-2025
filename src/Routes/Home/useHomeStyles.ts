@@ -24,12 +24,12 @@ export const useHomeStyles = createStyles((theme, { isNavigationVisible }: HomeS
     letterSpacing: 'normal',
     fontWeight: 600,
     textDecoration: 'none',
-    color: theme.colorScheme === 'dark' ? colors.yellow : colors.orange,
+    color: theme.colorScheme === 'dark' ? colors.yellow : colors.red,
     '&:hover': {
       textDecoration: 'none',
       fontWeight: 700,
       paddingInline: '0.35em',
-      color: theme.colorScheme === 'dark' ? colors.gold : colors.red,
+      color: theme.colorScheme === 'dark' ? colors.gold : colors.purple,
       letterSpacing: '0.04em',
       transition:
         'color 160ms ease-out, letter-spacing 160ms ease-out, fontWeight 180ms ease-out, padding-inline 180ms ease-out',

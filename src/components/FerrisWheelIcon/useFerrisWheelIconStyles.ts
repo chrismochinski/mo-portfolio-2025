@@ -2,7 +2,7 @@ import { createStyles } from '@mantine/core';
 import * as animations from '../../Global/Animations';
 import { colors } from '../../Global';
 
-export const useFerrisWheelIconStyles = createStyles(() => ({
+export const useFerrisWheelIconStyles = createStyles((theme) => ({
   ferrisWheelIconSvg: {
     width: '160px',
     height: 'auto',
@@ -17,16 +17,14 @@ export const useFerrisWheelIconStyles = createStyles(() => ({
     transformOrigin: 'center',
     transformBox: 'fill-box',
 
-    // dark mode
-    '@media (prefers-color-scheme: dark)': {
-      '& path': {
-        fill: colors.white,
-        stroke: colors.white,
-      },
-      '& #center-wheel': {
-        fill: colors.white,
-      },
+    path: {
+      fill: theme.colorScheme === 'dark' ? colors.white : colors.black,
+      stroke: theme.colorScheme === 'dark' ? colors.white : colors.black,
     },
+    '& #center-wheel': {
+      fill: theme.colorScheme === 'dark' ? colors.white : colors.black,
+    },
+
   },
   // BLUR OUT
   blurOut: {
@@ -38,31 +36,20 @@ export const useFerrisWheelIconStyles = createStyles(() => ({
 
   baseBack: {
     path: {
-      fill: '#444444',
-      // dark mode
-      '@media (prefers-color-scheme: dark)': {
-        fill: '#999999',
-      },
+
+      fill: theme.colorScheme === 'dark' ? '#999999' : '#444444',
     },
   },
 
   wheelMask: {
     opacity: 0, // make 1 to bring back white
     circle: {
-      mixBlendMode: 'difference',
-
-      // dark mode
-      '@media (prefers-color-scheme: dark)': {
-        mixBlendMode: 'overlay',
-      },
+      mixBlendMode: theme.colorScheme === 'dark' ? 'overlay' : 'difference',
     },
   },
 
   wheelFill: {
-    // dark mode
-    '@media (prefers-color-scheme: dark)': {
-      stroke: colors.white,
-    },
+    stroke: theme.colorScheme === 'dark' ? colors.white : colors.black,
   },
 
   carsGroup: {

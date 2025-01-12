@@ -1,6 +1,6 @@
 import { createStyles } from '@mantine/core';
-import { colors } from '../../Global';
-import * as animations from '../../Global/Animations';
+import * as animations from '@mo';
+import { colors } from '@mo';
 
 interface AwesomeMenuStylesProps {
   isNavigationVisible: boolean;
@@ -10,7 +10,7 @@ interface AwesomeMenuStylesProps {
 const bounce = 'cubic-bezier(0, 0.96, 0.58, 1.58)';
 
 export const useAwesomeMenuStyles = createStyles(
-  (_, { isNavigationVisible }: AwesomeMenuStylesProps) => ({
+  (theme, { isNavigationVisible }: AwesomeMenuStylesProps) => ({
     awesomeMenuSvgFull: {
       overflow: 'hidden',
       position: 'absolute',
@@ -111,12 +111,9 @@ export const useAwesomeMenuStyles = createStyles(
     },
 
     barsGroup: {
-      '& path': {
-        // dark mode
-        '@media (prefers-color-scheme: dark)': {
-          fill: colors.white,
-          stroke: colors.white,
-        },
+      path: {
+        fill: theme.colorScheme === 'dark' ? colors.white : colors.black,
+        stroke: theme.colorScheme === 'dark' ? colors.white : colors.black,
       },
     },
 
@@ -128,21 +125,19 @@ export const useAwesomeMenuStyles = createStyles(
     car: {
       transformOrigin: 'center',
       transformBox: 'fill-box',
-      '& path': {
-        // dark mode
-        '@media (prefers-color-scheme: dark)': {
-          fill: colors.white,
-          stroke: colors.white,
-        },
+      path: {
+        fill: theme.colorScheme === 'dark' ? colors.white : colors.black,
+        stroke: theme.colorScheme === 'dark' ? colors.white : colors.black,
       },
       '&.menuPause': {
         animationPlayState: 'paused',
       },
     },
 
-    // SWAY
-    // SWAY
-    // SWAY
+    // -------------------- //
+    // ------- SWAY ------- //
+    // -------------------- //
+
     menuCarInner: {
       transformOrigin: '50% 0',
       transformBox: 'fill-box',
@@ -153,63 +148,45 @@ export const useAwesomeMenuStyles = createStyles(
 
     carMask: {
       mixBlendMode: 'soft-light', // PLEASANT!
-    
-
-      // dark mode
-      '@media (prefers-color-scheme: dark)': {
-        '& path': {
-          '&.bucketPath': {
-            fill: colors.black,
-            stroke: colors.black,
-          },
-        },
-        '& g[id*="umbrella"] path, & g[id*="rail"] path, & g[id*="bar"] > path': {
-          fill: colors.black,
-          stroke: colors.black,
+      path: {
+        '&.bucketPath': {
+          fill: theme.colorScheme === 'dark' ? colors.black : colors.white,
+          stroke: theme.colorScheme === 'dark' ? colors.black : colors.white,
         },
       },
-      // PAUSE STATES
-      '&.menuPause': {
-        animationPlayState: 'paused',
+      '& g[id*="umbrella"] path, & g[id*="rail"] path, & g[id*="bar"] > path': {
+        fill: theme.colorScheme === 'dark' ? colors.black : colors.white,
+        stroke: theme.colorScheme === 'dark' ? colors.black : colors.white,
       },
+    },
+    // PAUSE STATES
+    '&.menuPause': {
+      animationPlayState: 'paused',
     },
 
     ferrisWheelMasks: {
       mixBlendMode: 'overlay',
       '& circle': {
-        // dark mode
-        '@media (prefers-color-scheme: dark)': {
-          stroke: colors.black,
-        },
+        stroke: theme.colorScheme === 'dark' ? colors.black : colors.white,
       },
       '& ellipse': {
-        // dark mode
-        '@media (prefers-color-scheme: dark)': {
-          stroke: colors.black,
-        },
+        stroke: theme.colorScheme === 'dark' ? colors.black : colors.white,
       },
 
       '& path': {
-        // dark mode
         '@media (prefers-color-scheme: dark)': {
-          fill: `${colors.black}86`,
-          stroke: `${colors.black}86`,
+          fill: theme.colorScheme === 'dark' ? `${colors.black}86` : colors.white,
+          stroke: theme.colorScheme === 'dark' ? `${colors.black}86` : colors.white,
         },
       },
     },
 
     ferrisWheelDarkModeStrokeWhite: {
-      // dark mode
-      '@media (prefers-color-scheme: dark)': {
-        stroke: colors.white,
-      },
+      stroke: theme.colorScheme === 'dark' ? colors.white : colors.black,
     },
 
     ferrisWheelDarkMoveFillWhite: {
-      // dark mode
-      '@media (prefers-color-scheme: dark)': {
-        fill: colors.white,
-      },
+      fill: theme.colorScheme === 'dark' ? colors.white : colors.black,
     },
 
     menuTooltip: {
