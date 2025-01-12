@@ -1,2 +1,2 @@
 export * from './About';
-export * from './About.scss';
+export * from './useAboutStyles';

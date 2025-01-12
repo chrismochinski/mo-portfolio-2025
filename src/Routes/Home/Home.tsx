@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { Anchor, Box, Flex, Title, Text } from '@mantine/core';
 import { useGlobalStyles, useSiteContext, useHomeStyles } from '@mo';
 
@@ -5,6 +6,10 @@ export function Home() {
   const { isNavigationVisible } = useSiteContext();
   const { classes: globalClasses } = useGlobalStyles();
   const { classes, cx } = useHomeStyles({ isNavigationVisible });
+
+  useEffect(() => {
+    document.title = 'Home | Mo';
+  }, []);
 
   return (
     <Box className={cx(globalClasses.row, classes.homeWrapper)} id="home">

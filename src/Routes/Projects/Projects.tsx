@@ -1,12 +1,23 @@
+import { useEffect } from 'react';
 import { Box, Title, Text } from '@mantine/core';
-import { useProjectsStyles } from '@mo';
+import { useGlobalStyles, useProjectsStyles, useSiteContext } from '@mo';
 
 export function Projects() {
-  const { classes } = useProjectsStyles();
+  const { isNavigationVisible, setIsNavigationVisible } = useSiteContext();
+  const { classes, cx } = useProjectsStyles();
+  const { classes: globalClasses } = useGlobalStyles();
+
+  useEffect(() => {
+    setIsNavigationVisible(true);
+    document.title = 'Projects | Mo';
+  }, [isNavigationVisible, setIsNavigationVisible]);
+
   return (
-    <Box className={classes.projectsWrapper}>
+    <Box className={cx(globalClasses.row, classes.projectsWrapper)}>
       <Title order={1}>Projects</Title>
-      <Text component="p">Coming soon...</Text>
+      <Text component="h4" pt="xs">
+        Coming soon.
+      </Text>
     </Box>
   );
 }

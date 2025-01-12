@@ -158,10 +158,10 @@ export const useAwesomeMenuStyles = createStyles(
         fill: theme.colorScheme === 'dark' ? colors.black : colors.white,
         stroke: theme.colorScheme === 'dark' ? colors.black : colors.white,
       },
-    },
-    // PAUSE STATES
-    '&.menuPause': {
-      animationPlayState: 'paused',
+      // PAUSE STATES
+      '&.menuPause': {
+        animationPlayState: 'paused',
+      },
     },
 
     ferrisWheelMasks: {

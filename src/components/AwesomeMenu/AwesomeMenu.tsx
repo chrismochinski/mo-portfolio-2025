@@ -1,5 +1,6 @@
 import { useState, forwardRef } from 'react';
 import { Tooltip } from '@mantine/core';
+import { useNavigate } from 'react-router-dom';
 import { useGlobalStyles, colors, useSiteContext, useAwesomeMenuStyles } from '@mo';
 
 export function AwesomeMenu() {
@@ -9,8 +10,9 @@ export function AwesomeMenu() {
   const [isAnimating, setIsAnimating] = useState(false);
   const [yPosition, setYPosition] = useState<number | null>(null);
   const animationDuration = 2100;
+  const navigate = useNavigate();
 
-  // use forwardRef to apply a Mantine V6 tooltip to the big SVG below
+  // REVISIT forwardRef for SVG element tooltip by Y coord (temp solution for route building)
   const menuRef = forwardRef<SVGSVGElement, SVGSVGElement>((props, ref) => (
     <svg ref={ref} {...(props as any)}>
       Menu
@@ -28,7 +30,6 @@ export function AwesomeMenu() {
 
   const handleMouseLeave = () => {
     setMenuHovered(false); // Resume spinning
-    console.log('menuHovered! Resume animation', menuHovered);
   };
 
   // Handle mouse moving inside the container
@@ -36,24 +37,40 @@ export function AwesomeMenu() {
     const container = e.currentTarget.getBoundingClientRect();
     const yPercent = ((e.clientY - container.top) / container.height) * 100; // Y% in container
     setYPosition(yPercent); // Update the yRelative state
-    console.log('Mouse Y Position Relative to Container:', yPercent.toFixed(2), '%');
   };
 
+
   const getLinkName = (y: number | null) => {
-    // return link name based on Y position: 0-10 = none, 10-30 = Home, 30-50 = About, 50-70 = Projects, 70-90 = Contact, 90-100 = none
     if (y === null) return 'none';
-    if (y >= 0 && y < 10) return 'none';
-    if (y >= 10 && y < 30) return 'Home';
-    if (y >= 30 && y < 50) return 'About';
-    if (y >= 50 && y < 70) return 'Projects';
-    if (y >= 70 && y < 90) return 'Contact';
-    if (y >= 90 && y <= 100) return 'none';
-    return 'none';
+    switch (true) {
+      case y >= 0 && y < 10:
+        return 'none';
+      case y >= 10 && y < 30:
+        return 'Home';
+      case y >= 30 && y < 50:
+        return 'About';
+      case y >= 50 && y < 70:
+        return 'Projects';
+      case y >= 70 && y < 90:
+        return 'Contact';
+      case y >= 90 && y <= 100:
+        return 'none';
+      default:
+        return 'none';
+    }
+  }
+
+  const handleClick = () => {
+    const linkName = getLinkName(yPosition);
+    if (linkName !== 'none') {
+      navigate(`/${linkName.toLowerCase()}`); // Navigate to the appropriate route
+    }
   };
+
 
   return (
     <Tooltip.Floating
-      label={`TO-DO: ${getLinkName(yPosition)}`}
+      label={`TO-DO:${getLinkName(yPosition)}`}
       color={colors.red}
       className={classes.menuTooltip}
     >
@@ -67,7 +84,8 @@ export function AwesomeMenu() {
         xmlns="http://www.w3.org/2000/svg"
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
-        onMouseMove={handleMouseMove} // Log Y position while moving the mouse
+        onMouseMove={handleMouseMove} 
+        onClick={handleClick}
       >
         <g id="color-shapes_2" className={classes.colorShapes}>
           <g id="Vector_14" style={{ mixBlendMode: 'multiply' }}>

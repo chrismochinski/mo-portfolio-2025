@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react';
 import { Box } from '@mantine/core';
 import { useBubbleStyles } from '.';
-import particlesConfig from './particles-config.json';
+import particlesConfig from './bubbles-config.json';
 
 declare global {
   interface Window {
@@ -36,7 +36,7 @@ export function Bubbles(props: BubblesProps) {
           ...particlesConfig,
           particles: {
             ...particlesConfig.particles,
-            number: { value: 23 }, // Fewer particles for one layer
+            number: { value: 20 }, // Fewer particles for one layer
             density: { enable: true, value_area: 1400 },
           },
         });
@@ -44,7 +44,7 @@ export function Bubbles(props: BubblesProps) {
           ...particlesConfig,
           particles: {
             ...particlesConfig.particles,
-            number: { value: 40 }, // Higher density for another layer
+            number: { value: 33 }, // Higher density for another layer
             density: { enable: true, value_area: 1400 },
           },
         });

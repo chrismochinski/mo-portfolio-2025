@@ -25,13 +25,45 @@ export const colors = {
 export const globalTheme: MantineThemeOverride = {
   globalStyles(theme) {
     return {
+      ':root': {
+        '--bitter': '"Bitter", serif',
+        '--afacad': '"Afacad", sans-serif',
+        '--raleway': '"Raleway", sans-serif',
+        '--raleway-dots': '"Raleway Dots", sans-serif',
+        '--doto': '"Doto", sans-serif',
+        '--tilt-neon': '"Tilt Neon", sans-serif',
+        '--poppins': '"Poppins", sans-serif',
+        '--urbanist': '"Urbanist", sans-serif',
+      },
+
       body: {
-        // backgroundColor: 'var(--body-background-color)',
-        backgroundColor: theme.colorScheme === 'dark' ? colors.black : colors.white,
-        color: theme.colorScheme === 'dark' ? colors.white : colors.black,
+        backgroundColor: theme.colorScheme === 'dark' ? theme.black : theme.white,
+        color: theme.colorScheme === 'dark' ? theme.white : theme.black,
         fontFamily: 'Urbanist, sans-serif',
       },
     };
+  },
+
+  fontFamily: '"Urbanist", sans-serif',
+
+  colors: {
+    black: ['#191716'],
+    white: ['#F9F9F9'],
+    red: ['#911E1E'],
+    orange: ['#FF9A5C'],
+    gold: ['#BAB700'],
+    yellow: ['#F9EA9A'],
+    green: ['#5EFFAC'],
+    emerald: ['#79D49E'],
+    lightBlue: ['#11C7FF'],
+    darkBlue: ['#145C9E'],
+    purple: ['#611E91'],
+    pink: ['#D479D4'],
+    lightGray: ['#D5D5D5'],
+    gray: ['#758190'],
+    darkGray: ['#575757'],
+    trueBlack: ['#000000'],
+    trueWhite: ['#FFFFFF'],
   },
 
   breakpoints: {
@@ -124,21 +156,25 @@ export const useGlobalStyles = createStyles((theme) => ({
     alignItems: 'center',
   },
 
-
-
   textContrastShadow: {
     textShadow:
       theme.colorScheme === 'dark'
-        ? `1px 1px 1px ${colors.black}, -1px -1px 1px ${colors.black}, 1px -1px 1px ${colors.black}, -1px 1px 1px ${colors.black}`
-        : `1px 1px 1px ${colors.white}, -1px -1px 1px ${colors.white}, 1px -1px 1px ${colors.white}, -1px 1px 1px ${colors.white}`,
+        ? `1px 1px 1px ${theme.black}, -1px -1px 1px ${theme.black}, 1px -1px 1px ${theme.black}, -1px 1px 1px ${theme.black}`
+        : `1px 1px 1px ${theme.white}, -1px -1px 1px ${theme.white}, 1px -1px 1px ${theme.white}, -1px 1px 1px ${theme.white}`,
   },
 
   textContrastShadowSubtle: {
-    textShadow: theme.colorScheme === 'dark' ? `1px 1px 2px ${colors.black}80, -1px -1px 2px ${colors.black}80, 1px -1px 2px ${colors.black}80, -1px 1px 2px ${colors.black}80` : `1px 1px 2px ${colors.white}80, -1px -1px 2px ${colors.white}80, 1px -1px 2px ${colors.white}80, -1px 1px 2px ${colors.white}80`,
+    textShadow:
+      theme.colorScheme === 'dark'
+        ? `1px 1px 2px ${theme.black}80, -1px -1px 2px ${theme.black}80, 1px -1px 2px ${theme.black}80, -1px 1px 2px ${theme.black}80`
+        : `1px 1px 2px ${theme.white}80, -1px -1px 2px ${theme.white}80, 1px -1px 2px ${theme.white}80, -1px 1px 2px ${theme.white}80`,
   },
 
   textContrastShadowHeavy: {
-    textShadow: theme.colorScheme === 'dark' ? `1px 1px 2px ${colors.black}, -1px -1px 2px ${colors.black}, 1px -1px 2px ${colors.black}, -1px 1px 2px ${colors.black}` : `1px 1px 2px ${colors.white}, -1px -1px 2px ${colors.white}, 1px -1px 2px ${colors.white}, -1px 1px 2px ${colors.white}`,
+    textShadow:
+      theme.colorScheme === 'dark'
+        ? `1px 1px 2px ${theme.black}, -1px -1px 2px ${theme.black}, 1px -1px 2px ${theme.black}, -1px 1px 2px ${theme.black}`
+        : `1px 1px 2px ${theme.white}, -1px -1px 2px ${theme.white}, 1px -1px 2px ${theme.white}, -1px 1px 2px ${theme.white}`,
   },
 
   // ----------------------------------------- //
@@ -192,7 +228,6 @@ export const useGlobalStyles = createStyles((theme) => ({
   // --------------- ANIMATIONS --------------- //
   // ------------------------------------------ //
   // ------------------------------------------ //
-
 
   pauseAnimation: {
     animationPlayState: 'paused',
