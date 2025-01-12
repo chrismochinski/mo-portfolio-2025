@@ -23,11 +23,14 @@ export const colors = {
 };
 
 export const globalTheme: MantineThemeOverride = {
-  globalStyles() {
+  globalStyles(theme) {
     return {
-      // global stuff here??
-      // global stuff here??
-      // global stuff here??
+      body: {
+        // backgroundColor: 'var(--body-background-color)',
+        backgroundColor: theme.colorScheme === 'dark' ? colors.black : colors.white,
+        color: theme.colorScheme === 'dark' ? colors.white : colors.black,
+        fontFamily: 'Urbanist, sans-serif',
+      },
     };
   },
 
@@ -68,7 +71,7 @@ export const globalTheme: MantineThemeOverride = {
   },
 };
 
-export const useGlobalStyles = createStyles(() => ({
+export const useGlobalStyles = createStyles((theme) => ({
   // ------------------------------------------ //
   // ------------------------------------------ //
   // --------------- TEXT STUFF --------------- //
@@ -121,25 +124,21 @@ export const useGlobalStyles = createStyles(() => ({
     alignItems: 'center',
   },
 
+
+
   textContrastShadow: {
-    textShadow: `1px 1px 1px ${colors.white}, -1px -1px 1px ${colors.white}, 1px -1px 1px ${colors.white}, -1px 1px 1px ${colors.white}`,
-    '@media (prefers-color-scheme: dark)': {
-      textShadow: `1px 1px 1px ${colors.black}, -1px -1px 1px ${colors.black}, 1px -1px 1px ${colors.black}, -1px 1px 1px ${colors.black}`,
-    },
+    textShadow:
+      theme.colorScheme === 'dark'
+        ? `1px 1px 1px ${colors.black}, -1px -1px 1px ${colors.black}, 1px -1px 1px ${colors.black}, -1px 1px 1px ${colors.black}`
+        : `1px 1px 1px ${colors.white}, -1px -1px 1px ${colors.white}, 1px -1px 1px ${colors.white}, -1px 1px 1px ${colors.white}`,
   },
 
   textContrastShadowSubtle: {
-    textShadow: `1px 1px 2px ${colors.white}80, -1px -1px 2px ${colors.white}80, 1px -1px 2px ${colors.white}80, -1px 1px 2px ${colors.white}80`,
-    '@media (prefers-color-scheme: dark)': {
-      textShadow: `1px 1px 2px ${colors.black}80, -1px -1px 2px ${colors.black}80, 1px -1px 2px ${colors.black}80, -1px 1px 2px ${colors.black}80`,
-    },
+    textShadow: theme.colorScheme === 'dark' ? `1px 1px 2px ${colors.black}80, -1px -1px 2px ${colors.black}80, 1px -1px 2px ${colors.black}80, -1px 1px 2px ${colors.black}80` : `1px 1px 2px ${colors.white}80, -1px -1px 2px ${colors.white}80, 1px -1px 2px ${colors.white}80, -1px 1px 2px ${colors.white}80`,
   },
 
   textContrastShadowHeavy: {
-    textShadow: `1px 1px 2px ${colors.white}, -1px -1px 2px ${colors.white}, 1px -1px 2px ${colors.white}, -1px 1px 2px ${colors.white}`,
-    '@media (prefers-color-scheme: dark)': {
-      textShadow: `1px 1px 2px ${colors.black}, -1px -1px 2px ${colors.black}, 1px -1px 2px ${colors.black}, -1px 1px 2px ${colors.black}`,
-    },
+    textShadow: theme.colorScheme === 'dark' ? `1px 1px 2px ${colors.black}, -1px -1px 2px ${colors.black}, 1px -1px 2px ${colors.black}, -1px 1px 2px ${colors.black}` : `1px 1px 2px ${colors.white}, -1px -1px 2px ${colors.white}, 1px -1px 2px ${colors.white}, -1px 1px 2px ${colors.white}`,
   },
 
   // ----------------------------------------- //
@@ -194,7 +193,7 @@ export const useGlobalStyles = createStyles(() => ({
   // ------------------------------------------ //
   // ------------------------------------------ //
 
-  // IMPORTANT - pause animation play state
+
   pauseAnimation: {
     animationPlayState: 'paused',
   },

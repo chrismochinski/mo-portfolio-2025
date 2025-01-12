@@ -10,47 +10,42 @@
 /* ------------------ DARK THEME ------------------ */
 
 :root {
-  font-family: Poppins, sans-serif;
+  /* color: #F9F9F9;
+  background-color: #191716; */
+  font-family: Urbanist, sans-serif;
   font-weight: 400;
-  color-scheme: light dark;
-  color: #ffffff;
-  background-color: #191716;
+  color-scheme: light dark; 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-
-a {
-  font-weight: 500;
-  color: #145C9E;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #11C7FF;
-}
-
-
-
-span {
-  margin-block: inherit;
-  font-family: inherit;
-  font-weight: inherit;
-  font-size: inherit;
-  line-height: inherit;
-  color: inherit;
-}
-
 body {
-  margin: 0;
+  --body-background-color: #F9F9F9;
+  --body-color: #191716;
 }
 
-/* flex containers  */
-.mantine-Flex-root {
-  display: flex;
+@media (prefers-color-scheme: dark) {
+  body {
+    --body-background-color: #191716;
+    --body-color: #F9F9F9;
+  }
 }
 
+
+
+@media (prefers-color-scheme: dark) {
+  body {
+    margin: 0;
+    font-family: Urbanist, sans-serif;
+    color-scheme: light dark;
+    color: #F9F9F9;
+    background-color: #191716 ;
+  }
+}
+
+/* 
 
 button {
   border-radius: 8px;
@@ -64,14 +59,16 @@ button {
   cursor: pointer;
   
 }
+
 button:hover {
   background-color: #11C7FF;
   color: #191716;
 }
+
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
-}
+} */
 
 /* light mode */
 /* light mode */
@@ -84,13 +81,7 @@ button:focus-visible {
     color: #191716;
     background-color: #F9F9F9;
   }
-  /* so text can stay WHITE */
-  a {
-    color: #145C9E;
-  }
-  a:hover {
-    color: #145C9E80;
-  }
+
   button {
     background-color: #145C9E;
     color: #ffffff

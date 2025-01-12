@@ -55,7 +55,7 @@ export function Bubbles(props: BubblesProps) {
   }, []);
 
   return (
-    <Box className={classes.bubblesContainer}>
+    <Box className={classes.bubblesContainer} id="bubbles-container">
       <Box
         className={cx(classes.bubblesFront, isNavigationVisible && 'navigation-visible')}
         ref={containerRef}

@@ -1,22 +1,17 @@
 import { createStyles } from '@mantine/core';
 
-
-export const useBubbleStyles = createStyles(() => ({
+export const useBubbleStyles = createStyles((theme) => ({
   bubblesContainer: {
     width: 'clamp(300px, calc(65%), 800px)',
     position: 'absolute',
     top: 0,
     left: 0,
     height: '100vh',
-    // this container holds the bottom two, with bubbles left and bubbles Light on the right, flex, to create illusion of bubbles lessening from left to right
     display: 'flex',
     flexDirection: 'row',
     justifyContent: 'flex-start',
     alignItems: 'center',
-    // dark mode
-    '@media (prefers-color-scheme: dark)': {
-      mixBlendMode: 'plus-lighter',
-    },
+    mixBlendMode: theme.colorScheme === 'dark' ? 'lighten' : 'normal',
   },
   bubblesFront: {
     width: '50%',

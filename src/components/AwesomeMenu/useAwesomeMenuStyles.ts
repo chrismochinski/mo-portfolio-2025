@@ -153,6 +153,7 @@ export const useAwesomeMenuStyles = createStyles(
 
     carMask: {
       mixBlendMode: 'soft-light', // PLEASANT!
+    
 
       // dark mode
       '@media (prefers-color-scheme: dark)': {

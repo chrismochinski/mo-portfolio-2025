@@ -1,9 +1,5 @@
 import { Anchor, Box, Flex, Title, Text } from '@mantine/core';
-import { useHomeStyles } from '.';
-import { useGlobalStyles } from '../../Global';
-import { useSiteContext } from '../../context';
-
-import './Home.scss';
+import { useGlobalStyles, useSiteContext, useHomeStyles } from '@mo';
 
 export function Home() {
   const { isNavigationVisible } = useSiteContext();

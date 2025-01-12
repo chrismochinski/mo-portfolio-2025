@@ -1,11 +1,11 @@
 import { createStyles } from '@mantine/core';
-import { colors } from '../../Global';
+import { colors } from '@mo';
 
 interface IntroStylesProps {
   isNavigationVisible: boolean;
 }
 
-export const useIntroStyles = createStyles((_, { isNavigationVisible }: IntroStylesProps) => ({
+export const useIntroStyles = createStyles((theme, { isNavigationVisible }: IntroStylesProps) => ({
   ferrisWheelIconButton: {
     position: 'absolute',
     inset: 'auto',
@@ -20,15 +20,13 @@ export const useIntroStyles = createStyles((_, { isNavigationVisible }: IntroSty
     },
     h5: {
       textAlign: 'center',
-      color: colors.black,
       fontWeight: 600,
       transition: 'letter-spacing 270ms ease-out',
-      // dark mode
-      '@media (prefers-color-scheme: dark)': {
-        color: colors.white,
-      },
+      color: theme.colorScheme === 'dark' ? colors.white : colors.black,
     },
     '&:hover': {
+      textDecoration: 'none',
+
       svg: {
         transition: 'transform 190ms ease-out',
         transform: 'translateY(-2%)',

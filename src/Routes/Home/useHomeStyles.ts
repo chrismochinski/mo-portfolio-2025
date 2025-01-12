@@ -1,12 +1,11 @@
 import { createStyles } from '@mantine/core';
-import { colors } from '../../Global';
-// import {useSiteContext} from '../../context/useSiteContext';
+import { colors } from '@mo';
 
 interface HomeStylesProps {
   isNavigationVisible: boolean;
 }
 
-export const useHomeStyles = createStyles((_, { isNavigationVisible }: HomeStylesProps) => ({
+export const useHomeStyles = createStyles((theme, { isNavigationVisible }: HomeStylesProps) => ({
   homeWrapper: {
     backgroundColor: 'transparent',
   },
@@ -19,28 +18,21 @@ export const useHomeStyles = createStyles((_, { isNavigationVisible }: HomeStyle
 
   personalAnchorText: {
     fontFamily: '"Urbanist", sans-serif',
-    color: colors.purple,
+
     transition:
       'color 400ms ease-out, letter-spacing 400ms ease-out, fontWeight 400ms ease-out, padding-inline 400ms ease-out',
     letterSpacing: 'normal',
     fontWeight: 600,
     textDecoration: 'none',
-    
+    color: theme.colorScheme === 'dark' ? colors.yellow : colors.orange,
     '&:hover': {
       textDecoration: 'none',
       fontWeight: 700,
       paddingInline: '0.35em',
-      color: colors.darkBlue,
+      color: theme.colorScheme === 'dark' ? colors.gold : colors.red,
       letterSpacing: '0.04em',
       transition:
         'color 160ms ease-out, letter-spacing 160ms ease-out, fontWeight 180ms ease-out, padding-inline 180ms ease-out',
-    },
-    // dark mode
-    '@media (prefers-color-scheme: dark)': {
-      color: colors.lightBlue,
-      '&:hover': {
-        color: colors.darkBlue,
-      },
     },
   },
 
@@ -61,12 +53,8 @@ export const useHomeStyles = createStyles((_, { isNavigationVisible }: HomeStyle
     bottom: '0',
     left: '50%',
     transform: 'translateX(-50%)',
-    color: colors.purple,
-    fontWeight: 400,
-    // dark mode
-    '@media (prefers-color-scheme: dark)': {
-      fontWeight: 300,
-      color: colors.emerald,
-    },
+    color: theme.colorScheme === 'dark' ? colors.lightGray : colors.gray,
+    fontWeight: theme.colorScheme === 'dark' ? 300 : 400,
+    
   },
 }));

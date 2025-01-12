@@ -1,9 +1,6 @@
-import { Anchor, Title } from '@mantine/core';
-import { FerrisWheelIcon } from '../../components';
-import { useGlobalStyles } from '../../Global';
-import { useIntroStyles } from '.';
-import { useSiteContext } from '../../context';
 import { useNavigate } from 'react-router-dom';
+import { Anchor, Title } from '@mantine/core';
+import { FerrisWheelIcon, useGlobalStyles, useIntroStyles, useSiteContext } from '@mo';
 
 export function Intro() {
   const { isNavigationVisible, toggleNavigation, setIntroIconHovered, introIconHovered } =
