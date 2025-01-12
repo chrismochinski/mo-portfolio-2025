@@ -1,2 +1,2 @@
 export * from './Projects';
-export * from './Projects.scss';
+export * from './useProjectsStyles';

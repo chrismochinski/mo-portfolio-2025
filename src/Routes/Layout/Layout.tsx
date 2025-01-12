@@ -1,9 +1,8 @@
 import { useEffect } from 'react';
 import { Box } from '@mantine/core';
 import { Outlet } from 'react-router-dom';
-import { useLayoutStyles } from '.';
-import { Bubbles, AwesomeMenu } from '../../components';
-import { useSiteContext } from '../../context';
+
+import { useLayoutStyles, Bubbles, AwesomeMenu, useSiteContext } from '@mo';
 
 export function Layout() {
   const { isNavigationVisible, setIsNavigationVisible } = useSiteContext();
@@ -18,7 +17,6 @@ export function Layout() {
   return (
     <Box className={classes.layoutWrapper}>
       <Box className={classes.layoutInnerWrapper}>
-        {/* Persistent Elements */}
         <Bubbles isNavigationVisible={isNavigationVisible} />
         <AwesomeMenu />
         <Box className={classes.layoutContentWrapper} id="layout-content-wrapper">

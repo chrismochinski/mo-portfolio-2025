@@ -5,7 +5,7 @@ export const useLayoutStyles = createStyles(() => ({
     overflow: 'hidden',
     height: '100vh',
     background: 'transparent',
-    
+
     h1: {
       fontFamily: '"Urbanist", sans-serif',
       fontSize: 'clamp(2.75rem, 5vw, 4rem)',
@@ -82,6 +82,4 @@ export const useLayoutStyles = createStyles(() => ({
     width: '100%',
     height: '100%',
   },
-
- 
 }));
