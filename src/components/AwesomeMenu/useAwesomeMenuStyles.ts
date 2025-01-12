@@ -211,5 +211,12 @@ export const useAwesomeMenuStyles = createStyles(
         fill: colors.white,
       },
     },
+
+    menuTooltip: {
+      fontFamily: '"Urbanist", sans-serif',
+      color: colors.white,
+      fontWeight: 600,
+      padding: '0.5em 1em',
+    },
   })
 );
