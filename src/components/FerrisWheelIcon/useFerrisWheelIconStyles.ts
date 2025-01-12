@@ -1,4 +1,4 @@
-import { createStyles } from '@mantine/emotion';
+import { createStyles } from '@mantine/core';
 import * as animations from '../../Global/Animations';
 import { colors } from '../../Global';
 

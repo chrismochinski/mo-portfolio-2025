@@ -1,14 +1,13 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { MantineProvider } from '@mantine/core';
 import { SiteProvider } from './context';
-import { MantineEmotionProvider } from '@mantine/emotion';
+import { MantineProvider } from '@mantine/core';
 import { Layout, Intro, Home } from './Routes';
 
 import { globalTheme } from './Global';
 
 function App() {
   return (
-    <MantineEmotionProvider>
+    <MantineProvider theme={globalTheme} withGlobalStyles withNormalizeCSS>
       <MantineProvider theme={globalTheme}>
         <SiteProvider>
           <Router>
@@ -21,7 +20,7 @@ function App() {
           </Router>
         </SiteProvider>
       </MantineProvider>
-    </MantineEmotionProvider>
+    </MantineProvider>
   );
 }
 

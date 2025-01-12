@@ -1,4 +1,4 @@
-import { createStyles } from '@mantine/emotion';
+import { createStyles } from '@mantine/core';
 
 export const useLayoutStyles = createStyles(() => ({
   layoutWrapper: {

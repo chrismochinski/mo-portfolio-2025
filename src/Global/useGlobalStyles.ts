@@ -1,5 +1,5 @@
 import { MantineThemeOverride } from '@mantine/core';
-import { createStyles } from '@mantine/emotion';
+import { createStyles } from '@mantine/core';
 import * as animations from './Animations';
 
 export const colors = {
@@ -51,18 +51,12 @@ export const globalTheme: MantineThemeOverride = {
     xxxl: 'clamp(3rem, 5vw, 4rem)',
   },
 
-  lineHeights: {
-    xs: '1.125em',
-    sm: '1.25em',
-    md: '1.35em',
-    lg: '1.5em',
-    xl: '1.75em',
-    xxl: '2em',
-  },
-
-  headings: {
-    fontFamily: "'Urbanist', serif",
-    textWrap: 'balance',
+  shadows: {
+    xs: '0px 1px 2px #00000015',
+    sm: '0px 2px 4px #00000015',
+    md: '0px 4px 8px #00000018',
+    lg: '0px 8px 16px #00000020',
+    xl: '0px 16px 32px #00000020',
   },
 };
 
@@ -84,6 +78,9 @@ export const useGlobalStyles = createStyles(() => ({
   },
   poppins: {
     fontFamily: "'Poppins', sans-serif",
+  },
+  urbanist: {
+    fontFamily: "'Urbanist', sans-serif",
   },
 
   balance: {
@@ -185,8 +182,6 @@ export const useGlobalStyles = createStyles(() => ({
     animation: `${animations.slowSpinReverse} 20s linear infinite`,
     animationDelay: '1500ms',
   },
-
-
 
   // junk?? Old bubbles animation
   moveAround: {

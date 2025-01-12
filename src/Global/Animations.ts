@@ -1,4 +1,4 @@
-import { keyframes } from '@mantine/emotion';
+import { keyframes } from '@mantine/core';
 
 export const slowSpin = keyframes`
     from {
