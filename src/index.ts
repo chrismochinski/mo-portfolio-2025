@@ -1,4 +1,4 @@
-// 💡 almost anything can be imported from '@mo';
+// 💡 now almost anything can be imported from '@mo' ¯\_(シ)_/¯
 
 export * from './components';
 export * from './context';
