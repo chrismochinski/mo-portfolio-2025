@@ -24,13 +24,16 @@ export const useHomeStyles = createStyles((_, { isNavigationVisible }: HomeStyle
       'color 400ms ease-out, letter-spacing 400ms ease-out, fontWeight 400ms ease-out, padding-inline 400ms ease-out',
     letterSpacing: 'normal',
     fontWeight: 600,
+    textDecoration: 'none',
+    
     '&:hover': {
+      textDecoration: 'none',
       fontWeight: 700,
-      paddingInline: '0.3em',
+      paddingInline: '0.35em',
       color: colors.darkBlue,
-      letterSpacing: '0.07em',
+      letterSpacing: '0.04em',
       transition:
-        'color 140ms ease-out, letter-spacing 140ms ease-out, fontWeight 200ms ease-out, padding-inline 200ms ease-out',
+        'color 160ms ease-out, letter-spacing 160ms ease-out, fontWeight 180ms ease-out, padding-inline 180ms ease-out',
     },
     // dark mode
     '@media (prefers-color-scheme: dark)': {
@@ -38,7 +41,7 @@ export const useHomeStyles = createStyles((_, { isNavigationVisible }: HomeStyle
       '&:hover': {
         color: colors.darkBlue,
       },
-    }, 
+    },
   },
 
   // DISAPPEARING

@@ -23,6 +23,14 @@ export const colors = {
 };
 
 export const globalTheme: MantineThemeOverride = {
+  globalStyles() {
+    return {
+      // global stuff here??
+      // global stuff here??
+      // global stuff here??
+    };
+  },
+
   breakpoints: {
     xs: '575px',
     sm: '768px',
@@ -61,6 +69,12 @@ export const globalTheme: MantineThemeOverride = {
 };
 
 export const useGlobalStyles = createStyles(() => ({
+  // ------------------------------------------ //
+  // ------------------------------------------ //
+  // --------------- TEXT STUFF --------------- //
+  // ------------------------------------------ //
+  // ------------------------------------------ //
+
   bitter: {
     fontFamily: "'Bitter', serif",
   },
@@ -107,7 +121,32 @@ export const useGlobalStyles = createStyles(() => ({
     alignItems: 'center',
   },
 
-  // ---------- Z-INDEXES ---------- //
+  textContrastShadow: {
+    textShadow: `1px 1px 1px ${colors.white}, -1px -1px 1px ${colors.white}, 1px -1px 1px ${colors.white}, -1px 1px 1px ${colors.white}`,
+    '@media (prefers-color-scheme: dark)': {
+      textShadow: `1px 1px 1px ${colors.black}, -1px -1px 1px ${colors.black}, 1px -1px 1px ${colors.black}, -1px 1px 1px ${colors.black}`,
+    },
+  },
+
+  textContrastShadowSubtle: {
+    textShadow: `1px 1px 2px ${colors.white}80, -1px -1px 2px ${colors.white}80, 1px -1px 2px ${colors.white}80, -1px 1px 2px ${colors.white}80`,
+    '@media (prefers-color-scheme: dark)': {
+      textShadow: `1px 1px 2px ${colors.black}80, -1px -1px 2px ${colors.black}80, 1px -1px 2px ${colors.black}80, -1px 1px 2px ${colors.black}80`,
+    },
+  },
+
+  textContrastShadowHeavy: {
+    textShadow: `1px 1px 2px ${colors.white}, -1px -1px 2px ${colors.white}, 1px -1px 2px ${colors.white}, -1px 1px 2px ${colors.white}`,
+    '@media (prefers-color-scheme: dark)': {
+      textShadow: `1px 1px 2px ${colors.black}, -1px -1px 2px ${colors.black}, 1px -1px 2px ${colors.black}, -1px 1px 2px ${colors.black}`,
+    },
+  },
+
+  // ----------------------------------------- //
+  // ----------------------------------------- //
+  // --------------- Z-INDEXES --------------- //
+  // ----------------------------------------- //
+  // ----------------------------------------- //
 
   z0: {
     zIndex: 0,
