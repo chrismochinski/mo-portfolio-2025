@@ -36,7 +36,7 @@ export function Bubbles(props: BubblesProps) {
           ...particlesConfig,
           particles: {
             ...particlesConfig.particles,
-            number: { value: 20 }, // Fewer particles for one layer
+            number: { value: isNavigationVisible ? 27 : 21 }, // Fewer particles for one layer
             density: { enable: true, value_area: 1400 },
           },
         });

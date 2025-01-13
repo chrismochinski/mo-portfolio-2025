@@ -37,8 +37,8 @@ export const globalTheme: MantineThemeOverride = {
       },
 
       body: {
-        backgroundColor: theme.colorScheme === 'dark' ? theme.black : theme.white,
-        color: theme.colorScheme === 'dark' ? theme.white : theme.black,
+        backgroundColor: theme.colorScheme === 'dark' ? colors.black : colors.white,
+        color: theme.colorScheme === 'dark' ? colors.white : colors.black,
         fontFamily: 'Urbanist, sans-serif',
       },
     };

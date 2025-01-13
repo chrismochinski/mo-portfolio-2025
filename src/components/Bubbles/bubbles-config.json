@@ -63,7 +63,7 @@
     "line_linked": {
       "enable": false,
       "distance": 0,
-      "color": "#ffffff",
+      "color": "#F9F9F9",
       "opacity": 0.4,
       "width": 1
     },

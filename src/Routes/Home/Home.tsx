@@ -3,13 +3,15 @@ import { Anchor, Box, Flex, Title, Text } from '@mantine/core';
 import { useGlobalStyles, useSiteContext, useHomeStyles } from '@mo';
 
 export function Home() {
-  const { isNavigationVisible } = useSiteContext();
+  const { isNavigationVisible, setIsNavigationVisible } = useSiteContext();
   const { classes: globalClasses } = useGlobalStyles();
   const { classes, cx } = useHomeStyles({ isNavigationVisible });
 
   useEffect(() => {
+    // revisit need?? double set? 
+    setIsNavigationVisible(true);
     document.title = 'Home | Mo';
-  }, []);
+  }, [setIsNavigationVisible, isNavigationVisible]);
 
   return (
     <Box className={cx(globalClasses.row, classes.homeWrapper)} id="home">

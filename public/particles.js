@@ -28,7 +28,7 @@ var pJS = function (e, a) {
     canvas: { el: t, w: t.offsetWidth, h: t.offsetHeight },
     particles: {
       number: { value: 400, density: { enable: !0, value_area: 800 } },
-      color: { value: "#fff" },
+      color: { value: "#F9F9F9" },
       shape: {
         type: "circle",
         stroke: { width: 0, color: "#ff0000" },
