@@ -1,13 +1,13 @@
 import { useState, forwardRef, useEffect } from 'react';
 import { Tooltip } from '@mantine/core';
 import { useNavigate } from 'react-router-dom';
-import { useGlobalStyles, colors, useSiteContext, useAwesomeMenuStyles } from '@mo';
+import { colors, useSiteContext, useAwesomeMenuStyles } from '@mo';
 
 export function AwesomeMenu() {
-  const { isNavigationVisible, menuHovered, setMenuHovered } = useSiteContext();
+  const { isNavigationVisible, setMenuHovered } = useSiteContext();
   const [rotation, setRotation] = useState(0);
   const { classes, cx } = useAwesomeMenuStyles({ isNavigationVisible, rotation });
-  const { classes: globalClasses } = useGlobalStyles();
+  // const { classes: globalClasses } = useGlobalStyles();
   const [yPosition, setYPosition] = useState<number | null>(null);
   const navigate = useNavigate();
 
@@ -236,15 +236,8 @@ export function AwesomeMenu() {
           className={cx(classes.ferrisWheelMenu, isNavigationVisible && classes.navigationEnter)}
         >
           <g id="bars-and-cars">
-            <g id="car-masks-group-experimental" className={cx(classes.carsGroup)}>
-              <g
-                className={cx(
-                  isNavigationVisible && globalClasses.menuFerrisWheelCarSpinReverse,
-                  classes.carMask,
-                  menuHovered && 'menuPause'
-                )}
-                id="mask-0"
-              >
+            <g id="car_masks-group-experimental" className={cx(classes.carsGroup)}>
+              <g className={cx(classes.carMask)} id="car_mask-0">
                 <g className={cx(classes.menuCarInner)}>
                   <g id="rail-left">
                     <mask
@@ -340,14 +333,7 @@ export function AwesomeMenu() {
                   </g>
                 </g>
               </g>
-              <g
-                className={cx(
-                  isNavigationVisible && globalClasses.menuFerrisWheelCarSpinReverse,
-                  classes.carMask,
-                  menuHovered && 'menuPause'
-                )}
-                id="mask_2"
-              >
+              <g className={cx(classes.carMask)} id="car_mask-2">
                 <g className={cx(classes.menuCarInner)}>
                   <g id="rail-left_3">
                     <mask
@@ -443,14 +429,7 @@ export function AwesomeMenu() {
                   </g>
                 </g>
               </g>
-              <g
-                className={cx(
-                  isNavigationVisible && globalClasses.menuFerrisWheelCarSpinReverse,
-                  classes.carMask,
-                  menuHovered && 'menuPause'
-                )}
-                id="mask_3"
-              >
+              <g className={cx(classes.carMask)} id="car_mask-3">
                 <g className={cx(classes.menuCarInner)}>
                   <g id="rail-left_5">
                     <mask
@@ -546,14 +525,7 @@ export function AwesomeMenu() {
                   </g>
                 </g>
               </g>
-              <g
-                className={cx(
-                  isNavigationVisible && globalClasses.menuFerrisWheelCarSpinReverse,
-                  classes.carMask,
-                  menuHovered && 'menuPause'
-                )}
-                id="mask_4"
-              >
+              <g className={cx(classes.carMask)} id="car_mask-4">
                 <g className={cx(classes.menuCarInner)}>
                   <g id="rail-left_7">
                     <mask
@@ -649,14 +621,7 @@ export function AwesomeMenu() {
                   </g>
                 </g>
               </g>
-              <g
-                className={cx(
-                  isNavigationVisible && globalClasses.menuFerrisWheelCarSpinReverse,
-                  classes.carMask,
-                  menuHovered && 'menuPause'
-                )}
-                id="mask_5"
-              >
+              <g className={cx(classes.carMask)} id="car_mask-5">
                 <g className={cx(classes.menuCarInner)}>
                   <g id="rail-left_9">
                     <mask
@@ -752,14 +717,7 @@ export function AwesomeMenu() {
                   </g>
                 </g>
               </g>
-              <g
-                className={cx(
-                  isNavigationVisible && globalClasses.menuFerrisWheelCarSpinReverse,
-                  classes.carMask,
-                  menuHovered && 'menuPause'
-                )}
-                id="mask_6"
-              >
+              <g className={cx(classes.carMask)} id="car_mask-6">
                 <g className={cx(classes.menuCarInner)}>
                   <g id="rail-left_11">
                     <mask
@@ -855,14 +813,7 @@ export function AwesomeMenu() {
                   </g>
                 </g>
               </g>
-              <g
-                className={cx(
-                  isNavigationVisible && globalClasses.menuFerrisWheelCarSpinReverse,
-                  classes.carMask,
-                  menuHovered && 'menuPause'
-                )}
-                id="mask_7"
-              >
+              <g className={cx(classes.carMask)} id="car_mask-7">
                 <g className={cx(classes.menuCarInner)}>
                   <g id="rail-left_13">
                     <mask
@@ -958,14 +909,7 @@ export function AwesomeMenu() {
                   </g>
                 </g>
               </g>
-              <g
-                className={cx(
-                  isNavigationVisible && globalClasses.menuFerrisWheelCarSpinReverse,
-                  classes.carMask,
-                  menuHovered && 'menuPause'
-                )}
-                id="mask_8"
-              >
+              <g className={cx(classes.carMask)} id="car_mask-8">
                 <g className={cx(classes.menuCarInner)}>
                   <g id="rail-left_15">
                     <mask
@@ -1061,14 +1005,7 @@ export function AwesomeMenu() {
                   </g>
                 </g>
               </g>
-              <g
-                className={cx(
-                  isNavigationVisible && globalClasses.menuFerrisWheelCarSpinReverse,
-                  classes.carMask,
-                  menuHovered && 'menuPause'
-                )}
-                id="mask_9"
-              >
+              <g className={cx(classes.carMask)} id="car_mask-9">
                 <g className={cx(classes.menuCarInner)}>
                   <g id="rail-left_17">
                     <mask
@@ -1164,14 +1101,7 @@ export function AwesomeMenu() {
                   </g>
                 </g>
               </g>
-              <g
-                className={cx(
-                  isNavigationVisible && globalClasses.menuFerrisWheelCarSpinReverse,
-                  classes.carMask,
-                  menuHovered && 'menuPause'
-                )}
-                id="mask_9"
-              >
+              <g className={cx(classes.carMask)} id="car_mask-9">
                 <g className={cx(classes.menuCarInner)}>
                   <g id="rail-left_19">
                     <mask
@@ -1278,22 +1208,11 @@ export function AwesomeMenu() {
             {/* ------------- NOW CARS ------------ */}
             {/* ------------- NOW CARS ------------ */}
             {/* ------------- NOW CARS ------------ */}
-            <g
-              id="cars"
-              className={cx(
-                isNavigationVisible && globalClasses.menuFerrisWheelSpin,
-                classes.carsGroup,
-                menuHovered && globalClasses.pauseAnimation
-              )}
-            >
+            <g id="cars" className={cx(classes.carsGroup)}>
               <g
                 id="car-0"
                 clipPath="url(#clip0_665_875)"
-                className={cx(
-                  isNavigationVisible && globalClasses.menuFerrisWheelCarSpinReverse,
-                  classes.car,
-                  menuHovered && 'menuPause'
-                )}
+                className={cx(classes.car)}
               >
                 <g className={cx(classes.menuCarInner)}>
                   <g id="black-0">
@@ -1391,11 +1310,7 @@ export function AwesomeMenu() {
               <g
                 id="car-1"
                 clipPath="url(#clip1_665_875)"
-                className={cx(
-                  isNavigationVisible && globalClasses.menuFerrisWheelCarSpinReverse,
-                  classes.car,
-                  menuHovered && 'menuPause'
-                )}
+                className={cx(classes.car)}
               >
                 <g className={cx(classes.menuCarInner)}>
                   <g id="black-1">
@@ -1487,11 +1402,7 @@ export function AwesomeMenu() {
               <g
                 id="car-2"
                 clipPath="url(#clip2_665_875)"
-                className={cx(
-                  isNavigationVisible && globalClasses.menuFerrisWheelCarSpinReverse,
-                  classes.car,
-                  menuHovered && 'menuPause'
-                )}
+                className={cx(classes.car)}
               >
                 <g className={cx(classes.menuCarInner)}>
                   <g id="black-2">
@@ -1583,11 +1494,7 @@ export function AwesomeMenu() {
               <g
                 id="car-3"
                 clipPath="url(#clip3_665_875)"
-                className={cx(
-                  isNavigationVisible && globalClasses.menuFerrisWheelCarSpinReverse,
-                  classes.car,
-                  menuHovered && 'menuPause'
-                )}
+                className={cx(classes.car)}
               >
                 <g className={cx(classes.menuCarInner)}>
                   <g id="black-3">
@@ -1685,11 +1592,7 @@ export function AwesomeMenu() {
               <g
                 id="car-4"
                 clipPath="url(#clip4_665_875)"
-                className={cx(
-                  isNavigationVisible && globalClasses.menuFerrisWheelCarSpinReverse,
-                  classes.car,
-                  menuHovered && 'menuPause'
-                )}
+                className={cx(classes.car)}
               >
                 <g className={cx(classes.menuCarInner)}>
                   <g id="black-4">
@@ -1787,11 +1690,7 @@ export function AwesomeMenu() {
               <g
                 id="car-5"
                 clipPath="url(#clip5_665_875)"
-                className={cx(
-                  isNavigationVisible && globalClasses.menuFerrisWheelCarSpinReverse,
-                  classes.car,
-                  menuHovered && 'menuPause'
-                )}
+                className={cx(classes.car)}
               >
                 <g className={cx(classes.menuCarInner)}>
                   <g id="black-5">
@@ -1877,11 +1776,7 @@ export function AwesomeMenu() {
               <g
                 id="car-6"
                 clipPath="url(#clip6_665_875)"
-                className={cx(
-                  isNavigationVisible && globalClasses.menuFerrisWheelCarSpinReverse,
-                  classes.car,
-                  menuHovered && 'menuPause'
-                )}
+                className={cx(classes.car)}
               >
                 <g className={cx(classes.menuCarInner)}>
                   <g id="black-6">
@@ -1979,11 +1874,7 @@ export function AwesomeMenu() {
               <g
                 id="car-7"
                 clipPath="url(#clip7_665_875)"
-                className={cx(
-                  isNavigationVisible && globalClasses.menuFerrisWheelCarSpinReverse,
-                  classes.car,
-                  menuHovered && 'menuPause'
-                )}
+                className={cx(classes.car)}
               >
                 <g className={cx(classes.menuCarInner)}>
                   <g id="black-7">
@@ -2069,11 +1960,7 @@ export function AwesomeMenu() {
               <g
                 id="car-8"
                 clipPath="url(#clip8_665_875)"
-                className={cx(
-                  isNavigationVisible && globalClasses.menuFerrisWheelCarSpinReverse,
-                  classes.car,
-                  menuHovered && 'menuPause'
-                )}
+                className={cx(classes.car)}
               >
                 <g className={cx(classes.menuCarInner)}>
                   <g id="black-8">
@@ -2159,11 +2046,7 @@ export function AwesomeMenu() {
               <g
                 id="car-9"
                 clipPath="url(#clip9_665_875)"
-                className={cx(
-                  isNavigationVisible && globalClasses.menuFerrisWheelCarSpinReverse,
-                  classes.car,
-                  menuHovered && 'menuPause'
-                )}
+                className={cx(classes.car)}
               >
                 <g className={cx(classes.menuCarInner)}>
                   <g id="black-9">

@@ -16,6 +16,8 @@ const aggressiveWheelBezier = 'cubic-bezier(0.49, 0.21, 0.38, 1)';
 
 const softCarBezier = 'cubic-bezier(0.54, 0.08, 0.28, 2.29)';
 
+const barBezier = 'cubic-bezier(0.03, 0.96, 0.59, 0.99)';
+
 export const useAwesomeMenuStyles = createStyles(
   (theme, { isNavigationVisible, rotation }: AwesomeMenuStylesProps) => ({
     awesomeMenuSvgFull: {
@@ -29,6 +31,7 @@ export const useAwesomeMenuStyles = createStyles(
       height: '100vh',
       width: 'auto',
       cursor: 'pointer',
+      
 
       '& g': {
         transformOrigin: 'center',
@@ -46,7 +49,7 @@ export const useAwesomeMenuStyles = createStyles(
       position: 'absolute',
       transformOrigin: 'center',
       transformBox: 'fill-box',
-      filter: isNavigationVisible ? 'none' : 'blur(40px) grayscale(80%)',
+      filter: isNavigationVisible ? 'none' : 'blur(40px) grayscale(90%)',
       opacity: isNavigationVisible ? 1 : 0.7,
       transition: 'filter 1400ms ease-out, opacity 1400ms ease-out',
       '& > g': {
@@ -67,41 +70,79 @@ export const useAwesomeMenuStyles = createStyles(
       transformOrigin: 'center',
       transformBox: 'fill-box',
       transform: 'scale(0.9) translateX(-8%)',
-      filter: isNavigationVisible ? 'none' : 'blur(30px) grayscale(80%)',
-      opacity: isNavigationVisible ? 1 : 0.3,
       transition: 'transform 800ms ease-out, filter 800ms ease-out, opacity 800ms ease-out',
-
       '& #wheels': {
-        opacity: 0,
-        filter: 'blur(40px)',
-        transition: 'filter 500ms ease-out',
+        circle: {
+          opacity: 0,
+          filter: 'blur(80px)',
+          transition: 'filter 500ms ease-out, opacity 500ms ease-out',
+        },
       },
-      // '& #cars': {
-      //   opacity: 0,
-      //   filter: 'blur(40px)',
-      //   transition: 'filter 500ms ease-out',
-      // },
+
+      '& #bars': {
+        path: {
+          transformOrigin: 'center',
+          transformBox: 'fill-box',
+          opacity: 0,
+          filter: 'blur(80px)',
+          // transform: 'rotate(-600deg)',
+          transition: `filter 1200ms ease-out 200ms, opacity 900ms ease-out 200ms, transform 1600ms ${softWheelBezier}`,
+        },
+      },
+
+      '& [id*="wheel-mask"]': {
+        opacity: 1, // NO ANIMATION (or try display?)
+      },
+      '& [id*="car-"]': {
+
+        opacity: 0,
+        filter: 'blur(60px)',
+        transitionProperty: 'display opacity filter',
+        transitionDuration: '1000ms',
+        transitionDelay: '000ms',
+        transitionBehavior: 'allow-discrete',
+        '@startingStyle': {
+          display: 'none',
+          filter: 'blur(50px)',
+          opacity: 0,
+          
+        },
+      },
       '& #base-legs, & #base-back': {
         opacity: 0,
         filter: 'blur(40px)',
         transition: 'filter 500ms ease-out',
       },
     },
-
+    
     navigationEnter: {
       transform: 'scale(1.125) translateX(0)',
       transition: `transform 1400ms ${softWheelBezier} 240ms, filter 1400ms ease-out 240ms, opacity 1400ms ease-out 240ms`,
-
+      
       '& #wheels': {
-        opacity: 1,
-        filter: 'none',
-        transition: `opacity  1000ms ease-out 1000ms, filter  1000ms ease-out 1000ms`,
+        circle: {
+          opacity: 1,
+          filter: 'blur(0px)',
+          transition: `opacity 800ms ease-out 800ms, filter 1400ms ease-out 1000ms`,
+        },
       },
-      // '& #cars': {
-      //   opacity: 1,
-      //   filter: 'none',
-      //   transition: `opacity  1000ms ease-out 1000ms, filter  1000ms ease-out 1000ms`,
-      // },
+      
+      '& #bars': {
+        path: {
+          opacity: 1,
+          filter: 'none',
+          // transform: 'rotate(0deg)',
+          transition: `opacity 800ms ease-out 580ms, filter 1400ms ease-out 1000ms, transform 1700ms ${barBezier} 400ms`,
+        },
+      },
+      '& [id*="car-"]': {
+        opacity: 1,
+        display: 'block',
+        filter: 'blur(0px)',
+        transitionDelay: '1400ms',
+        transitionDuration: '1200ms',
+        
+      },
       '& #base-legs, & #base-back': {
         opacity: 1,
         filter: 'none',
@@ -155,7 +196,7 @@ export const useAwesomeMenuStyles = createStyles(
       transformOrigin: '50% 0',
       transformBox: 'fill-box',
       transform: `rotate(${-rotation}deg)`,
-      transition: `transform 1000ms ${softCarBezier} 180ms`,
+      transition: `transform 1000ms ${softCarBezier} 120ms`,
     },
 
     carMask: {
