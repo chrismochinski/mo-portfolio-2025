@@ -194,22 +194,22 @@ export const useAwesomeMenuStyles = createStyles(
         },
         '&.car-home': {
           '& #black-1': {
-            transform: tooltipLabel === 'Home' ? 'scale(1.125)' : 'scale(1)',
+            transform: tooltipLabel === 'Home' ? 'scale(1.077)' : 'scale(1)',
           },
         },
         '&.car-about': {
           '& #black-2': {
-            transform: tooltipLabel === 'About' ? 'scale(1.125)' : 'scale(1)',
+            transform: tooltipLabel === 'About' ? 'scale(1.077)' : 'scale(1)',
           },
         },
         '&.car-projects': {
           '& #black-3': {
-            transform: tooltipLabel === 'Projects' ? 'scale(1.125)' : 'scale(1)',
+            transform: tooltipLabel === 'Projects' ? 'scale(1.077)' : 'scale(1)',
           },
         },
         '&.car-contact': {
           '& #black-4': {
-            transform: tooltipLabel === 'Contact' ? 'scale(1.125)' : 'scale(1)',
+            transform: tooltipLabel === 'Contact' ? 'scale(1.077)' : 'scale(1)',
           },
         },
       },
@@ -257,27 +257,27 @@ export const useAwesomeMenuStyles = createStyles(
         transition: `transform 350ms ease-in-out`,
       },
 
-      '&.car-mask-home': {
+      '&.car-mask-home': { 
         '& #black-1-mask': {
-          transform: tooltipLabel === 'Home' ? 'scale(1.15)' : 'scale(1)',
+          transform: tooltipLabel === 'Home' ? 'scale(1.1)' : 'scale(1)',
           transition: 'transform 500ms ease-out',
         },
       },
       '&.car-mask-about': {
         '& #black-2-mask': {
-          transform: tooltipLabel === 'About' ? 'scale(1.15)' : 'scale(1)',
+          transform: tooltipLabel === 'About' ? 'scale(1.1)' : 'scale(1)',
           transition: 'transform 500ms ease-out',
         },
       },
       '&.car-mask-projects': {
         '& #black-3-mask': {
-          transform: tooltipLabel === 'Projects' ? 'scale(1.15)' : 'scale(1)',
+          transform: tooltipLabel === 'Projects' ? 'scale(1.1)' : 'scale(1)',
           transition: 'transform 500ms ease-out',
         },
       },
       '&.car-mask-contact': {
         '& #black-4-mask': {
-          transform: tooltipLabel === 'Contact' ? 'scale(1.15)' : 'scale(1)',
+          transform: tooltipLabel === 'Contact' ? 'scale(1.1)' : 'scale(1)',
           transition: 'transform 500ms ease-out',
         },
       },
