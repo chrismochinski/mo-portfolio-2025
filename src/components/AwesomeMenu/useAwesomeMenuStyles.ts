@@ -12,9 +12,9 @@ interface AwesomeMenuStylesProps {
 
 const softWheelBezier = 'cubic-bezier(0.53, 0.24, 0.56, 0.84)';
 
-const aggressiveWheelBezier = 'cubic-bezier(0.49, 0.21, 0.38, 1)';
+// const aggressiveWheelBezier = 'cubic-bezier(0.49, 0.21, 0.38, 1)';
 
-const softCarBezier = 'cubic-bezier(0.54, 0.08, 0.28, 2.29)';
+const softCarBezier = 'cubic-bezier(0.3, 0.05, 0.27, 1.89)';
 
 const barBezier = 'cubic-bezier(0.03, 0.96, 0.59, 0.99)';
 
@@ -159,7 +159,7 @@ export const useAwesomeMenuStyles = createStyles(
       transformOrigin: 'center',
       transformBox: 'fill-box',
       transform: `rotate(${rotation}deg)`,
-      transition: `transform 1000ms ${aggressiveWheelBezier}`,
+      transition: `transform 1000ms ${softWheelBezier}`,
       path: {
         fill: theme.colorScheme === 'dark' ? colors.white : colors.black,
         stroke: theme.colorScheme === 'dark' ? colors.white : colors.black,
@@ -175,7 +175,7 @@ export const useAwesomeMenuStyles = createStyles(
       transformOrigin: 'center',
       transformBox: 'fill-box',
       transform: `rotate(${rotation}deg)`,
-      transition: `transform 1000ms ${aggressiveWheelBezier}`,
+      transition: `transform 1000ms ${softWheelBezier}`,
     },
 
     // REVERSE ANIMATE WITH ROTATE
@@ -196,7 +196,7 @@ export const useAwesomeMenuStyles = createStyles(
       transformOrigin: '50% 0',
       transformBox: 'fill-box',
       transform: `rotate(${-rotation}deg)`,
-      transition: `transform 1000ms ${softCarBezier} 120ms`,
+      transition: `transform 1100ms ${softCarBezier} 350ms`,
     },
 
     carMask: {

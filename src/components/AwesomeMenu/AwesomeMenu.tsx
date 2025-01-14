@@ -20,22 +20,24 @@ export function AwesomeMenu() {
     const container = e.currentTarget.getBoundingClientRect();
     const yPercent = ((e.clientY - container.top) / container.height) * 100; // Y% in container
     setYPosition(yPercent);
-
+  
     const logRotation = (rotation: number) => {
       console.log('Rotation:', rotation);
     };
-
+  
     // Calculate rotation based on Y position (Top Half)
     if (yPercent >= 10 && yPercent < 50) {
       const t = (yPercent - 10) / 40; // Normalize Y% to a range of [0, 1]
-      const rotationDeg = lerp(8, 0, t); // Interpolate rotation (8 to 0)
+      // IMPORTANT set 10 TO 8 if want reduce
+      const rotationDeg = lerp(10, 0, t); // Interpolate rotation (10 to 0)
       setRotation(rotationDeg);
       logRotation(rotationDeg);
     }
     // Calculate rotation based on Y position (Bottom Half)
     else if (yPercent >= 50 && yPercent <= 90) {
       const t = (yPercent - 50) / 40; // Normalize Y% to a range of [0, 1]
-      const rotationDeg = lerp(0, -8, t); // Interpolate rotation (0 to -8)
+      // IMPORTANT set -10 to -8 if want reduce
+      const rotationDeg = lerp(0, -10, t); // Interpolate rotation (0 to -10)
       setRotation(rotationDeg);
       logRotation(rotationDeg);
     }
@@ -45,6 +47,7 @@ export function AwesomeMenu() {
       logRotation(0);
     }
   };
+  
 
   // ----------- END ROTATION LOGIC ------------
 
