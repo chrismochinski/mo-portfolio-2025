@@ -8,7 +8,7 @@ export function Home() {
   const { classes, cx } = useHomeStyles({ isNavigationVisible });
 
   useEffect(() => {
-    // revisit need?? double set? 
+    // revisit need?? double set?
     setIsNavigationVisible(true);
     document.title = 'Home | Mo';
   }, [setIsNavigationVisible, isNavigationVisible]);
@@ -22,6 +22,7 @@ export function Home() {
           my="xs"
           mx="auto"
           ta="center"
+          fw={800}
         >
           Hi, friends.
         </Title>
@@ -32,6 +33,7 @@ export function Home() {
           mx="auto"
           ta="center"
           mb="sm"
+          fw={500}
         >
           This site is a work in progress,
           <br />
@@ -48,7 +50,13 @@ export function Home() {
           Please check back soon.
         </Text>
 
-        <Flex className={classes.personalLinks} gap="min(1em, 2vw)" justify="center" align="center" mt={0}>
+        <Flex
+          className={classes.personalLinks}
+          gap="min(1em, 2vw)"
+          justify="center"
+          align="center"
+          mt={0}
+        >
           <Anchor
             fz="sm"
             className={cx(globalClasses.textContrastShadowSubtle, classes.personalAnchorText)}
@@ -76,7 +84,14 @@ export function Home() {
         </Flex>
       </Box>
 
-      <Text className={cx(globalClasses.textContrastShadow, classes.copyright)} component="h6" ta="center" pb="md" my="sm">
+      <Text
+        className={cx(globalClasses.textContrastShadow, classes.copyright)}
+        component="h6"
+        ta="center"
+        pb="md"
+        my="sm"
+        fw={300}
+      >
         Copyright © 2025 Wreck Shop Media LLC. All rights reserved.
       </Text>
     </Box>

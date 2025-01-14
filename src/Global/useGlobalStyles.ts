@@ -3,23 +3,23 @@ import { createStyles } from '@mantine/core';
 import * as animations from './Animations';
 
 export const colors = {
-  black: '#191716',
-  white: '#F9F9F9',
-  red: '#911E1E',
-  orange: '#FF9A5C',
-  gold: '#FBAF00',
-  yellow: '#F9EA9A',
-  green: '#5EFFAC',
-  emerald: '#79D49E',
-  lightBlue: '#11C7FF',
-  darkBlue: '#134074',
-  purple: '#611E91',
-  pink: '#EE92C2',
-  lightGray: '#D5D5D5',
-  gray: '#758190',
-  darkGray: '#575757',
-  trueBlack: '#000000',
-  trueWhite: '#FFFFFF',
+  black: '#191716', // Eerie black
+  white: '#F9F9F9', // Seasalt
+  red: '#89043D', // Claret
+  orange: '#FF571F', // Coquelicot
+  gold: '#F7B538', // Xanthous
+  yellow: '#FFFD77', // Icterine
+  green: '#20FC8F', // Spring green
+  emerald: '#1FAD9D', // Keppel
+  lightBlue: '#51E5FF', // Electric blue
+  darkBlue: '#235789', // Lapis lazuli
+  purple: '#9F6AA0', // Pomp and Power
+  pink: '#F2B5D4', // Lavender pink
+  lightGray: '#DBDFE6', // Platinum
+  gray: '#95B2B8', // Cadet gray
+  darkGray: '#4F5D75', // Payne's grey
+  trueBlack: '#000000', // True black
+  trueWhite: '#FFFFFF', // True white
 };
 
 export const globalTheme: MantineThemeOverride = {
@@ -47,23 +47,23 @@ export const globalTheme: MantineThemeOverride = {
   fontFamily: '"Urbanist", sans-serif',
 
   colors: {
-    black: ['#191716'],
-    white: ['#F9F9F9'],
-    red: ['#911E1E'],
-    orange: ['#FF9A5C'],
-    gold: ['#BAB700'],
-    yellow: ['#F9EA9A'],
-    green: ['#5EFFAC'],
-    emerald: ['#79D49E'],
-    lightBlue: ['#11C7FF'],
-    darkBlue: ['#145C9E'],
-    purple: ['#611E91'],
-    pink: ['#D479D4'],
-    lightGray: ['#D5D5D5'],
-    gray: ['#758190'],
-    darkGray: ['#575757'],
-    trueBlack: ['#000000'],
-    trueWhite: ['#FFFFFF'],
+    black: ['#191716'], // Eerie black
+    white: ['#F9F9F9'], // Seasalt
+    red: ['#89043D'], // Claret
+    orange: ['#FF571F'], // Coquelicot
+    gold: ['#F7B538'], // Xanthous
+    yellow: ['#FFFD77'], // Icterine
+    green: ['#20FC8F'], // Spring green
+    emerald: ['#1FAD9D'], // Keppel
+    lightBlue: ['#51E5FF'], // Electric blue
+    darkBlue: ['#235789'], // Lapis lazuli
+    purple: ['#9F6AA0'], // Pomp and Power
+    pink: ['#F2B5D4'], // Lavender pink
+    lightGray: ['#DBDFE6'], // Platinum
+    gray: ['#95B2B8'], // Cadet gray
+    darkGray: ['#4F5D75'], // Payne's grey
+    trueBlack: ['#000000'], // True black
+    trueWhite: ['#FFFFFF'], // True white
   },
 
   breakpoints: {

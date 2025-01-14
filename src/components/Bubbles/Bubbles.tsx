@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react';
 import { Box } from '@mantine/core';
-import { useBubbleStyles } from '.';
+import { useBubbleStyles, colorVariants } from '@mo';
 import particlesConfig from './bubbles-config.json';
 
 declare global {
@@ -24,8 +24,21 @@ export function Bubbles(props: BubblesProps) {
   const { cx, classes } = useBubbleStyles();
   const containerRef = useRef<HTMLDivElement>(null);
 
+  const bubbleColors = [
+    colorVariants.red.primary,
+    colorVariants.red.shades[0],
+    colorVariants.red.shades[1],
+    colorVariants.red.shades[2],
+    colorVariants.red.shades[3],
+    colorVariants.orange.primary,
+    colorVariants.orange.shades[1],
+    colorVariants.orange.shades[2],
+    colorVariants.gold.shades[3],
+    colorVariants.gold.shades[4],
+    colorVariants.purple.shades[0],
+  ];
+
   useEffect(() => {
-    // Dynamically load particles.js
     const script = document.createElement('script');
     script.src = '/particles.js';
     script.async = true;
@@ -38,6 +51,7 @@ export function Bubbles(props: BubblesProps) {
             ...particlesConfig.particles,
             number: { value: isNavigationVisible ? 27 : 21 }, // Fewer particles for one layer
             density: { enable: true, value_area: 1400 },
+            color: { value: bubbleColors },
           },
         });
         window.particlesJS('particles-container', {
@@ -46,6 +60,7 @@ export function Bubbles(props: BubblesProps) {
             ...particlesConfig.particles,
             number: { value: 33 }, // Higher density for another layer
             density: { enable: true, value_area: 1400 },
+            color: { value: bubbleColors },
           },
         });
       }

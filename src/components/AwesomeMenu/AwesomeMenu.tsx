@@ -2416,6 +2416,7 @@ export function AwesomeMenu() {
         </g>
         <defs>
           <linearGradient
+          // Vector (0 index) - bottom gold red
             id="paint0_linear_665_875"
             x1="3157.08"
             y1="6969.53"
@@ -2423,7 +2424,7 @@ export function AwesomeMenu() {
             y2="8336.54"
             gradientUnits="userSpaceOnUse"
           >
-            <stop offset="0.09" stopColor={colors.gold} />
+            <stop offset="0.29" stopColor={colors.gold} />
             <stop offset="0.78" stopColor={colors.red} />
           </linearGradient>
           <linearGradient
@@ -2434,8 +2435,8 @@ export function AwesomeMenu() {
             y2="4364.84"
             gradientUnits="userSpaceOnUse"
           >
-            <stop offset="0.46" stopColor={colors.gold} />
-            <stop offset="0.94" stopColor={colors.purple} />
+            <stop offset="0.57" stopColor={colors.gold} />
+            <stop offset="0.88" stopColor={colors.purple} />
           </linearGradient>
           <linearGradient
             id="paint2_linear_665_875"
@@ -2472,6 +2473,7 @@ export function AwesomeMenu() {
             <stop offset="0.78" stopColor={colors.emerald} />
           </linearGradient>
           <linearGradient
+            // Vector_6 (top pointy purple teal)
             id="paint5_linear_665_875"
             x1="6747.74"
             y1="3863.94"
@@ -2479,8 +2481,8 @@ export function AwesomeMenu() {
             y2="10113.8"
             gradientUnits="userSpaceOnUse"
           >
-            <stop offset="0.09" stopColor="#A079D4" />
-            <stop offset="0.78" stopColor="#1E8891" />
+            <stop offset="0.1" stopColor={colors.purple} />
+            <stop offset="0.9" stopColor={colors.emerald} />
           </linearGradient>
           <linearGradient
             id="paint6_linear_665_875"
@@ -2505,6 +2507,7 @@ export function AwesomeMenu() {
             <stop offset="0.78" stopColor={colors.purple} />
           </linearGradient>
           <linearGradient
+            // big orange poking out guy Vector_9
             id="paint8_linear_665_875"
             x1="7501.99"
             y1="2533.19"
@@ -2513,8 +2516,8 @@ export function AwesomeMenu() {
             gradientUnits="userSpaceOnUse"
           >
             {/* RECONSIDER - WAS PEACH  */}
-            <stop offset="0.09" stopColor={colors.orange} />
-            <stop offset="0.78" stopColor={colors.purple} />
+            <stop offset="0.07" stopColor={colors.orange} />
+            <stop offset="0.58" stopColor={colors.emerald} />
           </linearGradient>
           <linearGradient
             id="paint9_linear_665_875"

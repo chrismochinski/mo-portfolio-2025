@@ -9,7 +9,7 @@ export const useLayoutStyles = createStyles(() => ({
     h1: {
       fontFamily: '"Urbanist", sans-serif',
       fontSize: 'clamp(2.75rem, 5vw, 4rem)',
-      fontWeight: 700,
+      // fontWeight: 700,
       lineHeight: '1.15em',
       marginBlock: 0,
       textWrap: 'balance',
@@ -17,7 +17,7 @@ export const useLayoutStyles = createStyles(() => ({
     h2: {
       fontFamily: '"Urbanist", sans-serif',
       fontSize: 'clamp(2.25rem, 4vw, 3rem)',
-      fontWeight: 600,
+      // fontWeight: 600,
       lineHeight: '1.15em',
       marginBlock: 0,
       textWrap: 'balance',
@@ -25,7 +25,7 @@ export const useLayoutStyles = createStyles(() => ({
     h3: {
       fontFamily: '"Urbanist", sans-serif',
       fontSize: 'clamp(1.5rem, 3vw, 1.75rem)',
-      fontWeight: 500,
+      // fontWeight: 500,
       lineHeight: '1.15em',
       marginBlock: 0,
       textWrap: 'balance',
@@ -33,7 +33,7 @@ export const useLayoutStyles = createStyles(() => ({
     h4: {
       fontFamily: '"Urbanist", sans-serif',
       fontSize: 'clamp(1.25rem, 2vw, 1.5rem)',
-      fontWeight: 500,
+      // fontWeight: 500,
       lineHeight: '1.15em',
       marginBlock: 0,
       textWrap: 'balance',
@@ -41,7 +41,7 @@ export const useLayoutStyles = createStyles(() => ({
     h5: {
       fontFamily: '"Urbanist", sans-serif',
       fontSize: 'clamp(1.125rem, 1.4vw, 1.25rem)',
-      fontWeight: 500,
+      // fontWeight: 500,
       lineHeight: '1.15em',
       marginBlock: 0,
       textWrap: 'balance',
@@ -49,7 +49,7 @@ export const useLayoutStyles = createStyles(() => ({
     h6: {
       fontFamily: '"Urbanist", sans-serif',
       fontSize: 'clamp(0.75rem, 1.15vw, 0.9rem)',
-      fontWeight: 400,
+      // fontWeight: 400,
       lineHeight: '1.25em',
       marginBlock: 0,
       textWrap: 'balance',
@@ -57,9 +57,9 @@ export const useLayoutStyles = createStyles(() => ({
     p: {
       fontFamily: '"Urbanist", sans-serif',
       fontSize: 'clamp(1rem, 1.4vw, 1.25rem)',
-      fontWeight: 400,
+      // fontWeight: 400,
       lineHeight: '1.35em',
-      textWrap: 'balance',
+      textWrap: 'pretty',
     },
   },
 

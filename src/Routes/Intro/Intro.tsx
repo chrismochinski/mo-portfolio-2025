@@ -1,7 +1,14 @@
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Anchor, Title } from '@mantine/core';
-import { FerrisWheelIcon, useGlobalStyles, useIntroStyles, useSiteContext } from '@mo';
+import {
+  FerrisWheelIcon,
+  PageHelmet,
+  useGlobalStyles,
+  useIntroStyles,
+  useSiteContext,
+  introKeywords,
+} from '@mo';
 
 export function Intro() {
   const {
@@ -19,30 +26,34 @@ export function Intro() {
     toggleNavigation();
     setTimeout(() => {
       navigate('/home');
-    }, 1000);
+    }, 1200);
   };
 
   useEffect(() => {
     setIsNavigationVisible(false);
-    document.title = "I'm Mo.";
-  }, []);
+  }, [ setIsNavigationVisible ]);
 
   const handleMouseEnter = () => setIntroIconHovered(true); // Hover starts
   const handleMouseLeave = () => setIntroIconHovered(false); // Hover ends
 
   return (
-    <Anchor
-      onClick={handleClick}
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
-      my={0}
-      className={cx(globalClasses.z10, classes.ferrisWheelIconButton)}
-    >
-      <FerrisWheelIcon
-        isNavigationVisible={isNavigationVisible}
-        introIconHovered={introIconHovered}
+    <>
+      <PageHelmet
+        keywords={introKeywords}
       />
-      <Title order={5}>Let's Party</Title>
-    </Anchor>
+      <Anchor
+        onClick={handleClick}
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+        my={0}
+        className={cx(globalClasses.z10, classes.ferrisWheelIconButton)}
+      >
+        <FerrisWheelIcon
+          isNavigationVisible={isNavigationVisible}
+          introIconHovered={introIconHovered}
+        />
+        <Title order={5}>Let's Party</Title>
+      </Anchor>
+    </>
   );
 }

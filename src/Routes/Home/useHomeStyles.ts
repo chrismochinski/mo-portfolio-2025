@@ -24,12 +24,12 @@ export const useHomeStyles = createStyles((theme, { isNavigationVisible }: HomeS
     letterSpacing: 'normal',
     fontWeight: 600,
     textDecoration: 'none',
-    color: theme.colorScheme === 'dark' ? colors.yellow : colors.red,
+    color: theme.colorScheme === 'dark' ? colors.yellow : colors.orange,
     '&:hover': {
       textDecoration: 'none',
       fontWeight: 700,
       paddingInline: '0.35em',
-      color: theme.colorScheme === 'dark' ? colors.gold : colors.purple,
+      color: theme.colorScheme === 'dark' ? colors.gold : colors.red,
       letterSpacing: '0.04em',
       transition:
         'color 160ms ease-out, letter-spacing 160ms ease-out, fontWeight 180ms ease-out, padding-inline 180ms ease-out',
@@ -53,8 +53,7 @@ export const useHomeStyles = createStyles((theme, { isNavigationVisible }: HomeS
     bottom: '0',
     left: '50%',
     transform: 'translateX(-50%)',
-    color: theme.colorScheme === 'dark' ? colors.lightGray : colors.gray,
-    fontWeight: theme.colorScheme === 'dark' ? 300 : 400,
-    
+    color: theme.colorScheme === 'dark' ? colors.lightGray : colors.darkGray,
+    fontWeight: theme.colorScheme === 'dark' ? 300 : 700,
   },
 }));
