@@ -13,7 +13,7 @@ export function AwesomeMenu() {
 
   // Determines the link label based on the X and Y coordinates
   const getLinkName = (x: number | null, y: number | null): string | null => {
-    if (y === null || x === null || x < 65 || x > 95) return null;
+    if (y === null || x === null || x < 65 || x > 95 || !isNavigationVisible) return null;
 
     if (y >= 14 && y < 32) return 'Home';
     if (y >= 32 && y < 47) return 'About';
@@ -41,7 +41,6 @@ export function AwesomeMenu() {
 
   // ------------- ROTATION LOGIC --------------
 
-  //V2:----------------------------------------------------
   useEffect(() => {
     const rotationMap: Record<string, number> = {
       Home: 7,
@@ -49,14 +48,13 @@ export function AwesomeMenu() {
       Projects: -3,
       Contact: -7,
     };
-  
+
     if (tooltipLabel) {
       setRotation(rotationMap[tooltipLabel] || 0);
     } else {
       setRotation(0);
     }
   }, [tooltipLabel]);
- 
 
   const handleMouseMove = (e: React.MouseEvent) => {
     const container = e.currentTarget.getBoundingClientRect();
@@ -74,7 +72,8 @@ export function AwesomeMenu() {
   ));
 
   const handleMouseEnter = () => {
-    setMenuHovered(true);
+    // only do this if isNavigationVisible is TRUE
+    if (isNavigationVisible) setMenuHovered(true);
   };
 
   const handleMouseLeave = () => {
@@ -95,9 +94,10 @@ export function AwesomeMenu() {
   }, []);
 
   const handleClick = () => {
-    // const linkName = getLinkName(xPosition, yPosition);
-    if (tooltipLabel !== null) {
-      navigate(`/${tooltipLabel.toLowerCase()}`); // Navigate to the appropriate route
+    if (isNavigationVisible) {
+      if (tooltipLabel !== null) {
+        navigate(`/${tooltipLabel.toLowerCase()}`); // Navigate to the appropriate route
+      }
     }
   };
 

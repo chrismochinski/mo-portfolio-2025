@@ -52,6 +52,7 @@ export function Bubbles(props: BubblesProps) {
             number: { value: isNavigationVisible ? 27 : 21 }, // Fewer particles for one layer
             density: { enable: true, value_area: 1400 },
             color: { value: bubbleColors },
+            move: { speed: isNavigationVisible ? 8 : 0.5 },
           },
         });
         window.particlesJS('particles-container', {
@@ -61,6 +62,7 @@ export function Bubbles(props: BubblesProps) {
             number: { value: 33 }, // Higher density for another layer
             density: { enable: true, value_area: 1400 },
             color: { value: bubbleColors },
+            move: { speed: isNavigationVisible ? 8 : 0.5 },
           },
         });
       }

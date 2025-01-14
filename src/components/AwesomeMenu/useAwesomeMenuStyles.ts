@@ -310,7 +310,7 @@ export const useAwesomeMenuStyles = createStyles(
 
     menuTooltip: {
       fontFamily: '"Urbanist", sans-serif',
-      display: tooltipLabel ? 'block' : 'none',
+      display: isNavigationVisible && tooltipLabel ? 'block' : 'none',
       color: colors.white,
       fontWeight: 600,
       fontSize: 'clamp(1.25em, 2.5vw, 2em)',
