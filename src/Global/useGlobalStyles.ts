@@ -247,13 +247,13 @@ export const useGlobalStyles = createStyles((theme) => ({
   },
 
   menuFerrisWheelSpin: {
-    animation: `${animations.slowSpin} 20s linear infinite`,
-    animationDelay: '1500ms',
+    // animation: `${animations.slowSpin} 20s linear infinite`,
+    // animationDelay: '1500ms',
   },
 
   menuFerrisWheelCarSpinReverse: {
-    animation: `${animations.slowSpinReverse} 20s linear infinite`,
-    animationDelay: '1500ms',
+    // animation: `${animations.slowSpinReverse} 20s linear infinite`,
+    // animationDelay: '1500ms',
   },
 
   // junk?? Old bubbles animation

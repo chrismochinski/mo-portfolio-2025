@@ -1,18 +1,53 @@
-import { useState, forwardRef } from 'react';
+import { useState, forwardRef, useEffect } from 'react';
 import { Tooltip } from '@mantine/core';
 import { useNavigate } from 'react-router-dom';
 import { useGlobalStyles, colors, useSiteContext, useAwesomeMenuStyles } from '@mo';
 
 export function AwesomeMenu() {
   const { isNavigationVisible, menuHovered, setMenuHovered } = useSiteContext();
-  const { classes, cx } = useAwesomeMenuStyles({ isNavigationVisible, menuHovered });
+  const [rotation, setRotation] = useState(0);
+  const { classes, cx } = useAwesomeMenuStyles({ isNavigationVisible, rotation });
   const { classes: globalClasses } = useGlobalStyles();
-  const [isAnimating, setIsAnimating] = useState(false);
   const [yPosition, setYPosition] = useState<number | null>(null);
-  const animationDuration = 2100;
   const navigate = useNavigate();
 
-  // REVISIT forwardRef for SVG element tooltip by Y coord (temp solution for route building)
+  // ------------- ROTATION LOGIC --------------
+
+  // "Linear interpolation" function
+  const lerp = (start: number, end: number, t: number) => start + t * (end - start);
+
+  const handleMouseMove = (e: React.MouseEvent) => {
+    const container = e.currentTarget.getBoundingClientRect();
+    const yPercent = ((e.clientY - container.top) / container.height) * 100; // Y% in container
+    setYPosition(yPercent);
+
+    const logRotation = (rotation: number) => {
+      console.log('Rotation:', rotation);
+    };
+
+    // Calculate rotation based on Y position (Top Half)
+    if (yPercent >= 10 && yPercent < 50) {
+      const t = (yPercent - 10) / 40; // Normalize Y% to a range of [0, 1]
+      const rotationDeg = lerp(8, 0, t); // Interpolate rotation (8 to 0)
+      setRotation(rotationDeg);
+      logRotation(rotationDeg);
+    }
+    // Calculate rotation based on Y position (Bottom Half)
+    else if (yPercent >= 50 && yPercent <= 90) {
+      const t = (yPercent - 50) / 40; // Normalize Y% to a range of [0, 1]
+      const rotationDeg = lerp(0, -8, t); // Interpolate rotation (0 to -8)
+      setRotation(rotationDeg);
+      logRotation(rotationDeg);
+    }
+    // No rotation outside defined ranges
+    else {
+      setRotation(0);
+      logRotation(0);
+    }
+  };
+
+  // ----------- END ROTATION LOGIC ------------
+
   const menuRef = forwardRef<SVGSVGElement, SVGSVGElement>((props, ref) => (
     <svg ref={ref} {...(props as any)}>
       Menu
@@ -20,25 +55,28 @@ export function AwesomeMenu() {
   ));
 
   const handleMouseEnter = () => {
-    console.log('menuHovered! Stop animation');
-    setMenuHovered(true); // Stop spinning
-    setIsAnimating(true); // Add the animation class
-    setTimeout(() => {
-      setIsAnimating(false); // Remove the animation class after duration
-    }, animationDuration);
+    console.log('%cMenu hovered!', 'color: green; font-weight: bold');
+    setMenuHovered(true);
   };
 
   const handleMouseLeave = () => {
-    setMenuHovered(false); // Resume spinning
+    console.log('%cUNHOVERED!', 'color: red; font-weight: bold');
+    setMenuHovered(false);
+    setRotation(0);
   };
 
-  // Handle mouse moving inside the container
-  const handleMouseMove = (e: React.MouseEvent) => {
-    const container = e.currentTarget.getBoundingClientRect();
-    const yPercent = ((e.clientY - container.top) / container.height) * 100; // Y% in container
-    setYPosition(yPercent); // Update the yRelative state
-  };
+  useEffect(() => {
+    const handleWindowMouseLeave = () => {
+      console.log('%cLEFT VIEWPORT!', 'color: blue; font-weight: bold');
+      setRotation(0);
+    };
 
+    window.addEventListener('mouseleave', handleWindowMouseLeave);
+
+    return () => {
+      window.removeEventListener('mouseleave', handleWindowMouseLeave);
+    };
+  }, []);
 
   const getLinkName = (y: number | null) => {
     if (y === null) return 'none';
@@ -58,7 +96,7 @@ export function AwesomeMenu() {
       default:
         return 'none';
     }
-  }
+  };
 
   const handleClick = () => {
     const linkName = getLinkName(yPosition);
@@ -66,7 +104,6 @@ export function AwesomeMenu() {
       navigate(`/${linkName.toLowerCase()}`); // Navigate to the appropriate route
     }
   };
-
 
   return (
     <Tooltip.Floating
@@ -84,7 +121,7 @@ export function AwesomeMenu() {
         xmlns="http://www.w3.org/2000/svg"
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
-        onMouseMove={handleMouseMove} 
+        onMouseMove={handleMouseMove}
         onClick={handleClick}
       >
         <g id="color-shapes_2" className={classes.colorShapes}>
@@ -116,13 +153,13 @@ export function AwesomeMenu() {
               style={{ mixBlendMode: 'overlay' }}
             />
           </g>
-          <g id="Vector_10" style={{ mixBlendMode: 'darken' }}>
+          {/* <g id="Vector_10" style={{ mixBlendMode: 'darken' }}>
             <path
               d="M4029.62 6021.21L5523.96 5307.12L6557.44 5991.29L4029.62 6021.21Z"
               fill="url(#paint9_linear_665_875)"
               style={{ mixBlendMode: 'overlay' }}
             />
-          </g>
+          </g> */}
           <g id="Vector_9" style={{ mixBlendMode: 'difference' }}>
             <path
               d="M3777.16 4107.17L6866.92 1870.84L8369.49 2996.71L3777.16 4107.17Z"
@@ -199,14 +236,7 @@ export function AwesomeMenu() {
           className={cx(classes.ferrisWheelMenu, isNavigationVisible && classes.navigationEnter)}
         >
           <g id="bars-and-cars">
-            <g
-              id="car-masks-group-experimental"
-              className={cx(
-                isNavigationVisible && globalClasses.menuFerrisWheelSpin,
-                classes.carsGroup,
-                menuHovered && globalClasses.pauseAnimation
-              )}
-            >
+            <g id="car-masks-group-experimental" className={cx(classes.carsGroup)}>
               <g
                 className={cx(
                   isNavigationVisible && globalClasses.menuFerrisWheelCarSpinReverse,
@@ -215,7 +245,7 @@ export function AwesomeMenu() {
                 )}
                 id="mask-0"
               >
-                <g className={cx(classes.menuCarInner, isAnimating && 'animate')}>
+                <g className={cx(classes.menuCarInner)}>
                   <g id="rail-left">
                     <mask
                       id="path-15-outside-1_665_875"
@@ -318,7 +348,7 @@ export function AwesomeMenu() {
                 )}
                 id="mask_2"
               >
-                <g className={cx(classes.menuCarInner, isAnimating && 'animate')}>
+                <g className={cx(classes.menuCarInner)}>
                   <g id="rail-left_3">
                     <mask
                       id="path-27-outside-8_665_875"
@@ -421,7 +451,7 @@ export function AwesomeMenu() {
                 )}
                 id="mask_3"
               >
-                <g className={cx(classes.menuCarInner, isAnimating && 'animate')}>
+                <g className={cx(classes.menuCarInner)}>
                   <g id="rail-left_5">
                     <mask
                       id="path-39-outside-15_665_875"
@@ -524,7 +554,7 @@ export function AwesomeMenu() {
                 )}
                 id="mask_4"
               >
-                <g className={cx(classes.menuCarInner, isAnimating && 'animate')}>
+                <g className={cx(classes.menuCarInner)}>
                   <g id="rail-left_7">
                     <mask
                       id="path-51-outside-22_665_875"
@@ -627,7 +657,7 @@ export function AwesomeMenu() {
                 )}
                 id="mask_5"
               >
-                <g className={cx(classes.menuCarInner, isAnimating && 'animate')}>
+                <g className={cx(classes.menuCarInner)}>
                   <g id="rail-left_9">
                     <mask
                       id="path-63-outside-29_665_875"
@@ -730,7 +760,7 @@ export function AwesomeMenu() {
                 )}
                 id="mask_6"
               >
-                <g className={cx(classes.menuCarInner, isAnimating && 'animate')}>
+                <g className={cx(classes.menuCarInner)}>
                   <g id="rail-left_11">
                     <mask
                       id="path-75-outside-36_665_875"
@@ -833,7 +863,7 @@ export function AwesomeMenu() {
                 )}
                 id="mask_7"
               >
-                <g className={cx(classes.menuCarInner, isAnimating && 'animate')}>
+                <g className={cx(classes.menuCarInner)}>
                   <g id="rail-left_13">
                     <mask
                       id="path-87-outside-43_665_875"
@@ -936,7 +966,7 @@ export function AwesomeMenu() {
                 )}
                 id="mask_8"
               >
-                <g className={cx(classes.menuCarInner, isAnimating && 'animate')}>
+                <g className={cx(classes.menuCarInner)}>
                   <g id="rail-left_15">
                     <mask
                       id="path-99-outside-50_665_875"
@@ -1039,7 +1069,7 @@ export function AwesomeMenu() {
                 )}
                 id="mask_9"
               >
-                <g className={cx(classes.menuCarInner, isAnimating && 'animate')}>
+                <g className={cx(classes.menuCarInner)}>
                   <g id="rail-left_17">
                     <mask
                       id="path-111-outside-57_665_875"
@@ -1142,7 +1172,7 @@ export function AwesomeMenu() {
                 )}
                 id="mask_9"
               >
-                <g className={cx(classes.menuCarInner, isAnimating && 'animate')}>
+                <g className={cx(classes.menuCarInner)}>
                   <g id="rail-left_19">
                     <mask
                       id="path-123-outside-64_665_875"
@@ -1265,7 +1295,7 @@ export function AwesomeMenu() {
                   menuHovered && 'menuPause'
                 )}
               >
-                <g className={cx(classes.menuCarInner, isAnimating && 'animate')}>
+                <g className={cx(classes.menuCarInner)}>
                   <g id="black-0">
                     <g id="rail-left_2">
                       <mask
@@ -1367,7 +1397,7 @@ export function AwesomeMenu() {
                   menuHovered && 'menuPause'
                 )}
               >
-                <g className={cx(classes.menuCarInner, isAnimating && 'animate')}>
+                <g className={cx(classes.menuCarInner)}>
                   <g id="black-1">
                     <g id="rail-left_4">
                       <mask
@@ -1463,7 +1493,7 @@ export function AwesomeMenu() {
                   menuHovered && 'menuPause'
                 )}
               >
-                <g className={cx(classes.menuCarInner, isAnimating && 'animate')}>
+                <g className={cx(classes.menuCarInner)}>
                   <g id="black-2">
                     <g id="rail-left_6">
                       <mask
@@ -1559,7 +1589,7 @@ export function AwesomeMenu() {
                   menuHovered && 'menuPause'
                 )}
               >
-                <g className={cx(classes.menuCarInner, isAnimating && 'animate')}>
+                <g className={cx(classes.menuCarInner)}>
                   <g id="black-3">
                     <g id="rail-left_8">
                       <mask
@@ -1661,7 +1691,7 @@ export function AwesomeMenu() {
                   menuHovered && 'menuPause'
                 )}
               >
-                <g className={cx(classes.menuCarInner, isAnimating && 'animate')}>
+                <g className={cx(classes.menuCarInner)}>
                   <g id="black-4">
                     <g id="rail-left_10">
                       <mask
@@ -1763,7 +1793,7 @@ export function AwesomeMenu() {
                   menuHovered && 'menuPause'
                 )}
               >
-                <g className={cx(classes.menuCarInner, isAnimating && 'animate')}>
+                <g className={cx(classes.menuCarInner)}>
                   <g id="black-5">
                     <g id="rail-left_12">
                       <mask
@@ -1853,7 +1883,7 @@ export function AwesomeMenu() {
                   menuHovered && 'menuPause'
                 )}
               >
-                <g className={cx(classes.menuCarInner, isAnimating && 'animate')}>
+                <g className={cx(classes.menuCarInner)}>
                   <g id="black-6">
                     <g id="rail-left_14">
                       <mask
@@ -1955,7 +1985,7 @@ export function AwesomeMenu() {
                   menuHovered && 'menuPause'
                 )}
               >
-                <g className={cx(classes.menuCarInner, isAnimating && 'animate')}>
+                <g className={cx(classes.menuCarInner)}>
                   <g id="black-7">
                     <g id="rail-left_16">
                       <mask
@@ -2045,7 +2075,7 @@ export function AwesomeMenu() {
                   menuHovered && 'menuPause'
                 )}
               >
-                <g className={cx(classes.menuCarInner, isAnimating && 'animate')}>
+                <g className={cx(classes.menuCarInner)}>
                   <g id="black-8">
                     <g id="rail-left_18">
                       <mask
@@ -2135,7 +2165,7 @@ export function AwesomeMenu() {
                   menuHovered && 'menuPause'
                 )}
               >
-                <g className={cx(classes.menuCarInner, isAnimating && 'animate')}>
+                <g className={cx(classes.menuCarInner)}>
                   <g id="black-9">
                     <g id="rail-left_20">
                       <mask
@@ -2229,14 +2259,7 @@ export function AwesomeMenu() {
                 </g>
               </g>
             </g>
-            <g
-              id="bars"
-              className={cx(
-                isNavigationVisible && globalClasses.menuFerrisWheelSpin,
-                classes.barsGroup,
-                menuHovered && globalClasses.pauseAnimation
-              )}
-            >
+            <g id="bars" className={cx(classes.barsGroup)}>
               <path
                 id="bar-4"
                 d="M2018.47 3381.99C2017.87 3381.79 2017.53 3381.16 2017.73 3380.55C2019.4 3375.27 2026.9 3351.63 2032.24 3335.88C2037.57 3320.13 2045.98 3296.79 2047.86 3291.58C2048.07 3290.98 2048.72 3290.68 2049.32 3290.89L7497.41 5135.97C7498.01 5136.17 7498.34 5136.8 7498.15 5137.41C7496.47 5142.69 7488.96 5166.36 7483.63 5182.08C7478.31 5197.81 7469.9 5221.17 7468.02 5226.38C7467.8 5226.98 7467.15 5227.28 7466.55 5227.07L2018.47 3381.99Z"
@@ -2416,7 +2439,7 @@ export function AwesomeMenu() {
         </g>
         <defs>
           <linearGradient
-          // Vector (0 index) - bottom gold red
+            // Vector (0 index) - bottom gold red
             id="paint0_linear_665_875"
             x1="3157.08"
             y1="6969.53"

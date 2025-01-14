@@ -1,16 +1,23 @@
 import { createStyles } from '@mantine/core';
-import * as animations from '@mo';
+// import * as animations from '@mo';
 import { colors } from '@mo';
 
 interface AwesomeMenuStylesProps {
   isNavigationVisible: boolean;
-  menuHovered: boolean;
+
+  rotation: number;
 }
 
-const bounce = 'cubic-bezier(0, 0.96, 0.58, 1.58)';
+// const enterBounce = 'cubic-bezier(0, 0.96, 0.58, 1.58)';
+
+const softWheelBezier = 'cubic-bezier(0.53, 0.24, 0.56, 0.84)';
+
+const aggressiveWheelBezier = 'cubic-bezier(0.49, 0.21, 0.38, 1)';
+
+const softCarBezier = 'cubic-bezier(0.54, 0.08, 0.28, 2.29)';
 
 export const useAwesomeMenuStyles = createStyles(
-  (theme, { isNavigationVisible }: AwesomeMenuStylesProps) => ({
+  (theme, { isNavigationVisible, rotation }: AwesomeMenuStylesProps) => ({
     awesomeMenuSvgFull: {
       overflow: 'hidden',
       position: 'absolute',
@@ -39,7 +46,7 @@ export const useAwesomeMenuStyles = createStyles(
       position: 'absolute',
       transformOrigin: 'center',
       transformBox: 'fill-box',
-      filter: isNavigationVisible ? 'none' : 'blur(40px)',
+      filter: isNavigationVisible ? 'none' : 'blur(40px) grayscale(80%)',
       opacity: isNavigationVisible ? 1 : 0.7,
       transition: 'filter 1400ms ease-out, opacity 1400ms ease-out',
       '& > g': {
@@ -59,24 +66,21 @@ export const useAwesomeMenuStyles = createStyles(
     ferrisWheelMenu: {
       transformOrigin: 'center',
       transformBox: 'fill-box',
-      transform: 'scale(1.125) translateX(-45%)',
-      transition: 'transform 800ms ease-out',
+      transform: 'scale(0.9) translateX(-8%)',
+      filter: isNavigationVisible ? 'none' : 'blur(30px) grayscale(80%)',
+      opacity: isNavigationVisible ? 1 : 0.3,
+      transition: 'transform 800ms ease-out, filter 800ms ease-out, opacity 800ms ease-out',
 
-      '#bars': {
-        opacity: 0,
-        filter: 'blur(40px)',
-        transition: 'filter 500ms ease-out',
-      },
       '& #wheels': {
         opacity: 0,
         filter: 'blur(40px)',
         transition: 'filter 500ms ease-out',
       },
-      '& #cars': {
-        opacity: 0,
-        filter: 'blur(40px)',
-        transition: 'filter 500ms ease-out',
-      },
+      // '& #cars': {
+      //   opacity: 0,
+      //   filter: 'blur(40px)',
+      //   transition: 'filter 500ms ease-out',
+      // },
       '& #base-legs, & #base-back': {
         opacity: 0,
         filter: 'blur(40px)',
@@ -86,23 +90,18 @@ export const useAwesomeMenuStyles = createStyles(
 
     navigationEnter: {
       transform: 'scale(1.125) translateX(0)',
-      transition: `transform 600ms ${bounce} 900ms`,
+      transition: `transform 1400ms ${softWheelBezier} 240ms, filter 1400ms ease-out 240ms, opacity 1400ms ease-out 240ms`,
 
-      '& #bars': {
-        opacity: 1,
-        filter: 'none',
-        transition: `opacity  1000ms ease-out 1000ms, filter  1000ms ease-out 1000ms`,
-      },
       '& #wheels': {
         opacity: 1,
         filter: 'none',
         transition: `opacity  1000ms ease-out 1000ms, filter  1000ms ease-out 1000ms`,
       },
-      '& #cars': {
-        opacity: 1,
-        filter: 'none',
-        transition: `opacity  1000ms ease-out 1000ms, filter  1000ms ease-out 1000ms`,
-      },
+      // '& #cars': {
+      //   opacity: 1,
+      //   filter: 'none',
+      //   transition: `opacity  1000ms ease-out 1000ms, filter  1000ms ease-out 1000ms`,
+      // },
       '& #base-legs, & #base-back': {
         opacity: 1,
         filter: 'none',
@@ -110,27 +109,41 @@ export const useAwesomeMenuStyles = createStyles(
       },
     },
 
+    // ANIMATE WITH ROTATE
+    // ANIMATE WITH ROTATE
+    // ANIMATE WITH ROTATE
+    // ANIMATE WITH ROTATE
+    // ANIMATE WITH ROTATE
     barsGroup: {
+      transformOrigin: 'center',
+      transformBox: 'fill-box',
+      transform: `rotate(${rotation}deg)`,
+      transition: `transform 1000ms ${aggressiveWheelBezier}`,
       path: {
         fill: theme.colorScheme === 'dark' ? colors.white : colors.black,
         stroke: theme.colorScheme === 'dark' ? colors.white : colors.black,
       },
     },
 
+    // ANIMATE WITH ROTATE
+    // ANIMATE WITH ROTATE
+    // ANIMATE WITH ROTATE
+    // ANIMATE WITH ROTATE
+    // ANIMATE WITH ROTATE
     carsGroup: {
       transformOrigin: 'center',
       transformBox: 'fill-box',
+      transform: `rotate(${rotation}deg)`,
+      transition: `transform 1000ms ${aggressiveWheelBezier}`,
     },
 
+    // REVERSE ANIMATE WITH ROTATE
     car: {
       transformOrigin: 'center',
       transformBox: 'fill-box',
       path: {
         fill: theme.colorScheme === 'dark' ? colors.white : colors.black,
         stroke: theme.colorScheme === 'dark' ? colors.white : colors.black,
-      },
-      '&.menuPause': {
-        animationPlayState: 'paused',
       },
     },
 
@@ -141,12 +154,14 @@ export const useAwesomeMenuStyles = createStyles(
     menuCarInner: {
       transformOrigin: '50% 0',
       transformBox: 'fill-box',
-      '&.animate': {
-        animation: `${animations.carSubtleSwayDamped} 2000ms 1`,
-      },
+      transform: `rotate(${-rotation}deg)`,
+      transition: `transform 1000ms ${softCarBezier} 180ms`,
     },
 
     carMask: {
+      transformOrigin: 'center',
+      transformBox: 'fill-box',
+
       mixBlendMode: 'soft-light', // PLEASANT!
       path: {
         '&.bucketPath': {

@@ -31,5 +31,5 @@ export const colorVariants = Object.fromEntries(
     ])
   );
   
-  console.log(colorVariants.red);
-  console.log(colorVariants.red.shades); // Array of 5 shades ["#E2A6BB", "#C46993", "#89043D", "#5E032A", "#390118"]
+  // console.log(colorVariants.red); // Primary color object { primary: "#89043D", shades: Array(5) }  
+  // console.log(colorVariants.red.shades); // Array of 5 shades ["#E2A6BB", "#C46993", "#89043D", "#5E032A", "#390118"]
