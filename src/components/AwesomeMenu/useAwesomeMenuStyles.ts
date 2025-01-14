@@ -4,7 +4,7 @@ import { colors } from '@mo';
 
 interface AwesomeMenuStylesProps {
   isNavigationVisible: boolean;
-
+  tooltipLabel: string | null;
   rotation: number;
 }
 
@@ -12,14 +12,12 @@ interface AwesomeMenuStylesProps {
 
 const softWheelBezier = 'cubic-bezier(0.53, 0.24, 0.56, 0.84)';
 
-// const aggressiveWheelBezier = 'cubic-bezier(0.49, 0.21, 0.38, 1)';
-
-const softCarBezier = 'cubic-bezier(0.3, 0.05, 0.27, 1.89)';
+const softCarBezier = 'cubic-bezier(0.44, 0.38, 0.47, 1.87)';
 
 const barBezier = 'cubic-bezier(0.03, 0.96, 0.59, 0.99)';
 
 export const useAwesomeMenuStyles = createStyles(
-  (theme, { isNavigationVisible, rotation }: AwesomeMenuStylesProps) => ({
+  (theme, { isNavigationVisible, rotation, tooltipLabel }: AwesomeMenuStylesProps) => ({
     awesomeMenuSvgFull: {
       overflow: 'hidden',
       position: 'absolute',
@@ -30,8 +28,7 @@ export const useAwesomeMenuStyles = createStyles(
       transform: 'translateX(41%)',
       height: '100vh',
       width: 'auto',
-      cursor: 'pointer',
-      
+      cursor: tooltipLabel ? 'pointer' : 'default',
 
       '& g': {
         transformOrigin: 'center',
@@ -94,7 +91,6 @@ export const useAwesomeMenuStyles = createStyles(
         opacity: 1, // NO ANIMATION (or try display?)
       },
       '& [id*="car-"]': {
-
         opacity: 0,
         filter: 'blur(60px)',
         transitionProperty: 'display opacity filter',
@@ -105,7 +101,6 @@ export const useAwesomeMenuStyles = createStyles(
           display: 'none',
           filter: 'blur(50px)',
           opacity: 0,
-          
         },
       },
       '& #base-legs, & #base-back': {
@@ -114,11 +109,11 @@ export const useAwesomeMenuStyles = createStyles(
         transition: 'filter 500ms ease-out',
       },
     },
-    
+
     navigationEnter: {
       transform: 'scale(1.125) translateX(0)',
       transition: `transform 1400ms ${softWheelBezier} 240ms, filter 1400ms ease-out 240ms, opacity 1400ms ease-out 240ms`,
-      
+
       '& #wheels': {
         circle: {
           opacity: 1,
@@ -126,7 +121,7 @@ export const useAwesomeMenuStyles = createStyles(
           transition: `opacity 800ms ease-out 800ms, filter 1400ms ease-out 1000ms`,
         },
       },
-      
+
       '& #bars': {
         path: {
           opacity: 1,
@@ -141,7 +136,6 @@ export const useAwesomeMenuStyles = createStyles(
         filter: 'blur(0px)',
         transitionDelay: '1400ms',
         transitionDuration: '1200ms',
-        
       },
       '& #base-legs, & #base-back': {
         opacity: 1,
@@ -159,7 +153,7 @@ export const useAwesomeMenuStyles = createStyles(
       transformOrigin: 'center',
       transformBox: 'fill-box',
       transform: `rotate(${rotation}deg)`,
-      transition: `transform 1000ms ${softWheelBezier}`,
+      transition: `transform 500ms ${softWheelBezier}`,
       path: {
         fill: theme.colorScheme === 'dark' ? colors.white : colors.black,
         stroke: theme.colorScheme === 'dark' ? colors.white : colors.black,
@@ -175,7 +169,7 @@ export const useAwesomeMenuStyles = createStyles(
       transformOrigin: 'center',
       transformBox: 'fill-box',
       transform: `rotate(${rotation}deg)`,
-      transition: `transform 1000ms ${softWheelBezier}`,
+      transition: `transform 500ms ${softWheelBezier}`,
     },
 
     // REVERSE ANIMATE WITH ROTATE
@@ -185,6 +179,39 @@ export const useAwesomeMenuStyles = createStyles(
       path: {
         fill: theme.colorScheme === 'dark' ? colors.white : colors.black,
         stroke: theme.colorScheme === 'dark' ? colors.white : colors.black,
+      },
+
+      // --------------------------------- //
+      // --------------------------------- //
+      // ----- HOVER ANIMATIONS CARS ----- //
+      // --------------------------------- //
+      // --------------------------------- //
+      '&[class*="car-"]': {
+        '& [id*="black-"]': {
+          transformOrigin: '50% 100%',
+          transformBox: 'fill-box',
+          transition: `transform 350ms ease-in-out`,
+        },
+        '&.car-home': {
+          '& #black-1': {
+            transform: tooltipLabel === 'Home' ? 'scale(1.125)' : 'scale(1)',
+          },
+        },
+        '&.car-about': {
+          '& #black-2': {
+            transform: tooltipLabel === 'About' ? 'scale(1.125)' : 'scale(1)',
+          },
+        },
+        '&.car-projects': {
+          '& #black-3': {
+            transform: tooltipLabel === 'Projects' ? 'scale(1.125)' : 'scale(1)',
+          },
+        },
+        '&.car-contact': {
+          '& #black-4': {
+            transform: tooltipLabel === 'Contact' ? 'scale(1.125)' : 'scale(1)',
+          },
+        },
       },
     },
 
@@ -196,7 +223,7 @@ export const useAwesomeMenuStyles = createStyles(
       transformOrigin: '50% 0',
       transformBox: 'fill-box',
       transform: `rotate(${-rotation}deg)`,
-      transition: `transform 1100ms ${softCarBezier} 350ms`,
+      transition: `transform 1150ms ${softCarBezier} 220ms`,
     },
 
     carMask: {
@@ -217,6 +244,42 @@ export const useAwesomeMenuStyles = createStyles(
       // PAUSE STATES
       '&.menuPause': {
         animationPlayState: 'paused',
+      },
+
+      // --------------------------------- //
+      // --------------------------------- //
+      // ----- HOVER ANIMATE CAR MASK ---- //
+      // --------------------------------- //
+      // --------------------------------- //
+      '& [id*="black-"]': {
+        transformOrigin: '50% 80%',
+        transformBox: 'fill-box',
+        transition: `transform 350ms ease-in-out`,
+      },
+
+      '&.car-mask-home': {
+        '& #black-1-mask': {
+          transform: tooltipLabel === 'Home' ? 'scale(1.15)' : 'scale(1)',
+          transition: 'transform 500ms ease-out',
+        },
+      },
+      '&.car-mask-about': {
+        '& #black-2-mask': {
+          transform: tooltipLabel === 'About' ? 'scale(1.15)' : 'scale(1)',
+          transition: 'transform 500ms ease-out',
+        },
+      },
+      '&.car-mask-projects': {
+        '& #black-3-mask': {
+          transform: tooltipLabel === 'Projects' ? 'scale(1.15)' : 'scale(1)',
+          transition: 'transform 500ms ease-out',
+        },
+      },
+      '&.car-mask-contact': {
+        '& #black-4-mask': {
+          transform: tooltipLabel === 'Contact' ? 'scale(1.15)' : 'scale(1)',
+          transition: 'transform 500ms ease-out',
+        },
       },
     },
 
@@ -247,9 +310,11 @@ export const useAwesomeMenuStyles = createStyles(
 
     menuTooltip: {
       fontFamily: '"Urbanist", sans-serif',
+      display: tooltipLabel ? 'block' : 'none',
       color: colors.white,
       fontWeight: 600,
-      padding: '0.5em 1em',
+      fontSize: 'clamp(1.25em, 2.5vw, 2em)',
+      padding: '0.25em 0.65em',
     },
   })
 );
