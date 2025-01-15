@@ -313,7 +313,7 @@ export const useAwesomeMenuStyles = createStyles(
       display: isNavigationVisible && tooltipLabel ? 'block' : 'none',
       color: colors.white,
       fontWeight: 600,
-      fontSize: 'clamp(1.25em, 2.5vw, 2em)',
+      fontSize: 'clamp(1.25rem, 2vw, 1.5rem)',
       padding: '0.25em 0.65em',
     },
   })

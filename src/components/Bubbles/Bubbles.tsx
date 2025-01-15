@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react';
 import { Box } from '@mantine/core';
-import { useBubbleStyles, colorVariants } from '@mo';
+import { useBubbleStyles, colorVariants, useSiteContext } from '@mo';
 import particlesConfig from './bubbles-config.json';
 
 declare global {
@@ -9,18 +9,14 @@ declare global {
   }
 }
 
-export interface BubblesProps {
-  isNavigationVisible: boolean;
-}
-
 /**
  * @component Bubbles
  * @description Bubbles component, using particles.js library and config in /public folder
  * @returns Bubbles component
  * @param props - BubblesProps
  */
-export function Bubbles(props: BubblesProps) {
-  const { isNavigationVisible } = props;
+export function Bubbles() {
+  const { isNavigationVisible } = useSiteContext();
   const { cx, classes } = useBubbleStyles();
   const containerRef = useRef<HTMLDivElement>(null);
 
@@ -52,7 +48,6 @@ export function Bubbles(props: BubblesProps) {
             number: { value: isNavigationVisible ? 27 : 21 }, // Fewer particles for one layer
             density: { enable: true, value_area: 1400 },
             color: { value: bubbleColors },
-            move: { speed: isNavigationVisible ? 8 : 0.5 },
           },
         });
         window.particlesJS('particles-container', {
@@ -62,7 +57,6 @@ export function Bubbles(props: BubblesProps) {
             number: { value: 33 }, // Higher density for another layer
             density: { enable: true, value_area: 1400 },
             color: { value: bubbleColors },
-            move: { speed: isNavigationVisible ? 8 : 0.5 },
           },
         });
       }
