@@ -5,7 +5,7 @@ import { Outlet } from 'react-router-dom';
 import { useLayoutStyles, Bubbles, AwesomeMenu, useSiteContext } from '@mo';
 
 export function Layout() {
-  const { isNavigationVisible, setIsNavigationVisible } = useSiteContext();
+  const { setIsNavigationVisible } = useSiteContext();
   const { classes } = useLayoutStyles();
 
   useEffect(() => {
@@ -17,7 +17,7 @@ export function Layout() {
   return (
     <Box className={classes.layoutWrapper}>
       <Box className={classes.layoutInnerWrapper}>
-        <Bubbles isNavigationVisible={isNavigationVisible} />
+        <Bubbles />
         <AwesomeMenu />
         <Box className={classes.layoutContentWrapper} id="layout-content-wrapper">
           <Outlet />

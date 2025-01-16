@@ -9,6 +9,8 @@ export interface SiteContextType {
   setIntroIconHovered: React.Dispatch<React.SetStateAction<boolean>>;
   menuHovered: boolean;
   setMenuHovered: React.Dispatch<React.SetStateAction<boolean>>;
+  linkName: string | null;
+  setLinkName: React.Dispatch<React.SetStateAction<string | null>>;
 }
 
 export const SiteContext = createContext<SiteContextType | undefined>(undefined);

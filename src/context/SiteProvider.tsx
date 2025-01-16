@@ -4,8 +4,8 @@ import { SiteContext, SiteContextType } from './SiteContext';
 export function SiteProvider({ children }: { children: React.ReactNode }) {
   const [isNavigationVisible, setIsNavigationVisible] = useState(false);
   const [introIconHovered, setIntroIconHovered] = useState(false);
-  const [ menuHovered, setMenuHovered] = useState(false);
-
+  const [menuHovered, setMenuHovered] = useState(false);
+  const [linkName, setLinkName] = useState<string | null>(null);
 
   // CONTEXT - show navigation - on click or enter route via URL slug
   const toggleNavigation = () => {
@@ -27,6 +27,8 @@ export function SiteProvider({ children }: { children: React.ReactNode }) {
     setIntroIconHovered,
     menuHovered,
     setMenuHovered,
+    linkName,
+    setLinkName,
   };
 
   return <SiteContext.Provider value={contextValue}>{children}</SiteContext.Provider>;

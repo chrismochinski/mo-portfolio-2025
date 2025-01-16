@@ -4,11 +4,9 @@ import { useNavigate } from 'react-router-dom';
 import { colors, useSiteContext, useAwesomeMenuStyles } from '@mo';
 
 export function AwesomeMenu() {
-  const { isNavigationVisible, setMenuHovered } = useSiteContext();
+  const { isNavigationVisible, setMenuHovered, setLinkName, linkName } = useSiteContext();
   const [rotation, setRotation] = useState(0);
-  const [tooltipLabel, setTooltipLabel] = useState<string | null>(null);
-  const { classes, cx } = useAwesomeMenuStyles({ isNavigationVisible, rotation, tooltipLabel });
-
+  const { classes, cx } = useAwesomeMenuStyles({ isNavigationVisible, rotation, linkName });
   const navigate = useNavigate();
 
   // Determines the link label based on the X and Y coordinates
@@ -23,22 +21,6 @@ export function AwesomeMenu() {
     return null;
   };
 
-  // Returns the tooltip color based on the label
-  const getTooltipColor = (label: string | null): string => {
-    switch (label) {
-      case 'Home':
-        return colors.emerald;
-      case 'About':
-        return colors.purple;
-      case 'Projects':
-        return colors.red;
-      case 'Contact':
-        return colors.orange;
-      default:
-        return colors.white;
-    }
-  };
-
   // ------------- ROTATION LOGIC --------------
 
   useEffect(() => {
@@ -49,18 +31,20 @@ export function AwesomeMenu() {
       Contact: -7,
     };
 
-    if (tooltipLabel) {
-      setRotation(rotationMap[tooltipLabel] || 0);
+    if (linkName) {
+      setRotation(rotationMap[linkName] || 0);
     } else {
       setRotation(0);
     }
-  }, [tooltipLabel]);
+  }, [linkName]);
 
+  // Handle mouse movement and determine linkName
   const handleMouseMove = (e: React.MouseEvent) => {
     const container = e.currentTarget.getBoundingClientRect();
     const yPercent = ((e.clientY - container.top) / container.height) * 100; // Y% in container
     const xPercent = ((e.clientX - container.left) / container.width) * 100; // X% in container
-    setTooltipLabel(getLinkName(xPercent, yPercent));
+    const newLinkName = getLinkName(xPercent, yPercent);
+    setLinkName(newLinkName);
   };
 
   // ----------- END ROTATION LOGIC ------------
@@ -95,19 +79,19 @@ export function AwesomeMenu() {
 
   const handleClick = () => {
     if (isNavigationVisible) {
-      if (tooltipLabel !== null) {
-        navigate(`/${tooltipLabel.toLowerCase()}`); // Navigate to the appropriate route
+      if (linkName !== null) {
+        navigate(`/${linkName.toLowerCase()}`); // Navigate to the appropriate route
       }
     }
   };
 
   return (
     <Tooltip.Floating
-      label={tooltipLabel || ''}
-      color={getTooltipColor(tooltipLabel)}
+      label={linkName || ''}
+      
       className={classes.menuTooltip}
       radius="sm"
-      disabled={!tooltipLabel}
+      disabled={!linkName}
     >
       <svg
         ref={menuRef}

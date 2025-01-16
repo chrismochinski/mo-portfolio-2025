@@ -1,14 +1,26 @@
 import { createStyles } from '@mantine/core';
-// import * as animations from '@mo';
 import { colors } from '@mo';
 
 interface AwesomeMenuStylesProps {
   isNavigationVisible: boolean;
-  tooltipLabel: string | null;
+  linkName: string | null;
   rotation: number;
 }
 
-// const enterBounce = 'cubic-bezier(0, 0.96, 0.58, 1.58)';
+const getTooltipColor = (linkName: string | null) => {
+  switch (linkName) {
+    case 'Home':
+      return colors.red;
+    case 'About':
+      return colors.emerald;
+    case 'Projects':
+      return colors.orange;
+    case 'Contact':
+      return colors.darkBlue;
+    default:
+      return colors.black;
+  }
+}
 
 const softWheelBezier = 'cubic-bezier(0.53, 0.24, 0.56, 0.84)';
 
@@ -17,7 +29,7 @@ const softCarBezier = 'cubic-bezier(0.44, 0.38, 0.47, 1.87)';
 const barBezier = 'cubic-bezier(0.03, 0.96, 0.59, 0.99)';
 
 export const useAwesomeMenuStyles = createStyles(
-  (theme, { isNavigationVisible, rotation, tooltipLabel }: AwesomeMenuStylesProps) => ({
+  (theme, { isNavigationVisible, rotation, linkName }: AwesomeMenuStylesProps) => ({
     awesomeMenuSvgFull: {
       overflow: 'hidden',
       position: 'absolute',
@@ -28,7 +40,7 @@ export const useAwesomeMenuStyles = createStyles(
       transform: 'translateX(41%)',
       height: '100vh',
       width: 'auto',
-      cursor: tooltipLabel ? 'pointer' : 'default',
+      cursor: linkName ? 'pointer' : 'default',
 
       '& g': {
         transformOrigin: 'center',
@@ -194,22 +206,22 @@ export const useAwesomeMenuStyles = createStyles(
         },
         '&.car-home': {
           '& #black-1': {
-            transform: tooltipLabel === 'Home' ? 'scale(1.077)' : 'scale(1)',
+            transform: linkName === 'Home' ? 'scale(1.077)' : 'scale(1)',
           },
         },
         '&.car-about': {
           '& #black-2': {
-            transform: tooltipLabel === 'About' ? 'scale(1.077)' : 'scale(1)',
+            transform: linkName === 'About' ? 'scale(1.077)' : 'scale(1)',
           },
         },
         '&.car-projects': {
           '& #black-3': {
-            transform: tooltipLabel === 'Projects' ? 'scale(1.077)' : 'scale(1)',
+            transform: linkName === 'Projects' ? 'scale(1.077)' : 'scale(1)',
           },
         },
         '&.car-contact': {
           '& #black-4': {
-            transform: tooltipLabel === 'Contact' ? 'scale(1.077)' : 'scale(1)',
+            transform: linkName === 'Contact' ? 'scale(1.077)' : 'scale(1)',
           },
         },
       },
@@ -259,25 +271,25 @@ export const useAwesomeMenuStyles = createStyles(
 
       '&.car-mask-home': { 
         '& #black-1-mask': {
-          transform: tooltipLabel === 'Home' ? 'scale(1.1)' : 'scale(1)',
+          transform: linkName === 'Home' ? 'scale(1.1)' : 'scale(1)',
           transition: 'transform 500ms ease-out',
         },
       },
       '&.car-mask-about': {
         '& #black-2-mask': {
-          transform: tooltipLabel === 'About' ? 'scale(1.1)' : 'scale(1)',
+          transform: linkName === 'About' ? 'scale(1.1)' : 'scale(1)',
           transition: 'transform 500ms ease-out',
         },
       },
       '&.car-mask-projects': {
         '& #black-3-mask': {
-          transform: tooltipLabel === 'Projects' ? 'scale(1.1)' : 'scale(1)',
+          transform: linkName === 'Projects' ? 'scale(1.1)' : 'scale(1)',
           transition: 'transform 500ms ease-out',
         },
       },
       '&.car-mask-contact': {
         '& #black-4-mask': {
-          transform: tooltipLabel === 'Contact' ? 'scale(1.1)' : 'scale(1)',
+          transform: linkName === 'Contact' ? 'scale(1.1)' : 'scale(1)',
           transition: 'transform 500ms ease-out',
         },
       },
@@ -310,11 +322,13 @@ export const useAwesomeMenuStyles = createStyles(
 
     menuTooltip: {
       fontFamily: '"Urbanist", sans-serif',
-      display: isNavigationVisible && tooltipLabel ? 'block' : 'none',
+      display: isNavigationVisible && linkName ? 'block' : 'none',
       color: colors.white,
+      backgroundColor: getTooltipColor(linkName),
       fontWeight: 600,
       fontSize: 'clamp(1.25rem, 2vw, 1.5rem)',
-      padding: '0.25em 0.65em',
+      padding: '0.2em 0.6em',
+      boxShadow: '1px 2px 8px #00000070',
     },
   })
 );
