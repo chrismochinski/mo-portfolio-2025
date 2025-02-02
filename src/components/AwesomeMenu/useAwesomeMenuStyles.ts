@@ -58,7 +58,7 @@ export const useAwesomeMenuStyles = createStyles(
       position: 'absolute',
       transformOrigin: 'center',
       transformBox: 'fill-box',
-      filter: isNavigationVisible ? 'none' : 'blur(40px) grayscale(90%)',
+      filter: isNavigationVisible ? 'none' : 'blur(30px) grayscale(60%)',
       opacity: isNavigationVisible ? 1 : 0.7,
       transition: 'filter 1400ms ease-out, opacity 1400ms ease-out',
       '& > g': {
@@ -78,8 +78,9 @@ export const useAwesomeMenuStyles = createStyles(
     ferrisWheelMenu: {
       transformOrigin: 'center',
       transformBox: 'fill-box',
-      transform: 'scale(0.9) translateX(-8%)',
-      transition: 'transform 800ms ease-out, filter 800ms ease-out, opacity 800ms ease-out',
+      opacity: 0.5,
+      transform: 'scale(1.125) translateX(0)',
+      transition: 'opacity 800ms ease-out 100ms',
       '& #wheels': {
         circle: {
           opacity: 0,
@@ -94,7 +95,6 @@ export const useAwesomeMenuStyles = createStyles(
           transformBox: 'fill-box',
           opacity: 0,
           filter: 'blur(80px)',
-          // transform: 'rotate(-600deg)',
           transition: `filter 1200ms ease-out 200ms, opacity 900ms ease-out 200ms, transform 1600ms ${softWheelBezier}`,
         },
       },
@@ -122,9 +122,11 @@ export const useAwesomeMenuStyles = createStyles(
       },
     },
 
+    // FERRIS WHEEL WHEN NAV BECOMES VISIBLE
     navigationEnter: {
+      opacity: 1,
       transform: 'scale(1.125) translateX(0)',
-      transition: `transform 1400ms ${softWheelBezier} 240ms, filter 1400ms ease-out 240ms, opacity 1400ms ease-out 240ms`,
+      transition: `opacity 1200ms ease-out 400ms`,
 
       '& #wheels': {
         circle: {

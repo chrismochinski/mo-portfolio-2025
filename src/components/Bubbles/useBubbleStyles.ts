@@ -2,7 +2,7 @@ import { createStyles } from '@mantine/core';
 
 export const useBubbleStyles = createStyles((theme) => ({
   bubblesContainer: {
-    width: 'clamp(300px, calc(65%), 800px)',
+    width: 'clamp(300px, calc(55%), 800px)',
     position: 'absolute',
     top: 0,
     left: 0,
