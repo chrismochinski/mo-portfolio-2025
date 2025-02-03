@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Anchor } from '@mantine/core';
+import { Box, Anchor } from '@mantine/core';
 import {
   Greetings,
   FerrisWheelIcon,
@@ -32,16 +32,14 @@ export function Intro() {
 
   useEffect(() => {
     setIsNavigationVisible(false);
-  }, [ setIsNavigationVisible ]);
+  }, [setIsNavigationVisible]);
 
   const handleMouseEnter = () => setIntroIconHovered(true); // Hover starts
   const handleMouseLeave = () => setIntroIconHovered(false); // Hover ends
 
   return (
     <>
-      <PageHelmet
-        keywords={introKeywords}
-      />
+      <PageHelmet keywords={introKeywords} />
       <Anchor
         aria-label="Enter the site"
         onClick={handleClick}
@@ -56,6 +54,8 @@ export function Intro() {
         />
         <Greetings />
       </Anchor>
+
+      <Box className={classes.introButtonWrapper} />
     </>
   );
 }

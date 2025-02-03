@@ -25,31 +25,52 @@ export const useGreetingsStyles = createStyles(
       path: {
         transformOrigin: 'center center',
         transformBox: 'fill-box',
-        fill: theme.colorScheme === 'dark' ? colors.white : colors.black,
+        transitionProperty: 'fill',
+        transitionDuration: introIconHovered ? '250ms' : '500ms',
+        transitionDelay: introIconHovered ? '20ms' : '0ms',
+        transitionTimingFunction: introIconHovered ? 'ease-out' : 'ease-in-out',
       },
     },
 
     enterLetter: {
       willChange: 'transform',
       '&#e': {
-        transform: introIconHovered ? 'translate(-4px, 0px) rotate(0)' : 'none',
+        transform: introIconHovered ? 'translate(-4px, 0px)' : 'none',
+        transformOrigin: '80% 20%',
+        transitionDuration: introIconHovered ? '240ms' : '500ms',
         path: {},
       },
       '&#n': {
         transform: introIconHovered ? 'translate(-36px, 0px) rotate(0)' : 'none',
+        transitionDuration: introIconHovered ? '180ms' : '500ms',
         path: {},
       },
       '&#t': {
         transform: introIconHovered ? 'translate(-2px, 0px) rotate(360deg)' : 'none',
+        transitionDuration: introIconHovered ? '250ms' : '500ms',
         path: {},
       },
       '&#e2': {
         transform: introIconHovered ? 'translate(24px, 0px) rotate(0)' : 'none',
+        transitionDuration: introIconHovered ? '240ms' : '500ms',
         path: {},
       },
       '&#r': {
-        transform: introIconHovered ? 'translate(66px, 0px) scaleX(1)' : 'none',
+        transform: introIconHovered ? 'translate(66px, 0px) rotate(-360deg)' : 'none',
+        transformTimingFunction: 'linear',
+        transformOrigin: '-350% 100%',
+        transitionDuration: introIconHovered ? '370ms' : '600ms',
         path: {},
+      },
+      path: {
+        fill:
+          theme.colorScheme === 'dark'
+            ? introIconHovered
+              ? colors.yellow
+              : colors.white
+            : introIconHovered
+              ? colors.darkBlue
+              : colors.black,
       },
     },
 
@@ -63,24 +84,35 @@ export const useGreetingsStyles = createStyles(
 
       '&#g': {
         transform: introIconHovered
-          ? 'translate(-20px, 0) rotate(-30deg)'
-          : 'translate(0, 0) rotate(0deg)',
+          ? 'translate(0, 0) rotate(190deg) scale(0.5)'
+          : 'translate(0, 0) rotate(0deg) scale(1)',
+        transitionDuration: introIconHovered ? '370ms' : '500ms',
       },
       '&#i': {
         transform: introIconHovered
-          ? 'translate(0, 23px) rotate(50deg)'
+          ? 'translate(0, -18px) rotate(-20deg)'
           : 'translate(0, 0) rotate(0deg)',
       },
       '&#g2': {
         transform: introIconHovered
-          ? 'translate(6px, -12px) rotate(-15deg)'
+          ? 'translate(6px, 3px) rotate(12deg)'
           : 'translate(0, 0) rotate(0deg)',
       },
 
       '&#s': {
         transform: introIconHovered
-          ? 'translate(30px, 0) rotate(100deg)'
+          ? 'translate(14px, -7px) rotate(-40deg)'
           : 'translate(0, 0) rotate(0deg)',
+      },
+      path: {
+        fill:
+          theme.colorScheme === 'dark'
+            ? introIconHovered
+              ? colors.darkGray
+              : colors.white
+            : introIconHovered
+              ? colors.lightGray
+              : colors.black,
       },
     },
   })
