@@ -18,21 +18,16 @@ export const useHomeStyles = createStyles((theme, { isNavigationVisible }: HomeS
 
   personalAnchorText: {
     fontFamily: '"Urbanist", sans-serif',
-
-    transition:
-      'color 400ms ease-out, letter-spacing 400ms ease-out, fontWeight 400ms ease-out, padding-inline 400ms ease-out',
+    transition: 'color 150ms ease-out, padding 150ms ease-out',
     letterSpacing: 'normal',
     fontWeight: 600,
+    padding: '0.25em 0 0.15em',
     textDecoration: 'none',
     color: theme.colorScheme === 'dark' ? colors.yellow : colors.orange,
     '&:hover': {
       textDecoration: 'none',
-      fontWeight: 700,
-      paddingInline: '0.35em',
-      color: theme.colorScheme === 'dark' ? colors.gold : colors.red,
-      letterSpacing: '0.04em',
-      transition:
-        'color 160ms ease-out, letter-spacing 160ms ease-out, fontWeight 180ms ease-out, padding-inline 180ms ease-out',
+      color: theme.colorScheme === 'dark' ? colors.white : colors.red,
+      padding: '0.4em 0 0',
     },
   },
 
