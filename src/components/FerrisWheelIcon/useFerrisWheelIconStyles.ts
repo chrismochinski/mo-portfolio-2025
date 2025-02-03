@@ -1,13 +1,21 @@
 import { createStyles } from '@mantine/core';
-import * as animations from '../../Global/Animations';
-import { colors } from '../../Global';
+import { colors } from '@mo';
+import * as animations from '@mo';
 
-export const useFerrisWheelIconStyles = createStyles((theme) => ({
+interface FerrisWheelIconStylesProps {
+  introIconHovered: boolean;
+};
+
+
+export const useFerrisWheelIconStyles = createStyles((theme, { introIconHovered }: FerrisWheelIconStylesProps) => ({  
   ferrisWheelIconSvg: {
-    width: '160px',
+    width: '170px',
     height: 'auto',
     aspectRatio: '1/1',
-    padding: 'min(0.5em, 1vw)',
+    padding: '0.5em',
+    marginInline: 'auto',
+    transform: introIconHovered ? 'translateY(-3%)' : 'none',
+    transition: introIconHovered ? 'transform 200ms ease-out' : 'transform 500ms ease-in-out',
 
     '& *': {
       transformOrigin: 'center',
@@ -29,9 +37,9 @@ export const useFerrisWheelIconStyles = createStyles((theme) => ({
   // BLUR OUT
   blurOut: {
     transformOrigin: '50% 70%',
-    filter: 'blur(13px)',
-    transform: 'scale(1.2, 0.8)',
-    transition: 'filter 1400ms ease-out, transform 1200ms ease-out',
+    filter: 'blur(7px)',
+    transform: 'scale(1.1, 1.1)',
+    transition: 'filter 900ms ease-out, transform 900ms ease-out',
   },
 
   baseBack: {

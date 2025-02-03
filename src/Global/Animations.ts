@@ -61,15 +61,15 @@ export const carSwayDamped = keyframes`
     animation-timing-function: ease-out; /* snap accelerate out */
   }
 8% {
-    transform: rotate(-7deg); /* Sway left */
+    transform: rotate(-10deg); /* Sway left */
     animation-timing-function: ease-in-out; /* Gradually slow at the extreme */
   }
   28% {
-    transform: rotate(6deg); /* Sway right */
+    transform: rotate(8deg); /* Sway right */
     animation-timing-function: ease-in-out;
   }
   43% {
-    transform: rotate(-5deg); /* Reduced sway left */
+    transform: rotate(-6deg); /* Reduced sway left */
     animation-timing-function: ease-in-out;
   }
   58% {
@@ -77,11 +77,11 @@ export const carSwayDamped = keyframes`
     animation-timing-function: ease-in-out;
   }
   73% {
-    transform: rotate(-3deg); /* Minimal sway left */
+    transform: rotate(-2deg); /* Minimal sway left */
     animation-timing-function: ease-in-out;
   }
   88% {
-    transform: rotate(2deg); /* Minimal sway right */
+    transform: rotate(1deg); /* Minimal sway right */
     animation-timing-function: ease-in-out;
   }
   100% {

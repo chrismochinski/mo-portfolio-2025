@@ -1,7 +1,8 @@
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Anchor, Title } from '@mantine/core';
+import { Anchor } from '@mantine/core';
 import {
+  Greetings,
   FerrisWheelIcon,
   PageHelmet,
   useGlobalStyles,
@@ -42,6 +43,7 @@ export function Intro() {
         keywords={introKeywords}
       />
       <Anchor
+        aria-label="Enter the site"
         onClick={handleClick}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
@@ -52,7 +54,7 @@ export function Intro() {
           isNavigationVisible={isNavigationVisible}
           introIconHovered={introIconHovered}
         />
-        <Title order={5}>Let's Party</Title>
+        <Greetings />
       </Anchor>
     </>
   );

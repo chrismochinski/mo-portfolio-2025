@@ -292,6 +292,23 @@ export const useAwesomeMenuStyles = createStyles(
       },
     },
 
+    // fill unfortunate gap in umbrella
+    umbrellaBody: {
+      '& > path': {
+        '&:first-of-type': {
+          transformOrigin: '100% 50%',
+          transformBox: 'fill-box',
+          transform: 'scaleX(1.025)',
+        },
+        '&:last-of-type': {
+          transformOrigin: '0% 50%',
+          transformBox: 'fill-box',
+          transform: 'scaleX(1.025)',
+        },
+      },
+      
+    },
+
     ferrisWheelDarkModeStrokeWhite: {
       // wheels
       stroke: theme.colorScheme === 'dark' ? colors.white : colors.black,

@@ -1314,7 +1314,7 @@ export function AwesomeMenu() {
                         mask="url(#path-23-outside-7_665_875)"
                       />
                     </g>
-                    <g id="umbrella-full_2">
+                    <g id="umbrella-full_2" className={classes.umbrellaBody}>
                       <path
                         d="M5294.81 1252.48C5202.56 1170.69 5083.8 1125.09 4960.34 1125.09L4826.03 1125.09L4830.02 1282.07L5283.76 1282.07C5299.11 1282.07 5306.42 1262.7 5294.86 1252.48L5294.81 1252.48Z"
                         fill={colors.black}
@@ -1402,7 +1402,7 @@ export function AwesomeMenu() {
                         mask="url(#path-35-outside-14_665_875)"
                       />
                     </g>
-                    <g id="umbrella-full_4">
+                    <g id="umbrella-full_4" className={classes.umbrellaBody}>
                       <path
                         d="M6998.1 1793.47C6905.85 1711.68 6787.1 1666.09 6663.63 1666.09L6529.33 1666.09L6533.32 1823.07L6987.05 1823.07C7002.4 1823.07 7009.72 1803.7 6998.15 1793.47L6998.1 1793.47Z"
                         fill={colors.black}
@@ -1490,7 +1490,7 @@ export function AwesomeMenu() {
                         mask="url(#path-47-outside-21_665_875)"
                       />
                     </g>
-                    <g id="umbrella-full_6">
+                    <g id="umbrella-full_6" className={classes.umbrellaBody}>
                       <path
                         d="M8066.16 3245.13C7973.91 3163.34 7855.16 3117.75 7731.7 3117.75L7597.39 3117.75L7601.38 3274.73L8055.11 3274.73C8070.46 3274.73 8077.78 3255.36 8066.22 3245.13L8066.16 3245.13Z"
                         fill={colors.black}
@@ -1588,7 +1588,7 @@ export function AwesomeMenu() {
                         mask="url(#path-59-outside-28_665_875)"
                       />
                     </g>
-                    <g id="umbrella-full_8">
+                    <g id="umbrella-full_8" className={classes.umbrellaBody}>
                       <path
                         d="M8059.15 5055.43C7966.9 4973.64 7848.15 4928.05 7724.69 4928.05L7590.38 4928.05L7594.37 5085.03L8048.1 5085.03C8063.45 5085.03 8070.77 5065.66 8059.2 5055.43L8059.15 5055.43Z"
                         fill={colors.black}
@@ -1686,7 +1686,7 @@ export function AwesomeMenu() {
                         mask="url(#path-71-outside-35_665_875)"
                       />
                     </g>
-                    <g id="umbrella-full_10">
+                    <g id="umbrella-full_10" className={classes.umbrellaBody}>
                       <path
                         d="M6958.39 6442.45C6866.14 6360.65 6747.39 6315.05 6623.92 6315.05L6489.61 6315.05L6493.61 6472.05L6947.34 6472.05C6962.69 6472.05 6970.01 6452.68 6958.44 6442.45L6958.39 6442.45Z"
                         fill={colors.black}
@@ -1768,7 +1768,7 @@ export function AwesomeMenu() {
                         mask="url(#path-83-outside-42_665_875)"
                       />
                     </g>
-                    <g id="umbrella-full_12">
+                    <g id="umbrella-full_12" className={classes.umbrellaBody}>
                       <path
                         d="M5301.81 7013.65C5209.56 6931.86 5090.81 6886.26 4967.35 6886.26L4833.04 6886.26L4837.03 7043.26L5290.76 7043.26C5306.11 7043.26 5313.43 7023.88 5301.86 7013.65L5301.81 7013.65Z"
                         fill={colors.black}
@@ -1862,7 +1862,7 @@ export function AwesomeMenu() {
                         mask="url(#path-95-outside-49_665_875)"
                       />
                     </g>
-                    <g id="umbrella-full_14">
+                    <g id="umbrella-full_14" className={classes.umbrellaBody}>
                       <path
                         d="M3617.55 6439.54C3525.3 6357.75 3406.54 6312.15 3283.08 6312.15L3148.77 6312.15L3152.76 6469.15L3606.5 6469.15C3621.85 6469.15 3629.16 6449.77 3617.6 6439.54L3617.55 6439.54Z"
                         fill={colors.black}
@@ -1944,7 +1944,7 @@ export function AwesomeMenu() {
                         mask="url(#path-107-outside-56_665_875)"
                       />
                     </g>
-                    <g id="umbrella-full_16">
+                    <g id="umbrella-full_16" className={classes.umbrellaBody}>
                       <path
                         d="M2559.51 4946.65C2467.26 4864.86 2348.51 4819.26 2225.04 4819.26L2090.74 4819.26L2094.73 4976.26L2548.46 4976.26C2563.81 4976.26 2571.13 4956.88 2559.56 4946.65L2559.51 4946.65Z"
                         fill={colors.black}
@@ -2026,7 +2026,7 @@ export function AwesomeMenu() {
                         mask="url(#path-119-outside-63_665_875)"
                       />
                     </g>
-                    <g id="umbrella-full_18">
+                    <g id="umbrella-full_18" className={classes.umbrellaBody}>
                       <path
                         d="M2610.61 3182.25C2518.36 3100.46 2399.6 3054.86 2276.14 3054.86L2141.83 3054.86L2145.82 3211.86L2599.56 3211.86C2614.91 3211.86 2622.22 3192.49 2610.66 3182.25L2610.61 3182.25Z"
                         fill={colors.black}
@@ -2120,7 +2120,7 @@ export function AwesomeMenu() {
                         mask="url(#path-131-outside-70_665_875)"
                       />
                     </g>
-                    <g id="umbrella-full_20">
+                    <g id="umbrella-full_20" className={classes.umbrellaBody}>
                       <path
                         d="M3730.78 1738.43C3638.53 1656.64 3519.78 1611.04 3396.31 1611.04L3262.01 1611.04L3266 1768.04L3719.73 1768.04C3735.08 1768.04 3742.4 1748.67 3730.83 1738.43L3730.78 1738.43Z"
                         fill={colors.black}
@@ -2223,7 +2223,7 @@ export function AwesomeMenu() {
                 height="4235"
                 fill="black"
               >
-                <rect fill={colors.white} x="3281.56" y="3976.25" width="2906" height="4235" />
+                {/* <rect fill={colors.white} x="3281.56" y="3976.25" width="2906" height="4235" /> */}
                 <path d="M4630.81 4082.39C4663.41 3981.44 4806.24 3981.44 4838.84 4082.39L6156.2 8162.57C6159.11 8171.58 6152.39 8180.81 6142.92 8180.81H5758.05C5751.94 8180.81 5746.55 8176.84 5744.73 8171.01L4738.14 4944.35C4737.12 4941.09 4732.51 4941.08 4731.48 4944.34L3713.92 8171.05C3712.09 8176.86 3706.7 8180.81 3700.61 8180.81H3326.73C3317.26 8180.81 3310.54 8171.58 3313.45 8162.57L4630.81 4082.39Z" />
               </mask>
               <path

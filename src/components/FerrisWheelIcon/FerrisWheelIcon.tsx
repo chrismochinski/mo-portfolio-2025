@@ -9,10 +9,8 @@ export interface FerrisWheelIconProps {
 
 export function FerrisWheelIcon(props: FerrisWheelIconProps) {
   const { isNavigationVisible, introIconHovered } = props;
-  const { classes, cx } = useFerrisWheelIconStyles();
+  const { classes, cx } = useFerrisWheelIconStyles({ introIconHovered });
   const { classes: globalClasses } = useGlobalStyles();
-
-  console.log('isNavigationVisible:', isNavigationVisible);
 
   return (
     <svg
