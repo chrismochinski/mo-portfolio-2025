@@ -20,18 +20,18 @@ const getTooltipColor = (linkName: string | null) => {
     default:
       return colors.black;
   }
-}
+};
 
 const softWheelBezier = 'cubic-bezier(0.53, 0.24, 0.56, 0.84)';
 
 const softCarBezier = 'cubic-bezier(0.44, 0.38, 0.47, 1.87)';
 
-const barBezier = 'cubic-bezier(0.03, 0.96, 0.59, 0.99)';
+// const barBezier = 'cubic-bezier(0.03, 0.96, 0.59, 0.99)';
 
 export const useAwesomeMenuStyles = createStyles(
   (theme, { isNavigationVisible, rotation, linkName }: AwesomeMenuStylesProps) => ({
     awesomeMenuSvgFull: {
-      overflow: 'hidden',
+      // overflow: 'hidden', // idea hidden at body level
       position: 'absolute',
       top: '0',
       right: '100%',
@@ -58,16 +58,16 @@ export const useAwesomeMenuStyles = createStyles(
       position: 'absolute',
       transformOrigin: 'center',
       transformBox: 'fill-box',
-      filter: isNavigationVisible ? 'none' : 'blur(30px) grayscale(60%)',
+      filter: isNavigationVisible ? 'none' : 'blur(60px) grayscale(40%)',
       opacity: isNavigationVisible ? 1 : 0.7,
       transition: 'filter 1400ms ease-out, opacity 1400ms ease-out',
       '& > g': {
         transformOrigin: 'center',
         transformBox: 'fill-box',
         transform: isNavigationVisible
-          ? 'scale(1) translate(8%,0)'
-          : 'scale(1.3) translate(-12%,0)',
-        transition: 'transform 2000ms ease-out 200ms',
+          ? 'scale(0.95) translate(8%,0)'
+          : 'scale(1.3) translate(-10%,0)',
+        transition: 'transform 1200ms ease-out',
       },
     },
 
@@ -78,47 +78,29 @@ export const useAwesomeMenuStyles = createStyles(
     ferrisWheelMenu: {
       transformOrigin: 'center',
       transformBox: 'fill-box',
-      opacity: 0.5,
-      transform: 'scale(1.125) translateX(0)',
-      transition: 'opacity 800ms ease-out 100ms',
-      '& #wheels': {
-        circle: {
-          opacity: 0,
-          filter: 'blur(80px)',
-          transition: 'filter 500ms ease-out, opacity 500ms ease-out',
-        },
-      },
-
+      transform: 'scale(1.125)',
       '& #bars': {
         path: {
           transformOrigin: 'center',
           transformBox: 'fill-box',
           opacity: 0,
           filter: 'blur(80px)',
-          transition: `filter 1200ms ease-out 200ms, opacity 900ms ease-out 200ms, transform 1600ms ${softWheelBezier}`,
+          transition: `filter 1100ms ease-out, opacity 700ms ease-out`,
         },
-      },
-
-      '& [id*="wheel-mask"]': {
-        opacity: 1, // NO ANIMATION (or try display?)
       },
       '& [id*="car-"]': {
         opacity: 0,
-        filter: 'blur(60px)',
-        transitionProperty: 'display opacity filter',
+        filter: 'blur(80px)',
+        transform: 'scaleX(1.1)',
+        transitionProperty: 'display opacity filter transform',
         transitionDuration: '1000ms',
-        transitionDelay: '000ms',
         transitionBehavior: 'allow-discrete',
         '@startingStyle': {
           display: 'none',
+          transform: 'scaleX(2)',
           filter: 'blur(50px)',
           opacity: 0,
         },
-      },
-      '& #base-legs, & #base-back': {
-        opacity: 0,
-        filter: 'blur(40px)',
-        transition: 'filter 500ms ease-out',
       },
     },
 
@@ -126,35 +108,26 @@ export const useAwesomeMenuStyles = createStyles(
     navigationEnter: {
       opacity: 1,
       transform: 'scale(1.125) translateX(0)',
-      transition: `opacity 1200ms ease-out 400ms`,
-
-      '& #wheels': {
-        circle: {
-          opacity: 1,
-          filter: 'blur(0px)',
-          transition: `opacity 800ms ease-out 800ms, filter 1400ms ease-out 1000ms`,
-        },
-      },
 
       '& #bars': {
         path: {
           opacity: 1,
           filter: 'none',
-          // transform: 'rotate(0deg)',
-          transition: `opacity 800ms ease-out 580ms, filter 1400ms ease-out 1000ms, transform 1700ms ${barBezier} 400ms`,
+          transitionDelay: '500ms',
         },
       },
       '& [id*="car-"]': {
         opacity: 1,
         display: 'block',
+        transform: 'scaleX(1)',
         filter: 'blur(0px)',
-        transitionDelay: '1400ms',
-        transitionDuration: '1200ms',
+        transitionDelay: '700ms',
+        transitionDuration: '1000ms',
       },
       '& #base-legs, & #base-back': {
         opacity: 1,
         filter: 'none',
-        transition: `opacity  1000ms ease-out 1000ms, filter  1000ms ease-out 1000ms`,
+        transitionDelay: '600ms',
       },
     },
 
@@ -243,7 +216,6 @@ export const useAwesomeMenuStyles = createStyles(
     carMask: {
       transformOrigin: 'center',
       transformBox: 'fill-box',
-
       mixBlendMode: 'soft-light', // PLEASANT!
       path: {
         '&.bucketPath': {
@@ -271,7 +243,7 @@ export const useAwesomeMenuStyles = createStyles(
         transition: `transform 350ms ease-in-out`,
       },
 
-      '&.car-mask-home': { 
+      '&.car-mask-home': {
         '& #black-1-mask': {
           transform: linkName === 'Home' ? 'scale(1.1)' : 'scale(1)',
           transition: 'transform 500ms ease-out',
@@ -300,10 +272,16 @@ export const useAwesomeMenuStyles = createStyles(
     ferrisWheelMasks: {
       mixBlendMode: 'overlay',
       '& circle': {
+        filter: isNavigationVisible ? 'none' : 'blur(12px)',
+        transition: 'stroke-width 1500ms ease-out, filter 1500ms ease-out',
         stroke: theme.colorScheme === 'dark' ? colors.black : colors.white,
+        // transitionDelay: '500ms',
       },
       '& ellipse': {
+        filter: isNavigationVisible ? 'none' : 'blur(12px)',
+        transition: 'stroke-width 1500ms ease-out, filter 1500ms ease-out',
         stroke: theme.colorScheme === 'dark' ? colors.black : colors.white,
+        // transitionDelay: '500ms',
       },
 
       '& path': {
@@ -315,10 +293,12 @@ export const useAwesomeMenuStyles = createStyles(
     },
 
     ferrisWheelDarkModeStrokeWhite: {
+      // wheels
       stroke: theme.colorScheme === 'dark' ? colors.white : colors.black,
     },
 
-    ferrisWheelDarkMoveFillWhite: {
+    ferrisWheelDarkModeFillWhite: {
+      // legs
       fill: theme.colorScheme === 'dark' ? colors.white : colors.black,
     },
 
@@ -331,6 +311,14 @@ export const useAwesomeMenuStyles = createStyles(
       fontSize: 'clamp(1.25rem, 2vw, 1.5rem)',
       padding: '0.2em 0.6em',
       boxShadow: '1px 2px 8px #00000070',
+    },
+
+    // ------- ANIMATED PARTS ------- //
+    ferrisWheelAnimationPart: {
+      opacity: isNavigationVisible ? 1 : 0,
+      filter: isNavigationVisible ? 'none' : 'blur(60px)',
+      transition: 'opacity 400ms ease-out, filter 700ms ease-out',
+      transitionDelay: isNavigationVisible ? '500ms' : '0ms',
     },
   })
 );

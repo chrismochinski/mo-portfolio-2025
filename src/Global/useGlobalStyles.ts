@@ -40,6 +40,13 @@ export const globalTheme: MantineThemeOverride = {
         backgroundColor: theme.colorScheme === 'dark' ? colors.black : colors.white,
         color: theme.colorScheme === 'dark' ? colors.white : colors.black,
         fontFamily: 'Urbanist, sans-serif',
+        height: '100vh',
+        width: '100%',
+        overflow: 'hidden', // idea page always fits viewport
+        '& #root': {
+          height: '100%',
+          width: '100%',
+        },
       },
     };
   },

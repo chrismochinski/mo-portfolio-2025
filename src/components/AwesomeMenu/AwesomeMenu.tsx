@@ -4,9 +4,14 @@ import { useNavigate } from 'react-router-dom';
 import { colors, useSiteContext, useAwesomeMenuStyles } from '@mo';
 
 export function AwesomeMenu() {
-  const { isNavigationVisible, setMenuHovered, setLinkName, linkName } = useSiteContext();
+  const { isNavigationVisible, setMenuHovered, setLinkName, linkName } =
+    useSiteContext();
   const [rotation, setRotation] = useState(0);
-  const { classes, cx } = useAwesomeMenuStyles({ isNavigationVisible, rotation, linkName });
+  const { classes, cx } = useAwesomeMenuStyles({
+    isNavigationVisible,
+    rotation,
+    linkName,
+  });
   const navigate = useNavigate();
 
   // Determines the link label based on the X and Y coordinates
@@ -37,6 +42,7 @@ export function AwesomeMenu() {
       setRotation(0);
     }
   }, [linkName]);
+
 
   // Handle mouse movement and determine linkName
   const handleMouseMove = (e: React.MouseEvent) => {
@@ -88,7 +94,6 @@ export function AwesomeMenu() {
   return (
     <Tooltip.Floating
       label={linkName || ''}
-      
       className={classes.menuTooltip}
       radius="sm"
       disabled={!linkName}
@@ -2185,7 +2190,7 @@ export function AwesomeMenu() {
                 cy="4277.5"
                 r="2878.35"
                 stroke={colors.white}
-                strokeWidth="349.628"
+                strokeWidth={isNavigationVisible ? '360' : '600'}
               />
             </g>
             <g className={classes.ferrisWheelMasks} id="middle-wheel-mask">
@@ -2194,7 +2199,7 @@ export function AwesomeMenu() {
                 cy="4277.49"
                 r="1793.52"
                 stroke={colors.white}
-                strokeWidth="376.277"
+                strokeWidth={isNavigationVisible ? '380' : '600'}
               />
             </g>
             <g className={classes.ferrisWheelMasks} id="inner-wheel-mask">
@@ -2205,7 +2210,7 @@ export function AwesomeMenu() {
                 rx="829.301"
                 ry="828.768"
                 stroke={colors.white}
-                strokeWidth="372.013"
+                strokeWidth={isNavigationVisible ? '370' : '500'}
               />
             </g>
             <g className={classes.ferrisWheelMasks} id="base-legs-mask">
@@ -2245,12 +2250,12 @@ export function AwesomeMenu() {
               id="legs"
               d="M4628.14 4413.28C4652.81 4298.06 4817.22 4298.06 4841.89 4413.28L5619.73 8045.92C5621.59 8054.6 5614.97 8062.79 5606.08 8062.79H5426.68C5420.05 8062.79 5414.34 8058.12 5413.01 8051.63L4738.42 4742.7C4737.66 4738.98 4732.35 4738.98 4731.58 4742.7L4051.93 8051.65C4050.6 8058.13 4044.89 8062.79 4038.27 8062.79H3863.94C3855.06 8062.79 3848.44 8054.6 3850.3 8045.92L4628.14 4413.28Z"
               fill={colors.black}
-              className={classes.ferrisWheelDarkMoveFillWhite}
+              className={cx(classes.ferrisWheelDarkModeFillWhite, classes.ferrisWheelAnimationPart)}
             />
           </g>
           <g id="wheels">
             <circle
-              className={classes.ferrisWheelDarkModeStrokeWhite}
+              className={cx(classes.ferrisWheelDarkModeStrokeWhite, classes.ferrisWheelAnimationPart)}
               id="outer-wheel-black"
               cx="4740.26"
               cy="4277.5"
@@ -2259,7 +2264,7 @@ export function AwesomeMenu() {
               strokeWidth="158.132"
             />
             <circle
-              className={classes.ferrisWheelDarkModeStrokeWhite}
+              className={cx(classes.ferrisWheelDarkModeStrokeWhite, classes.ferrisWheelAnimationPart)}
               id="middle-wheel-black"
               cx="4740.26"
               cy="4277.49"
@@ -2268,7 +2273,7 @@ export function AwesomeMenu() {
               strokeWidth="163.946"
             />
             <circle
-              className={classes.ferrisWheelDarkModeStrokeWhite}
+              className={cx(classes.ferrisWheelDarkModeStrokeWhite, classes.ferrisWheelAnimationPart)}
               id="inner-wheel-black"
               cx="4740.26"
               cy="4277.5"
@@ -2277,7 +2282,7 @@ export function AwesomeMenu() {
               strokeWidth="163.316"
             />
             <circle
-              className={classes.ferrisWheelDarkMoveFillWhite}
+              className={cx(classes.ferrisWheelDarkModeFillWhite, classes.ferrisWheelAnimationPart)}
               id="center-wheel-black"
               cx="4733.86"
               cy="4278.08"
@@ -2294,7 +2299,7 @@ export function AwesomeMenu() {
                 y="4155.7"
                 width="2728"
                 height="4028"
-                className={classes.ferrisWheelDarkMoveFillWhite}
+                className={cx(classes.ferrisWheelDarkModeFillWhite, classes.ferrisWheelAnimationPart)}
                 fill="black"
               >
                 <rect fill={colors.white} x="3370.73" y="4155.7" width="2728" height="4028" />
@@ -2303,19 +2308,19 @@ export function AwesomeMenu() {
               <path
                 d="M4651.52 4251.23C4677.45 4170.51 4791.66 4170.5 4817.58 4251.23L6063.52 8130.77C6066.41 8139.78 6059.7 8148.99 6050.24 8148.99H5832.86C5826.74 8148.99 5821.34 8145.01 5819.53 8139.17L4748.94 4686.88C4744.55 4672.71 4724.5 4672.69 4720.08 4686.86L3642.53 8139.2C3640.71 8145.02 3635.32 8148.99 3629.21 8148.99H3418.87C3409.41 8148.99 3402.69 8139.78 3405.59 8130.77L4651.52 4251.23Z"
                 fill={colors.black}
-                className={classes.ferrisWheelDarkMoveFillWhite}
+                className={cx(classes.ferrisWheelDarkModeFillWhite, classes.ferrisWheelAnimationPart)}
               />
-              <path
+              {/* <path
                 d="M4651.52 4251.23C4677.45 4170.51 4791.66 4170.5 4817.58 4251.23L6063.52 8130.77C6066.41 8139.78 6059.7 8148.99 6050.24 8148.99H5832.86C5826.74 8148.99 5821.34 8145.01 5819.53 8139.17L4748.94 4686.88C4744.55 4672.71 4724.5 4672.69 4720.08 4686.86L3642.53 8139.2C3640.71 8145.02 3635.32 8148.99 3629.21 8148.99H3418.87C3409.41 8148.99 3402.69 8139.78 3405.59 8130.77L4651.52 4251.23Z"
                 stroke={`${colors.white}30`}
                 strokeWidth="67.9823"
                 mask="url(#path-149-outside-72_665_875)"
-              />
+              /> */}
             </g>
             <path
               id="crossbar"
               d="M4374.58 5520.65H5066.42L5143.07 5767.67H4295.47L4374.58 5520.65Z"
-              className={classes.ferrisWheelDarkMoveFillWhite}
+              className={cx(classes.ferrisWheelDarkModeFillWhite, classes.ferrisWheelAnimationPart)}
               fill={colors.black}
             />
           </g>

@@ -1,11 +1,28 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { SiteContext, SiteContextType } from './SiteContext';
 
 export function SiteProvider({ children }: { children: React.ReactNode }) {
   const [isNavigationVisible, setIsNavigationVisible] = useState(false);
+  const [isMenuFullyLoaded, setIsMenuFullyLoaded] = useState(false);
   const [introIconHovered, setIntroIconHovered] = useState(false);
   const [menuHovered, setMenuHovered] = useState(false);
   const [linkName, setLinkName] = useState<string | null>(null);
+
+  // Timer logic: when navigation is visible, mark the menu as fully loaded after 1000ms.
+  useEffect(() => {
+    let timer: ReturnType<typeof setTimeout>;
+    if (isNavigationVisible) {
+      timer = setTimeout(() => {
+        console.log('isMenuFullyLoaded turning true');
+        setIsMenuFullyLoaded(true);
+      }, 1000);
+    } else {
+      setIsMenuFullyLoaded(false);
+    }
+    return () => {
+      if (timer) clearTimeout(timer);
+    };
+  }, [isNavigationVisible]);
 
   // CONTEXT - show navigation - on click or enter route via URL slug
   const toggleNavigation = () => {
@@ -21,6 +38,8 @@ export function SiteProvider({ children }: { children: React.ReactNode }) {
   const contextValue: SiteContextType = {
     isNavigationVisible,
     setIsNavigationVisible,
+    isMenuFullyLoaded,
+    setIsMenuFullyLoaded,
     toggleNavigation,
     resetNavigation,
     introIconHovered,

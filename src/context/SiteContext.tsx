@@ -3,6 +3,8 @@ import { createContext } from 'react';
 export interface SiteContextType {
   isNavigationVisible: boolean;
   setIsNavigationVisible: React.Dispatch<React.SetStateAction<boolean>>;
+  isMenuFullyLoaded: boolean;
+  setIsMenuFullyLoaded: React.Dispatch<React.SetStateAction<boolean>>;
   toggleNavigation: () => void;
   resetNavigation: () => void;
   introIconHovered: boolean;

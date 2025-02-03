@@ -2,8 +2,9 @@ import { createStyles } from '@mantine/core';
 
 export const useLayoutStyles = createStyles(() => ({
   layoutWrapper: {
-    overflow: 'hidden',
-    height: '100vh',
+    // overflow: 'hidden', // idea overflow hidden at body level
+    height: '100%',
+    width: '100%',
     background: 'transparent',
 
     h1: {
