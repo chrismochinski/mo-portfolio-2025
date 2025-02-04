@@ -1,13 +1,18 @@
 import { createStyles } from '@mantine/core';
 import { colors } from '@mo';
+import * as animations from '@mo';
 
 interface GreetingsStylesProps {
   introIconHovered: boolean;
   isNavigationVisible: boolean;
+  hasInteractedWithIntroIcon: boolean;
 }
 
 export const useGreetingsStyles = createStyles(
-  (theme, { introIconHovered, isNavigationVisible }: GreetingsStylesProps) => ({
+  (
+    theme,
+    { introIconHovered, isNavigationVisible, hasInteractedWithIntroIcon }: GreetingsStylesProps
+  ) => ({
     greetingsFullWord: {
       transformOrigin: 'center center',
       transformBox: 'fill-box',
@@ -42,8 +47,12 @@ export const useGreetingsStyles = createStyles(
         path: {},
       },
       '&#n': {
-        transform: introIconHovered ? 'translate(-36px, 0px) rotate(0)' : 'none',
-        transitionDuration: introIconHovered ? '180ms' : '500ms',
+        animation: hasInteractedWithIntroIcon
+          ? introIconHovered
+            ? `${animations.enterLetterN} forwards 180ms ease-out`
+            : `${animations.exitLetterN} forwards 500ms`
+          : 'none',
+        animationDuration: introIconHovered ? '360ms' : '500ms',
         path: {},
       },
       '&#t': {
@@ -60,7 +69,7 @@ export const useGreetingsStyles = createStyles(
         transform: introIconHovered ? 'translate(66px, 0px) rotate(-360deg)' : 'none',
         transformTimingFunction: 'linear',
         transformOrigin: '-350% 100%',
-        transitionDuration: introIconHovered ? '370ms' : '600ms',
+        transitionDuration: introIconHovered ? '370ms' : '560ms',
         path: {},
       },
       path: {
@@ -70,7 +79,7 @@ export const useGreetingsStyles = createStyles(
               ? colors.yellow
               : colors.white
             : introIconHovered
-              ? colors.darkBlue
+              ? colors.red
               : colors.black,
       },
     },

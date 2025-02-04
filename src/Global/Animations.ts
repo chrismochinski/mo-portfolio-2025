@@ -61,19 +61,19 @@ export const carSwayDamped = keyframes`
     animation-timing-function: ease-out; /* snap accelerate out */
   }
 8% {
-    transform: rotate(-10deg); /* Sway left */
+    transform: rotate(-9deg); /* Sway left */
     animation-timing-function: ease-in-out; /* Gradually slow at the extreme */
   }
   28% {
-    transform: rotate(8deg); /* Sway right */
+    transform: rotate(7deg); /* Sway right */
     animation-timing-function: ease-in-out;
   }
   43% {
-    transform: rotate(-6deg); /* Reduced sway left */
+    transform: rotate(-4deg); /* Reduced sway left */
     animation-timing-function: ease-in-out;
   }
   58% {
-    transform: rotate(4deg); /* Reduced sway right */
+    transform: rotate(3deg); /* Reduced sway right */
     animation-timing-function: ease-in-out;
   }
   73% {
@@ -116,12 +116,6 @@ export const carSubtleSwayDamped = keyframes`
 `;
 
 
-
-
-
-
-
-
 const generateSwayKeyframes = () => {
   let keyframes = '0% { transform: translate(0, 0); } '; // Start at (0, 0)
 
@@ -139,68 +133,54 @@ const generateSwayKeyframes = () => {
 
 export const moveAround = keyframes`${generateSwayKeyframes()}`;
 
-// export const moveAround = keyframes`
-//     0% {
-//         transform: translate(0, 0);
-//     }
-//     5% {
-//         transform: translate(20px, -18px);
-//     }
-//     10% {
-//         transform: translate(-15px, 25px);
-//     }
-//     15% {
-//         transform: translate(28px, 12px);
-//     }
-//     20% {
-//         transform: translate(-30px, -20px);
-//     }
-//     25% {
-//         transform: translate(18px, 30px);
-//     }
-//     30% {
-//         transform: translate(-12px, -15px);
-//     }
-//     35% {
-//         transform: translate(25px, -5px);
-//     }
-//     40% {
-//         transform: translate(-28px, 18px);
-//     }
-//     45% {
-//         transform: translate(10px, -22px);
-//     }
-//     50% {
-//         transform: translate(-25px, 15px);
-//     }
-//     55% {
-//         transform: translate(30px, -30px);
-//     }
-//     60% {
-//         transform: translate(-20px, 28px);
-//     }
-//     65% {
-//         transform: translate(15px, -25px);
-//     }
-//     70% {
-//         transform: translate(-30px, 22px);
-//     }
-//     75% {
-//         transform: translate(25px, -12px);
-//     }
-//     80% {
-//         transform: translate(-18px, 30px);
-//     }
-//     85% {
-//         transform: translate(12px, -20px);
-//     }
-//     90% {
-//         transform: translate(-22px, 18px);
-//     }
-//     95% {
-//         transform: translate(28px, -25px);
-//     }
-//     100% {
-//         transform: translate(0, 0);
-//     }
-// `;
+// ------------------------ //
+// ------------------------ //
+
+export const enterLetterN = keyframes`
+  0% {
+    transform: translate(0px, 0px);
+    transition-timing-function: ease-in;
+  }
+  25% {
+    transform: translate(-6px, -18px) rotate(90deg);
+    transition-timing-function: linear;
+  }
+  50% {
+    transform: translate(-18px, -27px) rotate(180deg);
+    transition-timing-function: linear;
+  }
+  75% {
+    transform: translate(-30px, -18px) rotate(270deg);
+    transition-timing-function: linear;
+  }
+  100% {
+    transform: translate(-36px, 0) rotate(360deg);
+    transition-timing-function: ease-out;
+  }
+`;
+
+// reverse of above
+export const exitLetterN = keyframes`
+  0% {
+    transform: translate(-36px, 0) rotate(360deg);
+    transition-timing-function: ease-in;
+  }
+  25% {
+    transform: translate(-30px, -18px) rotate(270deg);
+    transition-timing-function: linear;
+  }
+  50% {
+    transform: translate(-18px, -27px) rotate(180deg);
+    transition-timing-function: linear;
+  }
+  75% {
+    transform: translate(-6px, -18px) rotate(90deg);
+    transition-timing-function: linear;
+  }
+  100% {
+    transform: translate(0px, 0px);
+    transition-timing-function: ease-out;
+  }
+`;
+
+

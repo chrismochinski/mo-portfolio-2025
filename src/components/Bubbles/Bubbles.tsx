@@ -9,6 +9,7 @@ declare global {
   }
 }
 
+
 /**
  * @component Bubbles
  * @description Bubbles component, using particles.js library and config in /public folder
@@ -45,7 +46,7 @@ export function Bubbles() {
           ...particlesConfig,
           particles: {
             ...particlesConfig.particles,
-            number: { value: isNavigationVisible ? 27 : 21 }, // Fewer particles for one layer
+            number: { value: isNavigationVisible ? 28 : 21 }, // Fewer particles for one layer
             density: { enable: true, value_area: 1400 },
             color: { value: bubbleColors },
           },
@@ -73,6 +74,7 @@ export function Bubbles() {
         id="particles-container"
       />
       <Box className={classes.bubblesLight} ref={containerRef} id="particles-container-light" />
+      <Box className={classes.bubblesRightFade} />
     </Box>
   );
 }

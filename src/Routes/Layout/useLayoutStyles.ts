@@ -2,7 +2,6 @@ import { createStyles } from '@mantine/core';
 
 export const useLayoutStyles = createStyles(() => ({
   layoutWrapper: {
-    // overflow: 'hidden', // idea overflow hidden at body level
     height: '100%',
     width: '100%',
     background: 'transparent',
@@ -10,60 +9,48 @@ export const useLayoutStyles = createStyles(() => ({
     h1: {
       fontFamily: '"Urbanist", sans-serif',
       fontSize: 'clamp(2.75rem, 5vw, 4rem)',
-      // fontWeight: 700,
       lineHeight: '1.15em',
-      marginBlock: 0,
       textWrap: 'balance',
     },
     h2: {
       fontFamily: '"Urbanist", sans-serif',
       fontSize: 'clamp(2.25rem, 4vw, 3rem)',
-      // fontWeight: 600,
       lineHeight: '1.15em',
-      marginBlock: 0,
       textWrap: 'balance',
     },
     h3: {
       fontFamily: '"Urbanist", sans-serif',
       fontSize: 'clamp(1.5rem, 3vw, 1.75rem)',
-      // fontWeight: 500,
       lineHeight: '1.15em',
-      marginBlock: 0,
       textWrap: 'balance',
     },
     h4: {
       fontFamily: '"Urbanist", sans-serif',
       fontSize: 'clamp(1.25rem, 2vw, 1.5rem)',
-      // fontWeight: 500,
       lineHeight: '1.15em',
-      marginBlock: 0,
       textWrap: 'balance',
     },
     h5: {
       fontFamily: '"Urbanist", sans-serif',
       fontSize: 'clamp(1.125rem, 1.4vw, 1.25rem)',
-      // fontWeight: 500,
       lineHeight: '1.15em',
-      marginBlock: 0,
       textWrap: 'balance',
     },
     h6: {
       fontFamily: '"Urbanist", sans-serif',
       fontSize: 'clamp(0.75rem, 1.15vw, 0.9rem)',
-      // fontWeight: 400,
       lineHeight: '1.25em',
-      marginBlock: 0,
       textWrap: 'balance',
     },
     p: {
       fontFamily: '"Urbanist", sans-serif',
       fontSize: 'clamp(1rem, 1.4vw, 1.25rem)',
-      // fontWeight: 400,
       lineHeight: '1.35em',
       textWrap: 'pretty',
     },
   },
 
+  // -------------------------------------- //
   // -------------------------------------- //
   // -------------------------------------- //
 

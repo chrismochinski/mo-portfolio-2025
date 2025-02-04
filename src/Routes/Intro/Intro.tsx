@@ -18,6 +18,7 @@ export function Intro() {
     setIntroIconHovered,
     introIconHovered,
     setIsNavigationVisible,
+    setHasInteractedWithIntroIcon,
   } = useSiteContext();
   const { classes: globalClasses } = useGlobalStyles();
   const { classes, cx } = useIntroStyles({ isNavigationVisible });
@@ -31,11 +32,15 @@ export function Intro() {
   };
 
   useEffect(() => {
+    setHasInteractedWithIntroIcon(false);
     setIsNavigationVisible(false);
-  }, [setIsNavigationVisible]);
+  }, [setIsNavigationVisible, setHasInteractedWithIntroIcon]);
 
-  const handleMouseEnter = () => setIntroIconHovered(true); // Hover starts
-  const handleMouseLeave = () => setIntroIconHovered(false); // Hover ends
+  const handleMouseEnter = () => {
+    setHasInteractedWithIntroIcon(true);
+    setIntroIconHovered(true);
+  };
+  const handleMouseLeave = () => setIntroIconHovered(false);
 
   return (
     <>
@@ -46,7 +51,7 @@ export function Intro() {
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
         my={0}
-        className={cx(globalClasses.z10, classes.ferrisWheelIconButton)}
+        className={cx(globalClasses.z20, classes.ferrisWheelIconButton)}
       >
         <FerrisWheelIcon
           isNavigationVisible={isNavigationVisible}

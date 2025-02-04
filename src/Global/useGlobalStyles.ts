@@ -2,6 +2,14 @@ import { MantineThemeOverride } from '@mantine/core';
 import { createStyles } from '@mantine/core';
 import * as animations from './Animations';
 
+export const addOpacity = (hex: string, opacity: number) => {
+  // Convert hex to RGBA and apply opacity
+  const alpha = Math.round(opacity * 255)
+    .toString(16)
+    .padStart(2, '0');
+  return `${hex}${alpha}`;
+};
+
 export const colors = {
   black: '#191716', // Eerie black
   white: '#F9F9F9', // Seasalt

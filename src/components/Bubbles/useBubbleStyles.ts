@@ -1,4 +1,6 @@
 import { createStyles } from '@mantine/core';
+import { colors } from '@mo';
+import { addOpacity } from '@mo';
 
 export const useBubbleStyles = createStyles((theme) => ({
   bubblesContainer: {
@@ -44,4 +46,30 @@ export const useBubbleStyles = createStyles((theme) => ({
     top: 0,
     right: 0,
   },
+
+  bubblesRightFade: {
+    position: 'absolute',
+    top: 0,
+    right: 0,
+    width: '20%',
+    height: '100vh',
+    pointerEvents: 'none', // Ensure clicks pass through
+    zIndex: 1,
+
+    // 🔥 Corrected Gradient: Left (transparent) → Right (theme color)
+    background: `linear-gradient(to right, 
+      ${addOpacity(theme.colorScheme === 'dark' ? colors.black : colors.white, 0)} 0%,  
+      ${addOpacity(theme.colorScheme === 'dark' ? colors.black : colors.white, 0.4)} 30%,  
+      ${addOpacity(theme.colorScheme === 'dark' ? colors.black : colors.white, 0.9)} 70%,  
+      ${addOpacity(theme.colorScheme === 'dark' ? colors.black : colors.white, 1)} 100%)`,
+
+    // ✅ Gradual blur effect: Stronger on the right
+    backdropFilter: 'blur(6px)',
+    WebkitBackdropFilter: 'blur(6px)',
+
+    // ✅ Gradual transparency mask
+    maskImage: 'linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%)',
+    WebkitMaskImage: 'linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%)',
+  },
+
 }));

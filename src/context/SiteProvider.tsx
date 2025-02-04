@@ -4,6 +4,7 @@ import { SiteContext, SiteContextType } from './SiteContext';
 export function SiteProvider({ children }: { children: React.ReactNode }) {
   const [isNavigationVisible, setIsNavigationVisible] = useState(false);
   const [isMenuFullyLoaded, setIsMenuFullyLoaded] = useState(false);
+  const [hasInteractedWithIntroIcon, setHasInteractedWithIntroIcon] = useState(false);
   const [introIconHovered, setIntroIconHovered] = useState(false);
   const [menuHovered, setMenuHovered] = useState(false);
   const [linkName, setLinkName] = useState<string | null>(null);
@@ -42,6 +43,8 @@ export function SiteProvider({ children }: { children: React.ReactNode }) {
     setIsMenuFullyLoaded,
     toggleNavigation,
     resetNavigation,
+    hasInteractedWithIntroIcon, 
+    setHasInteractedWithIntroIcon,
     introIconHovered,
     setIntroIconHovered,
     menuHovered,

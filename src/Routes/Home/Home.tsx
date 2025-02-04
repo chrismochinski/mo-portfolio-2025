@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { Anchor, Box, Flex, Title, Text } from '@mantine/core';
+import { Box, Title, Text } from '@mantine/core';
 import { useGlobalStyles, useSiteContext, useHomeStyles } from '@mo';
 
 export function Home() {
@@ -32,56 +32,11 @@ export function Home() {
           mt={0}
           mx="auto"
           ta="center"
-          mb="sm"
+          mb="md"
           fw={500}
         >
-          This site is a work in progress,
-          <br />
-          but it's gonna be rad.
+          My name is Mo, and this is a website.
         </Title>
-
-        <Text
-          className={cx(globalClasses.balance, globalClasses.textContrastShadowSubtle)}
-          component="p"
-          ta="center"
-          pb="md"
-          my="md"
-        >
-          Please check back soon.
-        </Text>
-
-        <Flex
-          className={classes.personalLinks}
-          gap="min(1em, 2vw)"
-          justify="center"
-          align="center"
-          mt={0}
-        >
-          <Anchor
-            fz="sm"
-            className={cx(globalClasses.textContrastShadowSubtle, classes.personalAnchorText)}
-            href="https://github.com/chrismochinski"
-            target="_blank"
-          >
-            My Github
-          </Anchor>
-          <Anchor
-            fz="sm"
-            className={cx(globalClasses.textContrastShadowSubtle, classes.personalAnchorText)}
-            href="https://chrismochinski.github.io/"
-            target="_blank"
-          >
-            My Old Site
-          </Anchor>
-          <Anchor
-            fz="sm"
-            className={cx(globalClasses.textContrastShadowSubtle, classes.personalAnchorText)}
-            href="https://characterstrong.com"
-            target="_blank"
-          >
-            CharacterStrong
-          </Anchor>
-        </Flex>
       </Box>
 
       <Text

@@ -14,7 +14,7 @@ export const useFerrisWheelIconStyles = createStyles((theme, { introIconHovered 
     aspectRatio: '1/1',
     padding: '0.5em',
     marginInline: 'auto',
-    transform: introIconHovered ? 'translateY(-3%)' : 'none',
+    transform: introIconHovered ? 'translateY(-2%)' : 'none',
     transition: introIconHovered ? 'transform 200ms ease-out' : 'transform 500ms ease-in-out',
 
     '& *': {
@@ -79,7 +79,7 @@ export const useFerrisWheelIconStyles = createStyles((theme, { introIconHovered 
     transformOrigin: '50% 0',
     transformBox: 'fill-box',
     '&.ferrisWheelPause': {
-       animation: `${animations.carSwayDamped} 6000ms 1`,
+       animation: `${animations.carSwayDamped} 4500ms 1`,
     },
   },
 }));
