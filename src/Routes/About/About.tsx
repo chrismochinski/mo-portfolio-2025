@@ -8,17 +8,19 @@ export function About() {
   const { classes: globalClasses } = useGlobalStyles();
 
   useEffect(() => {
-    setIsNavigationVisible(true); ;
+    setIsNavigationVisible(true);
     document.title = 'About | Mo';
   }, [isNavigationVisible, setIsNavigationVisible]);
 
-
-
   return (
-    <Box className={cx(globalClasses.row, classes.aboutWrapper)}>
+  <Box className={cx(globalClasses.row, classes.aboutWrapper)}>
       <Title order={1}>About</Title>
-      <Text component="h4" pt="xs">
-        Coming soon...
+      <Text component="h4" fw={400} pt="xs" my="sm">
+        My name is Chris. Most people call Me Mo.
+      </Text>
+      <Text component="p" fw={300}>
+        I get very excited about turning ideas into things that help people. When those things are
+        deemed impossible, I get more excited.
       </Text>
     </Box>
   );

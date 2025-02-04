@@ -31,14 +31,14 @@ const softCarBezier = 'cubic-bezier(0.44, 0.38, 0.47, 1.87)';
 export const useAwesomeMenuStyles = createStyles(
   (theme, { isNavigationVisible, rotation, linkName }: AwesomeMenuStylesProps) => ({
     awesomeMenuSvgFull: {
-      // overflow: 'hidden', // idea hidden at body level
       position: 'absolute',
-      top: '0',
+      top: '50%',
+      transform: 'translateY(-50%) translateX(41%)',
       right: '100%',
       transformOrigin: 'center',
       transformBox: 'fill-box',
-      transform: 'translateX(41%)',
       height: '100vh',
+      maxHeight: '1000px',
       width: 'auto',
       cursor: linkName ? 'pointer' : 'default',
 
@@ -306,7 +306,6 @@ export const useAwesomeMenuStyles = createStyles(
           transform: 'scaleX(1.025)',
         },
       },
-      
     },
 
     ferrisWheelDarkModeStrokeWhite: {
@@ -337,5 +336,17 @@ export const useAwesomeMenuStyles = createStyles(
       transition: 'opacity 400ms ease-out, filter 700ms ease-out',
       transitionDelay: isNavigationVisible ? '500ms' : '0ms',
     },
+
+    hoverZone: {
+      fill: 'transparent', // Transparent by default
+      stroke: 'rgba(255, 255, 255, 0.3)', // Light white stroke for visibility
+      strokeWidth: 1,
+      pointerEvents: 'none', // Prevents interfering with interactions
+    },
+  
+    homeZone: { fill: 'rgba(0, 0, 255, 0.4)' }, // Light Blue (Home)
+    aboutZone: { fill: 'rgba(0, 255, 0, 0.4)' }, // Light Green (About)
+    projectsZone: { fill: 'rgba(255, 165, 0, 0.4)' }, // Light Orange (Projects)
+    contactZone: { fill: 'rgba(255, 0, 255, 0.4)' }, // Light Purple (Contact)
   })
 );

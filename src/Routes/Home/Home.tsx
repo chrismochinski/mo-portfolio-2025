@@ -33,7 +33,7 @@ export function Home() {
           mx="auto"
           ta="center"
           mb="md"
-          fw={500}
+          fw={400}
         >
           My name is Mo, and this is a website.
         </Title>

@@ -15,8 +15,8 @@ export function Contact() {
   return (
     <Box className={cx(globalClasses.row, classes.contactWrapper)}>
       <Title order={1}>Contact</Title>
-      <Text component="h4" pt="xs">
-        Coming soon...
+      <Text component="h4" fw={400} pt="xs" my="sm">
+        Coming soon
       </Text>
       <Text component="p" fw={200}>
         (but feel free to email{' '}

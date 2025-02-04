@@ -3,6 +3,7 @@ import { colors } from '@mo';
 
 export const useProjectsStyles = createStyles((theme) => ({
   projectsWrapper: {
+    zIndex: 5,
     textAlign: 'center',
   },
 

@@ -6,9 +6,10 @@ export const useBubbleStyles = createStyles((theme) => ({
   bubblesContainer: {
     width: 'clamp(300px, calc(55%), 800px)',
     position: 'absolute',
-    top: 0,
+    top: '50%',
+    transform: 'translateY(-50%)',
     left: 0,
-    height: '100vh',
+    height: '100vh', 
     display: 'flex',
     flexDirection: 'row',
     justifyContent: 'flex-start',
@@ -51,7 +52,7 @@ export const useBubbleStyles = createStyles((theme) => ({
     position: 'absolute',
     top: 0,
     right: 0,
-    width: '20%',
+    width: 'clamp(14%, 200px, 40%)',
     height: '100vh',
     pointerEvents: 'none', // Ensure clicks pass through
     zIndex: 1,
@@ -59,9 +60,9 @@ export const useBubbleStyles = createStyles((theme) => ({
     // 🔥 Corrected Gradient: Left (transparent) → Right (theme color)
     background: `linear-gradient(to right, 
       ${addOpacity(theme.colorScheme === 'dark' ? colors.black : colors.white, 0)} 0%,  
-      ${addOpacity(theme.colorScheme === 'dark' ? colors.black : colors.white, 0.4)} 30%,  
-      ${addOpacity(theme.colorScheme === 'dark' ? colors.black : colors.white, 0.9)} 70%,  
-      ${addOpacity(theme.colorScheme === 'dark' ? colors.black : colors.white, 1)} 100%)`,
+      ${addOpacity(theme.colorScheme === 'dark' ? colors.black : colors.white, 0.5)} 10%,  
+      ${addOpacity(theme.colorScheme === 'dark' ? colors.black : colors.white, 0.8)} 90%,  
+      ${addOpacity(theme.colorScheme === 'dark' ? colors.black : colors.white, 1)} 99%)`,
 
     // ✅ Gradual blur effect: Stronger on the right
     backdropFilter: 'blur(6px)',

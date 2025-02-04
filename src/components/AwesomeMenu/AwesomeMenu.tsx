@@ -4,8 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { colors, useSiteContext, useAwesomeMenuStyles } from '@mo';
 
 export function AwesomeMenu() {
-  const { isNavigationVisible, setMenuHovered, setLinkName, linkName } =
-    useSiteContext();
+  const { isNavigationVisible, setMenuHovered, setLinkName, linkName } = useSiteContext();
   const [rotation, setRotation] = useState(0);
   const { classes, cx } = useAwesomeMenuStyles({
     isNavigationVisible,
@@ -16,12 +15,12 @@ export function AwesomeMenu() {
 
   // Determines the link label based on the X and Y coordinates
   const getLinkName = (x: number | null, y: number | null): string | null => {
-    if (y === null || x === null || x < 65 || x > 95 || !isNavigationVisible) return null;
+    if (y === null || x === null || x < 63 || x > 95 || !isNavigationVisible) return null;
 
-    if (y >= 14 && y < 32) return 'Home';
-    if (y >= 32 && y < 47) return 'About';
+    if (y >= 12 && y < 31) return 'Home';
+    if (y >= 31 && y < 48) return 'About';
     if (y >= 50 && y < 68) return 'Projects';
-    if (y >= 68 && y < 84) return 'Contact';
+    if (y >= 68 && y < 86) return 'Contact';
 
     return null;
   };
@@ -42,7 +41,6 @@ export function AwesomeMenu() {
       setRotation(0);
     }
   }, [linkName]);
-
 
   // Handle mouse movement and determine linkName
   const handleMouseMove = (e: React.MouseEvent) => {
@@ -111,6 +109,42 @@ export function AwesomeMenu() {
         onMouseMove={handleMouseMove}
         onClick={handleClick}
       >
+        {/* ---------------
+        HOVER SPACES FOR 4X
+        COMMENT IN PRODUCTION
+         ---------------- */}
+        {/* <rect
+          x="63%"
+          width="32%"
+          y="12%"
+          height="19%"
+          className={cx(classes.hoverZone, classes.homeZone)}
+        />
+        <rect
+          x="63%"
+          width="32%"
+          y="31%"
+          height="17%"
+          className={cx(classes.hoverZone, classes.aboutZone)}
+        />
+        <rect
+          x="63%"
+          width="32%"
+          y="50%"
+          height="18%"
+          className={cx(classes.hoverZone, classes.projectsZone)}
+        />
+        <rect
+          x="63%"
+          width="32%"
+          y="68%"
+          height="18%"
+          className={cx(classes.hoverZone, classes.contactZone)}
+        /> */}
+        {/* ---------------
+        HOVER SPACES FOR 4X
+        COMMENT IN PRODUCTION
+         ---------------- */}
         <g id="color-shapes_2" className={classes.colorShapes}>
           <g id="Vector_14" style={{ mixBlendMode: 'multiply' }}>
             <path
@@ -2255,7 +2289,10 @@ export function AwesomeMenu() {
           </g>
           <g id="wheels">
             <circle
-              className={cx(classes.ferrisWheelDarkModeStrokeWhite, classes.ferrisWheelAnimationPart)}
+              className={cx(
+                classes.ferrisWheelDarkModeStrokeWhite,
+                classes.ferrisWheelAnimationPart
+              )}
               id="outer-wheel-black"
               cx="4740.26"
               cy="4277.5"
@@ -2264,7 +2301,10 @@ export function AwesomeMenu() {
               strokeWidth="158.132"
             />
             <circle
-              className={cx(classes.ferrisWheelDarkModeStrokeWhite, classes.ferrisWheelAnimationPart)}
+              className={cx(
+                classes.ferrisWheelDarkModeStrokeWhite,
+                classes.ferrisWheelAnimationPart
+              )}
               id="middle-wheel-black"
               cx="4740.26"
               cy="4277.49"
@@ -2273,7 +2313,10 @@ export function AwesomeMenu() {
               strokeWidth="163.946"
             />
             <circle
-              className={cx(classes.ferrisWheelDarkModeStrokeWhite, classes.ferrisWheelAnimationPart)}
+              className={cx(
+                classes.ferrisWheelDarkModeStrokeWhite,
+                classes.ferrisWheelAnimationPart
+              )}
               id="inner-wheel-black"
               cx="4740.26"
               cy="4277.5"
@@ -2299,7 +2342,10 @@ export function AwesomeMenu() {
                 y="4155.7"
                 width="2728"
                 height="4028"
-                className={cx(classes.ferrisWheelDarkModeFillWhite, classes.ferrisWheelAnimationPart)}
+                className={cx(
+                  classes.ferrisWheelDarkModeFillWhite,
+                  classes.ferrisWheelAnimationPart
+                )}
                 fill="black"
               >
                 <rect fill={colors.white} x="3370.73" y="4155.7" width="2728" height="4028" />
@@ -2308,7 +2354,10 @@ export function AwesomeMenu() {
               <path
                 d="M4651.52 4251.23C4677.45 4170.51 4791.66 4170.5 4817.58 4251.23L6063.52 8130.77C6066.41 8139.78 6059.7 8148.99 6050.24 8148.99H5832.86C5826.74 8148.99 5821.34 8145.01 5819.53 8139.17L4748.94 4686.88C4744.55 4672.71 4724.5 4672.69 4720.08 4686.86L3642.53 8139.2C3640.71 8145.02 3635.32 8148.99 3629.21 8148.99H3418.87C3409.41 8148.99 3402.69 8139.78 3405.59 8130.77L4651.52 4251.23Z"
                 fill={colors.black}
-                className={cx(classes.ferrisWheelDarkModeFillWhite, classes.ferrisWheelAnimationPart)}
+                className={cx(
+                  classes.ferrisWheelDarkModeFillWhite,
+                  classes.ferrisWheelAnimationPart
+                )}
               />
               {/* <path
                 d="M4651.52 4251.23C4677.45 4170.51 4791.66 4170.5 4817.58 4251.23L6063.52 8130.77C6066.41 8139.78 6059.7 8148.99 6050.24 8148.99H5832.86C5826.74 8148.99 5821.34 8145.01 5819.53 8139.17L4748.94 4686.88C4744.55 4672.71 4724.5 4672.69 4720.08 4686.86L3642.53 8139.2C3640.71 8145.02 3635.32 8148.99 3629.21 8148.99H3418.87C3409.41 8148.99 3402.69 8139.78 3405.59 8130.77L4651.52 4251.23Z"
