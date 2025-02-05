@@ -48,8 +48,13 @@ export const useAwesomeMenuStyles = createStyles(
 
       [mq.customMax(870)]: {
         maxHeight: 'clamp(500px, calc(40vh + 70vw), 1000px)',
-        // maxWidth: '100%',
+        maxWidth: '100vw',
         minWidth: '600px',
+      },
+      [mq.customMax(600)]: {
+        minWidth: '400px',
+        width: '94vw',
+        maxWidth: '600px',
       },
     },
 

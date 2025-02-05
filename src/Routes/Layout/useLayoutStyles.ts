@@ -73,8 +73,11 @@ export const useLayoutStyles = createStyles(() => ({
     alignItems: 'center',
     height: '100%',
     [mq.customMax(870)]: {
-      marginLeft: 'calc(calc(5vw*3) + calc(7vh*3))',
+      marginLeft: 'calc(calc(5vw*3) + calc(6vh*3))',
       marginRight: '6vw',
+    },
+    [mq.customMax(600)]: {
+        // clean up 
     },
   },
 }));
