@@ -1,5 +1,5 @@
 import { createStyles } from '@mantine/core';
-import { colors } from '@mo';
+import { colors, mq } from '@mo';
 
 interface AwesomeMenuStylesProps {
   isNavigationVisible: boolean;
@@ -26,8 +26,6 @@ const softWheelBezier = 'cubic-bezier(0.53, 0.24, 0.56, 0.84)';
 
 const softCarBezier = 'cubic-bezier(0.44, 0.38, 0.47, 1.87)';
 
-// const barBezier = 'cubic-bezier(0.03, 0.96, 0.59, 0.99)';
-
 export const useAwesomeMenuStyles = createStyles(
   (theme, { isNavigationVisible, rotation, linkName }: AwesomeMenuStylesProps) => ({
     awesomeMenuSvgFull: {
@@ -39,12 +37,19 @@ export const useAwesomeMenuStyles = createStyles(
       transformBox: 'fill-box',
       height: '100vh',
       maxHeight: '1000px',
+      maxWidth: '1000px',
       width: 'auto',
       cursor: linkName ? 'pointer' : 'default',
 
       '& g': {
         transformOrigin: 'center',
         transformBox: 'fill-box',
+      },
+
+      [mq.customMax(870)]: {
+        maxHeight: 'clamp(500px, calc(40vh + 70vw), 1000px)',
+        // maxWidth: '100%',
+        minWidth: '600px',
       },
     },
 
@@ -336,20 +341,20 @@ export const useAwesomeMenuStyles = createStyles(
       transition: 'opacity 400ms ease-out, filter 700ms ease-out',
       transitionDelay: isNavigationVisible ? '500ms' : '0ms',
     },
-    
+
     /* 
     Testing area for hovers
     Uncomment the four <rect> elements 
     in AwesomeMenu svg to see hover area
     linked to 4x menu items
-    */  
+    */
     hoverZone: {
       fill: 'transparent', // Transparent by default
       stroke: 'rgba(255, 255, 255, 0.3)', // Light white stroke for visibility
       strokeWidth: 1,
       pointerEvents: 'none', // Prevents interfering with interactions
     },
-  
+
     homeZone: { fill: 'rgba(0, 0, 255, 0.4)' }, // Light Blue (Home)
     aboutZone: { fill: 'rgba(0, 255, 0, 0.4)' }, // Light Green (About)
     projectsZone: { fill: 'rgba(255, 165, 0, 0.4)' }, // Light Orange (Projects)

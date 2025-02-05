@@ -41,7 +41,6 @@ export function AwesomeMenu() {
       setRotation(0);
     }
   }, [linkName]);
-  
 
   // Handle mouse movement and determine linkName
   const handleMouseMove = (e: React.MouseEvent) => {
@@ -50,7 +49,7 @@ export function AwesomeMenu() {
     const xPercent = ((e.clientX - container.left) / container.width) * 100; // X% in container
     const newLinkName = getLinkName(xPercent, yPercent);
     setLinkName(newLinkName);
-    console.log("MOVE. x:", xPercent, "y:", yPercent, "link:", newLinkName);
+    console.log('MOVE. x:', xPercent, 'y:', yPercent, 'link:', newLinkName);
   };
 
   // ----------- END ROTATION LOGIC ------------
@@ -96,12 +95,14 @@ export function AwesomeMenu() {
 
   return (
     <Tooltip.Floating
+      id="navigation-tooltip"
       label={linkName || ''}
       className={classes.menuTooltip}
       radius="sm"
       disabled={!linkName}
     >
       <svg
+        id="ferris-wheel-menu"
         ref={menuRef}
         className={classes.awesomeMenuSvgFull}
         width="9233"
@@ -118,7 +119,7 @@ export function AwesomeMenu() {
         HOVER SPACES FOR 4X
         COMMENT IN PRODUCTION
          ---------------- */}
-         {/* <rect
+        {/* <rect
           x="63%"
           width="32%"
           y="12%"

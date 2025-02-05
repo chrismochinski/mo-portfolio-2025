@@ -10,6 +10,11 @@ export const addOpacity = (hex: string, opacity: number) => {
   return `${hex}${alpha}`;
 };
 
+export const mq = {
+  customMax: (max: number) => `@media (max-width: ${max}px)`,
+  customMin: (min: number) => `@media (min-width: ${min}px)`,
+};
+
 export const colors = {
   black: '#191716', // Eerie black
   white: '#F9F9F9', // Seasalt

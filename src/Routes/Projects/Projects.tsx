@@ -13,7 +13,7 @@ export function Projects() {
   }, [isNavigationVisible, setIsNavigationVisible]);
 
   return (
-    <Box className={cx(globalClasses.row, classes.projectsWrapper)}>
+    <Box className={cx(classes.projectsWrapper)}>
       <Title order={1}>Projects</Title>
       <Text component="h3" pt="xs" fw={400} my="xs">
         Coming soon!

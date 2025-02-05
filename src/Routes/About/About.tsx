@@ -1,11 +1,10 @@
 import { useEffect } from 'react';
 import { Box, Title, Text } from '@mantine/core';
-import { useGlobalStyles, useAboutStyles, useSiteContext } from '@mo';
+import { useAboutStyles, useSiteContext } from '@mo';
 
 export function About() {
   const { isNavigationVisible, setIsNavigationVisible } = useSiteContext();
   const { classes, cx } = useAboutStyles();
-  const { classes: globalClasses } = useGlobalStyles();
 
   useEffect(() => {
     setIsNavigationVisible(true);
@@ -13,7 +12,7 @@ export function About() {
   }, [isNavigationVisible, setIsNavigationVisible]);
 
   return (
-  <Box className={cx(globalClasses.row, classes.aboutWrapper)}>
+  <Box className={cx(classes.aboutWrapper)}>
       <Title order={1}>About</Title>
       <Text component="h4" fw={400} pt="xs" my="sm">
         My name is Chris. Most people call Me Mo.

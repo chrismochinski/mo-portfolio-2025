@@ -1,4 +1,5 @@
 import { createStyles } from '@mantine/core';
+import { mq } from '@mo';
 
 export const useLayoutStyles = createStyles(() => ({
   layoutWrapper: {
@@ -62,12 +63,18 @@ export const useLayoutStyles = createStyles(() => ({
   },
 
   layoutContentWrapper: {
+    // row styles moved here
+    marginLeft: 'max(calc(310px + 8vw), calc(100vw - 1280px)/2)',
+    marginRight: 'max(10vw, (100vw - 1000px)/2)',
+
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
-    marginInline: 'auto',
-    width: '100%',
     height: '100%',
+    [mq.customMax(870)]: {
+      marginLeft: 'calc(calc(5vw*3) + calc(7vh*3))',
+      marginRight: '6vw',
+    },
   },
 }));

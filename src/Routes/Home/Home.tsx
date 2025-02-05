@@ -14,7 +14,7 @@ export function Home() {
   }, [setIsNavigationVisible, isNavigationVisible]);
 
   return (
-    <Box className={cx(globalClasses.row, classes.homeWrapper)} id="home">
+    <Box className={cx(classes.homeWrapper)} id="home">
       <Box className={cx(globalClasses.columnCenter, classes.salutation, globalClasses.z10)}>
         <Title
           className={globalClasses.textContrastShadowSubtle}
