@@ -336,7 +336,13 @@ export const useAwesomeMenuStyles = createStyles(
       transition: 'opacity 400ms ease-out, filter 700ms ease-out',
       transitionDelay: isNavigationVisible ? '500ms' : '0ms',
     },
-
+    
+    /* 
+    Testing area for hovers
+    Uncomment the four <rect> elements 
+    in AwesomeMenu svg to see hover area
+    linked to 4x menu items
+    */  
     hoverZone: {
       fill: 'transparent', // Transparent by default
       stroke: 'rgba(255, 255, 255, 0.3)', // Light white stroke for visibility

@@ -41,6 +41,7 @@ export function AwesomeMenu() {
       setRotation(0);
     }
   }, [linkName]);
+  
 
   // Handle mouse movement and determine linkName
   const handleMouseMove = (e: React.MouseEvent) => {
@@ -49,6 +50,7 @@ export function AwesomeMenu() {
     const xPercent = ((e.clientX - container.left) / container.width) * 100; // X% in container
     const newLinkName = getLinkName(xPercent, yPercent);
     setLinkName(newLinkName);
+    console.log("MOVE. x:", xPercent, "y:", yPercent, "link:", newLinkName);
   };
 
   // ----------- END ROTATION LOGIC ------------
@@ -60,13 +62,16 @@ export function AwesomeMenu() {
   ));
 
   const handleMouseEnter = () => {
-    // only do this if isNavigationVisible is TRUE
-    if (isNavigationVisible) setMenuHovered(true);
+    if (isNavigationVisible) {
+      setMenuHovered(true);
+    }
   };
 
   const handleMouseLeave = () => {
-    setMenuHovered(false);
-    setRotation(0);
+    if (isNavigationVisible) {
+      setMenuHovered(false);
+      setRotation(0);
+    }
   };
 
   useEffect(() => {
@@ -113,7 +118,7 @@ export function AwesomeMenu() {
         HOVER SPACES FOR 4X
         COMMENT IN PRODUCTION
          ---------------- */}
-        {/* <rect
+         {/* <rect
           x="63%"
           width="32%"
           y="12%"
@@ -140,7 +145,7 @@ export function AwesomeMenu() {
           y="68%"
           height="18%"
           className={cx(classes.hoverZone, classes.contactZone)}
-        /> */}
+        />  */}
         {/* ---------------
         HOVER SPACES FOR 4X
         COMMENT IN PRODUCTION

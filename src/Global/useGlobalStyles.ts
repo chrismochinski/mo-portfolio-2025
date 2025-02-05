@@ -156,8 +156,8 @@ export const useGlobalStyles = createStyles((theme) => ({
   },
 
   row: {
-    paddingLeft: 'max(calc(320px + 10vw), calc(100vw - 1280px)/2)',
-    paddingRight: 'max(10vw, (100vw - 1280px)/2)',
+    marginLeft: 'max(calc(310px + 8vw), calc(100vw - 1280px)/2)',
+    marginRight: 'max(10vw, (100vw - 1000px)/2)',
   },
 
   container: {

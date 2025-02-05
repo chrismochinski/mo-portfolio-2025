@@ -5,7 +5,7 @@ export const useAboutStyles = createStyles(() => ({
     zIndex: 5,
     textAlign: 'center',
     p: {
-    //   textWrap: 'balance',
+      textWrap: 'balance',
     },
   },
 }));

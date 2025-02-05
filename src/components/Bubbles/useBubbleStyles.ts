@@ -4,6 +4,7 @@ import { addOpacity } from '@mo';
 
 export const useBubbleStyles = createStyles((theme) => ({
   bubblesContainer: {
+    pointerEvents: 'none',
     width: 'clamp(300px, calc(55%), 800px)',
     position: 'absolute',
     top: '50%',
