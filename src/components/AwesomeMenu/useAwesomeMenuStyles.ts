@@ -1,11 +1,19 @@
-import { createStyles } from '@mantine/core';
+import { createStyles, MantineTheme } from '@mantine/core';
 import { colors, mq } from '@mo';
+
 
 interface AwesomeMenuStylesProps {
   isNavigationVisible: boolean;
   linkName: string | null;
   rotation: number;
 }
+
+export const getThemedColor = (
+  theme: MantineTheme, 
+  lightColor: string, 
+  darkColor: string
+): string => theme.colorScheme === 'light' ? lightColor : darkColor;
+
 
 const getTooltipColor = (linkName: string | null) => {
   switch (linkName) {
@@ -26,8 +34,11 @@ const softWheelBezier = 'cubic-bezier(0.53, 0.24, 0.56, 0.84)';
 
 const softCarBezier = 'cubic-bezier(0.44, 0.38, 0.47, 1.87)';
 
+
+
 export const useAwesomeMenuStyles = createStyles(
   (theme, { isNavigationVisible, rotation, linkName }: AwesomeMenuStylesProps) => ({
+    
     awesomeMenuSvgFull: {
       position: 'absolute',
       top: '50%',
@@ -171,8 +182,8 @@ export const useAwesomeMenuStyles = createStyles(
       transformOrigin: 'center',
       transformBox: 'fill-box',
       path: {
-        fill: theme.colorScheme === 'dark' ? colors.white : colors.black,
-        stroke: theme.colorScheme === 'dark' ? colors.white : colors.black,
+        fill: getThemedColor(theme, colors.black, colors.white),
+        stroke: getThemedColor(theme, colors.black, colors.white),
       },
 
       // --------------------------------- //
@@ -187,37 +198,37 @@ export const useAwesomeMenuStyles = createStyles(
         '&.car-home': {
           '& #black-1': {
             transform: linkName === 'Home' ? 'scale(1.077)' : 'scale(1)',
-            '& path': {
-              fill: linkName === 'Home' ? colors.lightBlue : colors.white,
-              stroke: linkName === 'Home' ? colors.lightBlue : colors.white,
-            },
+           '& path': {
+            fill: getThemedColor(theme, linkName === 'Home' ? colors.darkBlue : colors.black, linkName === 'Home' ? colors.lightBlue : colors.white),
+            stroke: getThemedColor(theme, linkName === 'Home' ? colors.darkBlue : colors.black, linkName === 'Home' ? colors.lightBlue : colors.white),
+          },
           },
         },
         '&.car-about': {
           '& #black-2': {
             transform: linkName === 'About' ? 'scale(1.077)' : 'scale(1)',
-            '& path': {
-              fill: linkName === 'About' ? colors.yellow : colors.white,
-              stroke: linkName === 'About' ? colors.yellow : colors.white,
-            },
+           '& path': {
+            fill: getThemedColor(theme, linkName === 'About' ? colors.gold : colors.black, linkName === 'About' ? colors.yellow : colors.white),
+            stroke: getThemedColor(theme, linkName === 'About' ? colors.gold : colors.black, linkName === 'About' ? colors.yellow : colors.white),
+          },
           },
         },
         '&.car-projects': {
           '& #black-3': {
             transform: linkName === 'Projects' ? 'scale(1.077)' : 'scale(1)',
             '& path': {
-              fill: linkName === 'Projects' ? colors.orange : colors.white,
-              stroke: linkName === 'Projects' ? colors.orange : colors.white,
-            },
+            fill: getThemedColor(theme, linkName === 'Projects' ? colors.red : colors.black, linkName === 'Projects' ? colors.orange : colors.white),
+            stroke: getThemedColor(theme, linkName === 'Projects' ? colors.red : colors.black, linkName === 'Projects' ? colors.orange : colors.white),
+          },
           },
         },
         '&.car-contact': {
           '& #black-4': {
             transform: linkName === 'Contact' ? 'scale(1.077)' : 'scale(1)',
-            '& path': {
-              fill: linkName === 'Contact' ? colors.green : colors.white,
-              stroke: linkName === 'Contact' ? colors.green : colors.white,
-            },
+           '& path': {
+            fill: getThemedColor(theme, linkName === 'Contact' ? colors.emerald : colors.black, linkName === 'Contact' ? colors.green : colors.white),
+            stroke: getThemedColor(theme, linkName === 'Contact' ? colors.emerald : colors.black, linkName === 'Contact' ? colors.green : colors.white),
+          },
           },
         },
       },
