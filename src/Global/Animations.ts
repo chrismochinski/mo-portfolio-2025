@@ -54,7 +54,6 @@ export const carSway = keyframes`
 
 `;
 
-
 export const carSwayDamped = keyframes`
   0% {
     transform: rotate(0deg); /* Start at neutral */
@@ -90,8 +89,6 @@ export const carSwayDamped = keyframes`
   }
 `;
 
-
-
 export const carSubtleSwayDamped = keyframes`
   0% {
     transform: rotate(0deg); /* Start at neutral */
@@ -114,7 +111,6 @@ export const carSubtleSwayDamped = keyframes`
     animation-timing-function: linear; /* Smoothly return to neutral */
   }
 `;
-
 
 const generateSwayKeyframes = () => {
   let keyframes = '0% { transform: translate(0, 0); } '; // Start at (0, 0)
@@ -183,4 +179,51 @@ export const exitLetterN = keyframes`
   }
 `;
 
+// second e #e2 flatten and shift right to enter position
+export const enterLetterE2 = keyframes`
+  0% {
+    transform: translate(0px, 0px);
+    transition-timing-function: ease-in;
+  }
+  25% {
+    transform: translate(6px, 9px)  scaleY(0.6);
+    transition-timing-function: linear;
+  }
+  50% {
+    transform: translate(12px, 18px) scaleY(0.2);
+    transition-timing-function: linear;
+  }
+  75% {
+    transform: translate(18px, 9px)  scaleY(0.2);
+    transition-timing-function: linear;
+  }
+  100% {
+    transform: translate(24px, 0px);
+    transition-timing-function: ease-out;
+  }
+`;
 
+// reverse above exit
+
+export const exitLetterE2 = keyframes`
+  0% {
+    transform: translate(24px, 0px);
+    transition-timing-function: ease-in;
+  }
+  25% {
+    transform: translate(18px, 9px)  scaleY(0.6);
+    transition-timing-function: linear;
+  }
+  50% {
+    transform: translate(12px, 18px) scaleY(0.2);
+    transition-timing-function: linear;
+  }
+  75% {
+    transform: translate(6px, 9px)  scaleY(0.2);
+    transition-timing-function: linear;
+  }
+  100% {
+    transform: translate(0px, 0px);
+    transition-timing-function: ease-out;
+  }
+`;

@@ -1,5 +1,7 @@
-import { useState, forwardRef, useEffect } from 'react';
-import { Tooltip } from '@mantine/core';
+// removed forwardRef import
+import { useState, useEffect } from 'react';
+// removed Tooltip
+import { Box, Text} from '@mantine/core';
 import { useNavigate } from 'react-router-dom';
 import { colors, useSiteContext, useAwesomeMenuStyles } from '@mo';
 
@@ -49,16 +51,15 @@ export function AwesomeMenu() {
     const xPercent = ((e.clientX - container.left) / container.width) * 100; // X% in container
     const newLinkName = getLinkName(xPercent, yPercent);
     setLinkName(newLinkName);
-    console.log('MOVE. x:', xPercent, 'y:', yPercent, 'link:', newLinkName);
   };
 
   // ----------- END ROTATION LOGIC ------------
 
-  const menuRef = forwardRef<SVGSVGElement, SVGSVGElement>((props, ref) => (
-    <svg ref={ref} {...(props as any)}>
-      Menu
-    </svg>
-  ));
+  // const menuRef = forwardRef<SVGSVGElement, SVGSVGElement>((props, ref) => (
+  //   <svg ref={ref} {...(props as any)}>
+  //     Menu
+  //   </svg>
+  // ));
 
   const handleMouseEnter = () => {
     if (isNavigationVisible) {
@@ -76,6 +77,7 @@ export function AwesomeMenu() {
   useEffect(() => {
     const handleWindowMouseLeave = () => {
       setRotation(0);
+      setLinkName(null);
     };
 
     window.addEventListener('mouseleave', handleWindowMouseLeave);
@@ -83,7 +85,7 @@ export function AwesomeMenu() {
     return () => {
       window.removeEventListener('mouseleave', handleWindowMouseLeave);
     };
-  }, []);
+  }, [setLinkName, setRotation]);
 
   const handleClick = () => {
     if (isNavigationVisible) {
@@ -94,16 +96,17 @@ export function AwesomeMenu() {
   };
 
   return (
-    <Tooltip.Floating
-      id="navigation-tooltip"
-      label={linkName || ''}
-      className={classes.menuTooltip}
-      radius="sm"
-      disabled={!linkName}
-    >
+    // <Tooltip.Floating
+    //   id="navigation-tooltip"
+    //   label={linkName || ''}
+    //   className={classes.menuTooltip}
+    //   radius="sm"
+    //   disabled={!linkName}
+    // >
+    <Box className={classes.menuWrapper}>
       <svg
         id="ferris-wheel-menu"
-        ref={menuRef}
+        // ref={menuRef}
         className={classes.awesomeMenuSvgFull}
         width="9233"
         height="9248"
@@ -2622,6 +2625,24 @@ export function AwesomeMenu() {
           </clipPath>
         </defs>
       </svg>
-    </Tooltip.Floating>
+
+      {/* STATIC TOOLTIPS, ANIMATED HORIZONTAL ON 4X HOVERS */}
+      {/* STATIC TOOLTIPS, ANIMATED HORIZONTAL ON 4X HOVERS */}
+      {/* STATIC TOOLTIPS, ANIMATED HORIZONTAL ON 4X HOVERS */}
+      <Box id="home-tooltip" className={cx(classes.tooltip, linkName === 'Home' && 'active')}>
+                
+        <Text component="span">Home</Text>
+      </Box>
+      <Box id="about-tooltip" className={cx(classes.tooltip, linkName === 'About' && 'active')}>
+        <Text component="span">About</Text>
+      </Box>
+      <Box id="projects-tooltip" className={cx(classes.tooltip, linkName === 'Projects' && 'active')}>
+        <Text component="span">Projects</Text>
+      </Box>
+      <Box id="contact-tooltip" className={cx(classes.tooltip, linkName === 'Contact' && 'active')}>
+        <Text component="span">Contact</Text>
+      </Box>
+    </Box>
+    // </Tooltip.Floating>
   );
 }

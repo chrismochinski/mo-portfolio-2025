@@ -10,13 +10,13 @@ interface AwesomeMenuStylesProps {
 const getTooltipColor = (linkName: string | null) => {
   switch (linkName) {
     case 'Home':
-      return colors.red;
-    case 'About':
-      return colors.emerald;
-    case 'Projects':
-      return colors.orange;
-    case 'Contact':
       return colors.darkBlue;
+    case 'About':
+      return colors.gold;
+    case 'Projects':
+      return colors.red;
+    case 'Contact':
+      return colors.emerald;
     default:
       return colors.black;
   }
@@ -159,9 +159,6 @@ export const useAwesomeMenuStyles = createStyles(
 
     // ANIMATE WITH ROTATE
     // ANIMATE WITH ROTATE
-    // ANIMATE WITH ROTATE
-    // ANIMATE WITH ROTATE
-    // ANIMATE WITH ROTATE
     carsGroup: {
       transformOrigin: 'center',
       transformBox: 'fill-box',
@@ -179,9 +176,7 @@ export const useAwesomeMenuStyles = createStyles(
       },
 
       // --------------------------------- //
-      // --------------------------------- //
       // ----- HOVER ANIMATIONS CARS ----- //
-      // --------------------------------- //
       // --------------------------------- //
       '&[class*="car-"]': {
         '& [id*="black-"]': {
@@ -192,21 +187,37 @@ export const useAwesomeMenuStyles = createStyles(
         '&.car-home': {
           '& #black-1': {
             transform: linkName === 'Home' ? 'scale(1.077)' : 'scale(1)',
+            '& path': {
+              fill: linkName === 'Home' ? colors.lightBlue : colors.white,
+              stroke: linkName === 'Home' ? colors.lightBlue : colors.white,
+            },
           },
         },
         '&.car-about': {
           '& #black-2': {
             transform: linkName === 'About' ? 'scale(1.077)' : 'scale(1)',
+            '& path': {
+              fill: linkName === 'About' ? colors.yellow : colors.white,
+              stroke: linkName === 'About' ? colors.yellow : colors.white,
+            },
           },
         },
         '&.car-projects': {
           '& #black-3': {
             transform: linkName === 'Projects' ? 'scale(1.077)' : 'scale(1)',
+            '& path': {
+              fill: linkName === 'Projects' ? colors.orange : colors.white,
+              stroke: linkName === 'Projects' ? colors.orange : colors.white,
+            },
           },
         },
         '&.car-contact': {
           '& #black-4': {
             transform: linkName === 'Contact' ? 'scale(1.077)' : 'scale(1)',
+            '& path': {
+              fill: linkName === 'Contact' ? colors.green : colors.white,
+              stroke: linkName === 'Contact' ? colors.green : colors.white,
+            },
           },
         },
       },
@@ -334,7 +345,7 @@ export const useAwesomeMenuStyles = createStyles(
       color: colors.white,
       backgroundColor: getTooltipColor(linkName),
       fontWeight: 600,
-      fontSize: 'clamp(1.25rem, 2vw, 1.5rem)',
+      fontSize: 'clamp(1.125rem, 1.8vw, 1.3rem)',
       padding: '0.2em 0.6em',
       boxShadow: '1px 2px 8px #00000070',
     },
@@ -364,5 +375,50 @@ export const useAwesomeMenuStyles = createStyles(
     aboutZone: { fill: 'rgba(0, 255, 0, 0.4)' }, // Light Green (About)
     projectsZone: { fill: 'rgba(255, 165, 0, 0.4)' }, // Light Orange (Projects)
     contactZone: { fill: 'rgba(255, 0, 255, 0.4)' }, // Light Purple (Contact)
+
+    // -------------------------------------- //
+    // ----------- TOOLTIP STYLES ----------- //
+    // -------------------------------------- //
+    
+    menuWrapper: {
+      // styles needed?
+    },
+
+    tooltip: {
+      position: 'absolute', 
+      transformOrigin: '0% 50%',
+      transform: 'translateY(-50%) translateX(-10%) scaleX(0.2)',
+      color: theme.colorScheme === 'dark' ? colors.white : colors.black,
+      transition: 'transform 250ms ease-out 300ms, opacity 250ms ease-out 250ms',
+      opacity: 0,
+      fontSize: 'clamp(1.25rem, 1.75vw, 1.5rem)',
+      fontWeight: 700,
+      letterSpacing: '0.03em',
+      pointerEvents: 'none',
+      zIndex: 10,
+      '&#home-tooltip': {
+        top: '23%',
+        left: '20%',
+      },
+      '&#about-tooltip': {
+        top: '38.5%',
+        left: '28%',
+      },
+      '&#projects-tooltip': {
+        top: '56.3%',
+        left: '28%',
+      },
+      '&#contact-tooltip': {
+        top: '71.5%',
+        left: '20%',
+      },
+      '&.active': {
+        transform: 'translateY(-50%) translateX(0) scaleX(1)',
+
+        opacity: 1,
+      },
+    },
+
+
   })
 );

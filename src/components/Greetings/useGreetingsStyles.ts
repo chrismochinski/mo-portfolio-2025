@@ -56,13 +56,25 @@ export const useGreetingsStyles = createStyles(
         path: {},
       },
       '&#t': {
-        transform: introIconHovered ? 'translate(-2px, 0px) rotate(360deg)' : 'none',
-        transitionDuration: introIconHovered ? '250ms' : '500ms',
+        transform: introIconHovered ? 'translate(-2px, 0px) rotate(360deg) scaleY(1)' : 'none',
+        transitionDuration: introIconHovered ? '280ms' : '500ms',
+        transitionTimingFunction: 'ease-in-out', // Smooth transition
         path: {},
       },
+
+      // '&#e2': {
+      //   transform: introIconHovered ? 'translate(24px, 0px) rotate(0)' : 'none',
+      //   transitionDuration: introIconHovered ? '240ms' : '500ms',
+      //   path: {},
+      // },
       '&#e2': {
-        transform: introIconHovered ? 'translate(24px, 0px) rotate(0)' : 'none',
-        transitionDuration: introIconHovered ? '240ms' : '500ms',
+        transformOrigin: '50% 0',
+        animation: hasInteractedWithIntroIcon
+          ? introIconHovered
+            ? `${animations.enterLetterE2} forwards 240ms ease-out`
+            : `${animations.exitLetterE2} forwards 500ms`
+          : 'none',
+        animationDuration: introIconHovered ? '360ms' : '500ms',
         path: {},
       },
       '&#r': {
