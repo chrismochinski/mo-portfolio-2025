@@ -1,7 +1,5 @@
-// removed forwardRef import
 import { useState, useEffect } from 'react';
-// removed Tooltip
-import { Box, Text} from '@mantine/core';
+import { Box, Text } from '@mantine/core';
 import { useNavigate } from 'react-router-dom';
 import { colors, useSiteContext, useAwesomeMenuStyles } from '@mo';
 
@@ -50,16 +48,14 @@ export function AwesomeMenu() {
     const yPercent = ((e.clientY - container.top) / container.height) * 100; // Y% in container
     const xPercent = ((e.clientX - container.left) / container.width) * 100; // X% in container
     const newLinkName = getLinkName(xPercent, yPercent);
-    setLinkName(newLinkName);
+    if (newLinkName) {
+      setLinkName(newLinkName);
+    } else {
+      setLinkName(null);
+    }
   };
 
   // ----------- END ROTATION LOGIC ------------
-
-  // const menuRef = forwardRef<SVGSVGElement, SVGSVGElement>((props, ref) => (
-  //   <svg ref={ref} {...(props as any)}>
-  //     Menu
-  //   </svg>
-  // ));
 
   const handleMouseEnter = () => {
     if (isNavigationVisible) {
@@ -71,6 +67,7 @@ export function AwesomeMenu() {
     if (isNavigationVisible) {
       setMenuHovered(false);
       setRotation(0);
+      setLinkName(null);
     }
   };
 
@@ -96,17 +93,9 @@ export function AwesomeMenu() {
   };
 
   return (
-    // <Tooltip.Floating
-    //   id="navigation-tooltip"
-    //   label={linkName || ''}
-    //   className={classes.menuTooltip}
-    //   radius="sm"
-    //   disabled={!linkName}
-    // >
     <Box className={classes.menuWrapper}>
       <svg
         id="ferris-wheel-menu"
-        // ref={menuRef}
         className={classes.awesomeMenuSvgFull}
         width="9233"
         height="9248"
@@ -2630,19 +2619,20 @@ export function AwesomeMenu() {
       {/* STATIC TOOLTIPS, ANIMATED HORIZONTAL ON 4X HOVERS */}
       {/* STATIC TOOLTIPS, ANIMATED HORIZONTAL ON 4X HOVERS */}
       <Box id="home-tooltip" className={cx(classes.tooltip, linkName === 'Home' && 'active')}>
-                
         <Text component="span">Home</Text>
       </Box>
       <Box id="about-tooltip" className={cx(classes.tooltip, linkName === 'About' && 'active')}>
         <Text component="span">About</Text>
       </Box>
-      <Box id="projects-tooltip" className={cx(classes.tooltip, linkName === 'Projects' && 'active')}>
+      <Box
+        id="projects-tooltip"
+        className={cx(classes.tooltip, linkName === 'Projects' && 'active')}
+      >
         <Text component="span">Projects</Text>
       </Box>
       <Box id="contact-tooltip" className={cx(classes.tooltip, linkName === 'Contact' && 'active')}>
         <Text component="span">Contact</Text>
       </Box>
     </Box>
-    // </Tooltip.Floating>
   );
 }

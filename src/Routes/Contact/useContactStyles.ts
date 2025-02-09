@@ -9,7 +9,6 @@ export const useContactStyles = createStyles((theme) => ({
   },
 
   emailLink: {
-    // color: colors.yellow,
     color: theme.colorScheme === 'dark' ? colors.yellow : colors.orange,
     textDecoration: 'none',
     '&:hover': {

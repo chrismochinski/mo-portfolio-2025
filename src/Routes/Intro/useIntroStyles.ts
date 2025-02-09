@@ -14,11 +14,12 @@ interface IntroStylesProps {
 }
 
 export const useIntroStyles = createStyles((theme, { isNavigationVisible }: IntroStylesProps) => ({
+  // blur box to help text visibility
   introButtonWrapper: {
     position: 'absolute',
     width: '280px',
     height: '400px',
-    inset: 'auto',
+    inset: 'auto auto 0 auto',
     margin: 'auto',
     borderRadius: '50%',
     zIndex: 1,
@@ -34,8 +35,9 @@ export const useIntroStyles = createStyles((theme, { isNavigationVisible }: Intr
     WebkitMaskImage:
       'radial-gradient(circle, rgba(255,255,255,1) 25%, rgba(255,255,255,0.6) 50%, rgba(255,255,255,0) 100%)',
   },
+  // actual button with icon + text
   ferrisWheelIconButton: {
-    margin: 'auto',
+    marginInline: 'auto',
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center',

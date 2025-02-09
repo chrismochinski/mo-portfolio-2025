@@ -190,14 +190,14 @@ export const useAwesomeMenuStyles = createStyles(
       // ----- HOVER ANIMATIONS CARS ----- //
       // --------------------------------- //
       '&[class*="car-"]': {
-        '& [id*="black-"]': {
-          transformOrigin: '50% 100%',
-          transformBox: 'fill-box',
-          transition: `transform 350ms ease-in-out`,
-        },
+        // '& [id*="black-"]': {
+        //   transformOrigin: '50% 100%',
+        //   transformBox: 'fill-box',
+        //   transition: `transform 350ms ease-in-out`,
+        // },
         '&.car-home': {
           '& #black-1': {
-            transform: linkName === 'Home' ? 'scale(1.077)' : 'scale(1)',
+            // transform: linkName === 'Home' ? 'scale(1.077)' : 'scale(1)',
            '& path': {
             fill: getThemedColor(theme, linkName === 'Home' ? colors.darkBlue : colors.black, linkName === 'Home' ? colors.lightBlue : colors.white),
             stroke: getThemedColor(theme, linkName === 'Home' ? colors.darkBlue : colors.black, linkName === 'Home' ? colors.lightBlue : colors.white),
@@ -206,7 +206,7 @@ export const useAwesomeMenuStyles = createStyles(
         },
         '&.car-about': {
           '& #black-2': {
-            transform: linkName === 'About' ? 'scale(1.077)' : 'scale(1)',
+            // transform: linkName === 'About' ? 'scale(1.077)' : 'scale(1)',
            '& path': {
             fill: getThemedColor(theme, linkName === 'About' ? colors.gold : colors.black, linkName === 'About' ? colors.yellow : colors.white),
             stroke: getThemedColor(theme, linkName === 'About' ? colors.gold : colors.black, linkName === 'About' ? colors.yellow : colors.white),
@@ -215,7 +215,7 @@ export const useAwesomeMenuStyles = createStyles(
         },
         '&.car-projects': {
           '& #black-3': {
-            transform: linkName === 'Projects' ? 'scale(1.077)' : 'scale(1)',
+            // transform: linkName === 'Projects' ? 'scale(1.077)' : 'scale(1)',
             '& path': {
             fill: getThemedColor(theme, linkName === 'Projects' ? colors.red : colors.black, linkName === 'Projects' ? colors.orange : colors.white),
             stroke: getThemedColor(theme, linkName === 'Projects' ? colors.red : colors.black, linkName === 'Projects' ? colors.orange : colors.white),
@@ -224,7 +224,7 @@ export const useAwesomeMenuStyles = createStyles(
         },
         '&.car-contact': {
           '& #black-4': {
-            transform: linkName === 'Contact' ? 'scale(1.077)' : 'scale(1)',
+            // transform: linkName === 'Contact' ? 'scale(1.077)' : 'scale(1)',
            '& path': {
             fill: getThemedColor(theme, linkName === 'Contact' ? colors.emerald : colors.black, linkName === 'Contact' ? colors.green : colors.white),
             stroke: getThemedColor(theme, linkName === 'Contact' ? colors.emerald : colors.black, linkName === 'Contact' ? colors.green : colors.white),
@@ -259,46 +259,42 @@ export const useAwesomeMenuStyles = createStyles(
         fill: theme.colorScheme === 'dark' ? colors.black : colors.white,
         stroke: theme.colorScheme === 'dark' ? colors.black : colors.white,
       },
-      // PAUSE STATES
-      '&.menuPause': {
-        animationPlayState: 'paused',
-      },
 
       // --------------------------------- //
       // --------------------------------- //
       // ----- HOVER ANIMATE CAR MASK ---- //
       // --------------------------------- //
       // --------------------------------- //
-      '& [id*="black-"]': {
-        transformOrigin: '50% 80%',
-        transformBox: 'fill-box',
-        transition: `transform 350ms ease-in-out`,
-      },
+      // '& [id*="black-"]': {
+      //   transformOrigin: '50% 80%',
+      //   transformBox: 'fill-box',
+      //   transition: `transform 350ms ease-in-out`,
+      // },
 
-      '&.car-mask-home': {
-        '& #black-1-mask': {
-          transform: linkName === 'Home' ? 'scale(1.1)' : 'scale(1)',
-          transition: 'transform 500ms ease-out',
-        },
-      },
-      '&.car-mask-about': {
-        '& #black-2-mask': {
-          transform: linkName === 'About' ? 'scale(1.1)' : 'scale(1)',
-          transition: 'transform 500ms ease-out',
-        },
-      },
-      '&.car-mask-projects': {
-        '& #black-3-mask': {
-          transform: linkName === 'Projects' ? 'scale(1.1)' : 'scale(1)',
-          transition: 'transform 500ms ease-out',
-        },
-      },
-      '&.car-mask-contact': {
-        '& #black-4-mask': {
-          transform: linkName === 'Contact' ? 'scale(1.1)' : 'scale(1)',
-          transition: 'transform 500ms ease-out',
-        },
-      },
+      // '&.car-mask-home': {
+      //   '& #black-1-mask': {
+      //     transform: linkName === 'Home' ? 'scale(1.1)' : 'scale(1)',
+      //     transition: 'transform 500ms ease-out',
+      //   },
+      // },
+      // '&.car-mask-about': {
+      //   '& #black-2-mask': {
+      //     transform: linkName === 'About' ? 'scale(1.1)' : 'scale(1)',
+      //     transition: 'transform 500ms ease-out',
+      //   },
+      // },
+      // '&.car-mask-projects': {
+      //   '& #black-3-mask': {
+      //     transform: linkName === 'Projects' ? 'scale(1.1)' : 'scale(1)',
+      //     transition: 'transform 500ms ease-out',
+      //   },
+      // },
+      // '&.car-mask-contact': {
+      //   '& #black-4-mask': {
+      //     transform: linkName === 'Contact' ? 'scale(1.1)' : 'scale(1)',
+      //     transition: 'transform 500ms ease-out',
+      //   },
+      // },
     },
 
     ferrisWheelMasks: {
@@ -307,13 +303,11 @@ export const useAwesomeMenuStyles = createStyles(
         filter: isNavigationVisible ? 'none' : 'blur(12px)',
         transition: 'stroke-width 1500ms ease-out, filter 1500ms ease-out',
         stroke: theme.colorScheme === 'dark' ? colors.black : colors.white,
-        // transitionDelay: '500ms',
       },
       '& ellipse': {
         filter: isNavigationVisible ? 'none' : 'blur(12px)',
         transition: 'stroke-width 1500ms ease-out, filter 1500ms ease-out',
         stroke: theme.colorScheme === 'dark' ? colors.black : colors.white,
-        // transitionDelay: '500ms',
       },
 
       '& path': {
