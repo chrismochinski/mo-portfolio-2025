@@ -1,5 +1,6 @@
 import { Helmet } from 'react-helmet-async';
-import headshotSquare from '../assets/chris-mo-mochinski-headshot-square.png';
+// import headshotSquare from '../assets/chris-mo-mochinski-headshot-square.png';
+import ferrisWheelPreview from '../assets/mo-2025-preview.png';
 
 interface PageHelmetProps {
   title?: string; // Page title
@@ -40,7 +41,7 @@ export function PageHelmet({
   description,
   keywords = [], // Default to an empty array
   url = 'https://chrismochinski.com',
-  image = headshotSquare,
+  image = ferrisWheelPreview,
 }: PageHelmetProps) {
   // Combine default and additional keywords
   const combinedKeywords = [...defaultKeywords, ...keywords];
