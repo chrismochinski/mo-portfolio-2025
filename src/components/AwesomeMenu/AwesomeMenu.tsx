@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
-import { Box, Text } from '@mantine/core';
+import { Box } from '@mantine/core';
 import { useNavigate } from 'react-router-dom';
-import { colors, useSiteContext, useAwesomeMenuStyles } from '@mo';
+import { colors, useSiteContext, useAwesomeMenuStyles, MenuLabelEffects} from '@mo';
 
 export function AwesomeMenu() {
   const { isNavigationVisible, setMenuHovered, setLinkName, linkName } = useSiteContext();
@@ -2618,21 +2618,8 @@ export function AwesomeMenu() {
       {/* STATIC TOOLTIPS, ANIMATED HORIZONTAL ON 4X HOVERS */}
       {/* STATIC TOOLTIPS, ANIMATED HORIZONTAL ON 4X HOVERS */}
       {/* STATIC TOOLTIPS, ANIMATED HORIZONTAL ON 4X HOVERS */}
-      <Box id="home-tooltip" className={cx(classes.tooltip, linkName === 'Home' && 'active')}>
-        <Text component="span">Home</Text>
-      </Box>
-      <Box id="about-tooltip" className={cx(classes.tooltip, linkName === 'About' && 'active')}>
-        <Text component="span">About</Text>
-      </Box>
-      <Box
-        id="projects-tooltip"
-        className={cx(classes.tooltip, linkName === 'Projects' && 'active')}
-      >
-        <Text component="span">Projects</Text>
-      </Box>
-      <Box id="contact-tooltip" className={cx(classes.tooltip, linkName === 'Contact' && 'active')}>
-        <Text component="span">Contact</Text>
-      </Box>
+
+      <MenuLabelEffects />
     </Box>
   );
 }
