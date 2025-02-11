@@ -177,7 +177,7 @@ export const useAwesomeMenuStyles = createStyles(
         '& [id*="black-"]': {
           transformOrigin: '50% 100%',
           transformBox: 'fill-box',
-          transition: `transform 350ms ease-in-out`,
+          transition: `transform 220ms ease-in-out`,
         },
         '&.car-home': {
           '& #black-1': {
@@ -290,25 +290,57 @@ export const useAwesomeMenuStyles = createStyles(
       '&.car-mask-home': {
         '& #black-1-mask': {
           transform: linkName === 'Home' ? 'scale(1.1)' : 'scale(1)',
-          transition: 'transform 500ms ease-out',
+          transition: 'transform 200ms ease-out, filter 200ms ease-out',
+          // glow
+          filter:
+          linkName === 'Home'
+          ? `drop-shadow(40px 40px 40px ${getThemedColor(theme, colors.darkBlue, colors.lightBlue)}35) 
+          drop-shadow(-40px -40px 40px ${getThemedColor(theme, colors.darkBlue, colors.lightBlue)}35) 
+          drop-shadow(40px -40px 40px ${getThemedColor(theme, colors.darkBlue, colors.lightBlue)}35) 
+          drop-shadow(-40px 40px 40px ${getThemedColor(theme, colors.darkBlue, colors.lightBlue)}35)`
+          : 'none',
         },
       },
       '&.car-mask-about': {
         '& #black-2-mask': {
           transform: linkName === 'About' ? 'scale(1.1)' : 'scale(1)',
-          transition: 'transform 500ms ease-out',
+          transition: 'transform 200ms ease-out, filter 200ms ease-out',
+          filter:
+            linkName === 'About'
+              ? `drop-shadow(40px 40px 40px ${getThemedColor(theme, colors.gold, colors.yellow)}35) 
+       drop-shadow(-40px -40px 40px ${getThemedColor(theme, colors.gold, colors.yellow)}35) 
+       drop-shadow(40px -40px 40px ${getThemedColor(theme, colors.gold, colors.yellow)}35) 
+       drop-shadow(-40px 40px 40px ${getThemedColor(theme, colors.gold, colors.yellow)}35)`
+              : 'none',
+          
         },
       },
       '&.car-mask-projects': {
         '& #black-3-mask': {
           transform: linkName === 'Projects' ? 'scale(1.1)' : 'scale(1)',
-          transition: 'transform 500ms ease-out',
+          transition: 'transform 200ms ease-out, filter 200ms ease-out',
+          filter:
+            linkName === 'Projects'
+              ? `drop-shadow(40px 40px 40px ${getThemedColor(theme, colors.red, colors.orange)}35)
+        drop-shadow(-40px -40px 40px ${getThemedColor(theme, colors.red, colors.orange)}35)
+        drop-shadow(40px -40px 40px ${getThemedColor(theme, colors.red, colors.orange)}35)
+        drop-shadow(-40px 40px 40px ${getThemedColor(theme, colors.red, colors.orange)}35)`
+              : 'none',
+
         },
       },
       '&.car-mask-contact': {
         '& #black-4-mask': {
           transform: linkName === 'Contact' ? 'scale(1.1)' : 'scale(1)',
-          transition: 'transform 500ms ease-out',
+          transition: 'transform 200ms ease-out, filter 200ms ease-out',
+          filter:
+            linkName === 'Contact'
+              ? `drop-shadow(40px 40px 40px ${getThemedColor(theme, colors.emerald, colors.green)}35)
+        drop-shadow(-40px -40px 40px ${getThemedColor(theme, colors.emerald, colors.green)}35)
+        drop-shadow(40px -40px 40px ${getThemedColor(theme, colors.emerald, colors.green)}35)
+        drop-shadow(-40px 40px 40px ${getThemedColor(theme, colors.emerald, colors.green)}35)`
+              : 'none',
+
         },
       },
     },

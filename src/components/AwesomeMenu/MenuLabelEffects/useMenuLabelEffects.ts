@@ -2,6 +2,11 @@ import { createStyles } from '@mantine/core';
 import { colors } from '@mo';
 
 export const useMenuLabelEffects = createStyles((theme) => ({
+
+    menuLabelEffectsContainer: {
+        // just in case
+    },
+
   tooltip: {
     textTransform: 'uppercase',
     position: 'absolute',
@@ -15,7 +20,7 @@ export const useMenuLabelEffects = createStyles((theme) => ({
     fontSize: 'clamp(1.4rem, 3vw, 1.75rem)',
     fontWeight: 700,
     pointerEvents: 'none',
-    zIndex: 10,
+    zIndex: 0,
     '&#home-tooltip': {
       top: '24%',
       left: '330px',
@@ -74,7 +79,7 @@ export const useMenuLabelEffects = createStyles((theme) => ({
         background: `linear-gradient(to right, transparent, ${colors.emerald}50)`,
       },
       '&.active': {
-        left: '460px',
+        left: '360px',
       },
     },
     // top border (for now! Make SVG later)

@@ -7,7 +7,7 @@ export function MenuLabelEffects() {
   const { classes, cx } = useMenuLabelEffects();
 
   return (
-    <>
+    <Box className={classes.menuLabelEffectsContainer}>
       <Box id="home-tooltip" className={cx(classes.tooltip, linkName === 'Home' && 'active')}>
         <Text component="span">Home</Text>
       </Box>
@@ -23,6 +23,6 @@ export function MenuLabelEffects() {
       <Box id="contact-tooltip" className={cx(classes.tooltip, linkName === 'Contact' && 'active')}>
         <Text component="span">Contact</Text>
       </Box>
-    </>
+    </Box>
   );
 }
