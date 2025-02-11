@@ -243,6 +243,17 @@ export const useGlobalStyles = createStyles((theme) => ({
     zIndex: 20,
   },
 
+
+  copyright: {
+    fontSize: '0.75rem',
+    textAlign: 'center',
+    position: 'fixed',
+    letterSpacing: '0.085em',
+    bottom: '0',
+    color: theme.colorScheme === 'dark' ? colors.lightGray : colors.darkGray,
+    fontWeight: theme.colorScheme === 'dark' ? 300 : 600,
+  },
+
   // ------------------------------------------ //
   // ------------------------------------------ //
   // --------------- ANIMATIONS --------------- //

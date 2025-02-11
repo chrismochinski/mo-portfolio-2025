@@ -61,12 +61,6 @@ export const useGreetingsStyles = createStyles(
         transitionTimingFunction: 'ease-in-out', // Smooth transition
         path: {},
       },
-
-      // '&#e2': {
-      //   transform: introIconHovered ? 'translate(24px, 0px) rotate(0)' : 'none',
-      //   transitionDuration: introIconHovered ? '240ms' : '500ms',
-      //   path: {},
-      // },
       '&#e2': {
         transformOrigin: '50% 0',
         animation: hasInteractedWithIntroIcon
@@ -88,11 +82,11 @@ export const useGreetingsStyles = createStyles(
         fill:
           theme.colorScheme === 'dark'
             ? introIconHovered
-              ? colors.yellow
-              : colors.white
+              ? colors.white
+              : colors.lightGray
             : introIconHovered
-              ? colors.red
-              : colors.black,
+              ? colors.black
+              : colors.darkGray,
       },
     },
 
@@ -130,11 +124,11 @@ export const useGreetingsStyles = createStyles(
         fill:
           theme.colorScheme === 'dark'
             ? introIconHovered
-              ? colors.darkGray
-              : colors.white
+              ? colors.white
+              : colors.lightGray
             : introIconHovered
-              ? colors.lightGray
-              : colors.black,
+              ? colors.black
+              : colors.darkGray,
       },
     },
   })

@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { colors, useSiteContext, useAwesomeMenuStyles, MenuLabelEffects} from '@mo';
 
 export function AwesomeMenu() {
-  const { isNavigationVisible, setMenuHovered, setLinkName, linkName } = useSiteContext();
+  const { isNavigationVisible, setMenuHovered, setLinkName, linkName, setIsNavigating } = useSiteContext();
   const [rotation, setRotation] = useState(0);
   const { classes, cx } = useAwesomeMenuStyles({
     isNavigationVisible,
@@ -24,6 +24,8 @@ export function AwesomeMenu() {
 
     return null;
   };
+
+  
 
   // ------------- ROTATION LOGIC --------------
 
@@ -89,6 +91,11 @@ export function AwesomeMenu() {
       if (linkName !== null) {
         navigate(`/${linkName.toLowerCase()}`); // Navigate to the appropriate route
       }
+      setIsNavigating(true);
+
+      setTimeout(() => {
+        setIsNavigating(false);
+      }, 500);
     }
   };
 

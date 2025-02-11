@@ -15,6 +15,8 @@ export interface SiteContextType {
   setMenuHovered: React.Dispatch<React.SetStateAction<boolean>>;
   linkName: string | null;
   setLinkName: React.Dispatch<React.SetStateAction<string | null>>;
+  isNavigating: boolean;
+  setIsNavigating: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 export const SiteContext = createContext<SiteContextType | undefined>(undefined);

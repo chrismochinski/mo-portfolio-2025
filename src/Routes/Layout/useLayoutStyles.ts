@@ -63,7 +63,7 @@ export const useLayoutStyles = createStyles(() => ({
   },
 
   layoutContentWrapper: {
-    // row styles moved here
+    position: 'relative', // idea for copyright centering
     marginLeft: 'max(calc(310px + 8vw), calc(100vw - 1280px)/2)',
     marginRight: 'max(10vw, (100vw - 1000px)/2)',
 

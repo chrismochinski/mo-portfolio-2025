@@ -8,6 +8,7 @@ export function SiteProvider({ children }: { children: React.ReactNode }) {
   const [introIconHovered, setIntroIconHovered] = useState(false);
   const [menuHovered, setMenuHovered] = useState(false);
   const [linkName, setLinkName] = useState<string | null>(null);
+  const [isNavigating, setIsNavigating] = useState(false);
 
   // Timer logic: when navigation is visible, mark the menu as fully loaded after 1000ms.
   useEffect(() => {
@@ -51,6 +52,8 @@ export function SiteProvider({ children }: { children: React.ReactNode }) {
     setMenuHovered,
     linkName,
     setLinkName,
+    isNavigating,
+    setIsNavigating,
   };
 
   return <SiteContext.Provider value={contextValue}>{children}</SiteContext.Provider>;

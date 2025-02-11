@@ -34,7 +34,7 @@ const defaultKeywords = [
 ];
 
 const defaultDescription =
-  "The portfolio of full-stack developer Chris 'Mo' Mochinski. Featuring an absurd amount of obsessive front-end effects and animations, composed almost entirely from scratch, as well as maybe a few actual professional accolades maybe kinda possibly.";
+  "The portfolio of full-stack developer Chris 'Mo' Mochinski. Featuring a whole bunch of modestly obsessive front-end effects, composed almost entirely from scratch, as well as maybe a few actual professional accolades maybe kinda possibly perhaps.";
 
 export function PageHelmet({
   title,
@@ -55,7 +55,7 @@ export function PageHelmet({
       )}
       <meta name="author" content="Chris 'Mo' Mochinski" />
       {/* Open Graph Tags */}
-      <meta property="og:title" content={title || "Mo's Portfolio"} />
+      <meta property="og:title" content={title || 'Chris "Mo" Mochinski | Portfolio'} />
       <meta property="og:description" content={description} />
       <meta property="og:type" content="website" />
       {url && <meta property="og:url" content={url} />}
