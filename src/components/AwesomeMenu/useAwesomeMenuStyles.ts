@@ -13,6 +13,24 @@ export const getThemedColor = (
   darkColor: string
 ): string => (theme.colorScheme === 'light' ? lightColor : darkColor);
 
+export const generateGlow = (
+  theme: MantineTheme,
+  activeLink: string | null,
+  currentLink: string,
+  lightColor: string,
+  darkColor: string
+) => {
+  if (activeLink !== currentLink) return 'none'; // No glow if not hovered
+
+  const glowColor = getThemedColor(theme, lightColor, darkColor); // Get correct color
+  return `
+    drop-shadow(40px 40px 40px ${glowColor}35) 
+    drop-shadow(-40px -40px 40px ${glowColor}35) 
+    drop-shadow(40px -40px 40px ${glowColor}35) 
+    drop-shadow(-40px 40px 40px ${glowColor}35)
+  `;
+};
+
 const softWheelBezier = 'cubic-bezier(0.53, 0.24, 0.56, 0.84)';
 
 const softCarBezier = 'cubic-bezier(0.44, 0.38, 0.47, 1.87)';
@@ -292,55 +310,28 @@ export const useAwesomeMenuStyles = createStyles(
           transform: linkName === 'Home' ? 'scale(1.1)' : 'scale(1)',
           transition: 'transform 200ms ease-out, filter 200ms ease-out',
           // glow
-          filter:
-          linkName === 'Home'
-          ? `drop-shadow(40px 40px 40px ${getThemedColor(theme, colors.darkBlue, colors.lightBlue)}35) 
-          drop-shadow(-40px -40px 40px ${getThemedColor(theme, colors.darkBlue, colors.lightBlue)}35) 
-          drop-shadow(40px -40px 40px ${getThemedColor(theme, colors.darkBlue, colors.lightBlue)}35) 
-          drop-shadow(-40px 40px 40px ${getThemedColor(theme, colors.darkBlue, colors.lightBlue)}35)`
-          : 'none',
+          filter: generateGlow(theme, linkName, 'Home', colors.darkBlue, colors.lightBlue),
         },
       },
       '&.car-mask-about': {
         '& #black-2-mask': {
           transform: linkName === 'About' ? 'scale(1.1)' : 'scale(1)',
           transition: 'transform 200ms ease-out, filter 200ms ease-out',
-          filter:
-            linkName === 'About'
-              ? `drop-shadow(40px 40px 40px ${getThemedColor(theme, colors.gold, colors.yellow)}35) 
-       drop-shadow(-40px -40px 40px ${getThemedColor(theme, colors.gold, colors.yellow)}35) 
-       drop-shadow(40px -40px 40px ${getThemedColor(theme, colors.gold, colors.yellow)}35) 
-       drop-shadow(-40px 40px 40px ${getThemedColor(theme, colors.gold, colors.yellow)}35)`
-              : 'none',
-          
+          filter: generateGlow(theme, linkName, 'About', colors.gold, colors.yellow),
         },
       },
       '&.car-mask-projects': {
         '& #black-3-mask': {
           transform: linkName === 'Projects' ? 'scale(1.1)' : 'scale(1)',
           transition: 'transform 200ms ease-out, filter 200ms ease-out',
-          filter:
-            linkName === 'Projects'
-              ? `drop-shadow(40px 40px 40px ${getThemedColor(theme, colors.red, colors.orange)}35)
-        drop-shadow(-40px -40px 40px ${getThemedColor(theme, colors.red, colors.orange)}35)
-        drop-shadow(40px -40px 40px ${getThemedColor(theme, colors.red, colors.orange)}35)
-        drop-shadow(-40px 40px 40px ${getThemedColor(theme, colors.red, colors.orange)}35)`
-              : 'none',
-
+          filter: generateGlow(theme, linkName, 'Projects', colors.red, colors.orange),
         },
       },
       '&.car-mask-contact': {
         '& #black-4-mask': {
           transform: linkName === 'Contact' ? 'scale(1.1)' : 'scale(1)',
           transition: 'transform 200ms ease-out, filter 200ms ease-out',
-          filter:
-            linkName === 'Contact'
-              ? `drop-shadow(40px 40px 40px ${getThemedColor(theme, colors.emerald, colors.green)}35)
-        drop-shadow(-40px -40px 40px ${getThemedColor(theme, colors.emerald, colors.green)}35)
-        drop-shadow(40px -40px 40px ${getThemedColor(theme, colors.emerald, colors.green)}35)
-        drop-shadow(-40px 40px 40px ${getThemedColor(theme, colors.emerald, colors.green)}35)`
-              : 'none',
-
+          filter: generateGlow(theme, linkName, 'Contact', colors.emerald, colors.green),
         },
       },
     },
