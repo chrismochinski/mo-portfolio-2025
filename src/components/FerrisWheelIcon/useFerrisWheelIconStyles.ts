@@ -1,5 +1,5 @@
 import { createStyles } from '@mantine/core';
-import { colors, mq } from '@mo';
+import { colors } from '@mo';
 import * as animations from '@mo';
 
 interface FerrisWheelIconStylesProps {
