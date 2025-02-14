@@ -21,8 +21,8 @@ export const useGreetingsStyles = createStyles(
       transformOrigin: 'center center',
       transformBox: 'fill-box',
       willChange: 'transform',
-      transform: shouldAnimate(introIconHovered, deviceType) ? 'translate(0, 26%)' : 'translate(0, 0)',
-      transition: shouldAnimate(introIconHovered, deviceType) ? 'transform 320ms ease-out' : 'transform 550ms ease-in-out',
+      transform: introIconHovered ? 'translate(0, 26%)' : 'translate(0, 0)',
+      transition: introIconHovered ? 'transform 320ms ease-out' : 'transform 550ms ease-in-out',
     },
 
     greetingsLetter: {
