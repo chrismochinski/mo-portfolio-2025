@@ -84,8 +84,9 @@ export const useAwesomeMenuStyles = createStyles(
       transformOrigin: 'center',
       transformBox: 'fill-box',
       filter: isNavigationVisible ? 'none' : 'blur(60px) grayscale(40%)',
+      WebkitBackdropFilter: isNavigationVisible ? 'none' : 'blur(60px) grayscale(40%)',
       opacity: isNavigationVisible ? 1 : 0.7,
-      transition: 'filter 1400ms ease-out, opacity 1400ms ease-out',
+      transition: 'filter 1400ms ease-out, opacity 1400ms ease-out, webkitBackdropFilter 1400ms ease-out',
       '& > g': {
         transformOrigin: 'center',
         transformBox: 'fill-box',
