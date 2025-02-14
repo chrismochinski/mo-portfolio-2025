@@ -179,22 +179,22 @@ export const useGlobalStyles = createStyles((theme) => ({
   textContrastShadow: {
     textShadow:
       theme.colorScheme === 'dark'
-        ? `1px 1px 1px ${theme.black}, -1px -1px 1px ${theme.black}, 1px -1px 1px ${theme.black}, -1px 1px 1px ${theme.black}`
-        : `1px 1px 1px ${theme.white}, -1px -1px 1px ${theme.white}, 1px -1px 1px ${theme.white}, -1px 1px 1px ${theme.white}`,
+        ? `1px 1px 1px ${colors.black}70, -1px -1px 1px ${colors.black}70, 1px -1px 1px ${colors.black}70, -1px 1px 1px ${colors.black}70`
+        : `1px 1px 1px ${colors.white}70, -1px -1px 1px ${colors.white}70, 1px -1px 1px ${colors.white}70, -1px 1px 1px ${colors.white}70`,
   },
 
   textContrastShadowSubtle: {
     textShadow:
       theme.colorScheme === 'dark'
-        ? `1px 1px 2px ${theme.black}80, -1px -1px 2px ${theme.black}80, 1px -1px 2px ${theme.black}80, -1px 1px 2px ${theme.black}80`
-        : `1px 1px 2px ${theme.white}80, -1px -1px 2px ${theme.white}80, 1px -1px 2px ${theme.white}80, -1px 1px 2px ${theme.white}80`,
+        ? `1px 1px 2px ${colors.black}80, -1px -1px 2px ${colors.black}80, 1px -1px 2px ${colors.black}80, -1px 1px 2px ${colors.black}80`
+        : `1px 1px 2px ${colors.white}80, -1px -1px 2px ${colors.white}80, 1px -1px 2px ${colors.white}80, -1px 1px 2px ${colors.white}80`,
   },
 
   textContrastShadowHeavy: {
     textShadow:
       theme.colorScheme === 'dark'
-        ? `1px 1px 2px ${theme.black}, -1px -1px 2px ${theme.black}, 1px -1px 2px ${theme.black}, -1px 1px 2px ${theme.black}`
-        : `1px 1px 2px ${theme.white}, -1px -1px 2px ${theme.white}, 1px -1px 2px ${theme.white}, -1px 1px 2px ${theme.white}`,
+        ? `1px 1px 5px ${colors.black}20, -1px -1px 5px ${colors.black}20, 1px -1px 5px ${colors.black}20, -1px 1px 5px ${colors.black}20`
+        : `1px 1px 5px ${colors.white}20, -1px -1px 5px ${colors.white}20, 1px -1px 5px ${colors.white}20, -1px 1px 5px ${colors.white}20`,
   },
 
   // ----------------------------------------- //
