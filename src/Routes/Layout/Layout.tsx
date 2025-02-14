@@ -5,7 +5,8 @@ import { Outlet } from 'react-router-dom';
 import { useLayoutStyles, Bubbles, AwesomeMenu, useSiteContext, useGlobalStyles } from '@mo';
 
 export function Layout() {
-  const { setIsNavigationVisible, isMenuFullyLoaded, deviceType } = useSiteContext();
+  const { setIsNavigationVisible, isMenuFullyLoaded, deviceType } =
+    useSiteContext();
   const { classes, cx } = useLayoutStyles();
   const { classes: globalClasses } = useGlobalStyles();
 
@@ -36,6 +37,7 @@ export function Layout() {
       {/* DELETELATER  */}
       <Box className={classes.layoutInnerWrapper} id="layout-innermost-wrapper">
         <Bubbles />
+       
         <AwesomeMenu />
         <Box className={classes.layoutContentWrapper} id="layout-content-wrapper">
           <AnimatePresence mode="wait">

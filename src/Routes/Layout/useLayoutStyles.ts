@@ -1,6 +1,7 @@
 import { createStyles } from '@mantine/core';
 import { mq } from '@mo';
 
+
 export const useLayoutStyles = createStyles(() => ({
   layoutWrapper: {
     height: '100%',
@@ -63,7 +64,7 @@ export const useLayoutStyles = createStyles(() => ({
   },
 
   layoutContentWrapper: {
-    position: 'relative', 
+    position: 'relative',
     marginLeft: 'max(calc(310px + 8vw), calc(100vw - 1280px)/2)',
     marginRight: 'max(10vw, (100vw - 1000px)/2)',
     display: 'flex',
@@ -78,7 +79,9 @@ export const useLayoutStyles = createStyles(() => ({
       marginInline: 'unset',
     },
     [mq.customMax(575)]: {
-        // clean up 
+      // clean up
     },
   },
+
+ 
 }));

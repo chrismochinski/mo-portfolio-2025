@@ -94,11 +94,12 @@ export const useAwesomeMenuStyles = createStyles(
         : 'scale(1.3) translate(-10%,0)',
         transition: 'transform 1200ms ease-out',
       },
+    
       [mq.customMax(991)]: {
         // if device type is NOT desktop, we need a mobile friendly blur-in animations
         // WebkitBackdropFilter: isNavigationVisible ? 'none' : 'blur(60px) grayscale(40%)',
-        // filter: isNavigationVisible ? 'none' : 'blur(60px) grayscale(40%)',
-        opacity: isNavigationVisible ? 0.9 : 0.55,
+        filter: 'none',
+        opacity: isNavigationVisible ? 0.9 : 0.4,
 
       },
     },

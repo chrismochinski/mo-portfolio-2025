@@ -1,6 +1,7 @@
 import { createStyles } from '@mantine/core';
 import { colors, addOpacity, mq } from '@mo';
 
+
 export const useBubbleStyles = createStyles((theme) => ({
   bubblesContainer: {
     pointerEvents: 'none',
@@ -15,6 +16,10 @@ export const useBubbleStyles = createStyles((theme) => ({
     justifyContent: 'flex-start',
     alignItems: 'center',
     mixBlendMode: theme.colorScheme === 'dark' ? 'lighten' : 'normal',
+    [mq.customMax(768)]: {
+      width: '100vw',
+      height: '100vh',
+    },
   },
   bubblesFront: {
     width: '50%',
@@ -46,9 +51,11 @@ export const useBubbleStyles = createStyles((theme) => ({
     position: 'absolute',
     top: 0,
     right: 0,
+    
   },
 
   bubblesRightFade: {
+
     position: 'absolute',
     top: 0,
     right: 0,
@@ -75,7 +82,8 @@ export const useBubbleStyles = createStyles((theme) => ({
     WebkitMaskImage:
       'linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.1) 25%, rgba(255,255,255,0.3) 50%, rgba(255,255,255,0.6) 75%, rgba(255,255,255,1) 100%)',
       [mq.customMax(768)]: { 
-
+        display: 'none',
       },
   },
+
 }));

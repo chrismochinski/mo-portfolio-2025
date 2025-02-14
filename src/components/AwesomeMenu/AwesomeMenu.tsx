@@ -1,10 +1,17 @@
 import { useState, useEffect } from 'react';
 import { Box } from '@mantine/core';
 import { useNavigate } from 'react-router-dom';
-import { colors, useSiteContext, useAwesomeMenuStyles, MenuLabelEffects} from '@mo';
+import { colors, useSiteContext, useAwesomeMenuStyles, MenuLabelEffects } from '@mo';
 
 export function AwesomeMenu() {
-  const { isNavigationVisible, setMenuHovered, setLinkName, linkName, setIsNavigating, deviceType } = useSiteContext();
+  const {
+    isNavigationVisible,
+    setMenuHovered,
+    setLinkName,
+    linkName,
+    setIsNavigating,
+    deviceType,
+  } = useSiteContext();
   const [rotation, setRotation] = useState(0);
   const { classes, cx } = useAwesomeMenuStyles({
     isNavigationVisible,
@@ -25,8 +32,6 @@ export function AwesomeMenu() {
 
     return null;
   };
-
-  
 
   // ------------- ROTATION LOGIC --------------
 
@@ -103,6 +108,7 @@ export function AwesomeMenu() {
   return (
     <Box className={classes.menuWrapper}>
       <svg
+       filter={ deviceType !== "desktop" ? "url(#blurFilter)" : "" }
         id="ferris-wheel-menu"
         className={classes.awesomeMenuSvgFull}
         width="9233"
@@ -2381,6 +2387,9 @@ export function AwesomeMenu() {
           </g>
         </g>
         <defs>
+          <filter id="blurFilter" x="0" y="0" width="100%" height="100%">
+            <feGaussianBlur stdDeviation="8" />
+          </filter>
           <linearGradient
             // Vector (0 index) - bottom gold red
             id="paint0_linear_665_875"
