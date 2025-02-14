@@ -4,12 +4,13 @@ import { useNavigate } from 'react-router-dom';
 import { colors, useSiteContext, useAwesomeMenuStyles, MenuLabelEffects} from '@mo';
 
 export function AwesomeMenu() {
-  const { isNavigationVisible, setMenuHovered, setLinkName, linkName, setIsNavigating } = useSiteContext();
+  const { isNavigationVisible, setMenuHovered, setLinkName, linkName, setIsNavigating, deviceType } = useSiteContext();
   const [rotation, setRotation] = useState(0);
   const { classes, cx } = useAwesomeMenuStyles({
     isNavigationVisible,
     rotation,
     linkName,
+    deviceType,
   });
   const navigate = useNavigate();
 

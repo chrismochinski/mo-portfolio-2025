@@ -5,6 +5,7 @@ interface AwesomeMenuStylesProps {
   isNavigationVisible: boolean;
   linkName: string | null;
   rotation: number;
+  deviceType: 'mobile' | 'tablet' | 'desktop';
 }
 
 export const getThemedColor = (
@@ -36,7 +37,7 @@ const softWheelBezier = 'cubic-bezier(0.53, 0.24, 0.56, 0.84)';
 const softCarBezier = 'cubic-bezier(0.44, 0.38, 0.47, 1.87)';
 
 export const useAwesomeMenuStyles = createStyles(
-  (theme, { isNavigationVisible, rotation, linkName }: AwesomeMenuStylesProps) => ({
+  (theme, { isNavigationVisible, rotation, linkName, deviceType }: AwesomeMenuStylesProps) => ({
     menuWrapper: {
       containerType: 'inline-size',
     },
@@ -61,12 +62,11 @@ export const useAwesomeMenuStyles = createStyles(
       },
 
       [mq.customMax(991)]: {
-        // overflow: 'hidden !important', // idea
+        overflow: 'hidden !important', // idea
         maxHeight: 'clamp(400px, calc(40vh + 70vw), 1000px)',
         // maxWidth: '100vw',
-        
       },
-      
+
       [mq.customMax(575)]: {
         // minWidth: '400px',
         // width: '94vw',
@@ -101,6 +101,7 @@ export const useAwesomeMenuStyles = createStyles(
     // ----------- FERRIS WHEEL GROUP ----------- //
     // ----------- FERRIS WHEEL GROUP ----------- //
     ferrisWheelMenu: {
+      display: deviceType === 'mobile' ? 'none' : 'block',
       transformOrigin: 'center',
       transformBox: 'fill-box',
       transform: 'scale(1.125)',
