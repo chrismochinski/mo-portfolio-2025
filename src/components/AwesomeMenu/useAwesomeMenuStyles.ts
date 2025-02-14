@@ -101,7 +101,7 @@ export const useAwesomeMenuStyles = createStyles(
     // ----------- FERRIS WHEEL GROUP ----------- //
     // ----------- FERRIS WHEEL GROUP ----------- //
     ferrisWheelMenu: {
-      display: deviceType === 'mobile' ? 'none' : 'block',
+      
       transformOrigin: 'center',
       transformBox: 'fill-box',
       transform: 'scale(1.125)',
@@ -127,6 +127,9 @@ export const useAwesomeMenuStyles = createStyles(
           filter: 'blur(50px)',
           opacity: 0,
         },
+      },
+      [mq.customMax(991)]: {
+        display: deviceType !== 'desktop' ? 'none' : 'block',
       },
     },
 
