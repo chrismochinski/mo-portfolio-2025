@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Box } from '@mantine/core';
 import { useNavigate } from 'react-router-dom';
-import { colors, useSiteContext, useAwesomeMenuStyles, MenuLabelEffects } from '@mo';
+import { colors, useSiteContext, useAwesomeMenuStyles } from '@mo';
 
 export function AwesomeMenu() {
   const {
@@ -2632,7 +2632,7 @@ export function AwesomeMenu() {
       {/* STATIC TOOLTIPS, ANIMATED HORIZONTAL ON 4X HOVERS */}
       {/* STATIC TOOLTIPS, ANIMATED HORIZONTAL ON 4X HOVERS */}
 
-      <MenuLabelEffects />
+      {/* <MenuLabelEffects /> */}
     </Box>
   );
 }

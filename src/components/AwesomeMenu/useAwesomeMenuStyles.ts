@@ -64,8 +64,7 @@ export const useAwesomeMenuStyles = createStyles(
       [mq.customMax(991)]: {
         overflow: 'hidden !important', // idea
 
-        // maxHeight: 'clamp(400px, calc(40vh + 70vw), 1000px)',
-        // maxWidth: '100vw',
+   
       },
     },
 
@@ -95,7 +94,6 @@ export const useAwesomeMenuStyles = createStyles(
         filter: 'none',
         opacity: isNavigationVisible ? 0.9 : 0.4,
         '& > g': {
-
           transform: isNavigationVisible ? 'scale(1)' : 'scale(1.2)',
         },
       },
@@ -134,7 +132,11 @@ export const useAwesomeMenuStyles = createStyles(
       },
       [mq.customMax(991)]: {
         // if deviceType is not desktop, hide ferris wheel with Y translate ALL the way up off screen
-        transform: deviceType !== 'desktop' ? 'translateY(-200%) ' : 'none',
+        transform: deviceType !== 'desktop' ? 'translateY(-200%) ' : 'none', // revisit 
+        // display: deviceType !== 'desktop' ? 'none' : 'block',
+        // '& *': {
+        //   display: deviceType !== 'desktop' ? 'none' : 'block', 
+        // },
       },
     },
 
