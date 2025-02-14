@@ -5,7 +5,7 @@ export const useLayoutStyles = createStyles(() => ({
   layoutWrapper: {
     height: '100%',
     width: '100%',
-    background: 'pink',
+    background: 'transparent',
 
     h1: {
       fontFamily: '"Urbanist", sans-serif',
@@ -70,7 +70,8 @@ export const useLayoutStyles = createStyles(() => ({
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
-    height: '100%',
+    // height: '100%', 
+    height: 'fit-content', // idea //revisit 
     // IMPORTANT - LAYOUT MOBILE
     [mq.customMax(991)]: {
       // marginLeft: 'calc(calc(5vw*3) + calc(6vh*3))',
