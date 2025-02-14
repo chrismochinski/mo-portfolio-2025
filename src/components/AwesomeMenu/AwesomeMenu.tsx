@@ -1,10 +1,17 @@
 import { useState, useEffect } from 'react';
 import { Box } from '@mantine/core';
 import { useNavigate } from 'react-router-dom';
-import { colors, useSiteContext, useAwesomeMenuStyles, MenuLabelEffects} from '@mo';
+import { colors, useSiteContext, useAwesomeMenuStyles, MenuLabelEffects } from '@mo';
 
 export function AwesomeMenu() {
-  const { isNavigationVisible, setMenuHovered, setLinkName, linkName, setIsNavigating, deviceType } = useSiteContext();
+  const {
+    isNavigationVisible,
+    setMenuHovered,
+    setLinkName,
+    linkName,
+    setIsNavigating,
+    deviceType,
+  } = useSiteContext();
   const [rotation, setRotation] = useState(0);
   const { classes, cx } = useAwesomeMenuStyles({
     isNavigationVisible,
@@ -25,8 +32,6 @@ export function AwesomeMenu() {
 
     return null;
   };
-
-  
 
   // ------------- ROTATION LOGIC --------------
 
@@ -2628,7 +2633,6 @@ export function AwesomeMenu() {
       {/* STATIC TOOLTIPS, ANIMATED HORIZONTAL ON 4X HOVERS */}
 
       <MenuLabelEffects />
-      {deviceType !== 'desktop' && <Box className={classes.blurOverlayBox} id="blur-overlay-box"/>}
     </Box>
   );
 }

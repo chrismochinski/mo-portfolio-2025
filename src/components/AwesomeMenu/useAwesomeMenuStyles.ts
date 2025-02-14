@@ -50,7 +50,7 @@ export const useAwesomeMenuStyles = createStyles(
       right: '100%',
       transformOrigin: 'center',
       transformBox: 'fill-box',
-      height: '100vh',
+      height: '100dvh',
       maxHeight: '1000px',
       maxWidth: '1000px',
       width: 'auto',
@@ -63,13 +63,9 @@ export const useAwesomeMenuStyles = createStyles(
 
       [mq.customMax(991)]: {
         overflow: 'hidden !important', // idea
+
         // maxHeight: 'clamp(400px, calc(40vh + 70vw), 1000px)',
         // maxWidth: '100vw',
-      },
-
-      [mq.customMax(575)]: {
-        // minWidth: '400px',
-        // width: '94vw',
       },
     },
 
@@ -85,7 +81,7 @@ export const useAwesomeMenuStyles = createStyles(
       transformBox: 'fill-box',
       filter: isNavigationVisible ? 'none' : 'blur(60px) grayscale(40%)',
       opacity: isNavigationVisible ? 1 : 0.7,
-      transition: 'filter 1400ms ease-out, opacity 1400ms ease-out, webkitBackdropFilter 1400ms ease-out',
+      transition: 'filter 1400ms ease-out, opacity 1400ms ease-out',
       '& > g': {
         transformOrigin: 'center',
         transformBox: 'fill-box',
@@ -96,11 +92,12 @@ export const useAwesomeMenuStyles = createStyles(
       },
     
       [mq.customMax(991)]: {
-        // if device type is NOT desktop, we need a mobile friendly blur-in animations
-        // WebkitBackdropFilter: isNavigationVisible ? 'none' : 'blur(60px) grayscale(40%)',
         filter: 'none',
         opacity: isNavigationVisible ? 0.9 : 0.4,
+        '& > g': {
 
+          transform: isNavigationVisible ? 'scale(1)' : 'scale(1.2)',
+        },
       },
     },
 
@@ -400,19 +397,6 @@ export const useAwesomeMenuStyles = createStyles(
       fill: theme.colorScheme === 'dark' ? colors.white : colors.black,
     },
 
-
-    blurOverlayBox: {
-      // deletelater ?????
-      // [mq.customMax(991)]: {
-      //   position: 'absolute',
-      //   inset: 0,
-      //   zIndex: 0,
-      //   backdropFilter: isNavigationVisible ? 'blur(0px)' : 'blur(7px)',
-      //   WebkitBackdropFilter: isNavigationVisible ? 'blur(0px)' : 'blur(7px)',
-      //   pointerEvents: 'none',
-      //   transition: 'backdrop-filter 700ms ease-out',
-      // },
-    },
 
     // ------- ANIMATED PARTS ------- //
     ferrisWheelAnimationPart: {
