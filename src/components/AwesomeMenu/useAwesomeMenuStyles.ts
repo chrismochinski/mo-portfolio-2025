@@ -67,7 +67,7 @@ export const useAwesomeMenuStyles = createStyles(
         // minWidth: '600px', //deletelater 
       },
       
-      [mq.customMax(600)]: {
+      [mq.customMax(575)]: {
         minWidth: '400px',
         width: '94vw',
         // maxWidth: '600px', //deletelater

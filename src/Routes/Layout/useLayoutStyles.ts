@@ -77,7 +77,7 @@ export const useLayoutStyles = createStyles(() => ({
       // marginRight: '6vw',
       marginInline: 'unset',
     },
-    [mq.customMax(600)]: {
+    [mq.customMax(575)]: {
         // clean up 
     },
   },
