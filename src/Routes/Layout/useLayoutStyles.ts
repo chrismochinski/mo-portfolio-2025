@@ -5,7 +5,7 @@ export const useLayoutStyles = createStyles(() => ({
   layoutWrapper: {
     height: '100%',
     width: '100%',
-    background: 'transparent',
+    background: 'pink',
 
     h1: {
       fontFamily: '"Urbanist", sans-serif',
