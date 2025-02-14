@@ -175,26 +175,26 @@ export const useGlobalStyles = createStyles((theme) => ({
     justifyContent: 'center',
     alignItems: 'center',
   },
+  
+    textContrastShadowSubtle: {
+      textShadow:
+        theme.colorScheme === 'dark'
+          ? `1px 1px 5px ${colors.black}16, -1px -1px 5px ${colors.black}16, 1px -1px 5px ${colors.black}16, -1px 1px 5px ${colors.black}16`
+          : `1px 1px 5px ${colors.white}16, -1px -1px 5px ${colors.white}16, 1px -1px 5px ${colors.white}16, -1px 1px 5px ${colors.white}16`,
+    },
 
   textContrastShadow: {
     textShadow:
       theme.colorScheme === 'dark'
-        ? `1px 1px 1px ${colors.black}70, -1px -1px 1px ${colors.black}70, 1px -1px 1px ${colors.black}70, -1px 1px 1px ${colors.black}70`
-        : `1px 1px 1px ${colors.white}70, -1px -1px 1px ${colors.white}70, 1px -1px 1px ${colors.white}70, -1px 1px 1px ${colors.white}70`,
-  },
-
-  textContrastShadowSubtle: {
-    textShadow:
-      theme.colorScheme === 'dark'
-        ? `1px 1px 2px ${colors.black}80, -1px -1px 2px ${colors.black}80, 1px -1px 2px ${colors.black}80, -1px 1px 2px ${colors.black}80`
-        : `1px 1px 2px ${colors.white}80, -1px -1px 2px ${colors.white}80, 1px -1px 2px ${colors.white}80, -1px 1px 2px ${colors.white}80`,
+        ? `1px 1px 6px ${colors.black}22, -1px -1px 6px ${colors.black}22, 1px -1px 6px ${colors.black}22, -1px 1px 6px ${colors.black}22`
+        : `1px 1px 6px ${colors.white}22, -1px -1px 6px ${colors.white}22, 1px -1px 6px ${colors.white}22, -1px 1px 6px ${colors.white}22`,
   },
 
   textContrastShadowHeavy: {
     textShadow:
       theme.colorScheme === 'dark'
-        ? `1px 1px 5px ${colors.black}20, -1px -1px 5px ${colors.black}20, 1px -1px 5px ${colors.black}20, -1px 1px 5px ${colors.black}20`
-        : `1px 1px 5px ${colors.white}20, -1px -1px 5px ${colors.white}20, 1px -1px 5px ${colors.white}20, -1px 1px 5px ${colors.white}20`,
+        ? `1px 1px 5px ${colors.black}30, -1px -1px 5px ${colors.black}30, 1px -1px 5px ${colors.black}30, -1px 1px 5px ${colors.black}30`
+        : `1px 1px 5px ${colors.white}30, -1px -1px 5px ${colors.white}30, 1px -1px 5px ${colors.white}30, -1px 1px 5px ${colors.white}30`,
   },
 
   // ----------------------------------------- //

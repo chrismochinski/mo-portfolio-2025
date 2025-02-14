@@ -20,7 +20,7 @@ export function Home() {
     <Box className={cx(classes.homeWrapper)} id="home">
       <Box className={cx(globalClasses.columnCenter, classes.salutation, globalClasses.z10)}>
         <Text
-          className={globalClasses.textContrastShadowHeavy}
+          className={globalClasses.textContrastShadow}
           component={motion.h1}
           my="xs"
           mx="auto"
@@ -39,7 +39,7 @@ export function Home() {
           Hi, friends.
         </Text>
         <Text
-          className={cx(globalClasses.balance, globalClasses.textContrastShadowHeavy)}
+          className={cx(globalClasses.balance, globalClasses.textContrastShadow)}
           component={motion.h4}
           mt={0}
           mx="auto"
