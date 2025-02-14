@@ -1,8 +1,8 @@
 import { useGreetingsStyles, useSiteContext } from '@mo';
 
 export function Greetings() {
-    const { introIconHovered, isNavigationVisible, hasInteractedWithIntroIcon } = useSiteContext();
-  const { cx, classes } = useGreetingsStyles({ introIconHovered, isNavigationVisible, hasInteractedWithIntroIcon });
+    const { introIconHovered, isNavigationVisible, hasInteractedWithIntroIcon, deviceType } = useSiteContext();
+  const { cx, classes } = useGreetingsStyles({ introIconHovered, isNavigationVisible, hasInteractedWithIntroIcon, deviceType });
 
   
   return (
