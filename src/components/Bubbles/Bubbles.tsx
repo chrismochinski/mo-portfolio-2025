@@ -17,8 +17,8 @@ declare global {
  * @param props - BubblesProps
  */
 export function Bubbles() {
-  const { isNavigationVisible } = useSiteContext();
-  const { cx, classes } = useBubbleStyles();
+  const { isNavigationVisible, deviceType } = useSiteContext();
+  const { cx, classes } = useBubbleStyles({deviceType});
   const containerRef = useRef<HTMLDivElement>(null);
 
   const bubbleColors = [
@@ -46,7 +46,7 @@ export function Bubbles() {
           ...particlesConfig,
           particles: {
             ...particlesConfig.particles,
-            number: { value: isNavigationVisible ? 28 : 21 }, // Fewer particles for one layer
+            number: { value: 24 }, // Fewer particles for one layer
             density: { enable: true, value_area: 1400 },
             color: { value: bubbleColors },
           },
@@ -55,7 +55,7 @@ export function Bubbles() {
           ...particlesConfig,
           particles: {
             ...particlesConfig.particles,
-            number: { value: 33 }, // Higher density for another layer
+            number: { value: 16 }, // Fewer particles for one layer
             density: { enable: true, value_area: 1400 },
             color: { value: bubbleColors },
           },

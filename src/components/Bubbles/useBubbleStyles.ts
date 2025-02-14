@@ -1,8 +1,12 @@
 import { createStyles } from '@mantine/core';
 import { colors, addOpacity, mq } from '@mo';
 
+interface BubbleStylesProps {
+  deviceType: 'mobile' | 'tablet' | 'desktop';
+}
 
-export const useBubbleStyles = createStyles((theme) => ({
+
+export const useBubbleStyles = createStyles((theme, { deviceType }: BubbleStylesProps) => ({
   bubblesContainer: {
     pointerEvents: 'none',
     width: 'clamp(300px, calc(55%), 800px)',
@@ -17,6 +21,9 @@ export const useBubbleStyles = createStyles((theme) => ({
     alignItems: 'center',
     mixBlendMode: theme.colorScheme === 'dark' ? 'lighten' : 'normal',
     zIndex: 1,
+    [mq.customMax(991)]: {
+      zIndex: deviceType !== "desktop" ? 2 : 0,
+    },
     [mq.customMax(768)]: {
       width: '100vw',
       height: '100vh',
@@ -53,6 +60,7 @@ export const useBubbleStyles = createStyles((theme) => ({
     position: 'absolute',
     top: 0,
     right: 0,
+    zIndex: 0,
     
   },
 
