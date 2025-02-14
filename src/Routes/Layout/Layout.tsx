@@ -54,7 +54,7 @@ export function Layout() {
               animate={{ y: 0, opacity: 1, filter: 'blur(0px)' }}
               transition={{ duration: 0.5, ease: 'easeOut', delay: 0.3 }}
             >
-              Copyright © 2025 Wreck Shop Media LLC. All rights reserved.
+              Copyright © 2025 Wreck Shop Media LLC.
             </Text>
           )}
         </Box>

@@ -245,7 +245,7 @@ export const useGlobalStyles = createStyles((theme) => ({
 
 
   copyright: {
-    fontSize: '0.75rem',
+    fontSize: 'clamp(12px, 1vw, 0.75rem)',
     textAlign: 'center',
     position: 'fixed',
     letterSpacing: '0.085em',
