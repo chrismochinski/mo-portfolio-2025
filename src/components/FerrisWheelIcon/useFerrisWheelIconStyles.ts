@@ -33,10 +33,10 @@ export const useFerrisWheelIconStyles = createStyles((theme, { introIconHovered 
       fill: theme.colorScheme === 'dark' ? colors.white : colors.black,
     },
 
-    [mq.customMax(768)]: {
-      width: '150px',
-      height: 'auto',
-    },
+    // [mq.customMax(768)]: {
+    //   width: '150px',
+    //   height: 'auto',
+    // },
   },
   // BLUR OUT
   blurOut: {

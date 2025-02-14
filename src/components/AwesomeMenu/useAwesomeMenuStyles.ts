@@ -62,16 +62,15 @@ export const useAwesomeMenuStyles = createStyles(
 
       [mq.customMax(991)]: {
         overflow: 'hidden !important', // idea
-      },
-      [mq.customMax(870)]: {
         maxHeight: 'clamp(500px, calc(40vh + 70vw), 1000px)',
         maxWidth: '100vw',
-        minWidth: '600px',
+        // minWidth: '600px', //deletelater 
       },
+      
       [mq.customMax(600)]: {
         minWidth: '400px',
         width: '94vw',
-        maxWidth: '600px',
+        // maxWidth: '600px', //deletelater
       },
     },
 

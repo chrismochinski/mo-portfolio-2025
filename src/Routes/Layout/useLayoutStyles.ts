@@ -71,9 +71,11 @@ export const useLayoutStyles = createStyles(() => ({
     justifyContent: 'center',
     alignItems: 'center',
     height: '100%',
-    [mq.customMax(870)]: {
-      marginLeft: 'calc(calc(5vw*3) + calc(6vh*3))',
-      marginRight: '6vw',
+    // IMPORTANT - LAYOUT MOBILE
+    [mq.customMax(991)]: {
+      // marginLeft: 'calc(calc(5vw*3) + calc(6vh*3))',
+      // marginRight: '6vw',
+      marginInline: 'unset',
     },
     [mq.customMax(600)]: {
         // clean up 

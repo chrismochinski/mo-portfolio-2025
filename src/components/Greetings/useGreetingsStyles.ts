@@ -20,7 +20,7 @@ export const useGreetingsStyles = createStyles(
       transform: introIconHovered ? 'translate(0, 26%) scale(1)' : 'translate(0, 0) scale(1)',
       transition: introIconHovered ? 'transform 320ms ease-out' : 'transform 550ms ease-in-out',
       [mq.customMax(768)]: { 
-        transform: 'scale(0.85)',
+        // transform: 'scale(0.85)', // revisit
       },
     },
 
