@@ -19,9 +19,10 @@ export function Intro() {
     introIconHovered,
     setIsNavigationVisible,
     setHasInteractedWithIntroIcon,
+    deviceType,
   } = useSiteContext();
   const { classes: globalClasses } = useGlobalStyles();
-  const { classes, cx } = useIntroStyles({ isNavigationVisible });
+  const { classes, cx } = useIntroStyles({ isNavigationVisible, deviceType });
   const navigate = useNavigate();
 
   const handleClick = () => {

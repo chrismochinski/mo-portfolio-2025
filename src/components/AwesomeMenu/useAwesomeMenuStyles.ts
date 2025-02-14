@@ -402,15 +402,16 @@ export const useAwesomeMenuStyles = createStyles(
 
 
     blurOverlayBox: {
-      [mq.customMax(991)]: {
-        position: 'absolute',
-        inset: 0,
-        zIndex: 0,
-        backdropFilter: isNavigationVisible ? 'blur(0px)' : 'blur(7px)',
-        WebkitBackdropFilter: isNavigationVisible ? 'blur(0px)' : 'blur(7px)',
-        pointerEvents: 'none',
-        transition: 'backdrop-filter 700ms ease-out',
-      },
+      // deletelater ?????
+      // [mq.customMax(991)]: {
+      //   position: 'absolute',
+      //   inset: 0,
+      //   zIndex: 0,
+      //   backdropFilter: isNavigationVisible ? 'blur(0px)' : 'blur(7px)',
+      //   WebkitBackdropFilter: isNavigationVisible ? 'blur(0px)' : 'blur(7px)',
+      //   pointerEvents: 'none',
+      //   transition: 'backdrop-filter 700ms ease-out',
+      // },
     },
 
     // ------- ANIMATED PARTS ------- //
