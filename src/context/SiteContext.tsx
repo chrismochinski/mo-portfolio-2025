@@ -17,6 +17,7 @@ export interface SiteContextType {
   setLinkName: React.Dispatch<React.SetStateAction<string | null>>;
   isNavigating: boolean;
   setIsNavigating: React.Dispatch<React.SetStateAction<boolean>>;
+  deviceType: 'mobile' | 'tablet' | 'desktop';
 }
 
 export const SiteContext = createContext<SiteContextType | undefined>(undefined);

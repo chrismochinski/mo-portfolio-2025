@@ -9,6 +9,41 @@ export function SiteProvider({ children }: { children: React.ReactNode }) {
   const [menuHovered, setMenuHovered] = useState(false);
   const [linkName, setLinkName] = useState<string | null>(null);
   const [isNavigating, setIsNavigating] = useState(false);
+  const [deviceType, setDeviceType] = useState<'mobile' | 'tablet' | 'desktop'>('desktop');
+
+  // detect device type carefully 
+  useEffect(() => {
+    const detectDeviceType = () => {
+      const userAgent = navigator.userAgent.toLowerCase();
+      const isTouch = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+      const screenWidth = window.innerWidth;
+  
+      if (/iphone|ipod|android.*mobile|blackberry|windows phone/.test(userAgent)) {
+        setDeviceType('mobile');
+      } else if (
+        /ipad|android(?!.*mobile)/.test(userAgent) || 
+        (isTouch && screenWidth > 600 && screenWidth <= 1024) // Fallback for Chrome Emulator inaccuracies
+      ) {
+        setDeviceType('tablet');
+      } else {
+        setDeviceType('desktop');
+      }
+    };
+  
+    detectDeviceType();
+    window.addEventListener('resize', detectDeviceType);
+  
+    return () => {
+      window.removeEventListener('resize', detectDeviceType);
+    };
+  }, []);
+  
+
+  useEffect(() => {
+    console.log(`Detected device type: ${deviceType}`);
+  }, [deviceType]);
+
+
 
   // Timer logic: when navigation is visible, mark the menu as fully loaded after 1000ms.
   useEffect(() => {
@@ -54,6 +89,7 @@ export function SiteProvider({ children }: { children: React.ReactNode }) {
     setLinkName,
     isNavigating,
     setIsNavigating,
+    deviceType,
   };
 
   return <SiteContext.Provider value={contextValue}>{children}</SiteContext.Provider>;
