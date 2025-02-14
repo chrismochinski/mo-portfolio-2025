@@ -26,7 +26,9 @@ export function Layout() {
           bottom: 0,
           right: 0,
           padding: '0.5em',
-          fontSize: '14px',
+          fontSize: '15px',
+          zIndex: 10,
+          opacity: 0.6,
         }}
         fw={400}
         m="0"

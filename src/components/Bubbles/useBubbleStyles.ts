@@ -16,9 +16,11 @@ export const useBubbleStyles = createStyles((theme) => ({
     justifyContent: 'flex-start',
     alignItems: 'center',
     mixBlendMode: theme.colorScheme === 'dark' ? 'lighten' : 'normal',
+    zIndex: 1,
     [mq.customMax(768)]: {
       width: '100vw',
       height: '100vh',
+
     },
   },
   bubblesFront: {

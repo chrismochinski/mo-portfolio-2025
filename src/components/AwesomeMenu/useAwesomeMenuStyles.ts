@@ -44,7 +44,7 @@ export const useAwesomeMenuStyles = createStyles(
 
     awesomeMenuSvgFull: {
       position: 'absolute',
-      overflow: 'visible !important', // idea
+      overflow: deviceType === 'desktop' ? 'visible !important' : 'hidden',
       top: '50%',
       transform: 'translateY(-50%) translateX(41%)',
       right: '100%',
@@ -400,6 +400,19 @@ export const useAwesomeMenuStyles = createStyles(
       fill: theme.colorScheme === 'dark' ? colors.white : colors.black,
     },
 
+
+    blurOverlayBox: {
+      [mq.customMax(991)]: {
+        position: 'absolute',
+        inset: 0,
+        zIndex: 0,
+        backdropFilter: isNavigationVisible ? 'blur(0px)' : 'blur(7px)',
+        WebkitBackdropFilter: isNavigationVisible ? 'blur(0px)' : 'blur(7px)',
+        pointerEvents: 'none',
+        transition: 'backdrop-filter 700ms ease-out',
+      },
+    },
+
     // ------- ANIMATED PARTS ------- //
     ferrisWheelAnimationPart: {
       opacity: isNavigationVisible ? 1 : 0,
@@ -407,6 +420,9 @@ export const useAwesomeMenuStyles = createStyles(
       transition: 'opacity 400ms ease-out, filter 700ms ease-out',
       transitionDelay: isNavigationVisible ? '500ms' : '0ms',
     },
+
+
+
 
     /* 
     Testing area for hovers
@@ -426,6 +442,10 @@ export const useAwesomeMenuStyles = createStyles(
     projectsZone: { fill: 'rgba(255, 165, 0, 0.4)' }, // Light Orange (Projects)
     contactZone: { fill: 'rgba(255, 0, 255, 0.4)' }, // Light Purple (Contact)
 
+
+
     // TOOLTIPS LABELS EFFECTS EXPORTED
+
+
   })
 );
