@@ -63,7 +63,7 @@ export const useAwesomeMenuStyles = createStyles(
 
       [mq.customMax(991)]: {
         overflow: 'hidden !important', // idea
-        maxHeight: 'clamp(400px, calc(40vh + 70vw), 1000px)',
+        // maxHeight: 'clamp(400px, calc(40vh + 70vw), 1000px)',
         // maxWidth: '100vw',
       },
 
@@ -85,6 +85,7 @@ export const useAwesomeMenuStyles = createStyles(
       transformBox: 'fill-box',
       filter: isNavigationVisible ? 'none' : 'blur(60px) grayscale(40%)',
       WebkitBackdropFilter: isNavigationVisible ? 'none' : 'blur(60px) grayscale(40%)',
+      BackdropFilter: isNavigationVisible ? 'none' : 'blur(60px) grayscale(40%)',
       opacity: isNavigationVisible ? 1 : 0.7,
       transition: 'filter 1400ms ease-out, opacity 1400ms ease-out, webkitBackdropFilter 1400ms ease-out',
       '& > g': {
