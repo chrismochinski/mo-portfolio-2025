@@ -84,17 +84,22 @@ export const useAwesomeMenuStyles = createStyles(
       transformOrigin: 'center',
       transformBox: 'fill-box',
       filter: isNavigationVisible ? 'none' : 'blur(60px) grayscale(40%)',
-      WebkitBackdropFilter: isNavigationVisible ? 'none' : 'blur(60px) grayscale(40%)',
-      BackdropFilter: isNavigationVisible ? 'none' : 'blur(60px) grayscale(40%)',
       opacity: isNavigationVisible ? 1 : 0.7,
       transition: 'filter 1400ms ease-out, opacity 1400ms ease-out, webkitBackdropFilter 1400ms ease-out',
       '& > g': {
         transformOrigin: 'center',
         transformBox: 'fill-box',
         transform: isNavigationVisible
-          ? 'scale(0.95) translate(8%,0)'
-          : 'scale(1.3) translate(-10%,0)',
+        ? 'scale(0.95) translate(8%,0)'
+        : 'scale(1.3) translate(-10%,0)',
         transition: 'transform 1200ms ease-out',
+      },
+      [mq.customMax(991)]: {
+        // if device type is NOT desktop, we need a mobile friendly blur-in animations
+        // WebkitBackdropFilter: isNavigationVisible ? 'none' : 'blur(60px) grayscale(40%)',
+        // filter: isNavigationVisible ? 'none' : 'blur(60px) grayscale(40%)',
+        opacity: isNavigationVisible ? 0.9 : 0.55,
+
       },
     },
 
@@ -103,7 +108,6 @@ export const useAwesomeMenuStyles = createStyles(
     // ----------- FERRIS WHEEL GROUP ----------- //
     // ----------- FERRIS WHEEL GROUP ----------- //
     ferrisWheelMenu: {
-      
       transformOrigin: 'center',
       transformBox: 'fill-box',
       transform: 'scale(1.125)',
@@ -131,7 +135,8 @@ export const useAwesomeMenuStyles = createStyles(
         },
       },
       [mq.customMax(991)]: {
-        display: deviceType !== 'desktop' ? 'none' : 'block',
+        // if deviceType is not desktop, hide ferris wheel with Y translate ALL the way up off screen
+        transform: deviceType !== 'desktop' ? 'translateY(-200%) ' : 'none',
       },
     },
 
