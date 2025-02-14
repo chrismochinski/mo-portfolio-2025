@@ -2,11 +2,10 @@ import { useEffect } from 'react';
 import { Box, Text } from '@mantine/core';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Outlet } from 'react-router-dom';
-
 import { useLayoutStyles, Bubbles, AwesomeMenu, useSiteContext, useGlobalStyles } from '@mo';
 
 export function Layout() {
-  const { setIsNavigationVisible, isMenuFullyLoaded } = useSiteContext();
+  const { setIsNavigationVisible, isMenuFullyLoaded, deviceType } = useSiteContext();
   const { classes, cx } = useLayoutStyles();
   const { classes: globalClasses } = useGlobalStyles();
 
@@ -17,8 +16,21 @@ export function Layout() {
   }, [setIsNavigationVisible]);
 
   return (
-    <Box className={classes.layoutWrapper}>
-      <Box className={classes.layoutInnerWrapper}>
+    <Box className={classes.layoutWrapper} id="layout-outermost-wrapper">
+        <Text component="h6"
+          style={{ 
+            position: 'absolute',
+            bottom: 0,
+            right: 0,
+            padding: '0.5em',
+            fontSize: '14px',
+          }}
+          fw={400}
+          
+          m="0"
+          color="gray"
+        >{deviceType}</Text>
+      <Box className={classes.layoutInnerWrapper} id="layout-innermost-wrapper">
         <Bubbles />
         <AwesomeMenu />
         <Box className={classes.layoutContentWrapper} id="layout-content-wrapper">
