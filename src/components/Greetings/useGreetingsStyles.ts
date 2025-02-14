@@ -1,5 +1,5 @@
 import { createStyles } from '@mantine/core';
-import { colors } from '@mo';
+import { colors, mq } from '@mo';
 import * as animations from '@mo';
 
 interface GreetingsStylesProps {
@@ -19,6 +19,9 @@ export const useGreetingsStyles = createStyles(
       willChange: 'transform',
       transform: introIconHovered ? 'translate(0, 26%) scale(1)' : 'translate(0, 0) scale(1)',
       transition: introIconHovered ? 'transform 320ms ease-out' : 'transform 550ms ease-in-out',
+      [mq.customMax(768)]: { 
+        transform: 'scale(0.85)',
+      },
     },
 
     greetingsLetter: {
@@ -79,14 +82,7 @@ export const useGreetingsStyles = createStyles(
         path: {},
       },
       path: {
-        fill:
-          theme.colorScheme === 'dark'
-            ? introIconHovered
-              ? colors.white
-              : colors.lightGray
-            : introIconHovered
-              ? colors.black
-              : colors.darkGray,
+        fill: theme.colorScheme === 'dark' ? colors.white : colors.black,
       },
     },
 
@@ -121,14 +117,7 @@ export const useGreetingsStyles = createStyles(
           : 'translate(0, 0) rotate(0deg)',
       },
       path: {
-        fill:
-          theme.colorScheme === 'dark'
-            ? introIconHovered
-              ? colors.white
-              : colors.lightGray
-            : introIconHovered
-              ? colors.black
-              : colors.darkGray,
+        fill: theme.colorScheme === 'dark' ? colors.white : colors.black,
       },
     },
   })

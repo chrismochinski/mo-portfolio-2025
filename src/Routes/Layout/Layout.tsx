@@ -11,7 +11,7 @@ export function Layout() {
   const { classes: globalClasses } = useGlobalStyles();
 
   useEffect(() => {
-    if (location.pathname === '/home') {
+  if (location.pathname === '/home') {
       setIsNavigationVisible(true);
     }
   }, [setIsNavigationVisible]);

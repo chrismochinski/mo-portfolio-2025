@@ -24,10 +24,10 @@ export const generateGlow = (
 
   const glowColor = getThemedColor(theme, lightColor, darkColor); // Get correct color
   return `
-    drop-shadow(40px 40px 40px ${glowColor}35) 
-    drop-shadow(-40px -40px 40px ${glowColor}35) 
-    drop-shadow(40px -40px 40px ${glowColor}35) 
-    drop-shadow(-40px 40px 40px ${glowColor}35)
+    drop-shadow(40px 40px 40px ${glowColor}50) 
+    drop-shadow(-40px -40px 40px ${glowColor}50) 
+    drop-shadow(40px -40px 40px ${glowColor}50) 
+    drop-shadow(-40px 40px 40px ${glowColor}50)
   `;
 };
 
@@ -43,6 +43,7 @@ export const useAwesomeMenuStyles = createStyles(
 
     awesomeMenuSvgFull: {
       position: 'absolute',
+      overflow: 'visible !important', // idea
       top: '50%',
       transform: 'translateY(-50%) translateX(41%)',
       right: '100%',
@@ -282,7 +283,7 @@ export const useAwesomeMenuStyles = createStyles(
     carMask: {
       transformOrigin: 'center',
       transformBox: 'fill-box',
-      mixBlendMode: 'soft-light', // PLEASANT!
+      mixBlendMode: 'overlay',
       path: {
         '&.bucketPath': {
           fill: theme.colorScheme === 'dark' ? colors.black : colors.white,
@@ -307,30 +308,33 @@ export const useAwesomeMenuStyles = createStyles(
 
       '&.car-mask-home': {
         '& #black-1-mask': {
+          opacity: linkName === 'Home' ? 0.6 : 1,
           transform: linkName === 'Home' ? 'scale(1.1)' : 'scale(1)',
-          transition: 'transform 200ms ease-out, filter 200ms ease-out',
-          // glow
+          transition: 'transform 200ms ease-out, filter 200ms ease-out, opacity 200ms ease-out',
           filter: generateGlow(theme, linkName, 'Home', colors.darkBlue, colors.lightBlue),
         },
       },
       '&.car-mask-about': {
         '& #black-2-mask': {
+          opacity: linkName === 'About' ? 0.6 : 1,
           transform: linkName === 'About' ? 'scale(1.1)' : 'scale(1)',
-          transition: 'transform 200ms ease-out, filter 200ms ease-out',
+          transition: 'transform 200ms ease-out, filter 200ms ease-out, opacity 200ms ease-out',
           filter: generateGlow(theme, linkName, 'About', colors.gold, colors.yellow),
         },
       },
       '&.car-mask-projects': {
         '& #black-3-mask': {
+          opacity: linkName === 'Projects' ? 0.6 : 1,
           transform: linkName === 'Projects' ? 'scale(1.1)' : 'scale(1)',
-          transition: 'transform 200ms ease-out, filter 200ms ease-out',
+          transition: 'transform 200ms ease-out, filter 200ms ease-out, opacity 200ms ease-out',
           filter: generateGlow(theme, linkName, 'Projects', colors.red, colors.orange),
         },
       },
       '&.car-mask-contact': {
         '& #black-4-mask': {
+          opacity: linkName === 'Contact' ? 0.6 : 1,
           transform: linkName === 'Contact' ? 'scale(1.1)' : 'scale(1)',
-          transition: 'transform 200ms ease-out, filter 200ms ease-out',
+          transition: 'transform 200ms ease-out, filter 200ms ease-out, opacity 200ms ease-out',
           filter: generateGlow(theme, linkName, 'Contact', colors.emerald, colors.green),
         },
       },

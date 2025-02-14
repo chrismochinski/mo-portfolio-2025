@@ -1,5 +1,5 @@
 import { createStyles } from '@mantine/core';
-import { colors } from '@mo';
+import { colors, mq } from '@mo';
 import * as animations from '@mo';
 
 interface FerrisWheelIconStylesProps {
@@ -33,6 +33,10 @@ export const useFerrisWheelIconStyles = createStyles((theme, { introIconHovered 
       fill: theme.colorScheme === 'dark' ? colors.white : colors.black,
     },
 
+    [mq.customMax(768)]: {
+      width: '150px',
+      height: 'auto',
+    },
   },
   // BLUR OUT
   blurOut: {

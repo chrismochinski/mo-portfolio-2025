@@ -1,5 +1,5 @@
 import { createStyles } from '@mantine/core';
-import { colors } from '@mo';
+import { colors, mq } from '@mo';
 
 const addOpacity = (hex: string, opacity: number) => {
   // Convert hex to RGBA and apply opacity
@@ -17,17 +17,17 @@ export const useIntroStyles = createStyles((theme, { isNavigationVisible }: Intr
   // blur box to help text visibility
   introButtonWrapper: {
     position: 'absolute',
-    width: '280px',
-    height: '400px',
-    inset: 'auto auto 0 auto',
+    width: '200px',
+    height: '300px',
+    inset: 'auto auto auto auto',
     margin: 'auto',
     borderRadius: '50%',
     zIndex: 1,
     backdropFilter: 'blur(2px)',
     WebkitBackdropFilter: 'blur(2px)',
     background: `radial-gradient(circle, 
-    ${addOpacity(theme.colorScheme === 'dark' ? colors.black : colors.white, 0.6)} 5%, 
-    ${addOpacity(theme.colorScheme === 'dark' ? colors.black : colors.white, 0.1)} 50%, 
+    ${addOpacity(theme.colorScheme === 'dark' ? colors.black : colors.white, 0.8)} 30%, 
+    ${addOpacity(theme.colorScheme === 'dark' ? colors.black : colors.white, 0.01)} 60%, 
     transparent 100%)`,
     // GRADUAL BLUR DECREASE toward edges
     maskImage:
@@ -49,5 +49,8 @@ export const useIntroStyles = createStyles((theme, { isNavigationVisible }: Intr
     opacity: isNavigationVisible ? 0 : 1,
     transform: isNavigationVisible ? 'translateY(0)' : 'translateY(-30px)',
     transition: 'transform 1400ms ease-out, opacity 900ms ease-out',
+    [mq.customMax(768)]: {
+      
+    },
   },
 }));

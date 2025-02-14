@@ -63,10 +63,9 @@ export const useLayoutStyles = createStyles(() => ({
   },
 
   layoutContentWrapper: {
-    position: 'relative', // idea for copyright centering
+    position: 'relative', 
     marginLeft: 'max(calc(310px + 8vw), calc(100vw - 1280px)/2)',
     marginRight: 'max(10vw, (100vw - 1000px)/2)',
-
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center',

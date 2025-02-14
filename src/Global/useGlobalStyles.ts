@@ -87,11 +87,11 @@ export const globalTheme: MantineThemeOverride = {
   },
 
   breakpoints: {
-    xs: '575px',
-    sm: '768px',
-    md: '991px',
-    lg: '1200px',
-    xl: '1400px',
+    xs: '575',
+    sm: '768',
+    md: '991',
+    lg: '1200',
+    xl: '1400',
   },
 
   spacing: {
