@@ -60,6 +60,9 @@ export const useAwesomeMenuStyles = createStyles(
         transformBox: 'fill-box',
       },
 
+      [mq.customMax(991)]: {
+        overflow: 'hidden !important', // idea
+      },
       [mq.customMax(870)]: {
         maxHeight: 'clamp(500px, calc(40vh + 70vw), 1000px)',
         maxWidth: '100vw',
