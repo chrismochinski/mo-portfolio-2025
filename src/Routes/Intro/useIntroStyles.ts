@@ -44,9 +44,10 @@ export const useIntroStyles = createStyles(
         borderRadius: deviceType !== 'desktop' ? '0' : '50%',
         maskImage: 'none',
         WebkitMaskImage: 'none',
-        backdropFilter: 'blur(4px)',
-        WebkitBackdropFilter: 'blur(4px)',
-        background: `${colors.black}30`,
+        backdropFilter: isNavigationVisible ? 'blur(0)' : 'blur(5px)',
+        WebkitBackdropFilter: isNavigationVisible ? 'blur(0)' : 'blur(5px)',
+        background: isNavigationVisible ? 'transparent' : `${colors.black}20`,
+        transition: 'backdrop-filter 900ms ease-out, background 900ms ease-out',
       },
     },
     // actual button with icon + text
