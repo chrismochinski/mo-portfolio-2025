@@ -10,26 +10,30 @@ export function Layout() {
   const { classes: globalClasses } = useGlobalStyles();
 
   useEffect(() => {
-  if (location.pathname === '/home') {
+    if (location.pathname === '/home') {
       setIsNavigationVisible(true);
     }
   }, [setIsNavigationVisible]);
 
   return (
     <Box className={classes.layoutWrapper} id="layout-outermost-wrapper">
-        <Text component="h6"
-          style={{ 
-            position: 'absolute',
-            bottom: 0,
-            right: 0,
-            padding: '0.5em',
-            fontSize: '14px',
-          }}
-          fw={400}
-          
-          m="0"
-          color="gray"
-        >{deviceType}</Text>
+      {/* DELETELATER  */}
+      <Text
+        component="h6"
+        style={{
+          position: 'absolute',
+          bottom: 0,
+          right: 0,
+          padding: '0.5em',
+          fontSize: '14px',
+        }}
+        fw={400}
+        m="0"
+        color="gray"
+      >
+        {deviceType}
+      </Text>
+      {/* DELETELATER  */}
       <Box className={classes.layoutInnerWrapper} id="layout-innermost-wrapper">
         <Bubbles />
         <AwesomeMenu />

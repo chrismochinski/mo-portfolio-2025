@@ -61,16 +61,15 @@ export const useAwesomeMenuStyles = createStyles(
       },
 
       [mq.customMax(991)]: {
-        overflow: 'hidden !important', // idea
-        maxHeight: 'clamp(500px, calc(40vh + 70vw), 1000px)',
-        maxWidth: '100vw',
-        // minWidth: '600px', //deletelater 
+        // overflow: 'hidden !important', // idea
+        maxHeight: 'clamp(400px, calc(40vh + 70vw), 1000px)',
+        // maxWidth: '100vw',
+        
       },
       
       [mq.customMax(575)]: {
-        minWidth: '400px',
-        width: '94vw',
-        // maxWidth: '600px', //deletelater
+        // minWidth: '400px',
+        // width: '94vw',
       },
     },
 
