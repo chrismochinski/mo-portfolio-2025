@@ -38,9 +38,9 @@ const softCarBezier = 'cubic-bezier(0.44, 0.38, 0.47, 1.87)';
 
 export const useAwesomeMenuStyles = createStyles(
   (theme, { isNavigationVisible, rotation, linkName, deviceType }: AwesomeMenuStylesProps) => ({
-    menuWrapper: {
-      containerType: 'inline-size',
-    },
+    // menuWrapper: {
+    //   containerType: 'inline-size',
+    // },
 
     awesomeMenuSvgFull: {
       position: 'absolute',
@@ -93,9 +93,9 @@ export const useAwesomeMenuStyles = createStyles(
       [mq.customMax(991)]: {
         filter: 'none',
         opacity: isNavigationVisible ? 0.9 : 0.4,
-        '& > g': {
-          transform: isNavigationVisible ? 'scale(1)' : 'scale(1.2)',
-        },
+        // '& > g': {
+        //   transform: isNavigationVisible ? 'scale(1)' : 'scale(1.2)',
+        // },
       },
     },
 

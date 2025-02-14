@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Box } from '@mantine/core';
+// import { Box } from '@mantine/core';
 import { useNavigate } from 'react-router-dom';
 import { colors, useSiteContext, useAwesomeMenuStyles } from '@mo';
 
@@ -106,7 +106,7 @@ export function AwesomeMenu() {
   };
 
   return (
-    <Box className={classes.menuWrapper}>
+    // <Box className={classes.menuWrapper} id="menu-wrapper">
       <svg
         id="ferris-wheel-menu"
         className={classes.awesomeMenuSvgFull}
@@ -2628,11 +2628,8 @@ export function AwesomeMenu() {
         </defs>
       </svg>
 
-      {/* STATIC TOOLTIPS, ANIMATED HORIZONTAL ON 4X HOVERS */}
-      {/* STATIC TOOLTIPS, ANIMATED HORIZONTAL ON 4X HOVERS */}
-      {/* STATIC TOOLTIPS, ANIMATED HORIZONTAL ON 4X HOVERS */}
-
-      {/* <MenuLabelEffects /> */}
-    </Box>
+     
+      //  MENU EFFECTS USED TO GO HERE 
+    // </Box>
   );
 }
