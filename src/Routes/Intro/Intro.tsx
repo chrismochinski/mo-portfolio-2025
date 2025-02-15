@@ -16,7 +16,6 @@ export function Intro() {
     isNavigationVisible,
     toggleNavigation,
     setIntroIconHovered,
-    introIconHovered,
     setIsNavigationVisible,
     setHasInteractedWithIntroIcon,
     deviceType,
@@ -54,10 +53,7 @@ export function Intro() {
         my={0}
         className={cx(globalClasses.z20, classes.ferrisWheelIconButton)}
       >
-        <FerrisWheelIcon
-          isNavigationVisible={isNavigationVisible}
-          introIconHovered={introIconHovered}
-        />
+        <FerrisWheelIcon />
         <Greetings />
       </Anchor>
 
