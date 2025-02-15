@@ -26,6 +26,9 @@ export const useMobileMenuStyles = createStyles(
         '&[id*="mask"]': {
           stroke: theme.colorScheme === 'dark' ? colors.black : colors.white,
         },
+        '&#center-wheel': {
+            fill: theme.colorScheme === 'dark' ? colors.white : colors.black,
+        },
       },
       [mq.mobile]: {
         transform: isNavigationVisible ? 'translateX(0)' : 'translateX(100%)',
@@ -40,24 +43,19 @@ export const useMobileMenuStyles = createStyles(
         transform: 'translateX(100%)',
         pointerEvents: 'none',
         transition: 'transform 700ms ease-in-out, opacity 600ms ease-in-out',
-
       },
     },
     mobileMenuBars: {
-      // animate ferris wheel spin
       transformOrigin: '50% 50%',
       transformBox: 'fill-box',
-      // animation: `${animations.slowSpin} 10s linear infinite`,
     },
 
     mobileMenuCars: {
       transformOrigin: '50% 50%',
       transformBox: 'fill-box',
-      // animation: `${animations.slowSpin} 10s linear infinite`,
       '&{id*="car"}': {
         transformOrigin: '50% 50%',
         transformBox: 'fill-box',
-        // animation: `${animations.slowSpinReverse} 20s linear infinite`,
       },
     },
 
