@@ -61,7 +61,18 @@ export const useBubbleStyles = createStyles((theme, { deviceType }: BubbleStyles
     top: 0,
     right: 0,
     zIndex: 0,
-    
+  },
+
+  bubblesMobile: {
+    width: '100%',
+    height: '100%',
+    position: 'absolute',
+    top: 0,
+    right: 0,
+    zIndex: 5,
+    [mq.customMin(768)]: {
+      display: 'none',
+    },
   },
 
   bubblesRightFade: {

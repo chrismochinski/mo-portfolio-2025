@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { Box, Text } from '@mantine/core';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Outlet } from 'react-router-dom';
-import { useLayoutStyles, Bubbles, AwesomeMenu, useSiteContext, useGlobalStyles } from '@mo';
+import { useLayoutStyles, Bubbles, AwesomeMenu, MobileMenu, useSiteContext, useGlobalStyles } from '@mo';
 
 export function Layout() {
   const { setIsNavigationVisible, isMenuFullyLoaded, deviceType } =
@@ -26,7 +26,7 @@ export function Layout() {
           bottom: 0,
           right: 0,
           padding: '0.5em',
-          fontSize: '15px',
+          fontSize: '12px',
           zIndex: 10,
           opacity: 0.6,
         }}
@@ -39,8 +39,8 @@ export function Layout() {
       {/* DELETELATER  */}
       <Box className={classes.layoutInnerWrapper} id="layout-innermost-wrapper">
         <Bubbles />
-       
         <AwesomeMenu />
+        <MobileMenu />
         <Box className={classes.layoutContentWrapper} id="layout-content-wrapper">
           <AnimatePresence mode="wait">
             <Outlet key={location.pathname} />

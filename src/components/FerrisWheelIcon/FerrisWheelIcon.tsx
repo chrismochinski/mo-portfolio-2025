@@ -1,14 +1,9 @@
-import { useFerrisWheelIconStyles } from '.';
-import { useGlobalStyles } from '../../Global';
-import { colors } from '../../Global';
+import { useGlobalStyles, colors, useFerrisWheelIconStyles, useSiteContext } from '@mo';
 
-export interface FerrisWheelIconProps {
-  isNavigationVisible: boolean;
-  introIconHovered: boolean; // Hover, pause spin
-}
 
-export function FerrisWheelIcon(props: FerrisWheelIconProps) {
-  const { isNavigationVisible, introIconHovered } = props;
+
+export function FerrisWheelIcon() {
+  const { isNavigationVisible, introIconHovered } = useSiteContext();
   const { classes, cx } = useFerrisWheelIconStyles({ introIconHovered });
   const { classes: globalClasses } = useGlobalStyles();
 
@@ -194,7 +189,14 @@ export function FerrisWheelIcon(props: FerrisWheelIconProps) {
                 d="M766 1879L719 1879L719 2521L766 2521L766 1879Z"
                 fill={colors.black}
               />
-              <rect id="pivot-point_2" x="632" y="1808" width="12" height="12" fill={colors.black} />
+              <rect
+                id="pivot-point_2"
+                x="632"
+                y="1808"
+                width="12"
+                height="12"
+                fill={colors.black}
+              />
             </g>
           </g>
           <g
@@ -274,7 +276,14 @@ export function FerrisWheelIcon(props: FerrisWheelIconProps) {
                 d="M752 3358L705 3358L705 4000L752 4000L752 3358Z"
                 fill={colors.black}
               />
-              <rect id="pivot-point_3" x="618" y="3287" width="12" height="12" fill={colors.black} />
+              <rect
+                id="pivot-point_3"
+                x="618"
+                y="3287"
+                width="12"
+                height="12"
+                fill={colors.black}
+              />
             </g>
           </g>
           <g
@@ -354,7 +363,14 @@ export function FerrisWheelIcon(props: FerrisWheelIconProps) {
                 d="M1655 4667L1608 4667L1608 5309L1655 5309L1655 4667Z"
                 fill={colors.black}
               />
-              <rect id="pivot-point_4" x="1521" y="4596" width="12" height="12" fill={colors.black} />
+              <rect
+                id="pivot-point_4"
+                x="1521"
+                y="4596"
+                width="12"
+                height="12"
+                fill={colors.black}
+              />
             </g>
           </g>
           <g
@@ -434,7 +450,14 @@ export function FerrisWheelIcon(props: FerrisWheelIconProps) {
                 d="M3105 5152L3058 5152L3058 5794L3105 5794L3105 5152Z"
                 fill={colors.black}
               />
-              <rect id="pivot-point_5" x="2971" y="5081" width="12" height="12" fill={colors.black} />
+              <rect
+                id="pivot-point_5"
+                x="2971"
+                y="5081"
+                width="12"
+                height="12"
+                fill={colors.black}
+              />
             </g>
           </g>
           <g
@@ -514,7 +537,14 @@ export function FerrisWheelIcon(props: FerrisWheelIconProps) {
                 d="M4505 4704L4458 4704L4458 5346L4505 5346L4505 4704Z"
                 fill={colors.black}
               />
-              <rect id="pivot-point_6" x="4371" y="4633" width="12" height="12" fill={colors.black} />
+              <rect
+                id="pivot-point_6"
+                x="4371"
+                y="4633"
+                width="12"
+                height="12"
+                fill={colors.black}
+              />
             </g>
           </g>
           <g
@@ -594,7 +624,14 @@ export function FerrisWheelIcon(props: FerrisWheelIconProps) {
                 d="M5463 3437L5416 3437L5416 4079L5463 4079L5463 3437Z"
                 fill={colors.black}
               />
-              <rect id="pivot-point_7" x="5329" y="3366" width="12" height="12" fill={colors.black} />
+              <rect
+                id="pivot-point_7"
+                x="5329"
+                y="3366"
+                width="12"
+                height="12"
+                fill={colors.black}
+              />
             </g>
           </g>
           <g
@@ -674,7 +711,14 @@ export function FerrisWheelIcon(props: FerrisWheelIconProps) {
                 d="M5487 1892L5440 1892L5440 2534L5487 2534L5487 1892Z"
                 fill={colors.black}
               />
-              <rect id="pivot-point_8" x="5353" y="1821" width="12" height="12" fill={colors.black} />
+              <rect
+                id="pivot-point_8"
+                x="5353"
+                y="1821"
+                width="12"
+                height="12"
+                fill={colors.black}
+              />
             </g>
           </g>
           <g
@@ -754,7 +798,14 @@ export function FerrisWheelIcon(props: FerrisWheelIconProps) {
                 d="M4546 632L4499 632L4499 1274L4546 1274L4546 632Z"
                 fill={colors.black}
               />
-              <rect id="pivot-point_9" x="4412" y="561" width="12" height="12" fill={colors.black} />
+              <rect
+                id="pivot-point_9"
+                x="4412"
+                y="561"
+                width="12"
+                height="12"
+                fill={colors.black}
+              />
             </g>
           </g>
           <g
@@ -834,7 +885,14 @@ export function FerrisWheelIcon(props: FerrisWheelIconProps) {
                 d="M3105 181L3058 181L3058 823L3105 823L3105 181Z"
                 fill={colors.black}
               />
-              <rect id="pivot-point_10" x="2971" y="110" width="12" height="12" fill={colors.black} />
+              <rect
+                id="pivot-point_10"
+                x="2971"
+                y="110"
+                width="12"
+                height="12"
+                fill={colors.black}
+              />
             </g>
           </g>
         </g>

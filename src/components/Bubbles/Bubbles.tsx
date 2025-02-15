@@ -9,7 +9,6 @@ declare global {
   }
 }
 
-
 /**
  * @component Bubbles
  * @description Bubbles component, using particles.js library and config in /public folder
@@ -18,7 +17,7 @@ declare global {
  */
 export function Bubbles() {
   const { isNavigationVisible, deviceType } = useSiteContext();
-  const { cx, classes } = useBubbleStyles({deviceType});
+  const { cx, classes } = useBubbleStyles({ deviceType });
   const containerRef = useRef<HTMLDivElement>(null);
 
   const bubbleColors = [
@@ -60,6 +59,19 @@ export function Bubbles() {
             color: { value: bubbleColors },
           },
         });
+        // one more for mobile only that is a little more opacity low see-through, in the BACK layer, and has a generally SMALLER range of sizes
+        window.particlesJS('particles-container-mobile', {
+          ...particlesConfig,
+          particles: {
+            ...particlesConfig.particles,
+            number: { value: 16 }, // Fewer particles for one layer
+            density: { enable: true, value_area: 1400 },
+            color: { value: bubbleColors },
+            opacity: { value: 0.6, random: true, anim: { opacity_min: 0.1 } },
+            size: { value: 16, random: true, anim: { size_min: 4 } },
+            move: { speed: 1.4 },
+          },
+        });
       }
     };
 
@@ -74,6 +86,7 @@ export function Bubbles() {
         id="particles-container"
       />
       <Box className={classes.bubblesLight} ref={containerRef} id="particles-container-light" />
+      <Box className={classes.bubblesMobile} ref={containerRef} id="particles-container-mobile" />
       <Box className={classes.bubblesRightFade} />
     </Box>
   );

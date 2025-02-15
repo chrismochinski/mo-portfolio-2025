@@ -71,11 +71,9 @@ export const useLayoutStyles = createStyles(() => ({
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
-    height: 'fit-content', // idea //revisit
-    // IMPORTANT - LAYOUT MOBILE
-    [mq.customMax(991)]: {
-      // marginLeft: 'calc(calc(5vw*3) + calc(6vh*3))',
-      // marginRight: '6vw',
+    height: 'fit-content', 
+    transition: 'margin 700ms ease-in-out',
+    [mq.mobile]: {
       marginInline: 'unset',
     },
     [mq.customMax(575)]: {

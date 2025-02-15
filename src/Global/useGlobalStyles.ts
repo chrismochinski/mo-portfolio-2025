@@ -11,9 +11,15 @@ export const addOpacity = (hex: string, opacity: number) => {
   return `${hex}${alpha}`;
 };
 
+export const BREAKPOINT_MOBILE = 800;
+
+export const smoothBezierOut = 'cubic-bezier(0.05, 0.16, 0.3, 0.99)';
+
 export const mq = {
   customMax: (max: number) => `@media (max-width: ${max}px)`,
   customMin: (min: number) => `@media (min-width: ${min}px)`,
+  mobile: `@media (max-width: ${BREAKPOINT_MOBILE}px)`, // Global mobile
+  desktop: `@media (min-width: ${BREAKPOINT_MOBILE + 1}px)`, // Global desktop
 };
 
 export const colors = {

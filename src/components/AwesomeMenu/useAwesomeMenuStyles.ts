@@ -1,5 +1,5 @@
 import { createStyles, MantineTheme } from '@mantine/core';
-import { colors, mq } from '@mo';
+import { colors, mq, smoothBezierOut } from '@mo';
 
 interface AwesomeMenuStylesProps {
   isNavigationVisible: boolean;
@@ -63,8 +63,6 @@ export const useAwesomeMenuStyles = createStyles(
 
       [mq.customMax(991)]: {
         overflow: 'hidden !important', // idea
-
-   
       },
     },
 
@@ -80,22 +78,24 @@ export const useAwesomeMenuStyles = createStyles(
       transformBox: 'fill-box',
       filter: isNavigationVisible ? 'none' : 'blur(60px) grayscale(40%)',
       opacity: isNavigationVisible ? 1 : 0.7,
-      transition: 'filter 1400ms ease-out, opacity 1400ms ease-out',
+      transition: `filter 1500ms ${smoothBezierOut}, opacity 1500ms ${smoothBezierOut}`,
       '& > g': {
         transformOrigin: 'center',
         transformBox: 'fill-box',
         transform: isNavigationVisible
-        ? 'scale(0.95) translate(8%,0)'
-        : 'scale(1.3) translate(-10%,0)',
-        transition: 'transform 1200ms ease-out',
+          ? 'scale(0.95) translate(8%,0)'
+          : 'scale(1.3) translate(-10%,0)',
+        transition: `transform 1200ms ${smoothBezierOut}`,
       },
-    
-      [mq.customMax(991)]: {
+
+      [mq.mobile]: {
         filter: 'none',
-        opacity: isNavigationVisible ? 0.9 : 0.4,
-        // '& > g': {
-        //   transform: isNavigationVisible ? 'scale(1)' : 'scale(1.2)',
-        // },
+        opacity: isNavigationVisible ? 0.6 : 0.3,
+        transform: isNavigationVisible ? 'scale(1) rotate(4deg)' : 'scale(0.85) rotate(6deg)',
+        transition: `transform 1300ms ${smoothBezierOut}, opacity 1500ms ${smoothBezierOut}`,
+        '& > g': {
+          transform: isNavigationVisible ? 'scale(1)' : 'scale(1.4)',
+        },
       },
     },
 
@@ -130,13 +130,8 @@ export const useAwesomeMenuStyles = createStyles(
           opacity: 0,
         },
       },
-      [mq.customMax(991)]: {
-        // if deviceType is not desktop, hide ferris wheel with Y translate ALL the way up off screen
-        transform: deviceType !== 'desktop' ? 'translateY(-200%) ' : 'none', // revisit 
-        // display: deviceType !== 'desktop' ? 'none' : 'block',
-        // '& *': {
-        //   display: deviceType !== 'desktop' ? 'none' : 'block', 
-        // },
+      [mq.mobile]: {
+        display: 'none',
       },
     },
 
@@ -399,7 +394,6 @@ export const useAwesomeMenuStyles = createStyles(
       fill: theme.colorScheme === 'dark' ? colors.white : colors.black,
     },
 
-
     // ------- ANIMATED PARTS ------- //
     ferrisWheelAnimationPart: {
       opacity: isNavigationVisible ? 1 : 0,
@@ -407,9 +401,6 @@ export const useAwesomeMenuStyles = createStyles(
       transition: 'opacity 400ms ease-out, filter 700ms ease-out',
       transitionDelay: isNavigationVisible ? '500ms' : '0ms',
     },
-
-
-
 
     /* 
     Testing area for hovers
@@ -429,10 +420,6 @@ export const useAwesomeMenuStyles = createStyles(
     projectsZone: { fill: 'rgba(255, 165, 0, 0.4)' }, // Light Orange (Projects)
     contactZone: { fill: 'rgba(255, 0, 255, 0.4)' }, // Light Purple (Contact)
 
-
-
     // TOOLTIPS LABELS EFFECTS EXPORTED
-
-
   })
 );

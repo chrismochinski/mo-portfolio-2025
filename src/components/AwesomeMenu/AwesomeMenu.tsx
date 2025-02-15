@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-// import { Box } from '@mantine/core';
 import { useNavigate } from 'react-router-dom';
 import { colors, useSiteContext, useAwesomeMenuStyles } from '@mo';
 
@@ -50,8 +49,23 @@ export function AwesomeMenu() {
     }
   }, [linkName]);
 
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth < 800) {
+        setMenuHovered(false);
+        setLinkName(null);
+        setRotation(0);
+      }
+    };
+  
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   // Handle mouse movement and determine linkName
   const handleMouseMove = (e: React.MouseEvent) => {
+    if (deviceType !== 'desktop' || window.innerWidth < 801) return;
+
     const container = e.currentTarget.getBoundingClientRect();
     const yPercent = ((e.clientY - container.top) / container.height) * 100; // Y% in container
     const xPercent = ((e.clientX - container.left) / container.width) * 100; // X% in container
@@ -66,12 +80,14 @@ export function AwesomeMenu() {
   // ----------- END ROTATION LOGIC ------------
 
   const handleMouseEnter = () => {
+    if ( deviceType !== 'desktop' || window.innerWidth < 801) return;
     if (isNavigationVisible) {
       setMenuHovered(true);
     }
   };
 
   const handleMouseLeave = () => {
+    if ( deviceType !== 'desktop' || window.innerWidth < 801) return;
     if (isNavigationVisible) {
       setMenuHovered(false);
       setRotation(0);
@@ -106,7 +122,7 @@ export function AwesomeMenu() {
   };
 
   return (
-    // <Box className={classes.menuWrapper} id="menu-wrapper">
+    
       <svg
         id="ferris-wheel-menu"
         className={classes.awesomeMenuSvgFull}
@@ -2627,9 +2643,5 @@ export function AwesomeMenu() {
           </clipPath>
         </defs>
       </svg>
-
-     
-      //  MENU EFFECTS USED TO GO HERE 
-    // </Box>
   );
 }
