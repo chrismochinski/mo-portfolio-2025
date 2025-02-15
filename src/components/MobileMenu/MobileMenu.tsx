@@ -1,19 +1,34 @@
-import { useMobileMenuStyles, useSiteContext, colors } from '@mo';
+import { useEffect, useState } from 'react';
+import { useMobileMenuStyles, colors, useSiteContext, useGlobalStyles } from '@mo';
 
 export function MobileMenu() {
   const { isNavigationVisible } = useSiteContext();
+  const [showMobileMenu, setShowMobileMenu] = useState(false);
+  const [mobileMenuHovered, setMobileMenuHovered] = useState(false);
 
-  const { classes } = useMobileMenuStyles({ isNavigationVisible });
+  useEffect(() => {
+    const checkScreenSize = () => {
+      setShowMobileMenu(window.innerWidth < 800);
+    };
+    checkScreenSize(); // Run once on mount
+    window.addEventListener('resize', checkScreenSize);
+    return () => window.removeEventListener('resize', checkScreenSize);
+  }, []);
+
+  const { classes, cx } = useMobileMenuStyles({ isNavigationVisible });
+  const { classes: globalClasses } = useGlobalStyles();
 
   return (
     <svg
       id="mobile-menu-svg"
-      className={classes.mobileMenu}
+      className={cx(classes.mobileMenu, !showMobileMenu || (!isNavigationVisible && 'hidden'))}
       width="6200"
       height="6200"
       viewBox="0 0 6200 6200"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
+      onMouseEnter={() => setMobileMenuHovered(true)}
+      onMouseLeave={() => setMobileMenuHovered(false)}
     >
       <g>
         <path
@@ -21,8 +36,22 @@ export function MobileMenu() {
           d="M3003.08 2919.26C3024.3 2820.17 3165.7 2820.17 3186.92 2919.26L3855.89 6043.49C3857.49 6050.96 3851.8 6058 3844.16 6058H3689.86C3684.16 6058 3679.25 6053.99 3678.11 6048.4L3097.93 3202.59C3097.28 3199.39 3092.71 3199.38 3092.05 3202.58L2507.52 6048.41C2506.38 6053.99 2501.47 6058 2495.77 6058H2345.84C2338.2 6058 2332.51 6050.96 2334.11 6043.49L3003.08 2919.26Z"
           fill={colors.black}
         />
-        <g id="cars">
-          <g id="car-9">
+        <g
+          id="cars"
+          className={cx(
+            globalClasses.slowSpin,
+            classes.mobileMenuCars,
+            mobileMenuHovered && globalClasses.pauseAnimation
+          )}
+        >
+          <g
+            id="car-9"
+            className={cx(
+              globalClasses.slowSpinReverse,
+              classes.mobileMenuCar,
+              mobileMenuHovered && 'ferrisWheelPause'
+            )}
+          >
             <path
               d="M1316.93 1164.09V1347.3C1316.93 1397.12 1352.75 1437.47 1396.89 1437.47H2076.97C2121.15 1437.47 2156.93 1397.07 2156.93 1347.3V1164.09C2156.93 1149.21 2146.23 1137.15 2133.03 1137.15H1861.7C1839.17 1137.15 1820.91 1157.74 1820.91 1183.15V1241.31C1820.91 1266.71 1802.65 1287.31 1780.12 1287.31H1693.78C1671.25 1287.31 1652.99 1266.71 1652.99 1241.31V1183.15C1652.99 1157.74 1634.73 1137.15 1612.2 1137.15H1340.87C1327.67 1137.15 1316.97 1149.21 1316.97 1164.09H1316.93Z"
               fill={colors.black}
@@ -37,7 +66,14 @@ export function MobileMenu() {
             />
             <path d="M1761 618H1714V1260H1761V618Z" fill={colors.black} />
           </g>
-          <g id="car-8">
+          <g
+            id="car-8"
+            className={cx(
+              globalClasses.slowSpinReverse,
+              classes.mobileMenuCar,
+              mobileMenuHovered && 'ferrisWheelPause'
+            )}
+          >
             <path
               d="M321.93 2425.09V2608.3C321.93 2658.12 357.749 2698.47 401.886 2698.47H1081.97C1126.15 2698.47 1161.93 2658.07 1161.93 2608.3V2425.09C1161.93 2410.21 1151.23 2398.15 1138.03 2398.15H866.702C844.172 2398.15 825.91 2418.74 825.91 2444.15V2502.31C825.91 2527.71 807.648 2548.31 785.118 2548.31H698.782C676.252 2548.31 657.99 2527.71 657.99 2502.31V2444.15C657.99 2418.74 639.728 2398.15 617.198 2398.15H345.868C332.667 2398.15 321.974 2410.21 321.974 2425.09H321.93Z"
               fill={colors.black}
@@ -52,7 +88,14 @@ export function MobileMenu() {
             />
             <path d="M766 1879H719V2521H766V1879Z" fill={colors.black} />
           </g>
-          <g id="car-7">
+          <g
+            id="car-7"
+            className={cx(
+              globalClasses.slowSpinReverse,
+              classes.mobileMenuCar,
+              mobileMenuHovered && 'ferrisWheelPause'
+            )}
+          >
             <path
               d="M307.93 3904.09V4087.3C307.93 4137.12 343.749 4177.47 387.886 4177.47H1067.97C1112.15 4177.47 1147.93 4137.07 1147.93 4087.3V3904.09C1147.93 3889.21 1137.23 3877.15 1124.03 3877.15H852.702C830.172 3877.15 811.91 3897.74 811.91 3923.15V3981.31C811.91 4006.71 793.648 4027.31 771.118 4027.31H684.782C662.252 4027.31 643.99 4006.71 643.99 3981.31V3923.15C643.99 3897.74 625.728 3877.15 603.198 3877.15H331.868C318.667 3877.15 307.974 3889.21 307.974 3904.09H307.93Z"
               fill={colors.black}
@@ -67,7 +110,14 @@ export function MobileMenu() {
             />
             <path d="M752 3358H705V4000H752V3358Z" fill={colors.black} />
           </g>
-          <g id="car-6">
+          <g
+            id="car-6"
+            className={cx(
+              globalClasses.slowSpinReverse,
+              classes.mobileMenuCar,
+              mobileMenuHovered && 'ferrisWheelPause'
+            )}
+          >
             <path
               d="M1210.93 5213.09V5396.3C1210.93 5446.12 1246.75 5486.47 1290.89 5486.47H1970.97C2015.15 5486.47 2050.93 5446.07 2050.93 5396.3V5213.09C2050.93 5198.21 2040.23 5186.15 2027.03 5186.15H1755.7C1733.17 5186.15 1714.91 5206.74 1714.91 5232.15V5290.31C1714.91 5315.71 1696.65 5336.31 1674.12 5336.31H1587.78C1565.25 5336.31 1546.99 5315.71 1546.99 5290.31V5232.15C1546.99 5206.74 1528.73 5186.15 1506.2 5186.15H1234.87C1221.67 5186.15 1210.97 5198.21 1210.97 5213.09H1210.93Z"
               fill={colors.black}
@@ -82,7 +132,14 @@ export function MobileMenu() {
             />
             <path d="M1655 4667H1608V5309H1655L1655 4667Z" fill={colors.black} />
           </g>
-          <g id="car-5">
+          <g
+            id="car-5"
+            className={cx(
+              globalClasses.slowSpinReverse,
+              classes.mobileMenuCar,
+              mobileMenuHovered && 'ferrisWheelPause'
+            )}
+          >
             <path
               d="M2660.93 5683.09V5866.3C2660.93 5916.12 2696.75 5956.47 2740.89 5956.47H3420.97C3465.15 5956.47 3500.93 5916.07 3500.93 5866.3V5683.09C3500.93 5668.21 3490.23 5656.15 3477.03 5656.15H3205.7C3183.17 5656.15 3164.91 5676.74 3164.91 5702.15V5760.31C3164.91 5785.71 3146.65 5806.31 3124.12 5806.31H3037.78C3015.25 5806.31 2996.99 5785.71 2996.99 5760.31V5702.15C2996.99 5676.74 2978.73 5656.15 2956.2 5656.15H2684.87C2671.67 5656.15 2660.97 5668.21 2660.97 5683.09H2660.93Z"
               fill={colors.black}
@@ -97,7 +154,14 @@ export function MobileMenu() {
             />
             <path d="M3105 5137H3058V5779H3105V5137Z" fill={colors.black} />
           </g>
-          <g id="car-4">
+          <g
+            id="car-4"
+            className={cx(
+              globalClasses.slowSpinReverse,
+              classes.mobileMenuCar,
+              mobileMenuHovered && 'ferrisWheelPause'
+            )}
+          >
             <path
               d="M4060.93 5250.09V5433.3C4060.93 5483.12 4096.75 5523.47 4140.89 5523.47H4820.97C4865.15 5523.47 4900.93 5483.07 4900.93 5433.3V5250.09C4900.93 5235.21 4890.23 5223.15 4877.03 5223.15H4605.7C4583.17 5223.15 4564.91 5243.74 4564.91 5269.15V5327.31C4564.91 5352.71 4546.65 5373.31 4524.12 5373.31H4437.78C4415.25 5373.31 4396.99 5352.71 4396.99 5327.31V5269.15C4396.99 5243.74 4378.73 5223.15 4356.2 5223.15H4084.87C4071.67 5223.15 4060.97 5235.21 4060.97 5250.09H4060.93Z"
               fill={colors.black}
@@ -112,7 +176,14 @@ export function MobileMenu() {
             />
             <path d="M4505 4704H4458V5346H4505V4704Z" fill={colors.black} />
           </g>
-          <g id="car-3">
+          <g
+            id="car-3"
+            className={cx(
+              globalClasses.slowSpinReverse,
+              classes.mobileMenuCar,
+              mobileMenuHovered && 'ferrisWheelPause'
+            )}
+          >
             <path
               d="M5019 3983.95V4167.15C5019 4216.98 5054.82 4257.32 5098.96 4257.32H5779.04C5823.22 4257.32 5859 4216.93 5859 4167.15V3983.95C5859 3969.06 5848.3 3957 5835.1 3957H5563.77C5541.24 3957 5522.98 3977.59 5522.98 4003V4061.16C5522.98 4086.57 5504.72 4107.16 5482.19 4107.16H5395.85C5373.32 4107.16 5355.06 4086.57 5355.06 4061.16V4003C5355.06 3977.59 5336.8 3957 5314.27 3957H5042.94C5029.74 3957 5019.04 3969.06 5019.04 3983.95H5019Z"
               fill={colors.black}
@@ -127,7 +198,14 @@ export function MobileMenu() {
             />
             <path d="M5463 3437H5416V4079H5463V3437Z" fill={colors.black} />
           </g>
-          <g id="car-2">
+          <g
+            id="car-2"
+            className={cx(
+              globalClasses.slowSpinReverse,
+              classes.mobileMenuCar,
+              mobileMenuHovered && 'ferrisWheelPause'
+            )}
+          >
             <path
               d="M5042.93 2438.09V2621.3C5042.93 2671.12 5078.75 2711.47 5122.89 2711.47H5802.97C5847.15 2711.47 5882.93 2671.07 5882.93 2621.3V2438.09C5882.93 2423.21 5872.23 2411.15 5859.03 2411.15H5587.7C5565.17 2411.15 5546.91 2431.74 5546.91 2457.15V2515.31C5546.91 2540.71 5528.65 2561.31 5506.12 2561.31H5419.78C5397.25 2561.31 5378.99 2540.71 5378.99 2515.31V2457.15C5378.99 2431.74 5360.73 2411.15 5338.2 2411.15H5066.87C5053.67 2411.15 5042.97 2423.21 5042.97 2438.09H5042.93Z"
               fill={colors.black}
@@ -142,7 +220,14 @@ export function MobileMenu() {
             />
             <path d="M5487 1892H5440V2534H5487V1892Z" fill={colors.black} />
           </g>
-          <g id="car-1">
+          <g
+            id="car-1"
+            className={cx(
+              globalClasses.slowSpinReverse,
+              classes.mobileMenuCar,
+              mobileMenuHovered && 'ferrisWheelPause'
+            )}
+          >
             <path
               d="M4101.93 1178.09V1361.3C4101.93 1411.12 4137.75 1451.47 4181.89 1451.47H4861.97C4906.15 1451.47 4941.93 1411.07 4941.93 1361.3V1178.09C4941.93 1163.21 4931.23 1151.15 4918.03 1151.15H4646.7C4624.17 1151.15 4605.91 1171.74 4605.91 1197.15V1255.31C4605.91 1280.71 4587.65 1301.31 4565.12 1301.31H4478.78C4456.25 1301.31 4437.99 1280.71 4437.99 1255.31V1197.15C4437.99 1171.74 4419.73 1151.15 4397.2 1151.15H4125.87C4112.67 1151.15 4101.97 1163.21 4101.97 1178.09H4101.93Z"
               fill={colors.black}
@@ -157,7 +242,14 @@ export function MobileMenu() {
             />
             <path d="M4546 632H4499V1274H4546V632Z" fill={colors.black} />
           </g>
-          <g id="car-0">
+          <g
+            id="car-0"
+            className={cx(
+              globalClasses.slowSpinReverse,
+              classes.mobileMenuCar,
+              mobileMenuHovered && 'ferrisWheelPause'
+            )}
+          >
             <path
               d="M2660.93 727.094V910.303C2660.93 960.125 2696.75 1000.47 2740.89 1000.47H3420.97C3465.15 1000.47 3500.93 960.075 3500.93 910.303V727.094C3500.93 712.207 3490.23 700.148 3477.03 700.148H3205.7C3183.17 700.148 3164.91 720.742 3164.91 746.149V804.308C3164.91 829.715 3146.65 850.308 3124.12 850.308H3037.78C3015.25 850.308 2996.99 829.715 2996.99 804.308V746.149C2996.99 720.742 2978.73 700.148 2956.2 700.148H2684.87C2671.67 700.148 2660.97 712.207 2660.97 727.094H2660.93Z"
               fill={colors.black}
@@ -173,7 +265,14 @@ export function MobileMenu() {
             <path d="M3105 181H3058V823H3105V181Z" fill={colors.black} />
           </g>
         </g>
-        <g id="bars">
+        <g
+          id="bars"
+          className={cx(
+            globalClasses.slowSpin,
+            classes.mobileMenuBars,
+            mobileMenuHovered && globalClasses.pauseAnimation
+          )}
+        >
           <path
             id="bar-4"
             d="M750.96 2055.09C750.442 2054.91 750.16 2054.36 750.329 2053.84C752.26 2047.88 762.982 2014.89 770.381 1993.04C777.78 1971.19 789.315 1938.47 791.397 1932.57C791.58 1932.05 792.142 1931.78 792.66 1931.96L5478.23 3518.8C5478.75 3518.98 5479.03 3519.54 5478.86 3520.06C5476.93 3526.01 5466.19 3559.04 5458.81 3580.85C5451.42 3602.66 5439.88 3635.42 5437.79 3641.32C5437.61 3641.84 5437.05 3642.11 5436.53 3641.93L750.96 2055.09Z"
