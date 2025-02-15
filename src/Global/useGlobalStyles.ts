@@ -1,5 +1,6 @@
 import { MantineThemeOverride } from '@mantine/core';
 import { createStyles } from '@mantine/core';
+import chroma from 'chroma-js';
 import * as animations from './Animations';
 
 export const addOpacity = (hex: string, opacity: number) => {
@@ -17,20 +18,95 @@ export const mq = {
 
 export const colors = {
   black: '#191716', // Eerie black
+  blackDark: chroma('#191716').darken(1).hex(),
+  blackDarker: chroma('#191716').darken(2).hex(),
+  blackLight: chroma('#191716').brighten(1).hex(),
+  blackLighter: chroma('#191716').brighten(2).hex(),
+
   white: '#F9F9F9', // Seasalt
+  whiteDark: chroma('#F9F9F9').darken(1).hex(),
+  whiteDarker: chroma('#F9F9F9').darken(2).hex(),
+  whiteLight: chroma('#F9F9F9').brighten(1).hex(),
+  whiteLighter: chroma('#F9F9F9').brighten(2).hex(),
+
   red: '#89043D', // Claret
+  redDark: chroma('#89043D').darken(1).hex(),
+  redDarker: chroma('#89043D').darken(2).hex(),
+  redLight: chroma('#89043D').brighten(1).hex(),
+  redLighter: chroma('#89043D').brighten(2).hex(),
+
   orange: '#FF571F', // Coquelicot
+  orangeDark: chroma('#FF571F').darken(1).hex(),
+  orangeDarker: chroma('#FF571F').darken(2).hex(),
+  orangeLight: chroma('#FF571F').brighten(1).hex(),
+  orangeLighter: chroma('#FF571F').brighten(2).hex(),
+
   gold: '#F7B538', // Xanthous
+  goldDark: chroma('#F7B538').darken(1).hex(),
+  goldDarker: chroma('#F7B538').darken(2).hex(),
+  goldLight: chroma('#F7B538').brighten(1).hex(),
+  goldLighter: chroma('#F7B538').brighten(2).hex(),
+
   yellow: '#FFFD77', // Icterine
+  yellowDark: chroma('#FFFD77').darken(1).hex(),
+  yellowDarker: chroma('#FFFD77').darken(2).hex(),
+  yellowLight: chroma('#FFFD77').brighten(1).hex(),
+  yellowLighter: chroma('#FFFD77').brighten(2).hex(),
+
   green: '#20FC8F', // Spring green
+  greenDark: chroma('#20FC8F').darken(1).hex(),
+  greenDarker: chroma('#20FC8F').darken(2).hex(),
+  greenLight: chroma('#20FC8F').brighten(1).hex(),
+  greenLighter: chroma('#20FC8F').brighten(2).hex(),
+
   emerald: '#1FAD9D', // Keppel
+  emeraldDark: chroma('#1FAD9D').darken(1).hex(),
+  emeraldDarker: chroma('#1FAD9D').darken(2).hex(),
+  emeraldLight: chroma('#1FAD9D').brighten(1).hex(),
+  emeraldLighter: chroma('#1FAD9D').brighten(2).hex(),
+
   lightBlue: '#51E5FF', // Electric blue
+  lightBlueDark: chroma('#51E5FF').darken(1).hex(),
+  lightBlueDarker: chroma('#51E5FF').darken(2).hex(),
+  lightBlueLight: chroma('#51E5FF').brighten(1).hex(),
+  lightBlueLighter: chroma('#51E5FF').brighten(2).hex(),
+
   darkBlue: '#235789', // Lapis lazuli
+  darkBlueDark: chroma('#235789').darken(1).hex(),
+  darkBlueDarker: chroma('#235789').darken(2).hex(),
+  darkBlueLight: chroma('#235789').brighten(1).hex(),
+  darkBlueLighter: chroma('#235789').brighten(2).hex(),
+
   purple: '#9F6AA0', // Pomp and Power
+  purpleDark: chroma('#9F6AA0').darken(1).hex(),
+  purpleDarker: chroma('#9F6AA0').darken(2).hex(),
+  purpleLight: chroma('#9F6AA0').brighten(1).hex(),
+  purpleLighter: chroma('#9F6AA0').brighten(2).hex(),
+
   pink: '#F2B5D4', // Lavender pink
+  pinkDark: chroma('#F2B5D4').darken(1).hex(),
+  pinkDarker: chroma('#F2B5D4').darken(2).hex(),
+  pinkLight: chroma('#F2B5D4').brighten(1).hex(),
+  pinkLighter: chroma('#F2B5D4').brighten(2).hex(),
+
   lightGray: '#DBDFE6', // Platinum
+  lightGrayDark: chroma('#DBDFE6').darken(1).hex(),
+  lightGrayDarker: chroma('#DBDFE6').darken(2).hex(),
+  lightGrayLight: chroma('#DBDFE6').brighten(1).hex(),
+  lightGrayLighter: chroma('#DBDFE6').brighten(2).hex(),
+
   gray: '#95B2B8', // Cadet gray
+  grayDark: chroma('#95B2B8').darken(1).hex(),
+  grayDarker: chroma('#95B2B8').darken(2).hex(),
+  grayLight: chroma('#95B2B8').brighten(1).hex(),
+  grayLighter: chroma('#95B2B8').brighten(2).hex(),
+
   darkGray: '#4F5D75', // Payne's grey
+  darkGrayDark: chroma('#4F5D75').darken(1).hex(),
+  darkGrayDarker: chroma('#4F5D75').darken(2).hex(),
+  darkGrayLight: chroma('#4F5D75').brighten(1).hex(),
+  darkGrayLighter: chroma('#4F5D75').brighten(2).hex(),
+
   trueBlack: '#000000', // True black
   trueWhite: '#FFFFFF', // True white
 };
@@ -47,6 +123,7 @@ export const globalTheme: MantineThemeOverride = {
         '--tilt-neon': '"Tilt Neon", sans-serif',
         '--poppins': '"Poppins", sans-serif',
         '--urbanist': '"Urbanist", sans-serif',
+        colorScheme: 'light dark',
       },
 
       body: {
@@ -175,13 +252,13 @@ export const useGlobalStyles = createStyles((theme) => ({
     justifyContent: 'center',
     alignItems: 'center',
   },
-  
-    textContrastShadowSubtle: {
-      textShadow:
-        theme.colorScheme === 'dark'
-          ? `1px 1px 5px ${colors.black}16, -1px -1px 5px ${colors.black}16, 1px -1px 5px ${colors.black}16, -1px 1px 5px ${colors.black}16`
-          : `1px 1px 5px ${colors.white}16, -1px -1px 5px ${colors.white}16, 1px -1px 5px ${colors.white}16, -1px 1px 5px ${colors.white}16`,
-    },
+
+  textContrastShadowSubtle: {
+    textShadow:
+      theme.colorScheme === 'dark'
+        ? `1px 1px 5px ${colors.black}16, -1px -1px 5px ${colors.black}16, 1px -1px 5px ${colors.black}16, -1px 1px 5px ${colors.black}16`
+        : `1px 1px 5px ${colors.white}16, -1px -1px 5px ${colors.white}16, 1px -1px 5px ${colors.white}16, -1px 1px 5px ${colors.white}16`,
+  },
 
   textContrastShadow: {
     textShadow:
@@ -242,7 +319,6 @@ export const useGlobalStyles = createStyles((theme) => ({
   z20: {
     zIndex: 20,
   },
-
 
   copyright: {
     fontSize: 'clamp(12px, 1vw, 0.75rem)',
