@@ -29,13 +29,13 @@ export const useGreetingsStyles = createStyles(
       transformOrigin: 'center center',
       transformBox: 'fill-box',
       transitionProperty: 'transform',
-      transitionDuration: shouldAnimate(introIconHovered, deviceType) ? '280ms' : '600ms',
+      transitionDuration: shouldAnimate(introIconHovered, deviceType) ? '380ms' : '600ms',
       transitionTimingFunction: shouldAnimate(introIconHovered, deviceType) ? 'ease-out' : 'ease-in-out',
       path: {
         transformOrigin: 'center center',
         transformBox: 'fill-box',
         transitionProperty: 'fill',
-        transitionDuration: shouldAnimate(introIconHovered, deviceType) ? '250ms' : '500ms',
+        transitionDuration: shouldAnimate(introIconHovered, deviceType) ? '350ms' : '500ms',
         transitionDelay: shouldAnimate(introIconHovered, deviceType) ? '20ms' : '0ms',
         transitionTimingFunction: shouldAnimate(introIconHovered, deviceType) ? 'ease-out' : 'ease-in-out',
       },
@@ -47,7 +47,7 @@ export const useGreetingsStyles = createStyles(
       '&#e': {
         transform: shouldAnimate(introIconHovered, deviceType) ? 'translate(-4px, 0px)' : 'none',
         transformOrigin: '80% 20%',
-        transitionDuration: shouldAnimate(introIconHovered, deviceType) ? '240ms' : '500ms',
+        transitionDuration: shouldAnimate(introIconHovered, deviceType) ? '340ms' : '500ms',
         path: {},
       },
       '&#n': {
@@ -56,12 +56,12 @@ export const useGreetingsStyles = createStyles(
             ? `${animations.enterLetterN} forwards 180ms ease-out`
             : `${animations.exitLetterN} forwards 500ms`
           : 'none',
-        animationDuration: shouldAnimate(introIconHovered, deviceType) ? '360ms' : '500ms',
+        animationDuration: shouldAnimate(introIconHovered, deviceType) ? '460ms' : '500ms',
         path: {},
       },
       '&#t': {
         transform: shouldAnimate(introIconHovered, deviceType) ? 'translate(-2px, 0px) rotate(360deg) scaleY(1)' : 'none',
-        transitionDuration: shouldAnimate(introIconHovered, deviceType) ? '280ms' : '500ms',
+        transitionDuration: shouldAnimate(introIconHovered, deviceType) ? '380ms' : '500ms',
         transitionTimingFunction: 'ease-in-out', // Smooth transition
         path: {},
       },
@@ -69,17 +69,17 @@ export const useGreetingsStyles = createStyles(
         transformOrigin: '50% 0',
         animation: hasInteractedWithIntroIcon
           ? shouldAnimate(introIconHovered, deviceType)
-            ? `${animations.enterLetterE2} forwards 240ms ease-out`
+            ? `${animations.enterLetterE2} forwards 340ms ease-out`
             : `${animations.exitLetterE2} forwards 500ms`
           : 'none',
-        animationDuration: shouldAnimate(introIconHovered, deviceType) ? '360ms' : '500ms',
+        animationDuration: shouldAnimate(introIconHovered, deviceType) ? '460ms' : '500ms',
         path: {},
       },
       '&#r': {
         transform: shouldAnimate(introIconHovered, deviceType) ? 'translate(66px, 0px) rotate(-360deg)' : 'none',
         transformTimingFunction: 'linear',
         transformOrigin: '-350% 100%',
-        transitionDuration: shouldAnimate(introIconHovered, deviceType) ? '370ms' : '560ms',
+        transitionDuration: shouldAnimate(introIconHovered, deviceType) ? '520ms' : '600ms',
         path: {},
       },
       path: {
@@ -89,7 +89,7 @@ export const useGreetingsStyles = createStyles(
 
     junkLetter: {
       willChange: 'transform opacity filter',
-      transition: 'transform 400ms ease-out, opacity 600ms ease-out, filter 400ms ease-out',
+      transition: 'transform 500ms ease-out, opacity 700ms ease-out, filter 500ms ease-out',
       transform: shouldAnimate(introIconHovered, deviceType) ? 'translate(0, -8px)' : 'translate(0, 0)',
       opacity: shouldAnimate(introIconHovered, deviceType) ? 0 : 1,
       filter: shouldAnimate(introIconHovered, deviceType) ? 'blur(3px)' : 'none',
@@ -99,7 +99,7 @@ export const useGreetingsStyles = createStyles(
         transform: shouldAnimate(introIconHovered, deviceType)
           ? 'translate(0, 0) rotate(190deg) scale(0.5)'
           : 'translate(0, 0) rotate(0deg) scale(1)',
-        transitionDuration: shouldAnimate(introIconHovered, deviceType) ? '370ms' : '500ms',
+        transitionDuration: shouldAnimate(introIconHovered, deviceType) ? '470ms' : '500ms',
       },
       '&#i': {
         transform: shouldAnimate(introIconHovered, deviceType)

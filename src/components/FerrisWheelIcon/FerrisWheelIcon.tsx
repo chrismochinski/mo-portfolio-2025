@@ -1,15 +1,22 @@
 import { useGlobalStyles, colors, useFerrisWheelIconStyles, useSiteContext } from '@mo';
 
+interface FerrisWheelIconProps {
+  lineDrawn: boolean;
+}
 
-
-export function FerrisWheelIcon() {
+export function FerrisWheelIcon(props: FerrisWheelIconProps) {
+  const { lineDrawn } = props;
   const { isNavigationVisible, introIconHovered } = useSiteContext();
   const { classes, cx } = useFerrisWheelIconStyles({ introIconHovered });
   const { classes: globalClasses } = useGlobalStyles();
 
   return (
     <svg
-      className={cx(classes.ferrisWheelIconSvg, isNavigationVisible && classes.blurOut)}
+      className={cx(
+        classes.ferrisWheelIconSvg,
+        isNavigationVisible && classes.blurOut,
+        lineDrawn && 'enter'
+      )}
       width="6200"
       height="6200"
       viewBox="0 0 6200 6200"

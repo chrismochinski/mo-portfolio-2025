@@ -9,21 +9,21 @@ interface FerrisWheelIconStylesProps {
 
 export const useFerrisWheelIconStyles = createStyles((theme, { introIconHovered }: FerrisWheelIconStylesProps) => ({  
   ferrisWheelIconSvg: {
+    // padding: '0.5em', // revisit
     width: '170px',
     height: 'auto',
     aspectRatio: '1/1',
-    padding: '0.5em',
     marginInline: 'auto',
-    transform: introIconHovered ? 'translateY(-2%)' : 'none',
+    transformBox: 'fill-box',
+    transformOrigin: '50% 100%',
+    transform: introIconHovered ? 'translateY(-2%)' : 'translateY(120%)',
     transition: introIconHovered ? 'transform 200ms ease-out' : 'transform 500ms ease-in-out',
-
     '& *': {
       transformOrigin: 'center',
       transformBox: 'fill-box',
     },
 
-    transformOrigin: 'center',
-    transformBox: 'fill-box',
+    
 
     path: {
       fill: theme.colorScheme === 'dark' ? colors.white : colors.black,
@@ -33,10 +33,10 @@ export const useFerrisWheelIconStyles = createStyles((theme, { introIconHovered 
       fill: theme.colorScheme === 'dark' ? colors.white : colors.black,
     },
 
-    // [mq.customMax(768)]: {
-    //   width: '150px',
-    //   height: 'auto',
-    // },
+    '&.enter': {
+      transform: 'translateY(0)',
+      transition: 'transform 600ms ease-in-out',
+    },
   },
   // BLUR OUT
   blurOut: {

@@ -16,6 +16,15 @@ interface IntroStylesProps {
 
 export const useIntroStyles = createStyles(
   (theme, { isNavigationVisible, deviceType }: IntroStylesProps) => ({
+    ferrisWheelHideWrapper: {
+      // this wraps ferris wheel and should hide it when it's translated off container
+      overflow: 'hidden',
+      paddingBottom: 0,
+      '&.interactive': {
+        overflow: 'visible',
+      },
+    },
+
     // blur box to help text visibility
     introButtonWrapper: {
       position: 'absolute',
@@ -57,14 +66,60 @@ export const useIntroStyles = createStyles(
       flexDirection: 'column',
       justifyContent: 'center',
       alignItems: 'center',
-      rowGap: '0.25em',
+      // rowGap: '0.25em',
       zIndex: 2,
       cursor: isNavigationVisible ? 'default' : 'pointer',
       pointerEvents: isNavigationVisible ? 'none' : 'auto',
       opacity: isNavigationVisible ? 0 : 1,
-      transform: isNavigationVisible ? 'translateY(0)' : 'translateY(-30px)',
+      transform: isNavigationVisible ? 'translateY(-20%)' : 'translateY(0)',
       transition: 'transform 1400ms ease-out, opacity 900ms ease-out',
       [mq.customMax(768)]: {},
+    },
+
+    introUnderlineBox: {
+      position: 'relative',
+      transformOrigin: '50% 50%', // revisit from left or center???
+      width: '80%',
+      opacity: 1,
+      zIndex: 0,
+      transform: 'scaleX(0)',
+      marginInline: 'auto',
+      marginBlock: 0,
+      height: '4px',
+      transition: 'transform 250ms ease-out',
+      borderRadius: '2px',
+      backgroundColor: `light-dark(${colors.black}, ${colors.white})`, // new trick vanilla css light-dark function!
+      '&.active': {
+        transform: 'scaleX(1)',
+        '&.animateUp': {
+          // when active, line should travel vertically and disappear
+          transform: 'scaleX(330%)',
+          transformOrigin: '50% 150%',
+          filter: 'blur(1px)',
+          opacity: 0,
+          transition:
+            'transform 580ms ease-in 0ms, opacity 500ms ease-out 200ms, filter 400ms ease-out 100ms',
+        },
+      },
+    },
+
+    greetingsHideWrapper: {
+      overflow: 'hidden',
+      height: 'fit-content',
+      paddingTop: '0.75em',
+
+      '& > svg': {
+        transform: 'translateY(-40px)',
+        transition: 'transform 360ms ease-out',
+      },
+      '&.entered': {
+        '& > svg': {
+          transform: 'translateY(0)',
+        },
+        '&.interactive': {
+          overflow: 'visible',
+        },
+      },
     },
   })
 );
