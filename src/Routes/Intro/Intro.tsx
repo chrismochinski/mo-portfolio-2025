@@ -19,46 +19,60 @@ export function Intro() {
     setIsNavigationVisible,
     setHasInteractedWithIntroIcon,
     deviceType,
-    introIconHovered
+    introIconHovered,
   } = useSiteContext();
-  const [animateLine, setAnimateLine] = useState(false);
-  const [lineDrawn, setLineDrawn] = useState(false);
   const [greetingsVisible, setGreetingsVisible] = useState(false);
   const [allowHoverEffects, setAllowHoverEffects] = useState(false);
+  const [animateLine, setAnimateLine] = useState(false);
+  const [clickTrigger, setClickTrigger] = useState(false);
+  
   const { classes: globalClasses } = useGlobalStyles();
-  const { classes, cx } = useIntroStyles({ isNavigationVisible, deviceType, introIconHovered });
+  const { classes, cx } = useIntroStyles({ isNavigationVisible, deviceType, introIconHovered, allowHoverEffects });
   const navigate = useNavigate();
 
   useEffect(() => {
-    // Start line animation after page load delay
-    const lineTimeout = setTimeout(() => {
-      setAnimateLine(true);
+    if (isNavigationVisible) {
+      setAllowHoverEffects(false);
+      setGreetingsVisible(false);
+    } else {
+      // Start line animation after page load delay
+      const lineTimeout = setTimeout(() => {
+        setAnimateLine(true);
 
-      // Start Ferris wheel animation *after* line animation completes
-      setTimeout(() => {
-        setLineDrawn(true);
-
-        // 🚀 Reveal Greetings *after* Ferris Wheel animation (small buffer)
+        // Start Ferris wheel animation *after* line animation completes
         setTimeout(() => {
           setGreetingsVisible(true);
 
-          // 🚀 Allow hover effects after a delay (ensuring animation is fully done)
-          setTimeout(() => setAllowHoverEffects(true), 500); // Delay overflow: visible
-        }, 300);
-      }, 400);
-    }, 700);
+          // 🚀 Reveal Greetings *after* Ferris Wheel animation (small buffer)
+          // setTimeout(() => {
+          //   setLineDrawn(true);
 
-    setHasInteractedWithIntroIcon(false);
-    setIsNavigationVisible(false);
+            // 🚀 Allow hover effects after a delay (ensuring animation is fully done)
+            setTimeout(() => setAllowHoverEffects(true), 800); // Delay overflow: visible
+          // }, 240);
+        }, 220);
+      }, 200);
 
-    return () => clearTimeout(lineTimeout);
-  }, [setIsNavigationVisible, setHasInteractedWithIntroIcon]);
+      setHasInteractedWithIntroIcon(false);
+      setIsNavigationVisible(false);
+
+      return () => clearTimeout(lineTimeout);
+    }
+  }, [setIsNavigationVisible, setHasInteractedWithIntroIcon, isNavigationVisible]);
 
   const handleClick = () => {
-    toggleNavigation();
+    setAnimateLine(false); // 🚀 Reset animation
+    setClickTrigger(false); // 🚀 Reset click animation
+
+    void document.getElementById("intro-line")?.offsetWidth; // 🚀 Force reflow to restart animation
+
     setTimeout(() => {
-      navigate('/home');
-    }, 1200);
+      setAnimateLine(true); // 🚀 Re-trigger page load animation
+      setClickTrigger(true); // 🚀 Re-trigger click animation
+    }, 10); // Small delay ensures class removal
+
+    toggleNavigation();
+    setTimeout(() => navigate('/home'), 1000);
   };
 
   useEffect(() => {
@@ -90,13 +104,14 @@ export function Intro() {
         className={cx(globalClasses.z20, classes.ferrisWheelIconButton)}
       >
         <Box className={cx(classes.ferrisWheelHideWrapper, allowHoverEffects && 'interactive')}>
-          <FerrisWheelIcon lineDrawn={lineDrawn} />
+          <FerrisWheelIcon greetingsVisible={greetingsVisible} />
         </Box>
         <Box
           className={cx(
+            // globalClasses.introLineGrowShrink,
             classes.introUnderlineBox,
             animateLine && 'active',
-            lineDrawn && 'animateUp'
+            clickTrigger && 'clicked'
           )}
         />
         <Box

@@ -377,6 +377,10 @@ export const useGlobalStyles = createStyles((theme) => ({
     // animationDelay: '1500ms',
   },
 
+  introLineGrowShrink: {
+    animation: `${animations.introLineGrowShrink} 1500ms`,
+  },
+
   // junk?? Old bubbles animation
   moveAround: {
     animation: `${animations.moveAround} infinite`,

@@ -1,5 +1,6 @@
 import { createStyles } from '@mantine/core';
 import { colors, mq } from '@mo';
+import * as animations from '@mo';
 
 const addOpacity = (hex: string, opacity: number) => {
   // Convert hex to RGBA and apply opacity
@@ -13,6 +14,7 @@ interface IntroStylesProps {
   isNavigationVisible: boolean;
   deviceType: 'mobile' | 'tablet' | 'desktop';
   introIconHovered: boolean;
+  allowHoverEffects: boolean;
 }
 
 export const useIntroStyles = createStyles(
@@ -20,9 +22,10 @@ export const useIntroStyles = createStyles(
     ferrisWheelHideWrapper: {
       // this wraps ferris wheel and should hide it when it's translated off container
       overflow: 'hidden',
-      paddingBottom: 0,
+      padding: 0,
+      height: '160px',
       '&.interactive': {
-        overflow: 'visible',
+        overflow: isNavigationVisible ? 'hidden' : 'visible',
         transform: introIconHovered ? 'translateY(-4%)' : 'translateY(0)',
         transition: 'transform 300ms ease-out',
       },
@@ -69,40 +72,36 @@ export const useIntroStyles = createStyles(
       flexDirection: 'column',
       justifyContent: 'center',
       alignItems: 'center',
-      // rowGap: '0.25em',
       zIndex: 2,
       cursor: isNavigationVisible ? 'default' : 'pointer',
       pointerEvents: isNavigationVisible ? 'none' : 'auto',
-      opacity: isNavigationVisible ? 0 : 1,
-      transform: isNavigationVisible ? 'translateY(-20%)' : 'translateY(0)',
+      opacity: 1,
+      transform: 'translateY(0)',
       transition: 'transform 1400ms ease-out, opacity 900ms ease-out',
       [mq.customMax(768)]: {},
     },
 
     introUnderlineBox: {
       position: 'relative',
-      transformOrigin: '0% 50%', // revisit from left or center???
-      width: '80%',
-      opacity: 1,
+      transformOrigin: '50% 50%',
+      width: '100%',
+      opacity: 0,
+      bottom: '2px',
       zIndex: 0,
       transform: 'scaleX(0)',
       marginInline: 'auto',
       marginBlock: 0,
       height: '4px',
-      transition: 'transform 200ms ease-out',
-      borderRadius: '2px',
+      borderRadius: '6px',
       backgroundColor: `light-dark(${colors.black}, ${colors.white})`, // new trick vanilla css light-dark function!
+
       '&.active': {
-        transform: 'scaleX(1)',
-        '&.animateUp': {
-          // when active, line should travel vertically and disappear
-          transform: 'scaleX(330%)',
-          transformOrigin: '50% 150%',
-          filter: 'blur(1px)',
-          opacity: 0,
-          transition:
-            'transform 580ms ease-in 0ms, opacity 500ms ease-out 200ms, filter 400ms ease-out 100ms',
-        },
+        animation: `${animations.introLineGrowShrink} 1000ms`,
+      },
+
+      '&.clicked': {
+        animation: `${animations.introLineGrowShrink} 900ms`,
+
       },
     },
 
@@ -110,10 +109,11 @@ export const useIntroStyles = createStyles(
       overflow: 'hidden',
       height: 'fit-content',
       paddingTop: '0.75em',
+      marginTop: '-2px',
 
       '& > svg': {
         transform: 'translateY(-40px)',
-        transition: 'transform 360ms ease-out',
+        transition: 'transform 600ms ease-out',
       },
       '&.entered': {
         '& > svg': {

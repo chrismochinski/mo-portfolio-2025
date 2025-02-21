@@ -204,7 +204,6 @@ export const enterLetterE2 = keyframes`
 `;
 
 // reverse above exit
-
 export const exitLetterE2 = keyframes`
   0% {
     transform: translate(24px, 0px);
@@ -225,5 +224,32 @@ export const exitLetterE2 = keyframes`
   100% {
     transform: translate(0px, 0px);
     transition-timing-function: ease-out;
+  }
+`;
+
+// intro line grow ease out, shrink ease in
+export const introLineGrowShrink = keyframes`
+  0% {
+    transform: scaleX(0);
+    opacity: 0;
+    transition-timing-function: ease-out;
+  }
+  15%, 85% {
+    opacity: 0.7;
+  }
+  46% {
+    transform: scaleX(1);
+    opacity: 1;
+  }
+  47% {
+    transform: scaleX(1);
+    opacity: 1;
+    transition-timing-function: ease-in;
+  },
+  100% {
+    transform: scaleX(0);
+    opacity: 0;
+    
+    transition-timing-function: linear;
   }
 `;

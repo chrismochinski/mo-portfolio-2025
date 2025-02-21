@@ -43,7 +43,6 @@ export const useGreetingsStyles = createStyles(
 
     enterLetter: {
       willChange: 'transform',
-      display: isNavigationVisible ? 'none' : 'block',
       '&#e': {
         transform: shouldAnimate(introIconHovered, deviceType) ? 'translate(-4px, 0px)' : 'none',
         transformOrigin: '80% 20%',
