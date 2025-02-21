@@ -61,24 +61,12 @@ export function SiteProvider({ children }: { children: React.ReactNode }) {
     };
   }, [isNavigationVisible]);
 
-  // CONTEXT - show navigation - on click or enter route via URL slug
-  const toggleNavigation = () => {
-    setIsNavigationVisible((prev) => !prev);
-  };
-
-  // CONTEXT - reset navigation if user clicks back or ends up back at intro / route
-  const resetNavigation = () => {
-    setIsNavigationVisible(false);
-  };
-
   // ALL CONTEXT
   const contextValue: SiteContextType = {
     isNavigationVisible,
     setIsNavigationVisible,
     isMenuFullyLoaded,
     setIsMenuFullyLoaded,
-    toggleNavigation,
-    resetNavigation,
     hasInteractedWithIntroIcon, 
     setHasInteractedWithIntroIcon,
     introIconHovered,

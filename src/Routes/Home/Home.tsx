@@ -1,30 +1,21 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { Box, Title } from '@mantine/core';
 import { useGlobalStyles, useSiteContext, useHomeStyles } from '@mo';
 
 export function Home() {
-  const {
-    isNavigationVisible,
-    setIsNavigationVisible,
-    isMenuFullyLoaded,
-    isNavigating,
-    setIsNavigating,
-  } = useSiteContext();
+  const { setIsNavigating } = useSiteContext();
+  const [animateHomeElements, setAnimateHomeElements] = useState(false);
   const { classes: globalClasses } = useGlobalStyles();
-  const { classes, cx } = useHomeStyles({ isMenuFullyLoaded, isNavigating });
+  const { classes, cx } = useHomeStyles({ animateHomeElements });
 
   useEffect(() => {
     document.title = 'Home | Mo';
 
-    if (!isNavigationVisible) {
-      setIsNavigationVisible(true);
-    }
+    console.log('%cHome animations started!', 'color: blue; font-size: 1.15rem; font-weight: 700;');
 
-    if (isNavigating) {
-      console.log('%cNavigation DONE', 'color: limegreen; font-size: 1.15rem; font-weight: 700;');
-      setIsNavigating(false);
-    }
-  }, [setIsNavigationVisible, isNavigationVisible, isNavigating, setIsNavigating]);
+    setAnimateHomeElements(true); // ✅ Start page animations
+    setIsNavigating(false);
+  }, [setIsNavigating]);
 
   return (
     <Box className={cx(classes.homeWrapper)} id="home">

@@ -1,7 +1,6 @@
 import { createStyles } from '@mantine/core';
 import { mq } from '@mo';
 
-
 export const useLayoutStyles = createStyles(() => ({
   layoutWrapper: {
     height: '100%',
@@ -71,15 +70,36 @@ export const useLayoutStyles = createStyles(() => ({
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
-    height: 'fit-content', 
+    height: 'fit-content',
     transition: 'margin 700ms ease-in-out',
     [mq.mobile]: {
       marginInline: 'unset',
     },
     [mq.customMax(575)]: {
-      // clean up
+      // revisit clean up
     },
   },
 
- 
+  prevPage: {
+    position: 'absolute',
+    opacity: 1,
+    transform: 'translateY(0)',
+    transition: 'opacity 800ms ease-out, transform 800ms ease-out',
+    '&.fade': {
+      opacity: 0,
+      transform: 'translateY(-20px)',
+    },
+  },
+
+  currentPage: {
+    position: 'absolute',
+    
+    opacity: 0,
+    transform: 'translateY(20px)',
+    transition: 'opacity 800ms ease-out, transform 800ms ease-out',
+    '&.fade': {
+      opacity: 1,
+      transform: 'translateY(0)',
+    },
+  },
 }));

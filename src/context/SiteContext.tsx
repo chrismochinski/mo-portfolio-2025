@@ -5,8 +5,6 @@ export interface SiteContextType {
   setIsNavigationVisible: React.Dispatch<React.SetStateAction<boolean>>;
   isMenuFullyLoaded: boolean;
   setIsMenuFullyLoaded: React.Dispatch<React.SetStateAction<boolean>>;
-  toggleNavigation: () => void;
-  resetNavigation: () => void;
   hasInteractedWithIntroIcon: boolean;
   setHasInteractedWithIntroIcon: React.Dispatch<React.SetStateAction<boolean>>;
   introIconHovered: boolean;

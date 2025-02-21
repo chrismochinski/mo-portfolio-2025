@@ -14,7 +14,6 @@ import {
 export function Intro() {
   const {
     isNavigationVisible,
-    toggleNavigation,
     setIntroIconHovered,
     setIsNavigationVisible,
     setHasInteractedWithIntroIcon,
@@ -67,19 +66,20 @@ export function Intro() {
     setClickTrigger(false);
 
     console.log('%cNavigating...', 'color: #ff00ff; font-size: 1.15rem; font-weight: 700;');
-  
+    
     void document.getElementById("intro-line")?.offsetWidth; // 🚀 Force reflow to restart animation
-  
+    
     setTimeout(() => {
       setAnimateLine(true);
       setClickTrigger(true);
     }, 10); // Small delay ensures class removal
-  
-    toggleNavigation();
+    
+    setIsNavigationVisible(true);
     
     setTimeout(() => {
+      console.log('%cHome triggered!', 'color: #db9411; font-size: 1.15rem; font-weight: 700;');
       navigate('/home');
-    }, 1000);
+    }, 740);
   };
 
   useEffect(() => {
