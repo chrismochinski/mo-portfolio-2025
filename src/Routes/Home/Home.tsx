@@ -11,7 +11,7 @@ export function Home() {
     setIsNavigating,
   } = useSiteContext();
   const { classes: globalClasses } = useGlobalStyles();
-  const { classes, cx } = useHomeStyles({ isMenuFullyLoaded, isNavigationVisible });
+  const { classes, cx } = useHomeStyles({ isMenuFullyLoaded, isNavigating });
 
   useEffect(() => {
     document.title = 'Home | Mo';
@@ -21,12 +21,8 @@ export function Home() {
     }
 
     if (isNavigating) {
-      const timeout = setTimeout(() => {
-        console.log('%cNavigation DONE', 'color: limegreen; font-size: 1.15rem; font-weight: 700;');
-        setIsNavigating(false);
-      }, 900);
-
-      return () => clearTimeout(timeout);
+      console.log('%cNavigation DONE', 'color: limegreen; font-size: 1.15rem; font-weight: 700;');
+      setIsNavigating(false);
     }
   }, [setIsNavigationVisible, isNavigationVisible, isNavigating, setIsNavigating]);
 

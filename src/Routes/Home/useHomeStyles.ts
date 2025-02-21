@@ -1,11 +1,11 @@
 import { createStyles } from '@mantine/core';
 
 interface HomeStylesProps {
-  isNavigationVisible: boolean;
   isMenuFullyLoaded: boolean;
+  isNavigating: boolean;
 }
 
-export const useHomeStyles = createStyles((_, { isNavigationVisible, isMenuFullyLoaded }: HomeStylesProps) => ({
+export const useHomeStyles = createStyles((_, { isMenuFullyLoaded, isNavigating }: HomeStylesProps) => ({
   homeWrapper: {
     backgroundColor: 'transparent',
     zIndex: 5,
@@ -13,10 +13,10 @@ export const useHomeStyles = createStyles((_, { isNavigationVisible, isMenuFully
 
   salutation: {
     transformOrigin: '50% 50%',
-    opacity: isNavigationVisible ? 1 : 0,
-    filter: isNavigationVisible ? 'none' : 'blur(14px)',
-    transform: isNavigationVisible ? 'translateY(0) scaleX(1)' : 'translateY(-50px) scaleX(1.2)',
-    transition: 'transform 1400ms ease-out, opacity 900ms ease-out, filter 900ms ease-out',
+    opacity: isMenuFullyLoaded ? 1 : 0,
+    filter: isMenuFullyLoaded ? 'none' : 'blur(14px)',
+    transform: isMenuFullyLoaded ? 'translateY(0) scaleX(1)' : 'translateY(-50px) scaleX(1.2)',
+    transition: 'transform 900ms ease-out, opacity 500ms ease-out, filter 500ms ease-out',
     
   },
 
