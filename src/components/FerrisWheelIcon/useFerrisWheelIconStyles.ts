@@ -38,8 +38,8 @@ export const useFerrisWheelIconStyles = createStyles(
 
       '&.squishAway': {
         transformOrigin: '50% 50%',
-        transform: 'translateY(100%) scaleY(0.6) rotate(4deg)',
-        transition: 'transform 500ms ease-out',
+        transform: 'translateY(83%) scale(0.5) rotate(14deg)',
+        transition: 'transform 560ms ease-in-out',
       },
       
     },

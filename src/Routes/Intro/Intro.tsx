@@ -20,6 +20,7 @@ export function Intro() {
     setHasInteractedWithIntroIcon,
     deviceType,
     introIconHovered,
+    setIsNavigating,
   } = useSiteContext();
   const [greetingsVisible, setGreetingsVisible] = useState(false);
   const [allowHoverEffects, setAllowHoverEffects] = useState(false);
@@ -61,18 +62,24 @@ export function Intro() {
   }, [setIsNavigationVisible, setHasInteractedWithIntroIcon, isNavigationVisible]);
 
   const handleClick = () => {
-    setAnimateLine(false); // 🚀 Reset animation
-    setClickTrigger(false); // 🚀 Reset click animation
+    setIsNavigating(true);
+    setAnimateLine(false);
+    setClickTrigger(false);
 
+    console.log('%cNavigating...', 'color: #ff00ff; font-size: 1.15rem; font-weight: 700;');
+  
     void document.getElementById("intro-line")?.offsetWidth; // 🚀 Force reflow to restart animation
-
+  
     setTimeout(() => {
-      setAnimateLine(true); // 🚀 Re-trigger page load animation
-      setClickTrigger(true); // 🚀 Re-trigger click animation
+      setAnimateLine(true);
+      setClickTrigger(true);
     }, 10); // Small delay ensures class removal
-
+  
     toggleNavigation();
-    setTimeout(() => navigate('/home'), 1000);
+    
+    setTimeout(() => {
+      navigate('/home');
+    }, 1000);
   };
 
   useEffect(() => {
@@ -108,7 +115,6 @@ export function Intro() {
         </Box>
         <Box
           className={cx(
-            // globalClasses.introLineGrowShrink,
             classes.introUnderlineBox,
             animateLine && 'active',
             clickTrigger && 'clicked'
@@ -118,7 +124,8 @@ export function Intro() {
           className={cx(
             classes.greetingsHideWrapper,
             greetingsVisible && 'entered',
-            allowHoverEffects && 'interactive'
+            allowHoverEffects && 'interactive',
+            clickTrigger && 'clicked'
           )}
         >
           <Greetings />

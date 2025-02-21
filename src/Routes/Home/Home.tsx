@@ -3,15 +3,32 @@ import { Box, Title } from '@mantine/core';
 import { useGlobalStyles, useSiteContext, useHomeStyles } from '@mo';
 
 export function Home() {
-  const { isNavigationVisible, setIsNavigationVisible } = useSiteContext();
+  const {
+    isNavigationVisible,
+    setIsNavigationVisible,
+    isMenuFullyLoaded,
+    isNavigating,
+    setIsNavigating,
+  } = useSiteContext();
   const { classes: globalClasses } = useGlobalStyles();
-  const { classes, cx } = useHomeStyles({ isNavigationVisible });
+  const { classes, cx } = useHomeStyles({ isMenuFullyLoaded, isNavigationVisible });
 
   useEffect(() => {
-    // revisit need?? double set?
-    setIsNavigationVisible(true);
     document.title = 'Home | Mo';
-  }, [setIsNavigationVisible, isNavigationVisible]);
+
+    if (!isNavigationVisible) {
+      setIsNavigationVisible(true);
+    }
+
+    if (isNavigating) {
+      const timeout = setTimeout(() => {
+        console.log('%cNavigation DONE', 'color: limegreen; font-size: 1.15rem; font-weight: 700;');
+        setIsNavigating(false);
+      }, 900);
+
+      return () => clearTimeout(timeout);
+    }
+  }, [setIsNavigationVisible, isNavigationVisible, isNavigating, setIsNavigating]);
 
   return (
     <Box className={cx(classes.homeWrapper)} id="home">

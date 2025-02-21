@@ -117,7 +117,7 @@ export function AwesomeMenu() {
 
       setTimeout(() => {
         setIsNavigating(false);
-      }, 500);
+      }, 600);
     }
   };
 

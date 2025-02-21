@@ -2,9 +2,10 @@ import { createStyles } from '@mantine/core';
 
 interface HomeStylesProps {
   isNavigationVisible: boolean;
+  isMenuFullyLoaded: boolean;
 }
 
-export const useHomeStyles = createStyles((_, { isNavigationVisible }: HomeStylesProps) => ({
+export const useHomeStyles = createStyles((_, { isNavigationVisible, isMenuFullyLoaded }: HomeStylesProps) => ({
   homeWrapper: {
     backgroundColor: 'transparent',
     zIndex: 5,

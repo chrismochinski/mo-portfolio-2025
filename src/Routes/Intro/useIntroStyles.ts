@@ -100,7 +100,7 @@ export const useIntroStyles = createStyles(
       },
 
       '&.clicked': {
-        animation: `${animations.introLineGrowShrink} 900ms`,
+        animation: `${animations.introLineGrowShrink} 800ms`,
 
       },
     },
@@ -122,6 +122,9 @@ export const useIntroStyles = createStyles(
         '&.interactive': {
           overflow: 'visible',
         },
+      },
+      '&.clicked': {
+        transitionDelay: '40ms',
       },
     },
   })
