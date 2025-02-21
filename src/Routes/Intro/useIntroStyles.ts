@@ -12,16 +12,19 @@ const addOpacity = (hex: string, opacity: number) => {
 interface IntroStylesProps {
   isNavigationVisible: boolean;
   deviceType: 'mobile' | 'tablet' | 'desktop';
+  introIconHovered: boolean;
 }
 
 export const useIntroStyles = createStyles(
-  (theme, { isNavigationVisible, deviceType }: IntroStylesProps) => ({
+  (theme, { isNavigationVisible, deviceType, introIconHovered }: IntroStylesProps) => ({
     ferrisWheelHideWrapper: {
       // this wraps ferris wheel and should hide it when it's translated off container
       overflow: 'hidden',
       paddingBottom: 0,
       '&.interactive': {
         overflow: 'visible',
+        transform: introIconHovered ? 'translateY(-4%)' : 'translateY(0)',
+        transition: 'transform 300ms ease-out',
       },
     },
 
@@ -78,7 +81,7 @@ export const useIntroStyles = createStyles(
 
     introUnderlineBox: {
       position: 'relative',
-      transformOrigin: '50% 50%', // revisit from left or center???
+      transformOrigin: '0% 50%', // revisit from left or center???
       width: '80%',
       opacity: 1,
       zIndex: 0,
@@ -86,7 +89,7 @@ export const useIntroStyles = createStyles(
       marginInline: 'auto',
       marginBlock: 0,
       height: '4px',
-      transition: 'transform 250ms ease-out',
+      transition: 'transform 200ms ease-out',
       borderRadius: '2px',
       backgroundColor: `light-dark(${colors.black}, ${colors.white})`, // new trick vanilla css light-dark function!
       '&.active': {

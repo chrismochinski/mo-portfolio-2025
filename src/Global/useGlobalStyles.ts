@@ -334,6 +334,14 @@ export const useGlobalStyles = createStyles((theme) => ({
     bottom: '0',
     color: theme.colorScheme === 'dark' ? colors.lightGray : colors.darkGray,
     fontWeight: theme.colorScheme === 'dark' ? 300 : 600,
+    span: {
+      lineHeight: 'inherit',
+    },
+    [mq.mobile]: {
+      span: {
+        display: 'none',
+      },
+    },
   },
 
   // ------------------------------------------ //

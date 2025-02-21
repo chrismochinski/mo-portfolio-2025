@@ -10,7 +10,7 @@ interface FerrisWheelIconStylesProps {
 export const useFerrisWheelIconStyles = createStyles((theme, { introIconHovered }: FerrisWheelIconStylesProps) => ({  
   ferrisWheelIconSvg: {
     // padding: '0.5em', // revisit
-    width: '170px',
+    width: '155px',
     height: 'auto',
     aspectRatio: '1/1',
     marginInline: 'auto',

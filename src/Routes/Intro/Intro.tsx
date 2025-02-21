@@ -19,13 +19,14 @@ export function Intro() {
     setIsNavigationVisible,
     setHasInteractedWithIntroIcon,
     deviceType,
+    introIconHovered
   } = useSiteContext();
   const [animateLine, setAnimateLine] = useState(false);
   const [lineDrawn, setLineDrawn] = useState(false);
   const [greetingsVisible, setGreetingsVisible] = useState(false);
   const [allowHoverEffects, setAllowHoverEffects] = useState(false);
   const { classes: globalClasses } = useGlobalStyles();
-  const { classes, cx } = useIntroStyles({ isNavigationVisible, deviceType });
+  const { classes, cx } = useIntroStyles({ isNavigationVisible, deviceType, introIconHovered });
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -78,7 +79,7 @@ export function Intro() {
   };
 
   return (
-    <Box id="intro">
+    <Box id="intro" className={globalClasses.z20}>
       <PageHelmet keywords={introKeywords} />
       <Anchor
         aria-label="Enter the site"
