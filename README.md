@@ -1,4 +1,10 @@
-# React + TypeScript + Vite
+# Mo's Portfolio Eventually
+
+[My last site](https://chrismochinski.github.io/) is fine and all, but it was built in 2021 and this one is gonna have ferris wheels and stuff.
+
+_More soon..._
+
+<!-- # React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
@@ -47,4 +53,5 @@ export default tseslint.config({
     ...react.configs['jsx-runtime'].rules,
   },
 })
-```
+``` -->
+
